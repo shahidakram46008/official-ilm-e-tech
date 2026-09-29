@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fee Payment Portal | Ilm E Tech Pakistan</title>
+  <link rel="icon" type="image/jpeg" href="assets/images/logo.jpg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <style>
+    .payment-method-card {
+      background: #ffffff;
+      border: 2px solid var(--border-light);
+      border-radius: var(--radius-xl);
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .payment-method-card:hover {
+      border-color: var(--primary-green);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+    }
+    .payment-method-card.jazzcash { border-top: 5px solid #db2777; }
+    .payment-method-card.easypaisa { border-top: 5px solid #16a34a; }
+    .payment-method-card.sadapay { border-top: 5px solid #ff6b6b; }
+    .payment-method-card.bank { border-top: 5px solid #0284c7; }
+
+    .copy-btn {
+      background: var(--bg-slate-100);
+      border: 1px solid var(--border-light);
+      color: var(--text-dark);
+      padding: 0.35rem 0.75rem;
+      border-radius: var(--radius-md);
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: all 0.2s;
+    }
+    .copy-btn:hover {
+      background: var(--emerald-light);
+      color: var(--primary-green);
+      border-color: var(--emerald-accent);
+    }
+    .step-number {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--primary-green);
+      color: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header-nav">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <img src="assets/images/logo.jpg" alt="Ilm E Tech Pakistan Logo">
+        <div class="brand-text">
+          <span class="brand-name">ILM E TECH PAKISTAN</span>
+          <span class="brand-subtitle" style="font-size:0.75rem; color:var(--tech-blue); font-weight:700;">Digital Education & AI Academy</span>
+        </div>
+      </a>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About Us</a></li>
+          <li><a href="courses.html" class="nav-link">Courses</a></li>
+          <li><a href="e-services.html" class="nav-link">E-Services</a></li>
+          <li><a href="admissions.html" class="nav-link">Admissions</a></li>
+          <li><a href="verify-certificate.html" class="nav-link">Certificate Verification</a></li>
+          <li><a href="payments.html" class="nav-link active">Payments</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <button class="lang-switcher btn btn-sm btn-outline-blue"><i class="fas fa-globe"></i> </button>
+        <a href="student-portal.html" class="btn btn-outline-blue btn-sm"><i class="fas fa-user-graduate"></i> Student Portal</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Banner -->
+  <section style="background: linear-gradient(135deg, var(--dark-green) 0%, var(--tech-blue-dark) 100%); color:#ffffff; padding: 4rem 0; text-align:center;">
+    <div class="container">
+      <span class="section-tag" style="background:rgba(255,255,255,0.15); color:#6ee7b7;">OFFICIAL PAYMENT SYSTEM</span>
+      <h1 style="font-size:2.6rem; font-weight:900; margin:0.4rem 0;">Fee Payment & Verification Portal</h1>
+      <p style="color:#cbd5e1; max-width:700px; margin:0.5rem auto 0; font-size:1.05rem;">
+        Easily pay your admission fee via <strong>JazzCash</strong>, <strong>Easypaisa</strong>, <strong>SadaPay</strong>, or <strong>Bank Transfer</strong>.
+      </p>
+    </div>
+  </section>
+
+  <!-- Step-by-Step Payment Instructions -->
+  <section style="background: var(--bg-slate-100); padding: 3rem 0; border-bottom: 1px solid var(--border-light);">
+    <div class="container">
+      <div class="section-header" style="margin-bottom: 2rem;">
+        <span class="section-tag">HOW TO PAY YOUR FEE</span>
+        <h2 class="section-title" style="font-size: 1.8rem;">Step-by-Step Payment Instructions</h2>
+        
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem;">
+        
+        <div class="card" style="background:#ffffff; padding:1.25rem; border-radius:0.75rem; border:1px solid var(--border-light);">
+          <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.5rem;">
+            <span class="step-number">1</span>
+            <strong style="color:var(--text-dark); font-size:1rem;">Select Course</strong>
+          </div>
+          <p style="font-size:0.875rem; color:var(--text-muted); margin-bottom:0.25rem;">Choose your enrolled or desired course from the form.</p>
+          
+        </div>
+
+        <div class="card" style="background:#ffffff; padding:1.25rem; border-radius:0.75rem; border:1px solid var(--border-light);">
+          <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.5rem;">
+            <span class="step-number">2</span>
+            <strong style="color:var(--text-dark); font-size:1rem;">Review Fee</strong>
+          </div>
+          <p style="font-size:0.875rem; color:var(--text-muted); margin-bottom:0.25rem;">Check the applicable course fee in PKR.</p>
+          
+        </div>
+
+        <div class="card" style="background:#ffffff; padding:1.25rem; border-radius:0.75rem; border:1px solid var(--border-light);">
+          <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.5rem;">
+            <span class="step-number">3</span>
+            <strong style="color:var(--text-dark); font-size:1rem;">Send Payment</strong>
+          </div>
+          <p style="font-size:0.875rem; color:var(--text-muted); margin-bottom:0.25rem;">Transfer fee via JazzCash, Easypaisa, or SadaPay to <code>03206546008</code>.</p>
+          
+        </div>
+
+        <div class="card" style="background:#ffffff; padding:1.25rem; border-radius:0.75rem; border:1px solid var(--border-light);">
+          <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.5rem;">
+            <span class="step-number">4</span>
+            <strong style="color:var(--text-dark); font-size:1rem;">Upload Receipt & TRX ID</strong>
+          </div>
+          <p style="font-size:0.875rem; color:var(--text-muted); margin-bottom:0.25rem;">Attach your payment screenshot and enter reference TRX ID.</p>
+          
+        </div>
+
+        <div class="card" style="background:#ffffff; padding:1.25rem; border-radius:0.75rem; border:1px solid var(--border-light); grid-column: 1 / -1;">
+          <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.5rem;">
+            <span class="step-number" style="background:var(--tech-blue);">5</span>
+            <strong style="color:var(--text-dark); font-size:1rem;">Submit & Wait for Admin Verification</strong>
+          </div>
+          <p style="font-size:0.875rem; color:var(--text-muted); margin-bottom:0.25rem;">Submit form and get instant Reference ID. Admin will review and verify your payment within 2 to 24 hours.</p>
+          
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Payment Grid: Accounts Display & Submission Form -->
+  <section style="padding: 4rem 0;">
+    <div class="container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem;">
+
+      <!-- Left Column: Official Account Cards -->
+      <div>
+        <h3 style="font-size:1.5rem; font-weight:800; color:var(--primary-green); margin-bottom:0.2rem;">
+          <i class="fas fa-university"></i> Official Payment Accounts
+        </h3>
+        
+
+        <!-- Dynamic Payment Cards Container -->
+        <div id="paymentMethodsCardsGrid" style="display:flex; flex-direction:column; gap:1.25rem;">
+          
+          <!-- Stripe International Card Checkout Card -->
+          <div class="payment-method-card stripe nasa-card" style="border-top: 5px solid #6366f1; background:#ffffff;">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.75rem;">
+              <div style="display:flex; align-items:center; gap:0.75rem;">
+                <div style="width:44px; height:44px; background:#6366f1; color:#ffffff; border-radius:0.5rem; display:flex; align-items:center; justify-content:center; font-size:1.3rem; font-weight:800;"><i class="fab fa-cc-stripe"></i></div>
+                <div>
+                  <h4 style="font-size:1.15rem; font-weight:800; color:#312e81; margin:0;">Credit / Debit Card (Stripe)</h4>
+                  <span style="font-size:0.75rem; color:#4338ca; font-weight:700; background:#e0e7ff; padding:0.1rem 0.5rem; border-radius:0.25rem;">Instant Automatic Auto-Enrollment</span>
+                </div>
+              </div>
+              <button onclick="window.payWithStripe()" class="btn btn-sm btn-primary" style="background:#6366f1; border-color:#4338ca;"><i class="fas fa-credit-card"></i> Pay Online</button>
+            </div>
+            <p style="font-size:0.85rem; color:var(--text-muted); margin:0;">Pay instantly using Visa, Mastercard, or UnionPay international cards with automated instant enrollment into the student classroom.</p>
+          </div>
+
+          <!-- JazzCash Card -->
+          <div class="payment-method-card jazzcash" id="cardJazzCash">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.75rem;">
+              <div style="display:flex; align-items:center; gap:0.75rem;">
+                <div style="width:44px; height:44px; background:#db2777; color:#ffffff; border-radius:0.5rem; display:flex; align-items:center; justify-content:center; font-size:1.3rem; font-weight:800;">JC</div>
+                <div>
+                  <h4 style="font-size:1.15rem; font-weight:800; color:#831843; margin:0;">JazzCash Account</h4>
+                  <span style="font-size:0.75rem; color:#be185d; font-weight:700; background:#fce7f3; padding:0.1rem 0.5rem; border-radius:0.25rem;">Mobile Wallet</span>
+                </div>
+              </div>
+              <button onclick="copyToClipboard('03206546008', 'JazzCash Number')" class="copy-btn"><i class="fas fa-copy"></i> Copy Number</button>
+            </div>
+            <div style="background:#fdf2f8; padding:0.85rem 1rem; border-radius:0.5rem; font-size:0.95rem;">
+              <div style="display:flex; justify-content:space-between; margin-bottom:0.25rem;">
+                <span style="color:#9d174d;">Account Holder Name:</span>
+                <strong style="color:#831843;" id="dispJazzTitle">Shahid Akram</strong>
+              </div>
+              <div style="display:flex; justify-content:space-between; font-size:1.1rem;">
+                <span style="color:#9d174d; font-size:0.95rem;">Payment Number:</span>
+                <strong style="color:#be185d; font-weight:800; font-family:monospace;" id="dispJazzNo">03206546008</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Easypaisa Card -->
+          <div class="payment-method-card easypaisa" id="cardEasypaisa">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.75rem;">
+              <div style="display:flex; align-items:center; gap:0.75rem;">
+                <div style="width:44px; height:44px; background:#16a34a; color:#ffffff; border-radius:0.5rem; display:flex; align-items:center; justify-content:center; font-size:1.3rem; font-weight:800;">EP</div>
+                <div>
+                  <h4 style="font-size:1.15rem; font-weight:800; color:#14532d; margin:0;">Easypaisa Account</h4>
+                  <span style="font-size:0.75rem; color:#15803d; font-weight:700; background:#dcfce7; padding:0.1rem 0.5rem; border-radius:0.25rem;">Mobile Wallet</span>
+                </div>
+              </div>
+              <button onclick="copyToClipboard('03206546008', 'Easypaisa Number')" class="copy-btn"><i class="fas fa-copy"></i> Copy Number</button>
+            </div>
+            <div style="background:#f0fdf4; padding:0.85rem 1rem; border-radius:0.5rem; font-size:0.95rem;">
+              <div style="display:flex; justify-content:space-between; margin-bottom:0.25rem;">
+                <span style="color:#166534;">Account Holder Name:</span>
+                <strong style="color:#14532d;" id="dispEasyTitle">Shahid Akram</strong>
+              </div>
+              <div style="display:flex; justify-content:space-between; font-size:1.1rem;">
+                <span style="color:#166534; font-size:0.95rem;">Payment Number:</span>
+                <strong style="color:#15803d; font-weight:800; font-family:monospace;" id="dispEasyNo">03206546008</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- SadaPay Card -->
+          <div class="payment-method-card sadapay" id="cardSadaPay">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.75rem;">
+              <div style="display:flex; align-items:center; gap:0.75rem;">
+                <div style="width:44px; height:44px; background:#ff6b6b; color:#ffffff; border-radius:0.5rem; display:flex; align-items:center; justify-content:center; font-size:1.3rem; font-weight:800;">SP</div>
+                <div>
+                  <h4 style="font-size:1.15rem; font-weight:800; color:#991b1b; margin:0;">SadaPay Account</h4>
+                  <span style="font-size:0.75rem; color:#dc2626; font-weight:700; background:#fee2e2; padding:0.1rem 0.5rem; border-radius:0.25rem;">Digital Wallet</span>
+                </div>
+              </div>
+              <button onclick="copyToClipboard('03206546008', 'SadaPay Number')" class="copy-btn"><i class="fas fa-copy"></i> Copy Number</button>
+            </div>
+            <div style="background:#fff1f2; padding:0.85rem 1rem; border-radius:0.5rem; font-size:0.95rem;">
+              <div style="display:flex; justify-content:space-between; margin-bottom:0.25rem;">
+                <span style="color:#9f1239;">Account Holder Name:</span>
+                <strong style="color:#881337;" id="dispSadaTitle">Shahid Akram</strong>
+              </div>
+              <div style="display:flex; justify-content:space-between; font-size:1.1rem;">
+                <span style="color:#9f1239; font-size:0.95rem;">Payment Number:</span>
+                <strong style="color:#be123c; font-weight:800; font-family:monospace;" id="dispSadaNo">03206546008</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bank Transfer Card -->
+          <div class="payment-method-card bank" id="cardBank">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.75rem;">
+              <div style="display:flex; align-items:center; gap:0.75rem;">
+                <div style="width:44px; height:44px; background:#0284c7; color:#ffffff; border-radius:0.5rem; display:flex; align-items:center; justify-content:center; font-size:1.3rem; font-weight:800;">MB</div>
+                <div>
+                  <h4 style="font-size:1.15rem; font-weight:800; color:#0c4a6e; margin:0;">Meezan Bank Transfer</h4>
+                  <span style="font-size:0.75rem; color:#0369a1; font-weight:700; background:#e0f2fe; padding:0.1rem 0.5rem; border-radius:0.25rem;">Bank Transfer</span>
+                </div>
+              </div>
+              <button onclick="copyToClipboard('PK36MEZN0001020304050607', 'Bank IBAN')" class="copy-btn"><i class="fas fa-copy"></i> Copy IBAN</button>
+            </div>
+            <div style="background:#f0f9ff; padding:0.85rem 1rem; border-radius:0.5rem; font-size:0.95rem;">
+              <div style="display:flex; justify-content:space-between; margin-bottom:0.25rem;">
+                <span style="color:#0369a1;">Account Title:</span>
+                <strong style="color:#0c4a6e;" id="dispBankTitle">Shahid Akram</strong>
+              </div>
+              <div style="display:flex; justify-content:space-between; font-size:0.9rem;">
+                <span style="color:#0369a1;">IBAN:</span>
+                <strong style="color:#0284c7; font-weight:800; font-family:monospace;" id="dispBankIban">PK36MEZN0001020304050607</strong>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Right Column: Payment Form -->
+      <div>
+        <div id="paymentResult" style="display:none;"></div>
+
+        <form id="paymentForm" class="card" style="background:#ffffff; border:1px solid var(--border-light); border-radius:1rem; padding:2rem; box-shadow:var(--shadow-xl);">
+          <h3 style="font-size:1.4rem; font-weight:800; color:var(--tech-blue); margin-bottom:0.2rem;">
+            <i class="fas fa-file-invoice-dollar"></i> Submit Payment Verification Form
+          </h3>
+          
+
+          <div class="form-group">
+            <label class="form-label">Application Reference ID (Optional)</label>
+            <input type="text" name="appId" id="payAppIdInput" class="form-control" placeholder="e.g. APP-2026-84920">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Student Full Name <span class="required">*</span></label>
+            <input type="text" name="studentName" class="form-control" placeholder="e.g. Muhammad Usama" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Select Enrolled Course <span class="required">*</span></label>
+            <select name="courseName" id="payCourseSelect" class="form-control form-select" required>
+              <option value="Basic AI Course">Basic AI Course (Rs. 4,999 PKR)</option>
+              <option value="AI Tools Mastery">AI Tools Mastery (Rs. 6,999 PKR)</option>
+              <option value="Basic Computer Course">Basic Computer Course (Rs. 3,999 PKR)</option>
+              <option value="AI Software Development">AI Software Development (Rs. 11,999 PKR)</option>
+              <option value="AI Content Creation">AI Content Creation (Rs. 5,999 PKR)</option>
+              <option value="Trading Course">Trading Course (Rs. 7,999 PKR)</option>
+            </select>
+          </div>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+            <div class="form-group">
+              <label class="form-label">Course Fee (PKR) <span class="required">*</span></label>
+              <input type="number" name="amount" id="payAmountInput" class="form-control" placeholder="4999" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Preferred Payment Method <span class="required">*</span></label>
+              <select name="paymentMethod" id="payMethodSelect" class="form-control form-select" required>
+                <option value="JazzCash">JazzCash (Shahid Akram - 03206546008)</option>
+                <option value="Easypaisa">Easypaisa (Shahid Akram - 03206546008)</option>
+                <option value="SadaPay">SadaPay (Shahid Akram - 03206546008)</option>
+                <option value="Meezan Bank Transfer">Meezan Bank Transfer</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Transaction / Reference ID (TRX ID) <span class="required">*</span></label>
+            <input type="text" name="trxId" class="form-control" placeholder="e.g. 98765432101 or Bank Ref No" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Upload Payment Receipt / Screenshot <span class="required">*</span></label>
+            <input type="file" class="form-control" accept="image/*,.pdf">
+            <small style="color:var(--text-muted); margin-top:0.2rem; display:block;">Attach a clear image of your JazzCash, Easypaisa, SadaPay, or Bank transfer receipt.</small>
+          </div>
+
+          <button type="submit" class="btn btn-secondary btn-lg" style="width:100%; margin-top:1rem;"><i class="fas fa-paper-plane"></i> Submit Payment for Verification</button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <div>© 2026 <strong>Ilm E Tech Pakistan</strong>. Official Domain: <code>ilmetechpakistan.com</code></div>
+        <div style="display:flex; gap:1rem;"><a href="privacy-policy.html">Privacy</a> <a href="terms.html">Terms</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/db.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/chatbot.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const appId = params.get('appId');
+      if (appId) {
+        const input = document.getElementById('payAppIdInput');
+        if (input) input.value = appId;
+      }
+
+      // Populate DB values for Shahid Akram & 03206546008 & check enabled status
+      if (window.ilmDB) {
+        const settings = window.ilmDB.getSettings();
+        const p = settings.paymentAccounts || {};
+
+        if (p.jazzcash) {
+          if (p.jazzcash.enabled === false) document.getElementById('cardJazzCash').style.display = 'none';
+          document.getElementById('dispJazzTitle').textContent = p.jazzcash.title;
+          document.getElementById('dispJazzNo').textContent = p.jazzcash.number;
+        }
+
+        if (p.easypaisa) {
+          if (p.easypaisa.enabled === false) document.getElementById('cardEasypaisa').style.display = 'none';
+          document.getElementById('dispEasyTitle').textContent = p.easypaisa.title;
+          document.getElementById('dispEasyNo').textContent = p.easypaisa.number;
+        }
+
+        if (p.sadapay) {
+          if (p.sadapay.enabled === false) document.getElementById('cardSadaPay').style.display = 'none';
+          document.getElementById('dispSadaTitle').textContent = p.sadapay.title;
+          document.getElementById('dispSadaNo').textContent = p.sadapay.number;
+        }
+
+        if (p.bank) {
+          if (p.bank.enabled === false) document.getElementById('cardBank').style.display = 'none';
+          document.getElementById('dispBankTitle').textContent = p.bank.title;
+          document.getElementById('dispBankIban').textContent = p.bank.iban;
+        }
+      }
+    });
+  </script>
+</body>
+</html>
+

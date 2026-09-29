@@ -1,0 +1,202 @@
+// Prisma Schema for Ilm E Tech Pakistan Platform
+// Domain: ilmetechpakistan.com
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  STUDENT
+  INSTRUCTOR
+  ADMISSION_ADMIN
+  FINANCE_ADMIN
+  SUPER_ADMIN
+}
+
+enum AdmissionStatus {
+  PENDING
+  PAYMENT_PENDING
+  PAYMENT_ISSUE
+  APPROVED
+  ACTIVE
+  COMPLETED
+  CANCELLED
+}
+
+enum PaymentStatus {
+  PENDING
+  ACTION_REQUIRED
+  VERIFIED
+  REJECTED
+  REFUNDED
+}
+
+enum EnrollmentStatus {
+  NOT_ENROLLED
+  ENROLLED
+  ACTIVE
+  SUSPENDED
+  COMPLETED
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String
+  fullName  String
+  fatherName String?
+  phone     String
+  whatsapp  String?
+  city      String?
+  address   String?
+  role      Role     @default(STUDENT)
+  status    String   @default("ACTIVE")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  admissions   Admission[]
+  payments     Payment[]
+  enrollments  Enrollment[]
+  certificates Certificate[]
+  auditLogs    AuditLog[]
+}
+
+model Course {
+  id           String   @id @default(uuid())
+  title        String
+  urduTitle    String
+  slug         String   @unique
+  category     String
+  shortDesc    String
+  fullDesc     String
+  duration     String
+  level        String
+  fee          Float
+  mode         String
+  startDate    String
+  instructor   String
+  status       String   @default("Active")
+  badge        String?
+  image        String
+  outcomes     String[]
+  disclaimer   String?
+  createdAt    DateTime @default(now())
+
+  admissions   Admission[]
+  enrollments  Enrollment[]
+  certificates Certificate[]
+}
+
+model Admission {
+  id            String          @id @default(uuid())
+  appId         String          @unique
+  studentId     String?
+  fullName      String
+  fatherName    String
+  cnic          String?
+  phone         String
+  whatsapp      String
+  email         String
+  city          String
+  address       String?
+  courseId      String
+  preferredMode String
+  status        AdmissionStatus @default(PENDING)
+  createdAt     DateTime        @default(now())
+
+  student    User?       @relation(fields: [studentId], references: [id])
+  course     Course      @relation(fields: [courseId], references: [id])
+  payment    Payment?
+  enrollment Enrollment?
+}
+
+model Payment {
+  id               String        @id @default(uuid())
+  payId            String        @unique
+  appId            String        @unique
+  studentId        String?
+  studentName      String
+  fatherName       String?
+  phone            String
+  whatsapp         String?
+  email            String?
+  courseId         String?
+  courseName       String
+  courseFee        Float
+  amount           Float
+  method           String
+  accountHolder    String        @default("Shahid Akram")
+  paymentNumber    String        @default("03206546008")
+  trxId            String
+  receiptUrl       String?
+  status           PaymentStatus @default(PENDING)
+  submissionDate   DateTime      @default(now())
+  verificationDate DateTime?
+  adminNote        String?
+  rejectionReason  String?
+  receiptId        String?       @unique
+
+  student    User?       @relation(fields: [studentId], references: [id])
+  admission  Admission   @relation(fields: [appId], references: [appId])
+  enrollment Enrollment?
+  auditLogs  AuditLog[]
+}
+
+model Enrollment {
+  id             String           @id @default(uuid())
+  enrollmentId   String           @unique
+  studentId      String
+  courseId       String
+  payId          String           @unique
+  appId          String           @unique
+  enrollmentDate DateTime         @default(now())
+  status         EnrollmentStatus @default(ENROLLED)
+  accessUnlocked Boolean          @default(true)
+
+  student   User      @relation(fields: [studentId], references: [id])
+  course    Course    @relation(fields: [courseId], references: [id])
+  admission Admission @relation(fields: [appId], references: [appId])
+  payment   Payment   @relation(fields: [payId], references: [payId])
+}
+
+model AuditLog {
+  id             String   @id @default(uuid())
+  payId          String
+  action         String
+  previousStatus String
+  newStatus      String
+  performedBy    String
+  role           Role
+  note           String?
+  createdAt      DateTime @default(now())
+
+  payment Payment @relation(fields: [payId], references: [payId])
+  user    User?   @relation(fields: [performedBy], references: [id])
+}
+
+model Certificate {
+  id          String   @id @unique // e.g. ILM-2026-000101
+  studentId   String?
+  studentName String
+  fatherName  String?
+  courseId    String
+  courseName  String
+  issueDate   DateTime @default(now())
+  grade       String
+  status      String   @default("Verified")
+
+  student User?  @relation(fields: [studentId], references: [id])
+  course  Course @relation(fields: [courseId], references: [id])
+}
+
+model SiteSetting {
+  id        String   @id @default("1")
+  key       String   @unique
+  value     Json
+  updatedAt DateTime @updatedAt
+}

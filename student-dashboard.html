@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Dashboard & LMS Portal | Ilm E Tech Pakistan</title>
+  <link rel="icon" type="image/jpeg" href="assets/images/logo.jpg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body id="studentDashboardApp" style="background:var(--bg-slate-100);">
+
+  <!-- Header & Navigation -->
+  <header class="header-nav">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <img src="assets/images/logo.jpg" alt="Ilm E Tech Pakistan Logo">
+        <div class="brand-text">
+          <span class="brand-name">ILM E TECH PAKISTAN</span>
+          <span class="brand-subtitle" style="font-size:0.75rem; color:var(--tech-blue); font-weight:700;">Digital Education & AI Academy</span>
+        </div>
+      </a>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="student-dashboard.html" class="nav-link active">Dashboard</a></li>
+          <li><a href="courses.html" class="nav-link">Courses</a></li>
+          <li><a href="verify-certificate.html" class="nav-link">Verify Certificate</a></li>
+          <li><a href="payments.html" class="nav-link">Fee Payment</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions"></div>
+    </div>
+  </header>
+
+  <!-- Banner Header -->
+  <section style="background:linear-gradient(135deg, var(--dark-green) 0%, #0f172a 100%); color:#ffffff; padding:2.5rem 0;">
+    <div class="container" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1.5rem;">
+      <div style="display:flex; align-items:center; gap:1.25rem;">
+        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" alt="Student Profile Photo" style="width:70px; height:70px; border-radius:50%; object-fit:cover; border:3px solid var(--emerald-accent);">
+        <div>
+          <span class="badge" style="background:rgba(255,255,255,0.15); color:#6ee7b7; padding:0.25rem 0.65rem; font-size:0.75rem;">VERIFIED STUDENT PORTAL</span>
+          <h1 style="font-size:1.8rem; font-weight:900; margin:0.2rem 0; color:#ffffff;">Syed Muhammad Usama</h1>
+          <p style="color:#cbd5e1; margin:0; font-size:0.9rem;">Roll No: <code style="color:#6ee7b7;">ILM-2026-STU-94812</code> | Status: <strong style="color:#10b981;">Active Enrollment</strong></p>
+        </div>
+      </div>
+      <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+        <a href="admissions.html" class="btn btn-nasa"><i class="fas fa-plus-circle"></i> Enroll in New Course</a>
+        <button onclick="window.ilmAuth.clearSession()" class="btn btn-outline" style="color:#ffffff; border-color:rgba(255,255,255,0.4);"><i class="fas fa-sign-out-alt"></i> Logout</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Metric Gauges Bar -->
+  <section style="margin-top:-1.5rem; padding-bottom:2rem;">
+    <div class="container" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:1.25rem;">
+      <div class="card nasa-card" style="padding:1.25rem; display:flex; align-items:center; gap:1rem;">
+        <div style="width:50px; height:50px; border-radius:50%; background:var(--emerald-light); color:var(--primary-green); display:flex; align-items:center; justify-content:center; font-size:1.4rem;"><i class="fas fa-book-open"></i></div>
+        <div>
+          <h3 style="font-size:1.5rem; font-weight:900; color:var(--text-dark); margin:0;">2</h3>
+          <span style="font-size:0.85rem; color:var(--text-muted);">Active Enrolled Courses</span>
+        </div>
+      </div>
+
+      <div class="card nasa-card" style="padding:1.25rem; display:flex; align-items:center; gap:1rem;">
+        <div style="width:50px; height:50px; border-radius:50%; background:#f0f9ff; color:var(--tech-blue); display:flex; align-items:center; justify-content:center; font-size:1.4rem;"><i class="fas fa-tasks"></i></div>
+        <div>
+          <h3 style="font-size:1.5rem; font-weight:900; color:var(--text-dark); margin:0;">88.5%</h3>
+          <span style="font-size:0.85rem; color:var(--text-muted);">Average Quiz Score</span>
+        </div>
+      </div>
+
+      <div class="card nasa-card" style="padding:1.25rem; display:flex; align-items:center; gap:1rem;">
+        <div style="width:50px; height:50px; border-radius:50%; background:#fef3c7; color:#d97706; display:flex; align-items:center; justify-content:center; font-size:1.4rem;"><i class="fas fa-award"></i></div>
+        <div>
+          <h3 style="font-size:1.5rem; font-weight:900; color:var(--text-dark); margin:0;">1</h3>
+          <span style="font-size:0.85rem; color:var(--text-muted);">Issued Certificate</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Enrolled Courses & Learning Workspace -->
+  <section style="padding: 2rem 0 4rem;">
+    <div class="container">
+      <div class="section-header" style="text-align:left; margin-bottom:2rem;">
+        <span class="section-tag">MY LEARNING LMS WORKSPACE</span>
+        <h2 class="section-title">My Enrolled Courses & Progress</h2>
+      </div>
+
+      <div id="studentEnrolledCoursesGrid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:1.5rem; margin-bottom:3rem;"></div>
+
+      <!-- Verified Certificates & ID Card Grid -->
+      <div style="display:grid; grid-template-columns:2fr 1fr; gap:2rem;">
+        <div>
+          <div class="card nasa-card" style="padding:1.5rem;">
+            <h3 style="font-size:1.2rem; font-weight:800; color:var(--text-dark); margin-bottom:1rem;"><i class="fas fa-certificate text-emerald-600"></i> Issued Certificates</h3>
+            <div class="table-responsive">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Certificate ID</th>
+                    <th>Course Title</th>
+                    <th>Issue Date</th>
+                    <th>Grade</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>ILM-2026-000101</code></td>
+                    <td><strong>Basic AI Course</strong></td>
+                    <td>2026-08-15</td>
+                    <td><span class="badge" style="background:#ecfdf5; color:#10b981;">A+ Distinction</span></td>
+                    <td><a href="verify-certificate.html?id=ILM-2026-000101" target="_blank" class="btn btn-sm btn-primary"><i class="fas fa-download"></i> View / PDF</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Student Digital ID Card -->
+        <div>
+          <div class="card nasa-card" style="padding:1.5rem; background:linear-gradient(135deg, var(--dark-green) 0%, #046a38 100%); color:#ffffff; text-align:center;">
+            <img src="assets/images/logo.jpg" alt="Logo" style="height:48px; border-radius:50%; margin-bottom:0.75rem;">
+            <h4 style="font-size:1.1rem; font-weight:800; color:#ffffff; margin:0;">ILM E TECH PAKISTAN</h4>
+            <span style="font-size:0.75rem; color:#6ee7b7; display:block; margin-bottom:1rem;">Official Student Digital ID Card</span>
+            
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" style="width:90px; height:90px; border-radius:50%; object-fit:cover; border:3px solid #ffffff; margin-bottom:0.75rem;">
+            <h3 style="font-size:1.2rem; font-weight:800; color:#ffffff; margin:0;">Syed Muhammad Usama</h3>
+            <p style="font-size:0.85rem; color:#cbd5e1; margin-top:0.2rem;">ID: ILM-2026-STU-94812</p>
+
+            <div style="background:rgba(255,255,255,0.15); padding:0.6rem; border-radius:0.5rem; font-size:0.8rem; margin-top:1rem; text-align:left;">
+              <p style="margin:0;"><strong>Session:</strong> 2026 Batch A</p>
+              <p style="margin:0;"><strong>Status:</strong> Verified Active</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <script src="assets/js/db.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/lms.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/chatbot.js"></script>
+</body>
+</html>

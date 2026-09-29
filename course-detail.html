@@ -1,0 +1,231 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Details | Ilm E Tech Pakistan</title>
+  <link rel="icon" type="image/jpeg" href="assets/images/logo.jpg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <div class="top-info">
+        <span><i class="fas fa-bullhorn text-emerald-400"></i> Official Course Information & Syllabus</span>
+        <a href="tel:+923074958837"><i class="fas fa-phone"></i> <span class="site-phone">+92 307 4958837</span></a>
+      </div>
+      <button class="lang-switcher btn btn-sm btn-outline-blue" style="padding: 0.2rem 0.6rem; color: #ffffff; border-color: rgba(255,255,255,0.3); font-size: 0.8rem;"><i class="fas fa-globe"></i> </button>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header-nav">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <img src="assets/images/logo.jpg" alt="Ilm E Tech Pakistan Logo">
+        <div class="brand-text">
+          <span class="brand-name">ILM E TECH</span>
+          <span class="brand-subtitle" style="font-size:0.75rem; color:var(--tech-blue); font-weight:700;">Digital Education & AI Academy</span>
+        </div>
+      </a>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About Us</a></li>
+          <li><a href="courses.html" class="nav-link active">Courses</a></li>
+          <li><a href="e-services.html" class="nav-link">E-Services</a></li>
+          <li><a href="admissions.html" class="nav-link">Admissions</a></li>
+          <li><a href="verify-certificate.html" class="nav-link">Certificate Verification</a></li>
+          <li><a href="payments.html" class="nav-link">Payments</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <a href="admissions.html" class="btn btn-primary btn-sm"><i class="fas fa-paper-plane"></i> Apply Now</a>
+        <button class="mobile-toggle" id="mobileToggle"><i class="fas fa-bars"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="overlay" id="navOverlay"></div>
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="drawer-header">
+      <div class="brand-logo">
+        <img src="assets/images/logo.jpg" alt="Ilm E Tech Pakistan" style="height: 40px;">
+        <span class="brand-name" style="font-size: 1.1rem;">ILM E TECH</span>
+      </div>
+      <button class="drawer-close" id="drawerClose"><i class="fas fa-times"></i></button>
+    </div>
+    <ul class="drawer-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="courses.html">Courses</a></li>
+      <li><a href="admissions.html">Admissions</a></li>
+      <li><a href="payments.html">Fee Payment</a></li>
+      <li><a href="verify-certificate.html">Certificate Verification</a></li>
+    </ul>
+  </div>
+
+  <!-- Course Header Hero -->
+  <section style="background: linear-gradient(135deg, var(--dark-green) 0%, #022612 100%); color:#ffffff; padding: 4rem 0;">
+    <div class="container">
+      <div id="courseHeaderContainer">
+        <!-- Dynamic header content -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Course Content Grid -->
+  <section style="padding: 4rem 0;">
+    <div class="container" style="display: grid; grid-template-columns: 2.2fr 1fr; gap: 2.5rem;" id="courseLayoutGrid">
+      
+      <!-- Main Syllabus & Details -->
+      <div id="courseMainContent">
+        <!-- Dynamic Content -->
+      </div>
+
+      <!-- Right Sidebar Voucher & Quick Action Box -->
+      <div>
+        <div class="card" style="background:#ffffff; border:1px solid var(--border-light); border-radius:1rem; padding:1.75rem; box-shadow:var(--shadow-lg); position:sticky; top:100px;">
+          <h3 style="font-size:1.3rem; font-weight:800; color:var(--text-dark); margin-bottom:0.4rem;">Admission Summary</h3>
+          
+
+          <div style="background:var(--bg-slate-50); border:1px solid var(--border-light); padding:1rem; border-radius:0.75rem; margin-bottom:1.5rem;">
+            <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem; font-size:0.9rem;">
+              <span style="color:var(--text-muted);">Course Fee:</span>
+              <strong style="color:var(--primary-green); font-size:1.2rem;" id="sideFee">Rs. 0 PKR</strong>
+            </div>
+            <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem; font-size:0.9rem;">
+              <span style="color:var(--text-muted);">Duration:</span>
+              <strong id="sideDuration">-</strong>
+            </div>
+            <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem; font-size:0.9rem;">
+              <span style="color:var(--text-muted);">Start Date:</span>
+              <strong id="sideStartDate">-</strong>
+            </div>
+            <div style="display:flex; justify-content:space-between; font-size:0.9rem;">
+              <span style="color:var(--text-muted);">Class Format:</span>
+              <strong id="sideMode">-</strong>
+            </div>
+          </div>
+
+          <div style="display:flex; flex-direction:column; gap:0.75rem;">
+            <a href="#" id="btnApplyNow" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Apply Online Now</a>
+            <a href="#" id="btnPayFee" class="btn btn-secondary"><i class="fas fa-credit-card"></i> Pay Course Fee</a>
+            <a href="https://wa.me/923074958837" target="_blank" class="btn btn-outline" style="border-color:#25d366; color:#128c7e;"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
+          </div>
+
+          <div style="margin-top:1.5rem; padding-top:1rem; border-top:1px solid var(--border-light); font-size:0.85rem; color:var(--text-muted); text-align:center;">
+            <i class="fas fa-shield-alt text-emerald-600"></i> Official Ilm E Tech Pakistan Verified Training Program
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <div>© 2026 <strong>Ilm E Tech Pakistan</strong>. Founder & CEO: <strong>Dr. Shahid Akram Mustafai</strong>. Official Domain: <code>ilmetechpakistan.com</code></div>
+        <div style="display:flex; gap:1rem;"><a href="privacy-policy.html">Privacy</a> <a href="terms.html">Terms</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/db.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/chatbot.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const courseId = params.get('id') || 'basic-ai';
+      const course = window.ilmDB ? window.ilmDB.getCourseById(courseId) : null;
+
+      if (!course) {
+        document.getElementById('courseHeaderContainer').innerHTML = `<h2 style="color:#ffffff;">Course Not Found</h2>`;
+        return;
+      }
+
+      document.title = `${course.title} | Ilm E Tech Pakistan`;
+
+      // Render Header
+      document.getElementById('courseHeaderContainer').innerHTML = `
+        <span class="section-tag" style="background:rgba(16,185,129,0.2); color:#6ee7b7;">${course.category}</span>
+        <h1 style="font-size:2.5rem; font-weight:900; margin:0.75rem 0 0.4rem;">${course.title}</h1>
+        
+        <p style="font-size:1.1rem; color:#cbd5e1; max-width:800px; margin-top:1rem;">${course.fullDesc}</p>
+      `;
+
+      // Render Main Content
+      let disclaimerHtml = '';
+      if (course.disclaimer) {
+        disclaimerHtml = `
+          <div style="background:#fff1f2; border:2px solid #f43f5e; padding:1.25rem; border-radius:0.75rem; margin-bottom:2rem;">
+            <h4 style="color:#be123c; font-weight:800; display:flex; align-items:center; gap:0.5rem;">
+              <i class="fas fa-exclamation-triangle"></i> Mandatory Educational Disclaimer
+            </h4>
+            <p style="color:#881337; font-size:0.95rem; margin-top:0.4rem;">${course.disclaimer}</p>
+          </div>
+        `;
+      }
+
+      document.getElementById('courseMainContent').innerHTML = `
+        ${disclaimerHtml}
+
+        <!-- Course Overview -->
+        <div class="card" style="background:#ffffff; padding:2rem; border-radius:1rem; border:1px solid var(--border-light); margin-bottom:2rem;">
+          <h3 style="color:var(--primary-green); font-size:1.5rem; font-weight:800; margin-bottom:1rem;"><i class="fas fa-book-open"></i> Who is this course for?</h3>
+          <p style="font-size:1.05rem; color:var(--text-body); margin-bottom:1.5rem;">
+            Targeted for Pakistani students, beginners, job seekers, freelancers, digital creators, small business owners, and non-technical learners seeking practical skills.
+          </p>
+
+          <h3 style="color:var(--primary-green); font-size:1.5rem; font-weight:800; margin-bottom:1rem;"><i class="fas fa-tasks"></i> Learning Outcomes</h3>
+          <ul class="course-features-list" style="gap:0.75rem;">
+            ${course.outcomes.map(o => `<li style="font-size:1rem; color:var(--text-dark);"><i class="fas fa-check-circle" style="color:var(--emerald-accent); font-size:1.1rem;"></i> ${o}</li>`).join('')}
+          </ul>
+        </div>
+
+        <!-- Detailed Syllabus -->
+        <div class="card" style="background:#ffffff; padding:2rem; border-radius:1rem; border:1px solid var(--border-light); margin-bottom:2rem;">
+          <h3 style="color:var(--primary-green); font-size:1.5rem; font-weight:800; margin-bottom:1.5rem;"><i class="fas fa-list-ol"></i> Detailed Course Syllabus</h3>
+          <div style="display:flex; flex-direction:column; gap:1.25rem;">
+            ${course.syllabus.map(s => `
+              <div style="border-left:4px solid var(--primary-green); padding-left:1.25rem; background:var(--bg-slate-50); padding:1rem 1.25rem; border-radius:0 0.5rem 0.5rem 0;">
+                <span style="font-size:0.8rem; font-weight:700; color:var(--tech-blue); text-transform:uppercase;">Week ${s.week}</span>
+                <h4 style="font-size:1.15rem; font-weight:700; color:var(--text-dark); margin:0.2rem 0;">${s.topic}</h4>
+                <p style="font-size:0.95rem; color:var(--text-muted);">${s.detail}</p>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+
+        <!-- Tools & Certificate Info -->
+        <div class="card" style="background:#ffffff; padding:2rem; border-radius:1rem; border:1px solid var(--border-light);">
+          <h3 style="color:var(--primary-green); font-size:1.4rem; font-weight:800; margin-bottom:1rem;"><i class="fas fa-laptop-code"></i> Tools & Software Covered</h3>
+          <div style="display:flex; gap:0.6rem; flex-wrap:wrap; margin-bottom:2rem;">
+            ${course.tools.map(t => `<span class="badge" style="background:var(--emerald-light); color:var(--primary-green); padding:0.4rem 0.8rem; border-radius:0.5rem; font-weight:700; font-size:0.9rem;"><i class="fas fa-check"></i> ${t}</span>`).join('')}
+          </div>
+
+          <h3 style="color:var(--primary-green); font-size:1.4rem; font-weight:800; margin-bottom:0.5rem;"><i class="fas fa-award"></i> Certificate Information</h3>
+          <p style="color:var(--text-body); font-size:0.95rem;">${course.certificateInfo}</p>
+        </div>
+      `;
+
+      // Sidebar Info
+      document.getElementById('sideFee').textContent = `Rs. ${course.fee.toLocaleString()} PKR`;
+      document.getElementById('sideDuration').textContent = course.duration;
+      document.getElementById('sideStartDate').textContent = course.startDate;
+      document.getElementById('sideMode').textContent = course.mode;
+
+      document.getElementById('btnApplyNow').href = `admissions.html?course=${course.id}`;
+      document.getElementById('btnPayFee').href = `payments.html?course=${course.id}`;
+    });
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,436 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard & Payment Verification System | Ilm E Tech Pakistan</title>
+  <link rel="icon" type="image/jpeg" href="assets/images/logo.jpg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <style>
+    .admin-tab-btn {
+      padding: 0.75rem 1.25rem;
+      border: none;
+      background: transparent;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      border-bottom: 3px solid transparent;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .admin-tab-btn.active {
+      color: var(--primary-green);
+      border-bottom-color: var(--primary-green);
+      background: rgba(4,106,56,0.04);
+    }
+    .payment-subtab-btn {
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--border-light);
+      background: #ffffff;
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--text-body);
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .payment-subtab-btn.active {
+      background: var(--primary-green);
+      color: #ffffff;
+      border-color: var(--primary-green);
+    }
+    .admin-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+    .admin-table th, .admin-table td {
+      padding: 0.85rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border-light);
+      font-size: 0.9rem;
+    }
+    .admin-table th {
+      background: var(--bg-slate-100);
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+    .payment-config-box {
+      background: var(--bg-slate-50);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body id="adminApp" style="background:var(--bg-slate-100);">
+
+  <!-- Top Header Bar -->
+  <header style="background:var(--dark-green); color:#ffffff; padding:1.25rem 0; border-bottom:3px solid var(--primary-green);">
+    <div class="container" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+      <div style="display:flex; align-items:center; gap:1rem;">
+        <img src="assets/images/logo.jpg" alt="Ilm E Tech Pakistan" style="height:44px; border-radius:50%;">
+        <div>
+          <h2 style="font-size:1.3rem; font-weight:800; margin:0; color:#ffffff;">Ilm E Tech Pakistan — Admin CMS</h2>
+          <span style="font-size:0.8rem; color:#6ee7b7;">Payment Verification & Platform Management System</span>
+        </div>
+      </div>
+
+      <!-- Role Selector -->
+      <div style="display:flex; align-items:center; gap:1rem;">
+        <div style="background:rgba(255,255,255,0.1); padding:0.4rem 0.8rem; border-radius:0.5rem; font-size:0.85rem;">
+          <span style="color:#cbd5e1;">Active Role:</span> 
+          <strong style="color:#6ee7b7;" id="dispAdminRole">SUPER ADMIN</strong>
+        </div>
+        <select id="adminRoleSelector" class="form-control form-select" style="width:auto; padding:0.4rem 2rem 0.4rem 0.8rem; font-size:0.85rem; background-color:#ffffff;">
+          <option value="SUPER_ADMIN">Role: Super Admin (Full Control)</option>
+          <option value="FINANCE_ADMIN">Role: Finance Admin (Payments Only)</option>
+          <option value="ADMISSION_ADMIN">Role: Admission Admin (Applications)</option>
+        </select>
+        <button class="lang-switcher btn btn-sm btn-outline-blue" style="padding:0.4rem 0.8rem; color:#ffffff; border-color:rgba(255,255,255,0.4);"><i class="fas fa-globe"></i> </button>
+        <a href="index.html" class="btn btn-outline btn-sm" style="color:#ffffff; border-color:rgba(255,255,255,0.4);"><i class="fas fa-external-link-alt"></i> Website</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Admin Tab Navigation -->
+  <div style="background:#ffffff; border-bottom:1px solid var(--border-light); box-shadow:var(--shadow-sm);">
+    <div class="container" style="display:flex; gap:0.5rem; overflow-x:auto;">
+      <button class="admin-tab-btn active" data-target="panelOverview"><i class="fas fa-chart-line"></i> Dashboard Overview</button>
+      <button class="admin-tab-btn" data-target="panelPayments"><i class="fas fa-file-invoice-dollar"></i> Payments Manager & Verification</button>
+      <button class="admin-tab-btn" data-target="panelAdmissions"><i class="fas fa-user-plus"></i> Admissions Manager</button>
+      <button class="admin-tab-btn" data-target="panelCertificates"><i class="fas fa-award"></i> Certificate Generator</button>
+      <button class="admin-tab-btn" data-target="panelCourses"><i class="fas fa-book"></i> Course Manager</button>
+      <button class="admin-tab-btn" data-target="panelSettings"><i class="fas fa-cog"></i> Payment Accounts & Site Settings</button>
+    </div>
+  </div>
+
+  <!-- Admin Content Area -->
+  <section style="padding: 3rem 0;">
+    <div class="container">
+
+      <!-- Panel 1: Overview -->
+      <div id="panelOverview" class="admin-panel">
+        
+        <!-- Statistics Metrics Cards -->
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:1.25rem; margin-bottom:2.5rem;">
+          
+          <div class="card" style="background:#ffffff; border:1px solid var(--border-light); padding:1.25rem; border-radius:0.75rem; box-shadow:var(--shadow-sm);">
+            <span style="font-size:0.75rem; font-weight:700; color:var(--text-muted); text-transform:uppercase;">TOTAL PAYMENTS</span>
+            <h3 style="font-size:2rem; font-weight:900; color:var(--text-dark);" id="statTotalPayments">0</h3>
+          </div>
+
+          <div class="card" style="background:#ffffff; border:1px solid #fde68a; padding:1.25rem; border-radius:0.75rem; box-shadow:var(--shadow-sm); background:#fffbeb;">
+            <span style="font-size:0.75rem; font-weight:700; color:#b45309; text-transform:uppercase;"><i class="fas fa-hourglass-half"></i> PENDING VERIFICATION</span>
+            <h3 style="font-size:2rem; font-weight:900; color:#d97706;" id="statPendingPayments">0</h3>
+          </div>
+
+          <div class="card" style="background:#ffffff; border:1px solid #bbf7d0; padding:1.25rem; border-radius:0.75rem; box-shadow:var(--shadow-sm); background:#f0fdf4;">
+            <span style="font-size:0.75rem; font-weight:700; color:#15803d; text-transform:uppercase;"><i class="fas fa-check-circle"></i> VERIFIED TODAY</span>
+            <h3 style="font-size:2rem; font-weight:900; color:#16a34a;" id="statVerifiedToday">0</h3>
+          </div>
+
+          <div class="card" style="background:#ffffff; border:1px solid #fecdd3; padding:1.25rem; border-radius:0.75rem; box-shadow:var(--shadow-sm); background:#fff1f2;">
+            <span style="font-size:0.75rem; font-weight:700; color:#be123c; text-transform:uppercase;"><i class="fas fa-times-circle"></i> REJECTED PAYMENTS</span>
+            <h3 style="font-size:2rem; font-weight:900; color:#dc2626;" id="statRejectedPayments">0</h3>
+          </div>
+
+          <div class="card" style="background:#ffffff; border:1px solid #bae6fd; padding:1.25rem; border-radius:0.75rem; box-shadow:var(--shadow-sm); background:#f0f9ff;">
+            <span style="font-size:0.75rem; font-weight:700; color:#0369a1; text-transform:uppercase;"><i class="fas fa-wallet"></i> TOTAL RECEIVED</span>
+            <h3 style="font-size:1.4rem; font-weight:900; color:#0284c7;" id="statTotalAmountReceived">Rs. 0 PKR</h3>
+          </div>
+
+          <div class="card" style="background:#ffffff; border:1px solid var(--border-light); padding:1.25rem; border-radius:0.75rem; box-shadow:var(--shadow-sm);">
+            <span style="font-size:0.75rem; font-weight:700; color:var(--text-muted); text-transform:uppercase;">PENDING AMOUNT</span>
+            <h3 style="font-size:1.4rem; font-weight:900; color:#d97706;" id="statPendingAmount">Rs. 0 PKR</h3>
+          </div>
+
+        </div>
+
+        <div class="card" style="background:#ffffff; border:1px solid var(--border-light); padding:2rem; border-radius:1rem; box-shadow:var(--shadow-sm);">
+          <h3 style="font-size:1.3rem; font-weight:800; color:var(--primary-green); margin-bottom:0.5rem;"><i class="fas fa-shield-alt"></i> Complete Admin Payment Verification Engine Ready</h3>
+          <p style="color:var(--text-muted); font-size:0.95rem;">
+            Welcome to the official Ilm E Tech Pakistan Payment Verification Management System. From this dashboard, authorized Finance and Super Admins can verify student payment receipts for JazzCash, Easypaisa, SadaPay, and Bank Transfers, trigger atomic course enrollments, issue student IDs, generate payment receipts, or request additional information from applicants.
+          </p>
+        </div>
+      </div>
+
+      <!-- Panel 2: Payments Manager (Primary Focus) -->
+      <div id="panelPayments" class="admin-panel" style="display:none;">
+        <div style="background:#ffffff; border:1px solid var(--border-light); border-radius:1rem; padding:1.75rem; box-shadow:var(--shadow-sm);">
+          
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; margin-bottom:1.5rem;">
+            <div>
+              <h3 style="font-size:1.4rem; font-weight:800; color:var(--tech-blue); margin:0;"><i class="fas fa-file-invoice-dollar"></i> Student Payment Verification Engine</h3>
+              <span style="font-size:0.85rem; color:var(--text-muted);">Manage payment receipts, verify transactions, unlock course access, and review audit trails.</span>
+            </div>
+            
+            <!-- Payment Sub-tabs -->
+            <div style="display:flex; gap:0.4rem; flex-wrap:wrap;">
+              <button class="payment-subtab-btn active" data-filter="ALL">All Payments</button>
+              <button class="payment-subtab-btn" data-filter="PENDING"><i class="fas fa-clock"></i> Pending Verification</button>
+              <button class="payment-subtab-btn" data-filter="ACTION_REQUIRED"><i class="fas fa-exclamation-circle"></i> Action Required</button>
+              <button class="payment-subtab-btn" data-filter="VERIFIED"><i class="fas fa-check-circle"></i> Approved (Verified)</button>
+              <button class="payment-subtab-btn" data-filter="REJECTED"><i class="fas fa-times-circle"></i> Rejected</button>
+              <button class="payment-subtab-btn" data-filter="AUDIT_REPORTS"><i class="fas fa-history"></i> Audit Trail Logs</button>
+            </div>
+          </div>
+
+          <!-- Search & Filter Controls -->
+          <div style="display:grid; grid-template-columns: 2fr 1fr 1fr; gap:1rem; margin-bottom:1.5rem; background:var(--bg-slate-50); padding:1rem; border-radius:0.75rem; border:1px solid var(--border-light);">
+            <div>
+              <input type="text" id="paymentSearchInput" class="form-control" placeholder="Search by Student Name, Phone, App ID, Pay ID, TRX ID, or Course...">
+            </div>
+            <div>
+              <select id="paymentMethodFilter" class="form-control form-select">
+                <option value="ALL">Filter Method: All Methods</option>
+                <option value="JazzCash">JazzCash (Shahid Akram - 03206546008)</option>
+                <option value="Easypaisa">Easypaisa (Shahid Akram - 03206546008)</option>
+                <option value="SadaPay">SadaPay (Shahid Akram - 03206546008)</option>
+                <option value="Meezan Bank Transfer">Meezan Bank Transfer</option>
+              </select>
+            </div>
+            <div>
+              <select id="paymentStatusFilter" class="form-control form-select">
+                <option value="ALL">Filter Status: All Statuses</option>
+                <option value="PENDING">PENDING (Under Review)</option>
+                <option value="ACTION_REQUIRED">ACTION REQUIRED (Info Requested)</option>
+                <option value="VERIFIED">VERIFIED (Approved)</option>
+                <option value="REJECTED">REJECTED (Issue)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Payments Main Table -->
+          <div style="overflow-x:auto;">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Pay ID</th>
+                  <th>App ID</th>
+                  <th>Student Name & Phone</th>
+                  <th>Course</th>
+                  <th>Amount</th>
+                  <th>Method</th>
+                  <th>TRX ID</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="paymentsTableBody"></tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Panel 3: Admissions Manager -->
+      <div id="panelAdmissions" class="admin-panel" style="display:none;">
+        <div style="background:#ffffff; border:1px solid var(--border-light); border-radius:1rem; padding:1.5rem; box-shadow:var(--shadow-sm); overflow-x:auto;">
+          <h3 style="font-size:1.3rem; font-weight:800; color:var(--primary-green); margin-bottom:1rem;"><i class="fas fa-user-plus"></i> Student Admission Applications</h3>
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>App ID</th>
+                <th>Student Name</th>
+                <th>Course</th>
+                <th>Format</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="admissionsTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Panel 4: Certificate Generator -->
+      <div id="panelCertificates" class="admin-panel" style="display:none;">
+        <div style="display:grid; grid-template-columns:1fr 2fr; gap:2rem;">
+          
+          <form onsubmit="handleGenerateCertificate(event)" class="card" style="background:#ffffff; border:1px solid var(--border-light); padding:1.5rem; border-radius:1rem; box-shadow:var(--shadow-sm);">
+            <h3 style="font-size:1.2rem; font-weight:800; color:var(--primary-green); margin-bottom:1rem;"><i class="fas fa-plus-circle"></i> Issue New Certificate</h3>
+            
+            <div class="form-group">
+              <label class="form-label">Student Name</label>
+              <input type="text" name="studentName" class="form-control" placeholder="e.g. Muhammad Usama" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Father Name</label>
+              <input type="text" name="fatherName" class="form-control" placeholder="e.g. Tariq Mahmood">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Select Course</label>
+              <select name="courseId" class="form-control form-select" required>
+                <option value="basic-ai">Basic AI Course</option>
+                <option value="ai-tools-mastery">AI Tools Mastery</option>
+                <option value="basic-computer">Basic Computer Course</option>
+                <option value="ai-software-dev">AI Software Development</option>
+                <option value="ai-content-creation">AI Content Creation</option>
+                <option value="trading-course">Trading Course</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Grade / Distinction</label>
+              <input type="text" name="grade" class="form-control" placeholder="e.g. A+ Distinction">
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width:100%;"><i class="fas fa-certificate"></i> Issue & Generate Code</button>
+          </form>
+
+          <div style="background:#ffffff; border:1px solid var(--border-light); border-radius:1rem; padding:1.5rem; box-shadow:var(--shadow-sm); overflow-x:auto;">
+            <h3 style="font-size:1.2rem; font-weight:800; color:var(--text-dark); margin-bottom:1rem;">Verified Certificate Records</h3>
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Cert ID</th>
+                  <th>Student Name</th>
+                  <th>Course</th>
+                  <th>Issue Date</th>
+                  <th>Grade</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="certificatesTableBody"></tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Panel 5: Course Manager -->
+      <div id="panelCourses" class="admin-panel" style="display:none;">
+        <h3 style="font-size:1.3rem; font-weight:800; color:var(--primary-green); margin-bottom:1rem;"><i class="fas fa-book-open"></i> Manage Course Pricing & Status</h3>
+        <div id="adminCoursesGrid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:1.5rem;"></div>
+      </div>
+
+      <!-- Panel 6: Site Settings & Payment Methods Control -->
+      <div id="panelSettings" class="admin-panel" style="display:none;">
+        <form onsubmit="handleSaveSettings(event)" class="card" style="background:#ffffff; border:1px solid var(--border-light); border-radius:1rem; padding:2rem; max-width:900px; box-shadow:var(--shadow-sm);">
+          
+          <h3 style="font-size:1.4rem; font-weight:800; color:var(--tech-blue); margin-bottom:0.5rem;"><i class="fas fa-credit-card"></i> Payment Accounts & Method Controls</h3>
+          <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:1.5rem;">Enable or disable individual payment methods and update account holder credentials.</p>
+
+          <!-- JazzCash Settings -->
+          <div class="payment-config-box">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+              <strong style="color:#831843; font-size:1.05rem;"><i class="fas fa-wallet"></i> JazzCash Account Settings</strong>
+              <label style="font-weight:700; cursor:pointer; display:flex; align-items:center; gap:0.5rem; color:var(--text-dark);">
+                <input type="checkbox" id="setJazzcashEnabled" style="width:18px; height:18px;"> Enable JazzCash Method
+              </label>
+            </div>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+              <div class="form-group">
+                <label class="form-label">Account Holder Name</label>
+                <input type="text" id="setJazzcashTitle" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">JazzCash Registered Number</label>
+                <input type="text" id="setJazzcashNumber" class="form-control" required>
+              </div>
+            </div>
+          </div>
+
+          <!-- Easypaisa Settings -->
+          <div class="payment-config-box">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+              <strong style="color:#14532d; font-size:1.05rem;"><i class="fas fa-wallet"></i> Easypaisa Account Settings</strong>
+              <label style="font-weight:700; cursor:pointer; display:flex; align-items:center; gap:0.5rem; color:var(--text-dark);">
+                <input type="checkbox" id="setEasypaisaEnabled" style="width:18px; height:18px;"> Enable Easypaisa Method
+              </label>
+            </div>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+              <div class="form-group">
+                <label class="form-label">Account Holder Name</label>
+                <input type="text" id="setEasypaisaTitle" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Easypaisa Registered Number</label>
+                <input type="text" id="setEasypaisaNumber" class="form-control" required>
+              </div>
+            </div>
+          </div>
+
+          <!-- SadaPay Settings -->
+          <div class="payment-config-box">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+              <strong style="color:#991b1b; font-size:1.05rem;"><i class="fas fa-mobile-alt"></i> SadaPay Account Settings</strong>
+              <label style="font-weight:700; cursor:pointer; display:flex; align-items:center; gap:0.5rem; color:var(--text-dark);">
+                <input type="checkbox" id="setSadapayEnabled" style="width:18px; height:18px;"> Enable SadaPay Method
+              </label>
+            </div>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+              <div class="form-group">
+                <label class="form-label">Account Holder Name</label>
+                <input type="text" id="setSadapayTitle" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">SadaPay Registered Number</label>
+                <input type="text" id="setSadapayNumber" class="form-control" required>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bank Transfer Settings -->
+          <div class="payment-config-box">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+              <strong style="color:#0c4a6e; font-size:1.05rem;"><i class="fas fa-university"></i> Bank Transfer Settings</strong>
+              <label style="font-weight:700; cursor:pointer; display:flex; align-items:center; gap:0.5rem; color:var(--text-dark);">
+                <input type="checkbox" id="setBankEnabled" style="width:18px; height:18px;"> Enable Bank Method
+              </label>
+            </div>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+              <div class="form-group">
+                <label class="form-label">Account Title</label>
+                <input type="text" id="setBankTitle" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Bank IBAN</label>
+                <input type="text" id="setBankIban" class="form-control" required>
+              </div>
+            </div>
+          </div>
+
+          <h3 style="font-size:1.3rem; font-weight:800; color:var(--primary-green); margin:2rem 0 1rem;"><i class="fas fa-phone-alt"></i> Contact Info & Socials</h3>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.25rem;">
+            <div class="form-group">
+              <label class="form-label">Official Phone / Helpline</label>
+              <input type="text" id="setPhone" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Official Email</label>
+              <input type="email" id="setEmail" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">WhatsApp Number</label>
+              <input type="text" id="setWhatsapp" class="form-control" required>
+            </div>
+            <div class="form-group" style="grid-column: 1 / -1;">
+              <label class="form-label">Campus Address</label>
+              <input type="text" id="setAddress" class="form-control" required>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg" style="margin-top:1.5rem;"><i class="fas fa-save"></i> Save Payment & Site Settings</button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <script src="assets/js/db.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/admin.js"></script>
+</body>
+</html>
+

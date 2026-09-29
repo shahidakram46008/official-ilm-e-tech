@@ -1,0 +1,29 @@
+{
+  "name": "ilm-e-tech-pakistan",
+  "version": "1.0.0",
+  "description": "Official Digital Education & Technology Academy Platform for Ilm E Tech Pakistan (ilmetechpakistan.com)",
+  "main": "api/server.js",
+  "scripts": {
+    "start": "node api/server.js",
+    "dev": "nodemon api/server.js",
+    "build": "echo 'Static web application ready for production build.'"
+  },
+  "keywords": [
+    "ilm-e-tech-pakistan",
+    "ai-academy",
+    "digital-education-pakistan",
+    "certificate-verification"
+  ],
+  "author": "Ilm E Tech Pakistan",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
