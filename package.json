@@ -5,8 +5,7 @@
   "main": "api/server.js",
   "scripts": {
     "start": "node api/server.js",
-    "dev": "nodemon api/server.js",
-    "build": "echo 'Static web application ready for production build.'"
+    "dev": "nodemon api/server.js"
   },
   "keywords": [
     "ilm-e-tech-pakistan",
@@ -21,7 +20,8 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "bcryptjs": "^2.4.3",
-    "jsonwebtoken": "^9.0.2"
+    "jsonwebtoken": "^9.0.2",
+    "node-fetch": "^2.7.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.0"

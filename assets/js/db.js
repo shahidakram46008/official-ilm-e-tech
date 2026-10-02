@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Centralized Data Store & LocalStorage CMS Database
  * Ilm E Tech Pakistan (ilmetechpakistan.com)
  * Includes Complete Payment Verification & Audit System
@@ -22,14 +22,14 @@ const DB_KEYS = {
 // Initial Default Seed Data
 const DEFAULT_SETTINGS = {
   brandName: "Ilm E Tech Pakistan",
-  urduName: "  ",
+  urduName: "علم ٹیک پاکستان",
   founderName: "Dr. Shahid Akram Mustafai",
-  urduFounderName: "   ",
+  urduFounderName: "ڈاکٹر شاہد اکرم مصطفائی",
   founderTitle: "Founder & CEO",
   founderPhoto: "assets/images/ceo.jpg",
   domain: "ilmetechpakistan.com",
   tagline: "Learn Technology. Master AI. Build Your Future.",
-  urduTagline: "             ",
+  urduTagline: "علم حاصل کریں۔ AI پر عبور پائیں، اپنا مستقبل بنائیں۔",
   logoUrl: "assets/images/logo.jpg",
   email: "info@ilmetechpakistan.com",
   phone: "+92 307 4958837",
@@ -60,7 +60,7 @@ const DEFAULT_COURSES = [
   {
     id: "basic-ai",
     title: "Basic AI Course",
-    urduTitle: "   ",
+    urduTitle: "بیسک AI کورس",
     category: "Artificial Intelligence",
     slug: "basic-ai-course",
     shortDesc: "A complete beginner-friendly course on Artificial Intelligence, Generative AI, prompt engineering, and everyday practical productivity.",
@@ -93,7 +93,7 @@ const DEFAULT_COURSES = [
   {
     id: "ai-tools-mastery",
     title: "AI Tools Mastery",
-    urduTitle: "   ",
+    urduTitle: "AI ٹولز ماسٹری",
     category: "AI Productivity",
     slug: "ai-tools-mastery",
     shortDesc: "Master 25+ cutting-edge AI tools for writing, graphic design, video editing, voice cloning, automation, and digital marketing.",
@@ -126,7 +126,7 @@ const DEFAULT_COURSES = [
   {
     id: "basic-computer",
     title: "Basic Computer Course",
-    urduTitle: "  ",
+    urduTitle: "بیسک کمپیوٹر کورس",
     category: "Computer Fundamentals",
     slug: "basic-computer-course",
     shortDesc: "Essential computer training covering Windows OS, Microsoft Office, Internet research, online security, typing, and office software.",
@@ -159,7 +159,7 @@ const DEFAULT_COURSES = [
   {
     id: "ai-software-dev",
     title: "AI Software Development",
-    urduTitle: "    ",
+    urduTitle: "AI سافٹ ویئر ڈویلپمنٹ",
     category: "Software Development",
     slug: "ai-software-development",
     shortDesc: "Learn practical AI-assisted coding, Web Apps, Chrome Extensions, Mobile Apps, Google AI Studio, Gemini API, and deployment.",
@@ -192,7 +192,7 @@ const DEFAULT_COURSES = [
   {
     id: "ai-content-creation",
     title: "AI Content Creation",
-    urduTitle: "   ",
+    urduTitle: "AI کنٹینٹ کریایشن",
     category: "Media & Content",
     slug: "ai-content-creation",
     shortDesc: "Create viral short-form videos, YouTube reels, AI avatars, automated voiceovers, social graphics, and digital ads using AI.",
@@ -225,7 +225,7 @@ const DEFAULT_COURSES = [
   {
     id: "trading-course",
     title: "Trading Course",
-    urduTitle: " ",
+    urduTitle: "کریپٹو اور فوریکس ٹریڈنگ",
     category: "Financial Literacy",
     slug: "trading-course",
     shortDesc: "Learn technical analysis, chart reading, risk management, market psychology, position sizing, and scam awareness.",

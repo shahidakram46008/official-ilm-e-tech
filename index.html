@@ -1,11 +1,13 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ilm E Tech Pakistan | Official Digital Education & AI Academy Platform</title>
   <meta name="description" content="Official platform of Ilm E Tech Pakistan. Founded by Dr. Shahid Akram Mustafai. Learn Artificial Intelligence, AI Tools, Computer Basics, Software Development, Content Creation, and Trading.">
-  <meta name="keywords" content="Ilm E Tech Pakistan, Dr Shahid Akram Mustafai, AI courses Pakistan, AI tools course Pakistan, computer course Pakistan, digital skills Pakistan">
+  <meta name="theme-color" content="#046a38">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="assets/images/logo.jpg">
   
   <!-- Favicon -->
   <link rel="icon" type="image/jpeg" href="assets/images/logo.jpg">
@@ -20,7 +22,7 @@
     "@context": "https://schema.org",
     "@type": "EducationalOrganization",
     "name": "Ilm E Tech Pakistan",
-    "alternateName": "  ",
+    "alternateName": "Ilm E Tech",
     "founder": {
       "@type": "Person",
       "name": "Dr. Shahid Akram Mustafai",
@@ -460,9 +462,11 @@
         if (!grid || !window.ilmDB) return;
         const currentLang = document.documentElement.getAttribute('lang') || 'en';
         const isUrdu = currentLang === 'ur';
-        const courses = window.ilmDB.getCourses();
-
-        grid.innerHTML = courses.map' : 'Fee (PKR)';
+        grid.innerHTML = courses.map(c => {
+          const title = isUrdu ? c.urduTitle : c.title;
+          const feeLabel = isUrdu ? 'فیس (روپے)' : 'Fee (PKR)';
+          const detailsBtn = isUrdu ? 'تفصیلات دیکھیں' : 'View Details';
+          const applyBtn = isUrdu ? 'آن لائن داخلہ' : 'Apply Now';
 
           return `
             <div class="course-card nasa-card">
