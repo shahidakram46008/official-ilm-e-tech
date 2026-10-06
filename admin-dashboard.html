@@ -1,9 +1,13 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Dashboard & Payment Verification System | Ilm E Tech Pakistan</title>
+  <title>Admin Dashboard | علمِ ٹیک پاکستان CMS</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Admin dashboard for علمِ ٹیک پاکستان - payment verification and platform management.">
+  <link rel="canonical" href="https://ilmetechpakistan.com/admin-dashboard.html">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="icon" type="image/jpeg" href="assets/images/logo.jpg">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="assets/css/styles.css">
@@ -74,9 +78,9 @@
   <header style="background:var(--dark-green); color:#ffffff; padding:1.25rem 0; border-bottom:3px solid var(--primary-green);">
     <div class="container" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
       <div style="display:flex; align-items:center; gap:1rem;">
-        <img src="assets/images/logo.jpg" alt="Ilm E Tech Pakistan" style="height:44px; border-radius:50%;">
+        <img src="assets/images/logo.jpg" alt="علمِ ٹیک پاکستان" style="height:44px; border-radius:50%;">
         <div>
-          <h2 style="font-size:1.3rem; font-weight:800; margin:0; color:#ffffff;">Ilm E Tech Pakistan — Admin CMS</h2>
+          <h2 style="font-size:1.3rem; font-weight:800; margin:0; color:#ffffff;">علمِ ٹیک پاکستان — Admin CMS</h2>
           <span style="font-size:0.8rem; color:#6ee7b7;">Payment Verification & Platform Management System</span>
         </div>
       </div>
@@ -87,7 +91,7 @@
           <span style="color:#cbd5e1;">Active Role:</span> 
           <strong style="color:#6ee7b7;" id="dispAdminRole">SUPER ADMIN</strong>
         </div>
-        <select id="adminRoleSelector" class="form-control form-select" style="width:auto; padding:0.4rem 2rem 0.4rem 0.8rem; font-size:0.85rem; background-color:#ffffff;">
+        <select id="adminRoleSelector" aria-label="Select Admin Role" class="form-control form-select" style="width:auto; padding:0.4rem 2rem 0.4rem 0.8rem; font-size:0.85rem; background-color:#ffffff;">
           <option value="SUPER_ADMIN">Role: Super Admin (Full Control)</option>
           <option value="FINANCE_ADMIN">Role: Finance Admin (Payments Only)</option>
           <option value="ADMISSION_ADMIN">Role: Admission Admin (Applications)</option>
@@ -155,7 +159,7 @@
         <div class="card" style="background:#ffffff; border:1px solid var(--border-light); padding:2rem; border-radius:1rem; box-shadow:var(--shadow-sm);">
           <h3 style="font-size:1.3rem; font-weight:800; color:var(--primary-green); margin-bottom:0.5rem;"><i class="fas fa-shield-alt"></i> Complete Admin Payment Verification Engine Ready</h3>
           <p style="color:var(--text-muted); font-size:0.95rem;">
-            Welcome to the official Ilm E Tech Pakistan Payment Verification Management System. From this dashboard, authorized Finance and Super Admins can verify student payment receipts for JazzCash, Easypaisa, SadaPay, and Bank Transfers, trigger atomic course enrollments, issue student IDs, generate payment receipts, or request additional information from applicants.
+            Welcome to the official <strong>علمِ ٹیک پاکستان</strong> (ILM E TECH PAKISTAN) Payment Verification Management System. From this dashboard, authorized Finance and Super Admins can verify student payment receipts for JazzCash, Easypaisa, SadaPay, and Bank Transfers, trigger atomic course enrollments, issue student IDs, generate payment receipts, or request additional information from applicants.
           </p>
         </div>
       </div>
@@ -184,10 +188,10 @@
           <!-- Search & Filter Controls -->
           <div style="display:grid; grid-template-columns: 2fr 1fr 1fr; gap:1rem; margin-bottom:1.5rem; background:var(--bg-slate-50); padding:1rem; border-radius:0.75rem; border:1px solid var(--border-light);">
             <div>
-              <input type="text" id="paymentSearchInput" class="form-control" placeholder="Search by Student Name, Phone, App ID, Pay ID, TRX ID, or Course...">
+              <input type="text" id="paymentSearchInput" aria-label="Search Payments" class="form-control" placeholder="Search by Student Name, Phone, App ID, Pay ID, TRX ID, or Course...">
             </div>
             <div>
-              <select id="paymentMethodFilter" class="form-control form-select">
+              <select id="paymentMethodFilter" aria-label="Filter by Payment Method" class="form-control form-select">
                 <option value="ALL">Filter Method: All Methods</option>
                 <option value="JazzCash">JazzCash (Shahid Akram - 03206546008)</option>
                 <option value="Easypaisa">Easypaisa (Shahid Akram - 03206546008)</option>
@@ -196,7 +200,7 @@
               </select>
             </div>
             <div>
-              <select id="paymentStatusFilter" class="form-control form-select">
+              <select id="paymentStatusFilter" aria-label="Filter by Payment Status" class="form-control form-select">
                 <option value="ALL">Filter Status: All Statuses</option>
                 <option value="PENDING">PENDING (Under Review)</option>
                 <option value="ACTION_REQUIRED">ACTION REQUIRED (Info Requested)</option>
@@ -258,18 +262,18 @@
             <h3 style="font-size:1.2rem; font-weight:800; color:var(--primary-green); margin-bottom:1rem;"><i class="fas fa-plus-circle"></i> Issue New Certificate</h3>
             
             <div class="form-group">
-              <label class="form-label">Student Name</label>
-              <input type="text" name="studentName" class="form-control" placeholder="e.g. Muhammad Usama" required>
+              <label class="form-label" for="cert-studentName">Student Name</label>
+              <input type="text" id="cert-studentName" name="studentName" class="form-control" placeholder="e.g. Muhammad Usama" required aria-required="true">
             </div>
 
             <div class="form-group">
-              <label class="form-label">Father Name</label>
-              <input type="text" name="fatherName" class="form-control" placeholder="e.g. Tariq Mahmood">
+              <label class="form-label" for="cert-fatherName">Father Name</label>
+              <input type="text" id="cert-fatherName" name="fatherName" class="form-control" placeholder="e.g. Tariq Mahmood">
             </div>
 
             <div class="form-group">
-              <label class="form-label">Select Course</label>
-              <select name="courseId" class="form-control form-select" required>
+              <label class="form-label" for="cert-courseId">Select Course</label>
+              <select id="cert-courseId" name="courseId" class="form-control form-select" required aria-required="true">
                 <option value="basic-ai">Basic AI Course</option>
                 <option value="ai-tools-mastery">AI Tools Mastery</option>
                 <option value="basic-computer">Basic Computer Course</option>
@@ -280,8 +284,8 @@
             </div>
 
             <div class="form-group">
-              <label class="form-label">Grade / Distinction</label>
-              <input type="text" name="grade" class="form-control" placeholder="e.g. A+ Distinction">
+              <label class="form-label" for="cert-grade">Grade / Distinction</label>
+              <input type="text" id="cert-grade" name="grade" class="form-control" placeholder="e.g. A+ Distinction">
             </div>
 
             <button type="submit" class="btn btn-primary" style="width:100%;"><i class="fas fa-certificate"></i> Issue & Generate Code</button>
@@ -330,11 +334,11 @@
             </div>
             <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
               <div class="form-group">
-                <label class="form-label">Account Holder Name</label>
+                <label class="form-label" for="setJazzcashTitle">Account Holder Name</label>
                 <input type="text" id="setJazzcashTitle" class="form-control" required>
               </div>
               <div class="form-group">
-                <label class="form-label">JazzCash Registered Number</label>
+                <label class="form-label" for="setJazzcashNumber">JazzCash Registered Number</label>
                 <input type="text" id="setJazzcashNumber" class="form-control" required>
               </div>
             </div>
@@ -350,11 +354,11 @@
             </div>
             <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
               <div class="form-group">
-                <label class="form-label">Account Holder Name</label>
+                <label class="form-label" for="setEasypaisaTitle">Account Holder Name</label>
                 <input type="text" id="setEasypaisaTitle" class="form-control" required>
               </div>
               <div class="form-group">
-                <label class="form-label">Easypaisa Registered Number</label>
+                <label class="form-label" for="setEasypaisaNumber">Easypaisa Registered Number</label>
                 <input type="text" id="setEasypaisaNumber" class="form-control" required>
               </div>
             </div>
@@ -370,11 +374,11 @@
             </div>
             <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
               <div class="form-group">
-                <label class="form-label">Account Holder Name</label>
+                <label class="form-label" for="setSadapayTitle">Account Holder Name</label>
                 <input type="text" id="setSadapayTitle" class="form-control" required>
               </div>
               <div class="form-group">
-                <label class="form-label">SadaPay Registered Number</label>
+                <label class="form-label" for="setSadapayNumber">SadaPay Registered Number</label>
                 <input type="text" id="setSadapayNumber" class="form-control" required>
               </div>
             </div>
@@ -390,11 +394,11 @@
             </div>
             <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
               <div class="form-group">
-                <label class="form-label">Account Title</label>
+                <label class="form-label" for="setBankTitle">Account Title</label>
                 <input type="text" id="setBankTitle" class="form-control" required>
               </div>
               <div class="form-group">
-                <label class="form-label">Bank IBAN</label>
+                <label class="form-label" for="setBankIban">Bank IBAN</label>
                 <input type="text" id="setBankIban" class="form-control" required>
               </div>
             </div>
@@ -404,19 +408,19 @@
 
           <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.25rem;">
             <div class="form-group">
-              <label class="form-label">Official Phone / Helpline</label>
+              <label class="form-label" for="setPhone">Official Phone / Helpline</label>
               <input type="text" id="setPhone" class="form-control" required>
             </div>
             <div class="form-group">
-              <label class="form-label">Official Email</label>
+              <label class="form-label" for="setEmail">Official Email</label>
               <input type="email" id="setEmail" class="form-control" required>
             </div>
             <div class="form-group">
-              <label class="form-label">WhatsApp Number</label>
+              <label class="form-label" for="setWhatsapp">WhatsApp Number</label>
               <input type="text" id="setWhatsapp" class="form-control" required>
             </div>
             <div class="form-group" style="grid-column: 1 / -1;">
-              <label class="form-label">Campus Address</label>
+              <label class="form-label" for="setAddress">Campus Address</label>
               <input type="text" id="setAddress" class="form-control" required>
             </div>
           </div>
@@ -433,4 +437,5 @@
   <script src="assets/js/admin.js"></script>
 </body>
 </html>
+
 

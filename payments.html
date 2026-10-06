@@ -4,6 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fee Payment Portal | Ilm E Tech Pakistan</title>
+  <meta name="description" content="Pay your course fees via JazzCash, Easypaisa, SadaPay or Bank Transfer at Ilm E Tech Pakistan and submit payment verification online.">
+  <link rel="canonical" href="https://ilmetechpakistan.com/payments.html">
+
+  <!-- Open Graph & Twitter Cards -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ilmetechpakistan.com/payments.html">
+  <meta property="og:title" content="Fee Payment Portal | Ilm E Tech Pakistan">
+  <meta property="og:description" content="Pay your course fees via JazzCash, Easypaisa, SadaPay or Bank Transfer at Ilm E Tech Pakistan and submit payment verification online.">
+  <meta property="og:image" content="https://ilmetechpakistan.com/assets/images/logo.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Performance Optimization Preconnects -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+
   <link rel="icon" type="image/jpeg" href="assets/images/logo.jpg">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="assets/css/styles.css">
@@ -181,11 +196,11 @@
               <div style="display:flex; align-items:center; gap:0.75rem;">
                 <div style="width:44px; height:44px; background:#6366f1; color:#ffffff; border-radius:0.5rem; display:flex; align-items:center; justify-content:center; font-size:1.3rem; font-weight:800;"><i class="fab fa-cc-stripe"></i></div>
                 <div>
-                  <h4 style="font-size:1.15rem; font-weight:800; color:#312e81; margin:0;">Credit / Debit Card (Stripe)</h4>
+                  <h3 style="font-size:1.15rem; font-weight:800; color:#312e81; margin:0;">Credit / Debit Card (Stripe)</h3>
                   <span style="font-size:0.75rem; color:#4338ca; font-weight:700; background:#e0e7ff; padding:0.1rem 0.5rem; border-radius:0.25rem;">Instant Automatic Auto-Enrollment</span>
                 </div>
               </div>
-              <button onclick="window.payWithStripe()" class="btn btn-sm btn-primary" style="background:#6366f1; border-color:#4338ca;"><i class="fas fa-credit-card"></i> Pay Online</button>
+              <button onclick="window.payWithStripe()" class="btn btn-sm btn-primary" aria-label="Pay Online with Stripe" style="background:#6366f1; border-color:#4338ca;"><i class="fas fa-credit-card"></i> Pay Online</button>
             </div>
             <p style="font-size:0.85rem; color:var(--text-muted); margin:0;">Pay instantly using Visa, Mastercard, or UnionPay international cards with automated instant enrollment into the student classroom.</p>
           </div>
@@ -196,11 +211,11 @@
               <div style="display:flex; align-items:center; gap:0.75rem;">
                 <div style="width:44px; height:44px; background:#db2777; color:#ffffff; border-radius:0.5rem; display:flex; align-items:center; justify-content:center; font-size:1.3rem; font-weight:800;">JC</div>
                 <div>
-                  <h4 style="font-size:1.15rem; font-weight:800; color:#831843; margin:0;">JazzCash Account</h4>
+                  <h3 style="font-size:1.15rem; font-weight:800; color:#831843; margin:0;">JazzCash Account</h3>
                   <span style="font-size:0.75rem; color:#be185d; font-weight:700; background:#fce7f3; padding:0.1rem 0.5rem; border-radius:0.25rem;">Mobile Wallet</span>
                 </div>
               </div>
-              <button onclick="copyToClipboard('03206546008', 'JazzCash Number')" class="copy-btn"><i class="fas fa-copy"></i> Copy Number</button>
+              <button onclick="copyToClipboard('03206546008', 'JazzCash Number')" class="copy-btn" aria-label="Copy JazzCash Number"><i class="fas fa-copy"></i> Copy Number</button>
             </div>
             <div style="background:#fdf2f8; padding:0.85rem 1rem; border-radius:0.5rem; font-size:0.95rem;">
               <div style="display:flex; justify-content:space-between; margin-bottom:0.25rem;">
@@ -220,11 +235,11 @@
               <div style="display:flex; align-items:center; gap:0.75rem;">
                 <div style="width:44px; height:44px; background:#16a34a; color:#ffffff; border-radius:0.5rem; display:flex; align-items:center; justify-content:center; font-size:1.3rem; font-weight:800;">EP</div>
                 <div>
-                  <h4 style="font-size:1.15rem; font-weight:800; color:#14532d; margin:0;">Easypaisa Account</h4>
+                  <h3 style="font-size:1.15rem; font-weight:800; color:#14532d; margin:0;">Easypaisa Account</h3>
                   <span style="font-size:0.75rem; color:#15803d; font-weight:700; background:#dcfce7; padding:0.1rem 0.5rem; border-radius:0.25rem;">Mobile Wallet</span>
                 </div>
               </div>
-              <button onclick="copyToClipboard('03206546008', 'Easypaisa Number')" class="copy-btn"><i class="fas fa-copy"></i> Copy Number</button>
+              <button onclick="copyToClipboard('03206546008', 'Easypaisa Number')" class="copy-btn" aria-label="Copy Easypaisa Number"><i class="fas fa-copy"></i> Copy Number</button>
             </div>
             <div style="background:#f0fdf4; padding:0.85rem 1rem; border-radius:0.5rem; font-size:0.95rem;">
               <div style="display:flex; justify-content:space-between; margin-bottom:0.25rem;">
@@ -244,11 +259,11 @@
               <div style="display:flex; align-items:center; gap:0.75rem;">
                 <div style="width:44px; height:44px; background:#ff6b6b; color:#ffffff; border-radius:0.5rem; display:flex; align-items:center; justify-content:center; font-size:1.3rem; font-weight:800;">SP</div>
                 <div>
-                  <h4 style="font-size:1.15rem; font-weight:800; color:#991b1b; margin:0;">SadaPay Account</h4>
+                  <h3 style="font-size:1.15rem; font-weight:800; color:#991b1b; margin:0;">SadaPay Account</h3>
                   <span style="font-size:0.75rem; color:#dc2626; font-weight:700; background:#fee2e2; padding:0.1rem 0.5rem; border-radius:0.25rem;">Digital Wallet</span>
                 </div>
               </div>
-              <button onclick="copyToClipboard('03206546008', 'SadaPay Number')" class="copy-btn"><i class="fas fa-copy"></i> Copy Number</button>
+              <button onclick="copyToClipboard('03206546008', 'SadaPay Number')" class="copy-btn" aria-label="Copy SadaPay Number"><i class="fas fa-copy"></i> Copy Number</button>
             </div>
             <div style="background:#fff1f2; padding:0.85rem 1rem; border-radius:0.5rem; font-size:0.95rem;">
               <div style="display:flex; justify-content:space-between; margin-bottom:0.25rem;">
@@ -268,11 +283,11 @@
               <div style="display:flex; align-items:center; gap:0.75rem;">
                 <div style="width:44px; height:44px; background:#0284c7; color:#ffffff; border-radius:0.5rem; display:flex; align-items:center; justify-content:center; font-size:1.3rem; font-weight:800;">MB</div>
                 <div>
-                  <h4 style="font-size:1.15rem; font-weight:800; color:#0c4a6e; margin:0;">Meezan Bank Transfer</h4>
+                  <h3 style="font-size:1.15rem; font-weight:800; color:#0c4a6e; margin:0;">Meezan Bank Transfer</h3>
                   <span style="font-size:0.75rem; color:#0369a1; font-weight:700; background:#e0f2fe; padding:0.1rem 0.5rem; border-radius:0.25rem;">Bank Transfer</span>
                 </div>
               </div>
-              <button onclick="copyToClipboard('PK36MEZN0001020304050607', 'Bank IBAN')" class="copy-btn"><i class="fas fa-copy"></i> Copy IBAN</button>
+              <button onclick="copyToClipboard('PK36MEZN0001020304050607', 'Bank IBAN')" class="copy-btn" aria-label="Copy Bank IBAN"><i class="fas fa-copy"></i> Copy IBAN</button>
             </div>
             <div style="background:#f0f9ff; padding:0.85rem 1rem; border-radius:0.5rem; font-size:0.95rem;">
               <div style="display:flex; justify-content:space-between; margin-bottom:0.25rem;">
@@ -300,18 +315,18 @@
           
 
           <div class="form-group">
-            <label class="form-label">Application Reference ID (Optional)</label>
-            <input type="text" name="appId" id="payAppIdInput" class="form-control" placeholder="e.g. APP-2026-84920">
+            <label for="payAppIdInput" class="form-label">Application Reference ID (Optional)</label>
+            <input type="text" name="appId" id="payAppIdInput" class="form-control" placeholder="e.g. APP-2026-84920" aria-label="Application Reference ID">
           </div>
 
           <div class="form-group">
-            <label class="form-label">Student Full Name <span class="required">*</span></label>
-            <input type="text" name="studentName" class="form-control" placeholder="e.g. Muhammad Usama" required>
+            <label for="payStudentNameInput" class="form-label">Student Full Name <span class="required">*</span></label>
+            <input type="text" name="studentName" id="payStudentNameInput" class="form-control" placeholder="e.g. Muhammad Usama" aria-label="Student Full Name" required>
           </div>
 
           <div class="form-group">
-            <label class="form-label">Select Enrolled Course <span class="required">*</span></label>
-            <select name="courseName" id="payCourseSelect" class="form-control form-select" required>
+            <label for="payCourseSelect" class="form-label">Select Enrolled Course <span class="required">*</span></label>
+            <select name="courseName" id="payCourseSelect" class="form-control form-select" aria-label="Select Enrolled Course" required>
               <option value="Basic AI Course">Basic AI Course (Rs. 4,999 PKR)</option>
               <option value="AI Tools Mastery">AI Tools Mastery (Rs. 6,999 PKR)</option>
               <option value="Basic Computer Course">Basic Computer Course (Rs. 3,999 PKR)</option>
@@ -323,13 +338,13 @@
 
           <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
             <div class="form-group">
-              <label class="form-label">Course Fee (PKR) <span class="required">*</span></label>
-              <input type="number" name="amount" id="payAmountInput" class="form-control" placeholder="4999" required>
+              <label for="payAmountInput" class="form-label">Course Fee (PKR) <span class="required">*</span></label>
+              <input type="number" name="amount" id="payAmountInput" class="form-control" placeholder="4999" aria-label="Course Fee" required>
             </div>
 
             <div class="form-group">
-              <label class="form-label">Preferred Payment Method <span class="required">*</span></label>
-              <select name="paymentMethod" id="payMethodSelect" class="form-control form-select" required>
+              <label for="payMethodSelect" class="form-label">Preferred Payment Method <span class="required">*</span></label>
+              <select name="paymentMethod" id="payMethodSelect" class="form-control form-select" aria-label="Preferred Payment Method" required>
                 <option value="JazzCash">JazzCash (Shahid Akram - 03206546008)</option>
                 <option value="Easypaisa">Easypaisa (Shahid Akram - 03206546008)</option>
                 <option value="SadaPay">SadaPay (Shahid Akram - 03206546008)</option>
@@ -339,17 +354,17 @@
           </div>
 
           <div class="form-group">
-            <label class="form-label">Transaction / Reference ID (TRX ID) <span class="required">*</span></label>
-            <input type="text" name="trxId" class="form-control" placeholder="e.g. 98765432101 or Bank Ref No" required>
+            <label for="payTrxIdInput" class="form-label">Transaction / Reference ID (TRX ID) <span class="required">*</span></label>
+            <input type="text" name="trxId" id="payTrxIdInput" class="form-control" placeholder="e.g. 98765432101 or Bank Ref No" aria-label="Transaction Reference ID" required>
           </div>
 
           <div class="form-group">
-            <label class="form-label">Upload Payment Receipt / Screenshot <span class="required">*</span></label>
-            <input type="file" class="form-control" accept="image/*,.pdf">
+            <label for="payReceiptFileInput" class="form-label">Upload Payment Receipt / Screenshot <span class="required">*</span></label>
+            <input type="file" id="payReceiptFileInput" class="form-control" accept="image/*,.pdf" aria-label="Upload Payment Receipt">
             <small style="color:var(--text-muted); margin-top:0.2rem; display:block;">Attach a clear image of your JazzCash, Easypaisa, SadaPay, or Bank transfer receipt.</small>
           </div>
 
-          <button type="submit" class="btn btn-secondary btn-lg" style="width:100%; margin-top:1rem;"><i class="fas fa-paper-plane"></i> Submit Payment for Verification</button>
+          <button type="submit" class="btn btn-secondary btn-lg" aria-label="Submit Payment for Verification" style="width:100%; margin-top:1rem;"><i class="fas fa-paper-plane"></i> Submit Payment for Verification</button>
         </form>
       </div>
 

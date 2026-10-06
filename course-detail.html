@@ -1,9 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Course Details | Ilm E Tech Pakistan</title>
+  <meta name="description" content="View course syllabus, prerequisites, tuition fee, schedule, and learning outcomes for Ilm E Tech Pakistan official certification programs.">
+  <link rel="canonical" href="https://ilmetechpakistan.com/course-detail.html">
   <link rel="icon" type="image/jpeg" href="assets/images/logo.jpg">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="assets/css/styles.css">
@@ -17,7 +19,7 @@
         <span><i class="fas fa-bullhorn text-emerald-400"></i> Official Course Information & Syllabus</span>
         <a href="tel:+923074958837"><i class="fas fa-phone"></i> <span class="site-phone">+92 307 4958837</span></a>
       </div>
-      <button class="lang-switcher btn btn-sm btn-outline-blue" style="padding: 0.2rem 0.6rem; color: #ffffff; border-color: rgba(255,255,255,0.3); font-size: 0.8rem;"><i class="fas fa-globe"></i> </button>
+      <button class="lang-switcher btn btn-sm btn-outline-blue" aria-label="Change Language" style="padding: 0.2rem 0.6rem; color: #ffffff; border-color: rgba(255,255,255,0.3); font-size: 0.8rem; min-height:30px;"><i class="fas fa-globe" aria-hidden="true"></i> <span class="visually-hidden">Change Language</span></button>
     </div>
   </div>
 
@@ -27,7 +29,7 @@
       <a href="index.html" class="brand-logo">
         <img src="assets/images/logo.jpg" alt="Ilm E Tech Pakistan Logo">
         <div class="brand-text">
-          <span class="brand-name">ILM E TECH</span>
+          <span class="brand-name">ILM E TECH PAKISTAN</span>
           <span class="brand-subtitle" style="font-size:0.75rem; color:var(--tech-blue); font-weight:700;">Digital Education & AI Academy</span>
         </div>
       </a>
@@ -45,7 +47,7 @@
       </nav>
       <div class="nav-actions">
         <a href="admissions.html" class="btn btn-primary btn-sm"><i class="fas fa-paper-plane"></i> Apply Now</a>
-        <button class="mobile-toggle" id="mobileToggle"><i class="fas fa-bars"></i></button>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Mobile Menu"><i class="fas fa-bars"></i></button>
       </div>
     </div>
   </header>
@@ -56,7 +58,7 @@
     <div class="drawer-header">
       <div class="brand-logo">
         <img src="assets/images/logo.jpg" alt="Ilm E Tech Pakistan" style="height: 40px;">
-        <span class="brand-name" style="font-size: 1.1rem;">ILM E TECH</span>
+        <span class="brand-name" style="font-size: 1.1rem;">ILM E TECH PAKISTAN</span>
       </div>
       <button class="drawer-close" id="drawerClose"><i class="fas fa-times"></i></button>
     </div>
@@ -115,7 +117,7 @@
           <div style="display:flex; flex-direction:column; gap:0.75rem;">
             <a href="#" id="btnApplyNow" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Apply Online Now</a>
             <a href="#" id="btnPayFee" class="btn btn-secondary"><i class="fas fa-credit-card"></i> Pay Course Fee</a>
-            <a href="https://wa.me/923074958837" target="_blank" class="btn btn-outline" style="border-color:#25d366; color:#128c7e;"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
+            <a href="https://wa.me/923074958837" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="border-color:#25d366; color:#128c7e;"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
           </div>
 
           <div style="margin-top:1.5rem; padding-top:1rem; border-top:1px solid var(--border-light); font-size:0.85rem; color:var(--text-muted); text-align:center;">
@@ -166,9 +168,9 @@
       if (course.disclaimer) {
         disclaimerHtml = `
           <div style="background:#fff1f2; border:2px solid #f43f5e; padding:1.25rem; border-radius:0.75rem; margin-bottom:2rem;">
-            <h4 style="color:#be123c; font-weight:800; display:flex; align-items:center; gap:0.5rem;">
+            <h3 style="color:#be123c; font-size:1.2rem; font-weight:800; display:flex; align-items:center; gap:0.5rem;">
               <i class="fas fa-exclamation-triangle"></i> Mandatory Educational Disclaimer
-            </h4>
+            </h3>
             <p style="color:#881337; font-size:0.95rem; margin-top:0.4rem;">${course.disclaimer}</p>
           </div>
         `;
@@ -197,7 +199,7 @@
             ${course.syllabus.map(s => `
               <div style="border-left:4px solid var(--primary-green); padding-left:1.25rem; background:var(--bg-slate-50); padding:1rem 1.25rem; border-radius:0 0.5rem 0.5rem 0;">
                 <span style="font-size:0.8rem; font-weight:700; color:var(--tech-blue); text-transform:uppercase;">Week ${s.week}</span>
-                <h4 style="font-size:1.15rem; font-weight:700; color:var(--text-dark); margin:0.2rem 0;">${s.topic}</h4>
+                <h3 style="font-size:1.15rem; font-weight:700; color:var(--text-dark); margin:0.2rem 0;">${s.topic}</h3>
                 <p style="font-size:0.95rem; color:var(--text-muted);">${s.detail}</p>
               </div>
             `).join('')}

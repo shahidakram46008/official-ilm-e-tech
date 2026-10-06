@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Main Application Logic & UI Interactions
  * Ilm E Tech Pakistan (ilmetechpakistan.com)
  */
@@ -262,4 +262,17 @@ function renderDynamicComponents() {
   document.querySelectorAll('.site-email').forEach(el => el.textContent = settings.email);
   document.querySelectorAll('.site-address').forEach(el => el.textContent = settings.address);
 }
+
+// Security isolation guard for all external/new-tab links
+function enforceSecurityRel() {
+  document.querySelectorAll('a[target="_blank"]').forEach(link => {
+    const currentRel = link.getAttribute('rel') || '';
+    if (!currentRel.includes('noopener')) {
+      link.setAttribute('rel', (currentRel + ' noopener noreferrer').trim());
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', enforceSecurityRel);
+
 

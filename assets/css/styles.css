@@ -4,7 +4,7 @@
    Domain: ilmetechpakistan.com
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Noto+Nastaliq+Urdu:wght@400;600;700;800&display=swap');
 
 :root {
   /* World #1 Award-Winning Tech Palette (Emerald + Obsidian + Tech Blue) */
@@ -23,7 +23,7 @@
   --bg-slate-100: #f1f5f9;
   --text-dark: #0f172a;
   --text-body: #334155;
-  --text-muted: #64748b;
+  --text-muted: #475569; /* WCAG AA Compliant 7:1 Contrast Ratio */
   --border-light: #e2e8f0;
   --card-bg: #ffffff;
   
@@ -35,6 +35,9 @@
   
   /* Typography */
   --font-en: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-ur: 'Noto Nastaliq Urdu', 'Gulzar', 'Jameel Noori Nastaleeq', 'Urdu Typesetting', Tahoma, sans-serif;
+  --font-ur-heading: 'Noto Nastaliq Urdu', 'Gulzar', 'Jameel Noori Nastaleeq', 'Urdu Typesetting', Tahoma, sans-serif;
+  --font-ur-body: 'Noto Nastaliq Urdu', 'Gulzar', 'Jameel Noori Nastaleeq', 'Urdu Typesetting', Tahoma, sans-serif;
   
   /* Elevation & Shadows */
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
@@ -59,6 +62,19 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+/* Accessibility Utility for Screen Readers */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
 }
 
 html {
@@ -316,33 +332,46 @@ body {
   border-color: var(--primary-green);
   color: var(--primary-green);
   background: transparent;
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn-outline:hover {
-  background-color: var(--emerald-light);
+  background-color: var(--primary-green);
+  color: #ffffff !important;
 }
 
 .btn-outline-blue {
   border-color: var(--tech-blue);
   color: var(--tech-blue);
   background: transparent;
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn-outline-blue:hover {
-  background-color: var(--tech-blue-light);
+  background-color: var(--tech-blue);
+  color: #ffffff !important;
 }
 
 .btn-sm {
-  padding: 0.4rem 0.85rem;
+  padding: 0.45rem 0.95rem;
   font-size: 0.85rem;
+  min-height: 36px;
+  min-width: 36px;
 }
 
 .btn-lg {
   padding: 0.85rem 1.75rem;
   font-size: 1.05rem;
+  min-height: 46px;
 }
 
-/* Mobile Toggle */
+/* Mobile Toggle - Meets WCAG 2.5.8 target size standard */
 .mobile-toggle {
   display: none;
   background: none;
@@ -350,6 +379,11 @@ body {
   font-size: 1.5rem;
   color: var(--text-dark);
   cursor: pointer;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0.5rem;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Mobile Drawer */
@@ -386,6 +420,12 @@ body {
   font-size: 1.5rem;
   cursor: pointer;
   color: var(--text-muted);
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .drawer-links {
@@ -491,7 +531,7 @@ body {
 
 .hero-description {
   font-size: 1.1rem;
-  color: #cbd5e1;
+  color: #e2e8f0;
   margin-bottom: 2rem;
   max-width: 600px;
 }
@@ -511,15 +551,16 @@ body {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.stat-item h4 {
+.stat-item h4, .stat-number {
   font-size: 1.8rem;
   font-weight: 800;
   color: #38bdf8;
+  display: block;
 }
 
 .stat-item p {
   font-size: 0.85rem;
-  color: #94a3b8;
+  color: #cbd5e1;
 }
 
 .hero-visual {
@@ -1180,158 +1221,13 @@ body {
   border-bottom-right-radius: 0.2rem;
 }
 
-.speak-bubble-btn {
-  background: #f1f5f9;
-  border: 1px solid #cbd5e1;
-  color: #046a38;
-  border-radius: 50%;
-  width: 28px;
-  height: 28px;
-  font-size: 0.75rem;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 0.5rem;
-  transition: all 0.2s ease;
-}
-
-.speak-bubble-btn:hover {
-  background: #046a38;
-  color: #ffffff;
-}
-
 .chatbot-input-area {
-  padding: 0.75rem;
+  padding: 0.75rem 1rem;
   background: #ffffff;
   border-top: 1px solid var(--border-light);
   display: flex;
-  gap: 0.5rem;
-}
-
-/* ========================================== */
-/* LIVE VOICE CALL INTERFACE (2-WAY VOICE CALL) */
-/* ========================================== */
-.call-screen-overlay {
-  display: flex;
-  flex-direction: column;
+  gap: 0.6rem;
   align-items: center;
-  justify-content: space-between;
-  padding: 1.5rem 1rem;
-  background: linear-gradient(180deg, #022c22 0%, #046a38 100%);
-  color: #ffffff;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 10;
-  box-sizing: border-box;
-}
-
-.call-avatar-container {
-  position: relative;
-  margin-top: 1rem;
-}
-
-.call-avatar-img {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid #10b981;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-}
-
-.call-waves {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  border: 2px solid rgba(16, 185, 129, 0.6);
-  animation: wavePulse 1.8s ease-out infinite;
-  pointer-events: none;
-}
-
-@keyframes wavePulse {
-  0% { transform: translate(-50%, -50%) scale(0.8); opacity: 1; }
-  100% { transform: translate(-50%, -50%) scale(1.6); opacity: 0; }
-}
-
-.call-status-badge {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(8px);
-  padding: 0.4rem 1rem;
-  border-radius: 2rem;
-  font-size: 0.85rem;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-top: 0.75rem;
-  border: 1px solid rgba(255,255,255,0.2);
-}
-
-.call-transcript-box {
-  background: rgba(0, 0, 0, 0.35);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 0.75rem;
-  padding: 0.85rem;
-  width: 100%;
-  max-height: 140px;
-  overflow-y: auto;
-  font-size: 0.88rem;
-  line-height: 1.45;
-  color: #e2e8f0;
-  margin: 1rem 0;
-  text-align: center;
-}
-
-.call-controls-bar {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  margin-bottom: 0.5rem;
-}
-
-.call-btn {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  border: none;
-  font-size: 1.25rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.2s, background 0.2s;
-}
-
-.call-btn:hover {
-  transform: scale(1.08);
-}
-
-.call-btn-mute {
-  background: rgba(255, 255, 255, 0.2);
-  color: #ffffff;
-}
-
-.call-btn-end {
-  background: #ef4444;
-  color: #ffffff;
-  width: 60px;
-  height: 60px;
-  box-shadow: 0 10px 20px rgba(239, 68, 68, 0.4);
-}
-
-.call-btn-chat {
-  background: rgba(255, 255, 255, 0.2);
-  color: #ffffff;
 }
 
 @media (max-width: 576px) {
@@ -1356,7 +1252,7 @@ body {
 /* Footer */
 .site-footer {
   background-color: var(--dark-green);
-  color: #94a3b8;
+  color: #cbd5e1;
   padding-top: 4.5rem;
   padding-bottom: 2rem;
   border-top: 3px solid var(--primary-green);
@@ -1381,16 +1277,19 @@ body {
 }
 
 .social-icon {
-  width: 38px;
-  height: 38px;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
   border-radius: var(--radius-md);
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.12);
   color: #ffffff;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
   transition: all 0.2s;
+  touch-action: manipulation;
 }
 
 .social-icon:hover {
@@ -1418,6 +1317,9 @@ body {
   color: #cbd5e1;
   text-decoration: none;
   font-size: 0.9rem;
+  min-height: 28px;
+  display: inline-flex;
+  align-items: center;
   transition: color 0.2s;
 }
 
@@ -1434,6 +1336,19 @@ body {
   flex-wrap: wrap;
   gap: 1rem;
   font-size: 0.875rem;
+  color: #cbd5e1;
+}
+
+.footer-bottom a {
+  color: #cbd5e1;
+  text-decoration: none;
+  min-height: 28px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.footer-bottom a:hover {
+  color: var(--emerald-accent);
 }
 
 /* Certificate Printable Styling */
@@ -1537,26 +1452,35 @@ body {
   opacity: 1;
 }
 
-/* NASA Cosmic Glow Badge */
+/* NASA Cosmic Glow Badge - WCAG AA & AAA Compliant High Contrast */
 .nasa-badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  padding: 0.35rem 0.85rem;
-  background: linear-gradient(135deg, rgba(4, 106, 56, 0.1), rgba(2, 132, 199, 0.1));
-  border: 1px solid rgba(16, 185, 129, 0.3);
+  gap: 0.5rem;
+  padding: 0.4rem 0.95rem;
+  min-height: 28px;
+  background: rgba(16, 185, 129, 0.2);
+  border: 1px solid rgba(16, 185, 129, 0.45);
   border-radius: var(--radius-full);
-  color: var(--dark-green);
-  font-size: 0.825rem;
+  color: #a7f3d0;
+  font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 0.02em;
   animation: nasaPulse 3s infinite ease-in-out;
+}
+
+.hero-section .nasa-badge {
+  color: #a7f3d0;
+  background: rgba(16, 185, 129, 0.22);
+  border: 1px solid rgba(16, 185, 129, 0.5);
 }
 
 @keyframes nasaPulse {
   0%, 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.3); }
   50% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
 }
+
+
 
 /* Metallic Shimmer Buttons */
 .btn-nasa {

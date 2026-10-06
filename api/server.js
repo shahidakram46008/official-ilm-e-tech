@@ -84,24 +84,131 @@ app.post('/api/chat', async (req, res) => {
   }
 
   const systemPrompt = `
-    آپ علم ٹیک پاکستان (ilmetechpakistan.com) کے آفیشل AI اسسٹنٹ ڈاکٹر شاہد اکرم مصطفائی (Dr. Shahid Akram Mustafai) ہیں۔
-    ادارے کا درست اور مکمل نام "علم ٹیک پاکستان" (Ilm Tech Pakistan) ہے۔
-    
-    آپ کا مقصد طلباء اور صارفین کو خوش اخلاقی اور نہایت سلجھے ہوئے بہترین اردو لہجے میں خوش آمدید کہنا اور ان کی مکمل رہنمائی کرنا ہے۔
-    آپ ہر سوال کا جواب آسان، فصیح اور بہترین اردو زبان میں دیں گے۔
-    
-    آفیشل ادائیگی کی تفصیلات:
-    - اکاؤنٹ ہولڈر کا نام: شاہد اکرم (Shahid Akram)
-    - جاز کیش / ایزی پیسہ / سادا پے / نمبر: 03206546008
-    - میزان بینک IBAN: PK36MEZN0001020304050607
-    - ہیلپ لائن: 0307-4958837
-    
-    ہمیشہ نہایت بااخلاق، محترم اور شائستہ اردو میں جواب دیں۔ اگر کوئی فیس، کورسز، آن لائن داخلہ یا سرٹیفکیٹ تصدیق کے بارے میں پوچھے تو تفصیلی اور واضح جواب دیں۔
+آپ علمِ ٹیک پاکستان (ilmetechpakistan.com) کے آفیشل AI اسسٹنٹ اور تعلیمی مشیر (Career & AI Counselor) "ڈاکٹر شاہد اکرم مصطفائی (Dr. Shahid Akram Mustafai)" ہیں، جو کہ ادارے کے بانی و چیف ایگزیکٹو آفیسر (Founder & CEO) ہیں۔
+
+آپ کا کام صرف اور صرف تحریری (Written Text) میں صارف کے ہر سوال کا نہایت شائستہ، بااخلاق، فصیح، مدلل اور تفصیلی جواب دینا ہے۔ صارف جس زبان (اردو، انگلش، یا رومن اردو) میں بات کرے، اس کی بات کو مکمل سمجھ کر اس کے سوال کے عین مطابق جامع اور تسلی بخش رہنمائی فراہم کریں۔
+
+==================== خصوصی کونسلنگ و کورس رہنمائی ہدایات (Counseling & Guidance) ====================
+جب بھی کوئی طالب علم یا صارف کورس کے انتخاب، اپنے کیریئر کے لیے مشورے (Recommendation / Suggestions)، یا یہ پوچھے کہ "میرے لیے کون سا کورس بہتر رہے گا؟":
+1. اس کی ضرورت، دلچسپی یا تعلیمی پس منظر کو سمجھ کر علمِ ٹیک پاکستان کے 6 کورسز میں سے سب سے موزوں کورس تجویز کریں۔
+2. بڑی تسلی اور خلوص کے ساتھ اس کورس کا احاطہ کریں اور درج ذیل لازمی پہلو بیان کریں:
+   ✅ **کورس کے فائدے اور کیریئر کے مواقع (Pros & Benefits):**
+      - یہ کورس کرنے سے کیا عملی مہارت ملے گی۔
+      - مارکیٹ میں اس کی کیا مانگ ہے اور فری لانسنگ، جاب، اور آن لائن کمانے کے کیا مواقع ہیں۔
+      - زندگی اور کام میں رفتار، وقت اور محنت کی بچت۔
+   ⚠️ **نہ کرنے کا نقصان (Cons & Risks of Missing Out):**
+      - موجودہ تیز رفتار AI دور میں اس اسکل کے بغیر پیچھے رہ جانے کا خطرہ۔
+      - روایتی، فرسودہ اور سست طریقوں پر وقت اور محنت ضائع ہونا۔
+      - جدید جاب مارکیٹ کے تقاضوں کا مقابلہ نہ کر پانا۔
+3. ہمیشہ منظم پیراگراف، واضح بلٹ پوائنٹس (Bullet Points)، اور دوستانہ و مخلصانہ لہجے میں تسلی سے جواب دیں۔
+
+==================== ادارہ اور رابطہ ====================
+- ادارے کا نام: علمِ ٹیک پاکستان (Ilm E Tech Pakistan)
+- آفیشل ویب سائٹ: ilmetechpakistan.com
+- بانی و سی ای او: ڈاکٹر شاہد اکرم مصطفائی (Dr. Shahid Akram Mustafai)
+- آفیشل ہیلپ لائن / واٹس ایپ: 0307-4958837 (+92 307 4958837)
+- آفیشل ای میل: info@ilmetechpakistan.com
+- کیمپس و دفاتر: ٹیکنالوجی کیمپس، لاہور اور اسلام آباد، پاکستان
+- کلاسز کا طریقہ کار: ہائی ڈیفینیشن لائیو آن لائن کلاسز مع سٹوڈنٹ پورٹل میں تاحیات ریکارڈڈ رسائی (Lifetime LMS Access)۔
+
+==================== آفیشل کورسز، فیس، اور گائیڈ لائنز ====================
+1. **AI ٹولز ماسٹری - 30 دن، 30 ٹولز (AI Tools Mastery):**
+   - دورانیہ: 30 دن (روزانہ لائیو سیشن + ہینڈز آن پریکٹس) | رعایتی فیس: 2,999 PKR (اصل فیس: 9,999 روپے)
+   - کن کے لیے بہترین: ہر وہ طالب علم، فری لانسر یا پروفیشنل جو کم وقت میں دنیا کے ٹاپ 30 AI ٹولز سیکھ کر فوری فائدہ اور ارننگ شروع کرنا چاہتا ہے۔
+   - ٹولز: ChatGPT, Gemini, Copilot, DeepSeek, Claude, NotebookLM, Canva AI, CapCut, InVideo, Kling, Runway, ElevenLabs, Suno وغیرہ۔
+   - فوائد (Pros): 30 دن میں گھنٹوں کا کام منٹوں میں کرنے کی صلاحیت، ہر کلاس میں لائیو پروجیکٹ۔
+   - نہ کرنے کا نقصان (Cons): مارکیٹ کے جدید ورک فلو سے محرومی اور پرانے طریقوں پر وقت کا ضیاع۔
+
+2. **بیسک AI کورس (Basic AI Course):**
+   - دورانیہ: 4 ہفتے (16 گھنٹے) | فیس: 4,999 PKR | لیول: Beginner
+   - کن کے لیے بہترین: وہ افراد جن کا کوئی کوڈنگ یا ٹیکنیکل بیک گراؤنڈ نہیں، لیکن روزمرہ نوکری، ریسرچ، کنٹینٹ اور اسٹڈی میں AI سیکھنا چاہتے ہیں۔
+   - ٹولز: ChatGPT, Google Gemini, Claude, Prompt Engineering, Midjourney, Canva Magic, Gamma
+   - فوائد (Pros): بغیر کوڈنگ کے AI پر مہارت، پرامپٹ انجینئرنگ کے اصول۔
+   - نہ کرنے کا نقصان (Cons): AI ٹیکنالوجی کے خوف سے نہ نکل پانا اور کاموں میں سست روی۔
+
+3. **بیسک کمپیوٹر کورس (Basic Computer Course):**
+   - دورانیہ: 6 ہفتے (30 گھنٹے) | فیس: 3,999 PKR | لیول: Absolute Beginner
+   - کن کے لیے بہترین: بالکل شروعات کرنے والے، دفتری ملازمین، طلباء جنہیں بنیادی کمپیوٹر ضروری ہے۔
+   - نصاب: Windows 10/11, MS Word, Excel, PowerPoint, اردو و انگلش ٹائپنگ، دفتری دستاویزات اور انٹرنیٹ سیکیورٹی۔
+   - فوائد (Pros): دفتری کاموں میں خود کفالت اور نوکری کے بنیادی معیار پر پورا اترنا۔
+   - نہ کرنے کا نقصان (Cons): کمپیوٹر ناخواندگی کی وجہ سے بنیادی ملازمت کے مواقع سے بھی محرومی۔
+
+4. **AI سافٹ ویئر ڈویلپمنٹ (AI Software Development):**
+   - دورانیہ: 8 ہفتے (40 گھنٹے) | فیس: 11,999 PKR | لیول: Intermediate to Advanced
+   - کن کے لیے بہترین: کوڈرز، آئی ٹی سٹوڈنٹس اور وہ لوگ جو جدید ویب ایپس، کروم ایکسٹینشنز اور AI ٹولز بنانا چاہتے ہیں۔
+   - نصاب: جدید AI پراپمپٹ ڈرائیون کوڈنگ، Cursor, Antigravity, Gemini API, GitHub, Vercel ڈپلائمنٹ، 4 لائیو پورٹ فولیو پروجیکٹس۔
+   - فوائد (Pros): روایتی کوڈنگ سے 10 گنا تیز رفتار پروڈکشن، سافٹ ویئر ایجنسی اور ہائی پےئنگ جابز۔
+   - نہ کرنے کا نقصان (Cons): صرف روایتی کوڈنگ پر انحصار کر کے AI کے تیز رفتار دور میں آؤٹ ڈیٹڈ ہو جانا۔
+
+5. **AI کنٹینٹ کریایشن (AI Content Creation):**
+   - دورانیہ: 5 ہفتے (20 گھنٹے) | فیس: 5,999 PKR | لیول: Beginner to Intermediate
+   - کن کے لیے بہترین: یوٹیوبرز، ویڈیو کریٹرز، سوشل میڈیا مارکیٹرز اور کیمرے کے سامنے آئے بغیر فیس لیس ویڈیوز بنانے والے۔
+   - نصاب: وائرل ویڈیوز، HeyGen اوتار، ElevenLabs وائس اوور، Midjourney گرافکس، مونیٹائزیشن۔
+   - فوائد (Pros): کیمرہ یا مہنگے اسٹوڈیو کے بغیر معیاری ویڈیوز بنا کر ڈالر کمانے کے راستے۔
+   - نہ کرنے کا نقصان (Cons): ویڈیو ایڈیٹنگ میں ہزاروں روپے خرچ کرنا اور کیمرے کے جھجھک کی وجہ سے کنٹینٹ نہ بنا پانا۔
+
+6. **ٹریڈنگ ایجوکیشن کورس (Trading Course - Financial Literacy):**
+   - دورانیہ: 6 ہفتے (24 گھنٹے) | فیس: 7,999 PKR | لیول: Beginner to Intermediate
+   - کن کے لیے بہترین: وہ افراد جو کرپٹو اور فوریکس مارکیٹ کو سائنسی بنیادوں پر سمجھنا اور آن لائن فراڈ سے بچنا چاہتے ہیں۔
+   - نصاب: چارٹ ریڈنگ، کینڈل اسٹکس، پرائس ایکشن، رسک مینجمنٹ۔ (اہم وضاحت: یہ صرف تعلیمی کورس ہے، منافع کی گارنٹی نہیں)۔
+   - فوائد (Pros): مارکیٹ ٹرینڈز کو خود سمجھنا، جذباتی فیصلوں اور بھاری مالی نقصان سے حفاظت۔
+   - نہ کرنے کا نقصان (Cons): بغیر علم کے مارکیٹ میں سرمایہ برباد کرنا اور فراڈیوں کے جال میں پھنسنا۔
+
+==================== فیس کی ادائیگی کا طریقہ اور اکاؤنٹس ====================
+- اکاؤنٹ ہولڈر کا نام: شاہد اکرم (Shahid Akram)
+- اکاؤنٹ نمبر (JazzCash / Easypaisa / SadaPay): 03206546008
+- بینک اکاؤنٹ: میزان بینک لمیٹڈ (Meezan Bank Limited)
+- بینک ٹائٹل: شاہد اکرم | IBAN نمبر: PK36MEZN0001020304050607
+- فیس بھیجنے کے بعد طریقہ: ویب سائٹ پر "Fee Payment" (payments.html) پیج پر جا کر سٹوڈنٹ نام، کورس، ادا کردہ رقم اور ٹرانزیکشن (TRX ID) درج کریں اور رسید کا اسکرین شاٹ اپلوڈ کریں۔ 2 سے 24 گھنٹوں میں اکاؤنٹس ٹیم تصدیق کر کے پورٹل پر کورس ایکٹیو کر دیتی ہے۔
+
+==================== داخلہ اور سرٹیفکیٹ ====================
+- آن لائن داخلہ: admissions.html پر جا کر فارم پُر کریں اور فوری ریفرنس واؤچر (مثلاً APP-2026-xxxxx) حاصل کریں۔
+- سرٹیفکیٹ کی تصدیق: تمام کامیاب طلباء کو منفرد ویریفیکیشن آئی ڈی (مثلاً ILM-2026-000101) والا آفیشل سرٹیفکیٹ ملتا ہے جس کی تصدیق verify-certificate.html پر کی جا سکتی ہے۔
+- سٹوڈنٹ پورٹل: student-portal.html پر لاگ اِن کر کے ریکارڈنگز اور نوٹس دیکھیں۔
+
+ہمیشہ بااخلاق، پرخلوص اور محترم انداز میں تفصیلی تحریری جواب دیں اور متعلقہ لنکس فراہم کریں۔
   `;
 
   const fetchFn = typeof fetch !== 'undefined' ? fetch : (await import('node-fetch')).default;
 
-  // 1. Groq Cloud Flagship Global Standard Production AI Model (Llama-3.3-70b-Versatile)
+  // 1. Primary Engine: Google Gemini API with cascade fallback across active 2026 models
+  const geminiApiKey = process.env.GEMINI_API_KEY || "AQ.Ab8RN6IqC92Ul7xRRKQjV-Ymtlty7bsgAfOLnfms_mgzbLezQQ";
+  if (geminiApiKey) {
+    const geminiModels = ['gemini-3.5-flash', 'gemini-3.8-flash', 'gemini-3.7-flash', 'gemini-flash-latest', 'gemini-3.5-flash-lite'];
+    for (const model of geminiModels) {
+      try {
+        const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${geminiApiKey}`;
+        const geminiRes = await fetchFn(geminiUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            contents: [
+              {
+                role: 'user',
+                parts: [{ text: `${systemPrompt}\n\nصارف کا سوال:\n${message}` }]
+              }
+            ],
+            generationConfig: {
+              temperature: 0.6,
+              maxOutputTokens: 600
+            }
+          })
+        });
+
+        if (geminiRes.ok) {
+          const geminiData = await geminiRes.json();
+          const reply = geminiData.candidates?.[0]?.content?.parts?.[0]?.text;
+          if (reply && reply.trim()) {
+            return res.json({ success: true, reply: reply.trim(), source: `gemini-${model}` });
+          }
+        }
+      } catch (err) {
+        console.warn(`[Gemini API ${model} Error]:`, err.message);
+      }
+    }
+  }
+
+  // 2. Groq Cloud Fallback
   if (process.env.GROQ_API_KEY) {
     const groqModels = ['llama-3.3-70b-versatile', 'llama-3.1-8b-instant'];
     for (const model of groqModels) {
@@ -114,7 +221,7 @@ app.post('/api/chat', async (req, res) => {
           },
           body: JSON.stringify({
             model: model,
-            max_tokens: 450,
+            max_tokens: 500,
             messages: [
               { role: 'system', content: systemPrompt },
               { role: 'user', content: message }
@@ -133,7 +240,7 @@ app.post('/api/chat', async (req, res) => {
     }
   }
 
-  // 2. Try OpenRouter Free API (Free Models Access)
+  // 3. OpenRouter Fallback
   if (process.env.OPENROUTER_API_KEY) {
     try {
       const openRouterRes = await fetchFn('https://openrouter.ai/api/v1/chat/completions', {
@@ -160,45 +267,34 @@ app.post('/api/chat', async (req, res) => {
     }
   }
 
-  // 3. Try Google Gemini API
-  if (process.env.GEMINI_API_KEY) {
-    try {
-      const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${process.env.GEMINI_API_KEY}`;
-      const geminiRes = await fetchFn(geminiUrl, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          contents: [
-            { role: 'user', parts: [{ text: systemPrompt + '\nصارف کا سوال: ' + message }] }
-          ]
-        })
-      });
-
-      const geminiData = await geminiRes.json();
-      const reply = geminiData.candidates?.[0]?.content?.parts?.[0]?.text;
-      if (reply) {
-        return res.json({ success: true, reply, source: 'gemini-1.5-flash' });
-      }
-    } catch (err) {
-      console.warn('[Gemini API Warning]:', err.message);
-    }
-  }
-
-  // Session Memory Fallback Response Engine (Urdu)
+  // 4. Session Memory Fallback Response Engine
   const q = message.toLowerCase();
-  let reply = `السلام علیکم! 🌸<br>علم ٹیک پاکستان سے رابطہ کرنے کا شکریہ! میں <strong>ڈاکٹر شاہد اکرم مصطفائی</strong> بات کر رہا ہوں۔ آپ مجھ سے ہمارے تمام AI کورسز، فیس، داخلے کے طریقہ کار اور سرٹیفکیٹ کی تصدیق کے بارے میں کچھ بھی پوچھ سکتے ہیں۔`;
+  let reply = `السلام علیکم! 🌸<br>علمِ ٹیک پاکستان میں خوش آمدید! میں <strong>ڈاکٹر شاہد اکرم مصطفائی</strong> بات کر رہا ہوں۔ آپ ہمارے AI کورسز، فیس، آن لائن داخلہ، یا سرٹیفکیٹ تصدیق کے بارے میں کچھ بھی دریافت کر سکتے ہیں۔`;
 
-  if (q.includes('fee') || q.includes('cost') || q.includes('price') || q.includes('فیس')) {
-    reply = `ہمارے تمام آفیشل کورسز کی فیس <strong>3,999 روپے سے 14,999 PKR</strong> کے درمیان ہے، اور طلباء کی سہولت کے لیے آسان اقساط کا پلان بھی دستیاب ہے۔`;
-  } else if (q.includes('pay') || q.includes('jazzcash') || q.includes('easypaisa') || q.includes('bank') || q.includes('ادائیگی') || q.includes('پیسے')) {
-    reply = `آپ اپنی فیس اکاؤنٹ ہولڈر <strong>شاہد اکرم (Shahid Akram)</strong> کے نمبر <code>03206546008</code> (JazzCash / Easypaisa / SadaPay) یا میزان بینک میں جمع کروا کر پورٹل پر رسید اپلوڈ کر سکتے ہیں۔`;
-  } else if (q.includes('verify') || q.includes('certificate') || q.includes('سرٹیفکیٹ')) {
-    reply = `اپنا آفیشل سرٹیفکیٹ تصدیق کرنے کے لیے ہمارے <a href="verify-certificate.html" style="color:#046a38; font-weight:700;">سرٹیفکیٹ پورٹل</a> پر جا کر اپنا ویریفیکیشن کوڈ (مثلاً <code>ILM-2026-000101</code>) درج کریں۔`;
-  } else if (q.includes('course') || q.includes('کورس')) {
-    reply = `علم ٹیک پاکستان 6 بہترین کورسز پیش کرتا ہے:<br>1. بیسک AI کورس<br>2. AI ٹولز ماسٹری<br>3. بیسک کمپیوٹر کورس<br>4. AI سافٹ ویئر ڈویلپمنٹ<br>5. AI کنٹینٹ کریایشن<br>6. ٹریڈنگ کورس۔`;
+  if (q.includes('fee') || q.includes('cost') || q.includes('price') || q.includes('فیس') || q.includes('کتنی')) {
+    reply = `علمِ ٹیک پاکستان کے آفیشل کورسز کی فیس درج ذیل ہے:<br>
+• <strong>AI ٹولز ماسٹری (30 دن، 30 ٹولز):</strong> 2,999 PKR (خصوصی رعایت)<br>
+• <strong>بیسک AI کورس (4 ہفتے):</strong> 4,999 PKR<br>
+• <strong>بیسک کمپیوٹر کورس (6 ہفتے):</strong> 3,999 PKR<br>
+• <strong>AI کنٹینٹ کریایشن (5 ہفتے):</strong> 5,999 PKR<br>
+• <strong>ٹریڈنگ ایجوکیشن (6 ہفتے):</strong> 7,999 PKR<br>
+• <strong>AI سافٹ ویئر ڈویلپمنٹ (8 ہفتے):</strong> 11,999 PKR<br><br>
+مزید معلومات کے لیے <a href="courses.html" style="color:var(--primary-green); font-weight:700;">کورسز کا صفحہ</a> دیکھیں۔`;
+  } else if (q.includes('pay') || q.includes('jazzcash') || q.includes('easypaisa') || q.includes('sadapay') || q.includes('bank') || q.includes('ادائیگی') || q.includes('پیسے') || q.includes('اکاؤنٹ')) {
+    reply = `آفیشل فیس جمع کروانے کی تفصیلات:<br>
+• <strong>اکاؤنٹ ہولڈر:</strong> شاہد اکرم (Shahid Akram)<br>
+• <strong>JazzCash / Easypaisa / SadaPay:</strong> <code>03206546008</code><br>
+• <strong>میزان بینک IBAN:</strong> <code>PK36MEZN0001020304050607</code><br><br>
+فیس بھیجنے کے بعد اپنی رسید <a href="payments.html" style="color:var(--primary-green); font-weight:700;">فیس ادائیگی پورٹل</a> پر اپلوڈ کریں۔`;
+  } else if (q.includes('admission') || q.includes('apply') || q.includes('داخلہ')) {
+    reply = `اکتوبر 2026 کے نئے بیچ کے آن لائن داخلے کھلے ہیں! آپ <a href="admissions.html" style="color:var(--primary-green); font-weight:700;">آن لائن داخلہ فارم</a> پُر کر کے فوری ریفرنس واؤچر حاصل کر سکتے ہیں۔`;
+  } else if (q.includes('verify') || q.includes('certificate') || q.includes('سرٹیفکیٹ') || q.includes('تصدیق')) {
+    reply = `اپنا آفیشل سرٹیفکیٹ تصدیق کرنے کے لیے ہمارے <a href="verify-certificate.html" style="color:var(--primary-green); font-weight:700;">سرٹیفکیٹ ویریفیکیشن پورٹل</a> پر جائیں اور اپنا ویریفیکیشن کوڈ (مثلاً <code>ILM-2026-000101</code>) درج کریں۔`;
+  } else if (q.includes('contact') || q.includes('phone') || q.includes('whatsapp') || q.includes('نمبر') || q.includes('رابطہ')) {
+    reply = `آپ ہمارے آفیشل ہیلپ لائن اور واٹس ایپ نمبر <strong>+92 307 4958837</strong> (0307-4958837) پر رابطہ کر سکتے ہیں یا ای میل <strong>info@ilmetechpakistan.com</strong> بھیج سکتے ہیں۔`;
   }
 
-  return res.json({ success: true, reply, source: 'fallback-assistant-engine' });
+  return res.json({ success: true, reply, source: 'knowledge-assistant-engine' });
 });
 
 // ============================================================================

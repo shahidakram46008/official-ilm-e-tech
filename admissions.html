@@ -3,8 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Online Admission Application | Ilm E Tech Pakistan</title>
+  <title>Online Admission Form | علمِ ٹیک پاکستان</title>
+  <meta name="description" content="Apply online for upcoming batches at علمِ ٹیک پاکستان. Fill the admission form, select your course, and get your reference voucher instantly.">
+  <link rel="canonical" href="https://ilmetechpakistan.com/admissions.html">
+  <meta property="og:title" content="Online Admission Form | علمِ ٹیک پاکستان">
+  <meta property="og:description" content="Apply online for upcoming batches at علمِ ٹیک پاکستان. Fill the admission form and get your reference voucher instantly.">
+  <meta property="og:url" content="https://ilmetechpakistan.com/admissions.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://ilmetechpakistan.com/assets/images/logo.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Online Admission Form | علمِ ٹیک پاکستان">
+  <meta name="twitter:description" content="Apply online for upcoming batches at علمِ ٹیک پاکستان.">
   <link rel="icon" type="image/jpeg" href="assets/images/logo.jpg">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
@@ -14,27 +25,27 @@
   <header class="header-nav">
     <div class="container nav-container">
       <a href="index.html" class="brand-logo">
-        <img src="assets/images/logo.jpg" alt="Ilm E Tech Pakistan Logo">
+        <img src="assets/images/logo.jpg" alt="علمِ ٹیک پاکستان Logo">
         <div class="brand-text">
           <span class="brand-name">ILM E TECH PAKISTAN</span>
-          <span class="brand-subtitle" style="font-size:0.75rem; color:var(--tech-blue); font-weight:700;">Digital Education & AI Academy</span>
+          <span class="brand-subtitle" style="font-size:0.75rem; color:var(--tech-blue); font-weight:700;">Digital Education &amp; AI Academy</span>
         </div>
       </a>
-      <nav>
+      <nav aria-label="Main Navigation">
         <ul class="nav-menu">
           <li><a href="index.html" class="nav-link">Home</a></li>
           <li><a href="about.html" class="nav-link">About Us</a></li>
           <li><a href="courses.html" class="nav-link">Courses</a></li>
           <li><a href="e-services.html" class="nav-link">E-Services</a></li>
-          <li><a href="admissions.html" class="nav-link active">Admissions</a></li>
+          <li><a href="admissions.html" class="nav-link active" aria-current="page">Admissions</a></li>
           <li><a href="verify-certificate.html" class="nav-link">Certificate Verification</a></li>
           <li><a href="payments.html" class="nav-link">Payments</a></li>
           <li><a href="contact.html" class="nav-link">Contact</a></li>
         </ul>
       </nav>
       <div class="nav-actions">
-        <button class="lang-switcher btn btn-sm btn-outline-blue"><i class="fas fa-globe"></i> </button>
-        <a href="student-portal.html" class="btn btn-outline-blue btn-sm" data-en='<i class="fas fa-user"></i> Portal' data-ur='<i class="fas fa-user"></i>  '><i class="fas fa-user"></i> Portal</a>
+        <button class="lang-switcher btn btn-sm btn-outline-blue" aria-label="Switch Language"><i class="fas fa-globe"></i> </button>
+        <a href="student-portal.html" class="btn btn-outline-blue btn-sm" data-en='<i class="fas fa-user"></i> Portal' data-ur='<i class="fas fa-user"></i> پورٹل'><i class="fas fa-user"></i> Portal</a>
       </div>
     </div>
   </header>
@@ -44,7 +55,7 @@
     <div class="container">
       <span class="section-tag" style="background:rgba(255,255,255,0.15); color:#6ee7b7;">ONLINE ADMISSION PORTAL</span>
       <h1 style="font-size:2.5rem; font-weight:900; margin:0.4rem 0;">Online Student Admission Form</h1>
-      <p style="color:#cbd5e1; max-width:650px; margin:0.5rem auto 0;">Fill out the form below to apply for upcoming batches. Generate your official reference voucher instantly.</p>
+      <p style="color:#cbd5e1; max-width:650px; margin:0.5rem auto 0;">Fill out the form below to apply for upcoming batches at <strong>علمِ ٹیک پاکستان</strong>. Generate your official reference voucher instantly.</p>
     </div>
   </section>
 
@@ -55,54 +66,54 @@
       <div id="admissionResult" style="display: none;"></div>
 
       <form id="admissionForm" class="card nasa-card" style="background:#ffffff; border:1px solid var(--border-light); border-radius:1rem; padding:2.5rem; box-shadow:var(--shadow-xl);">
-        <h3 style="font-size:1.4rem; font-weight:800; color:var(--primary-green); margin-bottom:1rem; border-bottom:2px solid var(--emerald-light); padding-bottom:0.75rem;">
-          <i class="fas fa-user-edit"></i> 1. Personal & Contact Information
-        </h3>
+        <h2 style="font-size:1.4rem; font-weight:800; color:var(--primary-green); margin-bottom:1rem; border-bottom:2px solid var(--emerald-light); padding-bottom:0.75rem;">
+          <i class="fas fa-user-edit"></i> 1. Personal &amp; Contact Information
+        </h2>
 
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.25rem;">
           <div class="form-group">
-            <label class="form-label">Full Name <span class="required">*</span></label>
-            <input type="text" name="fullName" class="form-control" placeholder="e.g. Muhammad Usama" required>
+            <label class="form-label" for="adm-fullName">Full Name <span class="required">*</span></label>
+            <input type="text" id="adm-fullName" name="fullName" class="form-control" placeholder="e.g. Muhammad Usama" required aria-required="true">
           </div>
           <div class="form-group">
-            <label class="form-label">Father's / Guardian's Name <span class="required">*</span></label>
-            <input type="text" name="fatherName" class="form-control" placeholder="e.g. Tariq Mahmood" required>
+            <label class="form-label" for="adm-fatherName">Father's / Guardian's Name <span class="required">*</span></label>
+            <input type="text" id="adm-fatherName" name="fatherName" class="form-control" placeholder="e.g. Tariq Mahmood" required aria-required="true">
           </div>
           <div class="form-group">
-            <label class="form-label">CNIC / B-Form Number</label>
-            <input type="text" name="cnic" class="form-control" placeholder="e.g. 35202-1234567-1">
+            <label class="form-label" for="adm-cnic">CNIC / B-Form Number</label>
+            <input type="text" id="adm-cnic" name="cnic" class="form-control" placeholder="e.g. 35202-1234567-1">
           </div>
           <div class="form-group">
-            <label class="form-label">Date of Birth</label>
-            <input type="date" name="dob" class="form-control">
+            <label class="form-label" for="adm-dob">Date of Birth</label>
+            <input type="date" id="adm-dob" name="dob" class="form-control">
           </div>
           <div class="form-group">
-            <label class="form-label">Gender <span class="required">*</span></label>
-            <select name="gender" class="form-control form-select" required>
+            <label class="form-label" for="adm-gender">Gender <span class="required">*</span></label>
+            <select id="adm-gender" name="gender" class="form-control form-select" required aria-required="true">
               <option value="Male">Male</option>
               <option value="Female">Female</option>
               <option value="Other">Other</option>
             </select>
           </div>
           <div class="form-group">
-            <label class="form-label">Mobile Phone <span class="required">*</span></label>
-            <input type="tel" name="phone" class="form-control" placeholder="0300-1234567" required>
+            <label class="form-label" for="adm-phone">Mobile Phone <span class="required">*</span></label>
+            <input type="tel" id="adm-phone" name="phone" class="form-control" placeholder="0300-1234567" required aria-required="true">
           </div>
           <div class="form-group">
-            <label class="form-label">WhatsApp Number <span class="required">*</span></label>
-            <input type="tel" name="whatsapp" class="form-control" placeholder="0300-1234567" required>
+            <label class="form-label" for="adm-whatsapp">WhatsApp Number <span class="required">*</span></label>
+            <input type="tel" id="adm-whatsapp" name="whatsapp" class="form-control" placeholder="0300-1234567" required aria-required="true">
           </div>
           <div class="form-group">
-            <label class="form-label">Email Address <span class="required">*</span></label>
-            <input type="email" name="email" class="form-control" placeholder="student@example.com" required>
+            <label class="form-label" for="adm-email">Email Address <span class="required">*</span></label>
+            <input type="email" id="adm-email" name="email" class="form-control" placeholder="student@example.com" required aria-required="true">
           </div>
           <div class="form-group">
-            <label class="form-label">City <span class="required">*</span></label>
-            <input type="text" name="city" class="form-control" placeholder="e.g. Lahore, Karachi, Rawalpindi" required>
+            <label class="form-label" for="adm-city">City <span class="required">*</span></label>
+            <input type="text" id="adm-city" name="city" class="form-control" placeholder="e.g. Lahore, Karachi, Rawalpindi" required aria-required="true">
           </div>
           <div class="form-group">
-            <label class="form-label">Highest Education</label>
-            <select name="education" class="form-control form-select">
+            <label class="form-label" for="adm-education">Highest Education</label>
+            <select id="adm-education" name="education" class="form-control form-select">
               <option value="Matric">Matric / O-Levels</option>
               <option value="Intermediate">Intermediate / A-Levels</option>
               <option value="Bachelors">Bachelors Degree</option>
@@ -112,15 +123,14 @@
           </div>
         </div>
 
-        <h3 style="font-size:1.4rem; font-weight:800; color:var(--primary-green); margin:2rem 0 0.2rem; border-bottom:2px solid var(--emerald-light); padding-bottom:0.75rem;">
-          <i class="fas fa-graduation-cap"></i> 2. Course Selection & Preferences
-        </h3>
-        
+        <h2 style="font-size:1.4rem; font-weight:800; color:var(--primary-green); margin:2rem 0 0.2rem; border-bottom:2px solid var(--emerald-light); padding-bottom:0.75rem;">
+          <i class="fas fa-graduation-cap"></i> 2. Course Selection &amp; Preferences
+        </h2>
 
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.25rem;">
           <div class="form-group" style="grid-column: 1 / -1;">
-            <label class="form-label">Select Course <span class="required">*</span></label>
-            <select name="courseId" id="admissionCourseSelect" class="form-control form-select" required>
+            <label class="form-label" for="admissionCourseSelect">Select Course <span class="required">*</span></label>
+            <select name="courseId" id="admissionCourseSelect" class="form-control form-select" required aria-required="true">
               <option value="basic-ai">Basic AI Course (Rs. 4,999 PKR)</option>
               <option value="ai-tools-mastery">AI Tools Mastery (Rs. 6,999 PKR)</option>
               <option value="basic-computer">Basic Computer Course (Rs. 3,999 PKR)</option>
@@ -131,8 +141,8 @@
           </div>
 
           <div class="form-group">
-            <label class="form-label">Preferred Class Format <span class="required">*</span></label>
-            <select name="preferredMode" class="form-control form-select" required>
+            <label class="form-label" for="adm-preferredMode">Preferred Class Format <span class="required">*</span></label>
+            <select id="adm-preferredMode" name="preferredMode" class="form-control form-select" required aria-required="true">
               <option value="Online Live Interactive">Online Live Interactive</option>
               <option value="Online Recorded Portal">Online Recorded Portal</option>
               <option value="Physical Campus">Physical Campus (Where Available)</option>
@@ -140,8 +150,8 @@
           </div>
 
           <div class="form-group">
-            <label class="form-label">How did you hear about us?</label>
-            <select name="source" class="form-control form-select">
+            <label class="form-label" for="adm-source">How did you hear about us?</label>
+            <select id="adm-source" name="source" class="form-control form-select">
               <option value="Social Media">Facebook / Instagram / TikTok</option>
               <option value="YouTube">YouTube</option>
               <option value="Friend/Family">Friend or Family Recommendation</option>
@@ -150,8 +160,8 @@
           </div>
 
           <div class="form-group" style="grid-column: 1 / -1;">
-            <label class="form-label">Upload CNIC / Student ID Document (PDF, JPG, PNG - Max 5MB)</label>
-            <input type="file" name="cnicDoc" class="form-control" accept="image/*,application/pdf" onchange="if(this.files[0] && this.files[0].size > 5242880){ window.showToast('File size exceeds 5MB limit', 'error'); this.value=''; }">
+            <label class="form-label" for="adm-cnicDoc">Upload CNIC / Student ID Document (PDF, JPG, PNG - Max 5MB)</label>
+            <input type="file" id="adm-cnicDoc" name="cnicDoc" class="form-control" accept="image/*,application/pdf" onchange="if(this.files[0] && this.files[0].size > 5242880){ window.showToast('File size exceeds 5MB limit', 'error'); this.value=''; }">
           </div>
         </div>
 
@@ -167,7 +177,7 @@
   <footer class="site-footer">
     <div class="container">
       <div class="footer-bottom">
-        <div>© 2026 <strong>Ilm E Tech Pakistan</strong>. Official Domain: <code>ilmetechpakistan.com</code></div>
+        <div>© 2026 <strong>علمِ ٹیک پاکستان</strong> (ILM E TECH PAKISTAN). Official Domain: <code>ilmetechpakistan.com</code></div>
         <div style="display:flex; gap:1rem;"><a href="privacy-policy.html">Privacy</a> <a href="terms.html">Terms</a></div>
       </div>
     </div>
@@ -188,4 +198,3 @@
   </script>
 </body>
 </html>
-

@@ -1,9 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Student Learning Portal | Ilm E Tech Pakistan</title>
+  <meta name="description" content="Student Portal for Ilm E Tech Pakistan. View enrolled AI courses, check payment status, access lectures, and download certificates.">
+  <link rel="canonical" href="https://ilmetechpakistan.com/student-portal.html">
   <link rel="icon" type="image/jpeg" href="assets/images/logo.jpg">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="assets/css/styles.css">
@@ -137,7 +139,7 @@
         <!-- Sidebar Tools -->
         <div>
           <div class="card" style="background:#ffffff; border:1px solid var(--border-light); border-radius:1rem; padding:1.5rem; margin-bottom:1.5rem; box-shadow:var(--shadow-sm);">
-            <h4 style="font-size:1.1rem; font-weight:800; color:var(--text-dark); margin-bottom:1rem;"><i class="fas fa-download"></i> Student Download Center</h4>
+            <h3 style="font-size:1.1rem; font-weight:800; color:var(--text-dark); margin-bottom:1rem;"><i class="fas fa-download"></i> Student Download Center</h3>
             <ul style="list-style:none; display:flex; flex-direction:column; gap:0.75rem;">
               <li><a href="downloads.html" style="color:var(--primary-green); text-decoration:none; font-weight:600; font-size:0.9rem;"><i class="fas fa-file-pdf"></i> Basic AI Course Prompt Cheat Sheet</a></li>
               <li><a href="downloads.html" style="color:var(--primary-green); text-decoration:none; font-weight:600; font-size:0.9rem;"><i class="fas fa-file-alt"></i> Software Dev Setup Guide</a></li>
@@ -146,9 +148,9 @@
           </div>
 
           <div class="card" style="background:#ffffff; border:1px solid var(--border-light); border-radius:1rem; padding:1.5rem; box-shadow:var(--shadow-sm);">
-            <h4 style="font-size:1.1rem; font-weight:800; color:var(--text-dark); margin-bottom:0.75rem;"><i class="fas fa-headset"></i> Need Academic Help?</h4>
+            <h3 style="font-size:1.1rem; font-weight:800; color:var(--text-dark); margin-bottom:0.75rem;"><i class="fas fa-headset"></i> Need Academic Help?</h3>
             <p style="font-size:0.875rem; color:var(--text-muted); margin-bottom:1rem;">Contact Founder & CEO Dr. Shahid Akram Mustafai support helpline directly.</p>
-            <a href="https://wa.me/923074958837" target="_blank" class="btn btn-primary btn-sm" style="width:100%;"><i class="fab fa-whatsapp"></i> WhatsApp Helpline 0307-4958837</a>
+            <a href="https://wa.me/923074958837" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" style="width:100%;"><i class="fab fa-whatsapp"></i> WhatsApp Helpline 0307-4958837</a>
           </div>
         </div>
 
@@ -163,23 +165,23 @@
     <div class="modal-dialog">
       <div class="modal-header">
         <h3 class="modal-title">Resubmit Updated Payment Proof</h3>
-        <button class="modal-close" onclick="closeResubmitModal()"><i class="fas fa-times"></i></button>
+        <button class="modal-close" onclick="closeResubmitModal()" aria-label="Close Resubmit Modal"><i class="fas fa-times"></i></button>
       </div>
       <div class="modal-body">
         <form onsubmit="handleResubmitProof(event)">
           <div class="form-group">
-            <label class="form-label">Payment ID</label>
-            <input type="text" id="resubmitPayId" class="form-control" readonly style="background:#f1f5f9;">
+            <label for="resubmitPayId" class="form-label">Payment ID</label>
+            <input type="text" id="resubmitPayId" class="form-control" readonly style="background:#f1f5f9;" aria-label="Payment ID">
           </div>
           <div class="form-group">
-            <label class="form-label">Transaction TRX ID <span class="required">*</span></label>
-            <input type="text" id="resubmitTrxId" class="form-control" placeholder="Enter corrected TRX ID" required>
+            <label for="resubmitTrxId" class="form-label">Transaction TRX ID <span class="required">*</span></label>
+            <input type="text" id="resubmitTrxId" class="form-control" placeholder="Enter corrected TRX ID" aria-label="Transaction TRX ID" required>
           </div>
           <div class="form-group">
-            <label class="form-label">Upload Clear Payment Screenshot <span class="required">*</span></label>
-            <input type="file" class="form-control" accept="image/*,.pdf">
+            <label for="resubmitFileInput" class="form-label">Upload Clear Payment Screenshot <span class="required">*</span></label>
+            <input type="file" id="resubmitFileInput" class="form-control" accept="image/*,.pdf" aria-label="Upload Clear Payment Screenshot">
           </div>
-          <button type="submit" class="btn btn-primary" style="width:100%;"><i class="fas fa-upload"></i> Resubmit Proof for Verification</button>
+          <button type="submit" class="btn btn-primary" aria-label="Resubmit Proof for Verification" style="width:100%;"><i class="fas fa-upload"></i> Resubmit Proof for Verification</button>
         </form>
       </div>
     </div>

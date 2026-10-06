@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Secure Admin Dashboard CMS & Payment Verification Engine
  * Ilm E Tech Pakistan (ilmetechpakistan.com)
  */
@@ -353,7 +353,7 @@ window.openPaymentVerificationModal = function(payId) {
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
               <h4 style="font-size:1.1rem; font-weight:800; color:var(--text-dark); margin:0;"><i class="fas fa-file-image"></i> Uploaded Payment Screenshot Proof</h4>
               <div>
-                <a href="${pay.receiptUrl || 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80'}" target="_blank" class="btn btn-outline btn-sm"><i class="fas fa-external-link-alt"></i> Open Full Image</a>
+                <a href="${pay.receiptUrl || 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80'}" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm"><i class="fas fa-external-link-alt"></i> Open Full Image</a>
               </div>
             </div>
 
@@ -477,7 +477,7 @@ function renderCertificatesTable() {
       <td>${c.issueDate}</td>
       <td><span class="badge" style="background:#dbeafe; color:#1e40af; padding:0.25rem 0.6rem; border-radius:0.25rem; font-weight:700;">${c.grade}</span></td>
       <td>
-        <a href="verify-certificate.html?id=${c.id}" target="_blank" class="btn btn-outline-blue btn-sm"><i class="fas fa-external-link-alt"></i> Verify View</a>
+        <a href="verify-certificate.html?id=${c.id}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-blue btn-sm"><i class="fas fa-external-link-alt"></i> Verify View</a>
       </td>
     </tr>
   `).join('');

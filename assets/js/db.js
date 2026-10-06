@@ -16,13 +16,14 @@ const DB_KEYS = {
   DOWNLOADS: 'ilmetech_downloads',
   ANNOUNCEMENTS: 'ilmetech_announcements',
   USERS: 'ilmetech_users',
-  SESSION: 'ilmetech_session'
+  SESSION: 'ilmetech_session',
+  TRIAL_LEADS: 'ilmetech_trial_leads'
 };
 
 // Initial Default Seed Data
 const DEFAULT_SETTINGS = {
   brandName: "Ilm E Tech Pakistan",
-  urduName: "علم ٹیک پاکستان",
+  urduName: "علمِ ٹیک پاکستان",
   founderName: "Dr. Shahid Akram Mustafai",
   urduFounderName: "ڈاکٹر شاہد اکرم مصطفائی",
   founderTitle: "Founder & CEO",
@@ -92,36 +93,109 @@ const DEFAULT_COURSES = [
   },
   {
     id: "ai-tools-mastery",
-    title: "AI Tools Mastery",
-    urduTitle: "AI ٹولز ماسٹری",
-    category: "AI Productivity",
+    title: "AI Tools Mastery (30 Days, 30 Tools, Infinite Possibilities)",
+    urduTitle: "AI ٹولز ماسٹری (30 دن، 30 ٹولز، لا محدود امکانات)",
+    category: "AI Productivity & Skills",
     slug: "ai-tools-mastery",
-    shortDesc: "Master 25+ cutting-edge AI tools for writing, graphic design, video editing, voice cloning, automation, and digital marketing.",
-    fullDesc: "Stay ahead in the fast-evolving digital market. Learn how to leverage modern AI tools to boost your daily productivity by 10x, automate repetitive business operations, create stunning marketing assets, and offer high-paying freelance services on Fiverr and Upwork.",
-    duration: "6 Weeks (24 Hours)",
-    level: "Intermediate",
-    fee: 6999,
-    mode: "Online Live",
-    startDate: "20th October 2026",
-    instructor: "Sarah Ahmed (Digital Product Manager)",
+    shortDesc: "30 Days, 30 Tools, Infinite Possibilities. Practical live training on ChatGPT, Gemini, Claude, InVideo, ElevenLabs, Runway & more with live Q&A.",
+    fullDesc: "Unlock Your Future with AI: 30 Days, 30 Tools, Infinite Possibilities. Join 100,000+ Learners on a Practical AI Journey. Delivered via Google Meet & YouTube Live with daily interactive live Q&A sessions. Every Class: Learn ➔ Create Now ➔ Apply in Life ➔ Earn.",
+    duration: "30 Days (Daily Live + Q&A)",
+    level: "Beginner Friendly (No Tech Background Needed)",
+    fee: 2999,
+    originalFee: 9999,
+    mode: "Google Meet & YouTube Live (Daily Live + Interactive Q&A)",
+    startDate: "Batch Starting Soon",
+    instructor: "Dr. Shahid Akram Mustafai & Certified AI Specialists",
     status: "Active",
-    badge: "Career Growth",
+    badge: "Trending 30-Day Cohort",
     image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
     outcomes: [
-      "Master 25+ essential AI productivity and creative tools",
-      "Create high-converting social media videos using AI avatars",
-      "Clone realistic AI voices and generate professional voiceovers",
-      "Automate social media scheduling and digital marketing campaigns",
-      "Monetize AI skills on freelance platforms (Fiverr, Upwork)"
+      "Master 30 industry-leading AI tools across text, research, design, video, audio, and coding",
+      "Produce immediate real-world outputs in every single class (Learn ➔ Create Now ➔ Apply in Life ➔ Earn)",
+      "Create high-converting AI videos, talking avatars, and viral reels",
+      "Automate research, documentation, presentations, and social media with AI",
+      "Build a verified portfolio and earn an official verifiable certificate"
+    ],
+    methodology: {
+      motto: "Every Class: Learn ➔ Create Now ➔ Apply in Life ➔ Earn",
+      urduMotto: "ہر کلاس: سیکھیں ➔ ابھی بنائیں ➔ زندگی میں لاگو کریں ➔ کمائیں",
+      pillars: [
+        { title: "Mobile-First Delivery", urduTitle: "موبائل فرسٹ کلاسز", desc: "Access all live sessions, tools, and assignments smoothly directly from your smartphone or laptop." },
+        { title: "Beginner Friendly", urduTitle: "ابتدائی طلباء کے لیے آسان", desc: "No coding, math, or prior tech background required. Step-by-step guidance in everyday language." },
+        { title: "Immediate Results", urduTitle: "فوری عملی نتائج", desc: "Walk away from each session with an actual finished project, video, document, or graphic." }
+      ]
+    },
+    modules: [
+      {
+        part: 1,
+        title: "Part 1: AI Assistants (Days 1-7)",
+        urduTitle: "حصہ اول: بنیادی اے آئی اسسٹنٹس (دن 1 تا 7)",
+        days: "Days 1 - 7",
+        tools: ["ChatGPT", "Gemini", "Meta AI", "Microsoft Copilot", "Claude", "DeepSeek"],
+        focus: "بنیادی اے آئی اسسٹنٹس کا تعارف اور روزمرہ کے کاموں میں استعمال۔",
+        focusEn: "Introduction to foundational AI assistants and everyday practical productivity workflows."
+      },
+      {
+        part: 2,
+        title: "Part 2: AI for Learning & Knowledge (Days 8-12)",
+        urduTitle: "حصہ دوم: تعلیمی مواد اور ریسرچ (دن 8 تا 12)",
+        days: "Days 8 - 12",
+        tools: ["NotebookLM", "Qwen", "Grok", "Khanmigo", "Gamma"],
+        focus: "تعلیمی مواد، ریسرچ، نوٹس اور پریزنٹیشنز بنانے کے جدید طریقے.",
+        focusEn: "Modern methods for educational materials, academic research, smart notes, and automated presentations."
+      },
+      {
+        part: 3,
+        title: "Part 3: AI Design & Content (Days 13-15)",
+        urduTitle: "حصہ سوم: اے آئی ڈیزائن اور مواد (دن 13 تا 15)",
+        days: "Days 13 - 15",
+        tools: ["Canva AI", "Microsoft Designer", "CapCut AI"],
+        focus: "گرافک ڈیزائننگ اور سوشل میڈیا مواد کی تیاری۔",
+        focusEn: "Graphic design, brand visuals, posters, and social media content creation."
+      },
+      {
+        part: 4,
+        title: "Part 4: AI Video Creation (Days 16-20)",
+        urduTitle: "حصہ چہارم: اے آئی ویڈیو جنریشن (دن 16 تا 20)",
+        days: "Days 16 - 20",
+        tools: ["InVideo AI", "Kling AI", "Runway", "Google Flow/Veo", "HeyGen"],
+        focus: "آرٹیفیشل انٹیلی جنس کی مدد سے ویڈیوز بنانا اور ایڈیٹنگ کرنا۔",
+        focusEn: "Cinematic video generation, AI avatars, automated scripts, and video editing."
+      },
+      {
+        part: 5,
+        title: "Part 5: AI Voice & Creative (Days 21-24)",
+        urduTitle: "حصہ پنجم: آواز، موسیقی اور جدید تصاویر (دن 21 تا 24)",
+        days: "Days 21 - 24",
+        tools: ["ElevenLabs", "Suno", "Ideogram", "Leonardo AI"],
+        focus: "اے آئی وائس اوور، موسیقی (Suno) اور ایڈوانس امیج جنریشن (Ideogram, Leonardo)۔",
+        focusEn: "Ultra-realistic voice cloning, AI music composition (Suno), and advanced image synthesis."
+      },
+      {
+        part: 6,
+        title: "Part 6: Professional AI & Consolidation (Days 25-30)",
+        urduTitle: "حصہ ششم: پروفیشنل اے آئی اور تکمیل (دن 25 تا 30)",
+        days: "Days 25 - 30",
+        tools: ["Google AI Studio", "Mistral/Le Chat", "Poe", "Google Gemini Deep Research", "Canva Magic Studio", "Google AI Studio (App Intro)"],
+        focus: "پروفیشنل لیول پر اے آئی کا استعمال اور پروجیکٹ کی تکمیل۔",
+        focusEn: "Professional-grade AI workflows, deep research, prompt engineering, and capstone project completion."
+      }
     ],
     syllabus: [
-      { week: 1, topic: "AI Writing & Copywriting Tools", detail: "Copy.ai, Jasper, Notion AI, Perplexity AI for deep market research." },
-      { week: 2, topic: "AI Design & Visual Generation", detail: "Leonardo.ai, Photoshop AI Generative Fill, Ideogram." },
-      { week: 3, topic: "AI Video & Avatar Creation", detail: "HeyGen, ElevenLabs voice cloning, CapCut AI script-to-video." },
-      { week: 4, topic: "AI Automation & No-Code Agents", detail: "Zapier, Make.com, Custom GPT creation for customer support." }
+      { week: 1, topic: "Part 1: AI Assistants (Days 1-7)", detail: "ChatGPT, Gemini, Meta AI, Copilot, Claude, DeepSeek - Foundational assistants & daily productivity." },
+      { week: 2, topic: "Part 2: AI for Learning & Knowledge (Days 8-12)", detail: "NotebookLM, Qwen, Grok, Khanmigo, Gamma - Smart research, notes, and presentations." },
+      { week: 3, topic: "Part 3 & 4: AI Design & Video Creation (Days 13-20)", detail: "Canva AI, Microsoft Designer, CapCut AI, InVideo, Kling AI, Runway, Veo, HeyGen - Visuals & Video creation." },
+      { week: 4, topic: "Part 5 & 6: AI Voice, Creative & Professional AI (Days 21-30)", detail: "ElevenLabs, Suno, Ideogram, Leonardo AI, Google AI Studio, Gemini Deep Research - Music, Voice & Capstone." }
     ],
-    tools: ["Perplexity", "Leonardo AI", "ElevenLabs", "HeyGen", "Notion AI", "CapCut AI"],
-    certificateInfo: "Includes Verified Certificate of Completion."
+    tools: [
+      "ChatGPT", "Gemini", "Meta AI", "Microsoft Copilot", "Claude", "DeepSeek",
+      "NotebookLM", "Qwen", "Grok", "Khanmigo", "Gamma",
+      "Canva AI", "Microsoft Designer", "CapCut AI",
+      "InVideo AI", "Kling AI", "Runway", "Google Flow/Veo", "HeyGen",
+      "ElevenLabs", "Suno", "Ideogram", "Leonardo AI",
+      "Google AI Studio", "Mistral/Le Chat", "Poe", "Google Gemini Deep Research", "Canva Magic Studio"
+    ],
+    certificateInfo: "Includes Official Verification ID & Downloadable PDF Certificate signed by Founder & CEO Dr. Shahid Akram Mustafai."
   },
   {
     id: "basic-computer",
