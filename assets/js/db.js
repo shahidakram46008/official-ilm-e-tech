@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Centralized Data Store & LocalStorage CMS Database
  * ILM E TECH PAKISTAN (ilmetechpakistan.com)
  * Includes Complete Payment Verification & Audit System
@@ -64,56 +64,63 @@ const DEFAULT_COURSES = [
     urduTitle: "بیسک AI کورس",
     category: "Artificial Intelligence",
     slug: "basic-ai-course",
-    shortDesc: "A complete beginner-friendly course on Artificial Intelligence, Generative AI, prompt engineering, and everyday practical productivity.",
-    fullDesc: "This course is specially designed for Pakistani students, beginners, job seekers, and entrepreneurs with no prior technical background. You will learn fundamental AI concepts, ChatGPT, Claude, Gemini, prompt engineering, AI for writing, research, presentation building, image generation, and everyday productivity workflows.",
-    duration: "4 Weeks (16 Hours)",
+    shortDesc: "A complete beginner-friendly course covering fundamental AI concepts (AI Basics), prompt engineering, ChatGPT, Claude, and everyday practical productivity tools.",
+    fullDesc: "This 1-week intensive foundation course is specially designed to teach essential AI basics and fundamental concepts for Pakistani students, beginners, job seekers, and entrepreneurs with no technical background. You will learn fundamental AI concepts (AI Basics), ChatGPT, Claude, Gemini, prompt engineering, AI for writing, research, presentation building, and practical everyday workflows with 100% free access.",
+    duration: "1 Week (7 Days)",
     level: "Beginner",
-    fee: 4999,
+    fee: 0,
+    originalFee: 4999,
+    isFree: true,
+    freeLabel: "100% FREE",
+    badge: "Free Access",
+    badgeType: "free",
+    actionBtnText: "Enroll 100% Free",
     mode: "Online Live & Recorded",
     startDate: "15th October 2026",
     instructor: "Dr. Shahid Akram Mustafai & Team",
     status: "Active",
-    badge: "Most Popular",
     image: "https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=800&q=80",
     outcomes: [
+      "Master Core AI Basics & Foundational Concepts",
       "Master Prompt Engineering for ChatGPT, Gemini, and Claude",
       "Generate AI images, graphics, and presentations effortlessly",
       "Automate research, email drafting, and document summary tasks",
-      "Build practical AI workflows for studies, jobs, or business",
-      "Understand Responsible AI principles and ethical guidelines"
+      "Build practical AI productivity workflows for studies & jobs"
     ],
     syllabus: [
-      { week: 1, topic: "Introduction to AI & Large Language Models", detail: "What is AI, how LLMs work, setting up accounts, basic prompts." },
-      { week: 2, topic: "Advanced Prompt Engineering & Writing", detail: "Structuring prompts, role-play prompting, content writing & proofreading." },
-      { week: 3, topic: "AI Visual & Media Generation", detail: "Midjourney, DALL-E 3, Canva Magic, Gamma App for instant presentations." },
-      { week: 4, topic: "Practical AI Workflows & Automation", detail: "AI for Pakistani job seekers, CV writing, interview preparation & business tasks." }
+      { week: 1, topic: "Complete AI Basics & LLM Foundations (Day 1 - 7)", detail: "What is AI, AI basics, how LLMs work, setting up accounts, prompt engineering, content generation, and practical productivity workflows." }
     ],
-    tools: ["ChatGPT", "Google Gemini", "Claude AI", "Canva Magic Studio", "Gamma.app", "Midjourney"],
+    tools: ["ChatGPT", "Google Gemini", "Claude AI", "Canva Magic Studio", "Gamma.app"],
     certificateInfo: "Includes Official Verification ID & Downloadable PDF Certificate signed by Founder & CEO Dr. Shahid Akram Mustafai."
   },
   {
     id: "ai-tools-mastery",
-    title: "AI Tools Mastery (30 Days, 30 Tools, Infinite Possibilities)",
-    urduTitle: "AI ٹولز ماسٹری (30 دن، 30 ٹولز، لا محدود امکانات)",
+    title: "AI Tools Mastery",
+    urduTitle: "AI ٹولز ماسٹری",
     category: "AI Productivity & Skills",
     slug: "ai-tools-mastery",
-    shortDesc: "30 Days, 30 Tools, Infinite Possibilities. Practical live training on ChatGPT, Gemini, Claude, InVideo, ElevenLabs, Runway & more with live Q&A.",
-    fullDesc: "Unlock Your Future with AI: 30 Days, 30 Tools, Infinite Possibilities. Join 100,000+ Learners on a Practical AI Journey. Delivered via Google Meet & YouTube Live with daily interactive live Q&A sessions. Every Class: Learn ➔ Create Now ➔ Apply in Life ➔ Earn.",
+    shortDesc: "Master 25+ cutting-edge AI tools for writing, graphic design, video editing, voice cloning, automation, and digital marketing.",
+    fullDesc: "Unlock Your Future with AI: 30 Days, 30 Tools, Infinite Possibilities. Join 100,000+ Learners on a Practical AI Journey. Delivered via Google Meet & YouTube Live with daily interactive live Q&A sessions. Every Class: Learn ➔ Create Now ➔ Apply in Life ➔ Earn. 100% FREE for First Batch Launch!",
     duration: "30 Days (Daily Live + Q&A)",
-    level: "Beginner Friendly (No Tech Background Needed)",
-    fee: 2999,
-    originalFee: 9999,
+    level: "Beginner Friendly",
+    fee: 0,
+    originalFee: 10000,
+    isFree: true,
+    freeLabel: "FREE (October Launch Offer)",
+    freeSubLabel: "100% FREE for First Batch",
+    badge: "Launch Offer - Free",
+    badgeType: "free-launch",
+    actionBtnText: "Join Free Batch",
     mode: "Google Meet & YouTube Live (Daily Live + Interactive Q&A)",
     startDate: "Batch Starting Soon",
     instructor: "Dr. Shahid Akram Mustafai & Certified AI Specialists",
     status: "Active",
-    badge: "Trending 30-Day Cohort",
     image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
     outcomes: [
-      "Master 30 industry-leading AI tools across text, research, design, video, audio, and coding",
-      "Produce immediate real-world outputs in every single class (Learn ➔ Create Now ➔ Apply in Life ➔ Earn)",
-      "Create high-converting AI videos, talking avatars, and viral reels",
-      "Automate research, documentation, presentations, and social media with AI",
+      "Master 25+ essential AI productivity and creative tools",
+      "Create high-converting social media videos using AI avatars",
+      "Clone realistic AI voices and generate professional voiceovers",
+      "Automate research, documentation, presentations, and marketing with AI",
       "Build a verified portfolio and earn an official verifiable certificate"
     ],
     methodology: {
@@ -207,12 +214,17 @@ const DEFAULT_COURSES = [
     fullDesc: "Designed from the ground up for absolute beginners, students, office clerks, and non-tech background individuals. Build confidence operating computers, managing files, typing fast, composing emails, working on Word documents, Excel spreadsheets, PowerPoint presentations, and navigating government/job portals.",
     duration: "6 Weeks (30 Hours)",
     level: "Beginner",
-    fee: 3999,
+    fee: 3000,
+    originalFee: 15000,
+    discountPercent: 80,
+    discountLabel: "80% OFF - Limited Time",
+    badge: "80% OFF - Limited Time",
+    badgeType: "discount",
+    actionBtnText: "Apply Now",
     mode: "Online & Physical Campus",
     startDate: "10th October 2026",
     instructor: "Tariq Mahmood (Senior IT Instructor)",
     status: "Active",
-    badge: "Foundation",
     image: "https://images.unsplash.com/photo-1587614382346-4ec70e388b28?auto=format&fit=crop&w=800&q=80",
     outcomes: [
       "Confidently operate Windows 10/11 operating system",
@@ -237,15 +249,19 @@ const DEFAULT_COURSES = [
     category: "Software Development",
     slug: "ai-software-development",
     shortDesc: "Learn practical AI-assisted coding, Web Apps, Chrome Extensions, Mobile Apps, Google AI Studio, Gemini API, and deployment.",
-    fullDesc: "An advanced practical course teaching modern prompt-driven development. Learn how to build full-stack web applications, SaaS tools, Chrome extensions, and Android apps using AI coding assistants like Antigravity, GitHub Copilot, Cursor, Google AI Studio, Vercel, and modern Web frameworks.",
-    duration: "8 Weeks (40 Hours)",
+    fullDesc: "An advanced practical course teaching modern prompt-driven development. Learn how to build full-stack web applications, SaaS tools, Chrome extensions, and Android apps using AI coding assistants like Antigravity, GitHub Copilot, Cursor, Google AI Studio, Vercel, and modern Web frameworks. Enjoy the First 7 Days Free Demo Class before fee confirmation!",
+    duration: "6 Weeks (1.5 Months)",
     level: "Intermediate to Advanced",
-    fee: 11999,
+    fee: 15000,
+    originalFee: null,
+    demoOffer: "First 7 Days Free Demo Class",
+    badge: "First 7 Days Free Demo Class",
+    badgeType: "demo",
+    actionBtnText: "Claim Free Demo",
     mode: "Online Live & Project Based",
     startDate: "1st November 2026",
     instructor: "Engr. Hamza Khan (Lead Full-Stack Architect)",
     status: "Active",
-    badge: "High Demand",
     image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80",
     outcomes: [
       "Build production-grade web applications using AI coding tools",
@@ -273,12 +289,15 @@ const DEFAULT_COURSES = [
     fullDesc: "Learn how to build a scalable digital content creator brand or provide content services to global clients. Master AI scripting, thumbnail design, photorealistic image creation, AI avatar video generation, automated voiceovers, and social media growth strategies for YouTube, TikTok, Facebook, and Instagram.",
     duration: "5 Weeks (20 Hours)",
     level: "Beginner to Intermediate",
-    fee: 5999,
+    fee: 20000,
+    originalFee: null,
+    badge: "Trending",
+    badgeType: "trending",
+    actionBtnText: "Apply Now",
     mode: "Online Live",
     startDate: "25th October 2026",
     instructor: "Zainab Ali (Digital Content Creator)",
     status: "Active",
-    badge: "Trending",
     image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80",
     outcomes: [
       "Write high-engaging video scripts using AI writing tools",
@@ -306,13 +325,16 @@ const DEFAULT_COURSES = [
     fullDesc: "IMPORTANT: This course is purely educational and designed to teach technical analysis, market terminology, chart reading, and strict capital protection strategies. It DOES NOT promise or guarantee profits, financial returns, or signals.",
     duration: "6 Weeks (24 Hours)",
     level: "Beginner to Intermediate",
-    fee: 7999,
+    fee: 20000,
+    originalFee: null,
+    badge: "Educational Only",
+    badgeType: "educational",
+    actionBtnText: "Apply Now",
+    disclaimer: "Trading involves significant financial risk. This course is for educational purposes only and does not guarantee profits or financial returns.",
     mode: "Online Live",
     startDate: "1st November 2026",
     instructor: "Bilal Hassan (Certified Technical Analyst)",
     status: "Active",
-    badge: "Educational Only",
-    disclaimer: "Trading involves significant financial risk. This course is for educational purposes only and does not guarantee profits or financial returns.",
     image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=80",
     outcomes: [
       "Understand financial market structure and key terminology",
@@ -505,13 +527,17 @@ class IlmTechDB {
   }
 
   init() {
+    const DB_VERSION = 'v2_courses_pricing_2026_oct';
+    const currentVersion = localStorage.getItem('ilmetech_db_version');
+
     let settings = localStorage.getItem(DB_KEYS.SETTINGS);
     if (!settings) {
       localStorage.setItem(DB_KEYS.SETTINGS, JSON.stringify(DEFAULT_SETTINGS));
     }
 
-    if (!localStorage.getItem(DB_KEYS.COURSES)) {
+    if (!localStorage.getItem(DB_KEYS.COURSES) || currentVersion !== DB_VERSION) {
       localStorage.setItem(DB_KEYS.COURSES, JSON.stringify(DEFAULT_COURSES));
+      localStorage.setItem('ilmetech_db_version', DB_VERSION);
     }
     if (!localStorage.getItem(DB_KEYS.ADMISSIONS)) {
       localStorage.setItem(DB_KEYS.ADMISSIONS, JSON.stringify(DEFAULT_ADMISSIONS));

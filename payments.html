@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -327,19 +327,19 @@
           <div class="form-group">
             <label for="payCourseSelect" class="form-label">Select Enrolled Course <span class="required">*</span></label>
             <select name="courseName" id="payCourseSelect" class="form-control form-select" aria-label="Select Enrolled Course" required>
-              <option value="Basic AI Course">Basic AI Course (Rs. 4,999 PKR)</option>
-              <option value="AI Tools Mastery">AI Tools Mastery (Rs. 6,999 PKR)</option>
-              <option value="Basic Computer Course">Basic Computer Course (Rs. 3,999 PKR)</option>
-              <option value="AI Software Development">AI Software Development (Rs. 11,999 PKR)</option>
-              <option value="AI Content Creation">AI Content Creation (Rs. 5,999 PKR)</option>
-              <option value="Trading Course">Trading Course (Rs. 7,999 PKR)</option>
+              <option value="Basic AI Course" data-fee="0">Basic AI Course (100% FREE - Rs. 0 PKR)</option>
+              <option value="AI Tools Mastery" data-fee="0">AI Tools Mastery (100% FREE - Launch Offer)</option>
+              <option value="Basic Computer Course" data-fee="3000">Basic Computer Course (Rs. 3,000 PKR - 80% OFF)</option>
+              <option value="AI Software Development" data-fee="15000">AI Software Development (Rs. 15,000 PKR - 7 Days Free Demo)</option>
+              <option value="AI Content Creation" data-fee="20000">AI Content Creation (Rs. 20,000 PKR)</option>
+              <option value="Trading Course" data-fee="20000">Trading Course (Rs. 20,000 PKR)</option>
             </select>
           </div>
 
           <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
             <div class="form-group">
               <label for="payAmountInput" class="form-label">Course Fee (PKR) <span class="required">*</span></label>
-              <input type="number" name="amount" id="payAmountInput" class="form-control" placeholder="4999" aria-label="Course Fee" required>
+              <input type="number" name="amount" id="payAmountInput" class="form-control" placeholder="0" aria-label="Course Fee" required>
             </div>
 
             <div class="form-group">
@@ -391,6 +391,33 @@
       if (appId) {
         const input = document.getElementById('payAppIdInput');
         if (input) input.value = appId;
+      }
+
+      const courseSelect = document.getElementById('payCourseSelect');
+      const amountInput = document.getElementById('payAmountInput');
+      const courseParam = params.get('course');
+
+      if (courseSelect && amountInput) {
+        if (courseParam) {
+          const opt = Array.from(courseSelect.options).find(o => o.value.toLowerCase().includes(courseParam.toLowerCase().replace(/-/g, ' ')));
+          if (opt) {
+            courseSelect.value = opt.value;
+            amountInput.value = opt.getAttribute('data-fee') || '0';
+          }
+        } else {
+          // Initialize with selected option fee
+          const selectedOpt = courseSelect.options[courseSelect.selectedIndex];
+          if (selectedOpt && selectedOpt.getAttribute('data-fee')) {
+            amountInput.value = selectedOpt.getAttribute('data-fee');
+          }
+        }
+
+        courseSelect.addEventListener('change', () => {
+          const opt = courseSelect.options[courseSelect.selectedIndex];
+          if (opt && opt.getAttribute('data-fee') !== null) {
+            amountInput.value = opt.getAttribute('data-fee');
+          }
+        });
       }
 
       // Populate DB values for Shahid Akram & 03206546008 & check enabled status

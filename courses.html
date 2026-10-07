@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -78,38 +78,89 @@
       const grid = document.getElementById('allCoursesGrid');
       if (grid && window.ilmDB) {
         const courses = window.ilmDB.getCourses();
-        grid.innerHTML = courses.map(c => `
-          <div class="course-card">
-            <div class="course-header-banner" style="background-image: url('${c.image}');">
-              ${c.badge ? `<span class="course-badge">${c.badge}</span>` : ''}
-              <div class="course-icon-badge"><i class="fas fa-graduation-cap"></i></div>
-              <div class="course-header-content">
-                <h3 class="course-title">${c.title}</h3>
-                <div class="course-urdu-title">${c.urduTitle}</div>
+        grid.innerHTML = courses.map(c => {
+          const badgeClass = c.badgeType ? `badge-${c.badgeType}` : (c.isFree ? 'badge-free' : '');
+          
+          let btnClass = 'btn-primary';
+          let btnIcon = 'fa-edit';
+          let btnText = 'Apply';
+          if (c.isFree) {
+            btnClass = 'btn-free-enroll';
+            btnIcon = 'fa-bolt';
+            btnText = c.actionBtnText || 'Enroll Free';
+          } else if (c.demoOffer) {
+            btnClass = 'btn-demo-enroll';
+            btnIcon = 'fa-play-circle';
+            btnText = c.actionBtnText || 'Claim Free Demo';
+          } else if (c.actionBtnText) {
+            btnText = c.actionBtnText;
+          }
+
+          let priceHtml = '';
+          if (c.isFree) {
+            priceHtml = `
+              <span class="price-label">Special Offer</span>
+              <div class="price-original-wrap">
+                ${c.originalFee ? `<span class="price-original">Rs. ${c.originalFee.toLocaleString()} PKR</span>` : ''}
+              </div>
+              <span class="price-val price-free"><i class="fas fa-gift"></i> ${c.freeLabel || '100% FREE'}</span>
+            `;
+          } else if (c.originalFee) {
+            priceHtml = `
+              <span class="price-label">Discounted Fee</span>
+              <div class="price-original-wrap">
+                <span class="price-original">Rs. ${c.originalFee.toLocaleString()} PKR</span>
+                ${c.discountLabel ? `<span class="price-discount-pill">${c.discountLabel}</span>` : ''}
+              </div>
+              <span class="price-val">Rs. ${c.fee.toLocaleString()} <span class="price-currency">PKR</span></span>
+            `;
+          } else {
+            priceHtml = `
+              <span class="price-label">Course Fee</span>
+              <span class="price-val">Rs. ${c.fee.toLocaleString()} <span class="price-currency">PKR</span></span>
+            `;
+          }
+
+          const demoStripHtml = c.demoOffer ? `
+            <div class="course-demo-strip">
+              <i class="fas fa-play-circle" style="color:#2563eb;"></i>
+              <span>${c.demoOffer}</span>
+            </div>
+          ` : '';
+
+          return `
+            <div class="course-card">
+              <div class="course-header-banner" style="background-image: url('${c.image}');">
+                ${c.badge ? `<span class="course-badge ${badgeClass}">${c.badge}</span>` : ''}
+                <div class="course-icon-badge"><i class="fas fa-graduation-cap"></i></div>
+                <div class="course-header-content">
+                  <h3 class="course-title">${c.title}</h3>
+                  <div class="course-urdu-title">${c.urduTitle}</div>
+                </div>
+              </div>
+              <div class="course-body">
+                <div class="course-meta">
+                  <span class="course-meta-item"><i class="fas fa-clock"></i> ${c.duration}</span>
+                  <span class="course-meta-item"><i class="fas fa-layer-group"></i> ${c.level}</span>
+                </div>
+                <p class="course-desc">${c.shortDesc}</p>
+                ${demoStripHtml}
+                <ul class="course-features-list">
+                  ${c.outcomes.slice(0, 3).map(o => `<li><i class="fas fa-check-circle"></i> ${o}</li>`).join('')}
+                </ul>
+                <div class="course-footer">
+                  <div class="course-price">
+                    ${priceHtml}
+                  </div>
+                  <div class="course-actions">
+                    <a href="course-detail.html?id=${c.id}" class="btn btn-outline btn-sm"><i class="fas fa-info-circle"></i> Details</a>
+                    <a href="admissions.html?course=${c.id}" class="btn ${btnClass} btn-sm"><i class="fas ${btnIcon}"></i> ${btnText}</a>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="course-body">
-              <div class="course-meta">
-                <span class="course-meta-item"><i class="fas fa-clock"></i> ${c.duration}</span>
-                <span class="course-meta-item"><i class="fas fa-layer-group"></i> ${c.level}</span>
-              </div>
-              <p class="course-desc">${c.shortDesc}</p>
-              <ul class="course-features-list">
-                ${c.outcomes.slice(0, 3).map(o => `<li><i class="fas fa-check-circle"></i> ${o}</li>`).join('')}
-              </ul>
-              <div class="course-footer">
-                <div class="course-price">
-                  <span class="price-label">Course Fee</span>
-                  <span class="price-val">Rs. ${c.fee.toLocaleString()} PKR</span>
-                </div>
-                <div class="course-actions">
-                  <a href="course-detail.html?id=${c.id}" class="btn btn-outline btn-sm"><i class="fas fa-info-circle"></i> Details</a>
-                  <a href="admissions.html?course=${c.id}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i> Apply</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        `).join('');
+          `;
+        }).join('');
       }
     });
   </script>

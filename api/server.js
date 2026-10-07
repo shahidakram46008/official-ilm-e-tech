@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Enterprise Production-Ready Express REST API for ILM E TECH PAKISTAN
  * Optimized for Vercel Serverless Functions & Custom Domain (ilmetechpakistan.com)
  * Includes Google Gemini AI Assistant (/api/chat), Stripe Checkout & Webhooks,
@@ -7,6 +7,7 @@
 
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 require('dotenv').config();
 
 const app = express();
@@ -36,6 +37,7 @@ app.use(cors({
 }));
 
 app.use(express.json());
+app.use(express.static(path.join(__dirname, '..')));
 
 // ============================================================================
 // 1. HEALTH CHECK & PLATFORM METADATA
@@ -220,13 +222,13 @@ app.post('/api/chat', async (req, res) => {
   let reply = `السلام علیکم! 🌸<br>علمِ ٹیک پاکستان میں خوش آمدید! میں <strong>ڈاکٹر شاہد اکرم مصطفائی</strong> بات کر رہا ہوں۔ آپ ہمارے AI کورسز، فیس، آن لائن داخلہ، یا سرٹیفکیٹ تصدیق کے بارے میں کچھ بھی دریافت کر سکتے ہیں۔`;
 
   if (q.includes('fee') || q.includes('cost') || q.includes('price') || q.includes('فیس') || q.includes('کتنی')) {
-    reply = `علمِ ٹیک پاکستان کے آفیشل کورسز کی فیس درج ذیل ہے:<br>
-• <strong>AI ٹولز ماسٹری (30 دن، 30 ٹولز):</strong> 2,999 PKR (خصوصی رعایت)<br>
-• <strong>بیسک AI کورس (4 ہفتے):</strong> 4,999 PKR<br>
-• <strong>بیسک کمپیوٹر کورس (6 ہفتے):</strong> 3,999 PKR<br>
-• <strong>AI کنٹینٹ کریایشن (5 ہفتے):</strong> 5,999 PKR<br>
-• <strong>ٹریڈنگ ایجوکیشن (6 ہفتے):</strong> 7,999 PKR<br>
-• <strong>AI سافٹ ویئر ڈویلپمنٹ (8 ہفتے):</strong> 11,999 PKR<br><br>
+    reply = `علمِ ٹیک پاکستان کے آفیشل کورسز کی فیس اور آفرز درج ذیل ہیں:<br>
+• <strong>بیسک AI کورس (1 ہفتہ - 7 دن):</strong> 100% مفت (100% FREE - ریگولر <s>Rs. 4,999 PKR</s>)<br>
+• <strong>AI ٹولز ماسٹری (30 دن، 30 ٹولز):</strong> 100% مفت (اکتوبر لانچ آفر - ریگولر <s>Rs. 10,000 PKR</s>)<br>
+• <strong>بیسک کمپیوٹر کورس (6 ہفتے):</strong> 3,000 PKR (80% رعایت - ریگولر <s>Rs. 15,000 PKR</s>)<br>
+• <strong>AI سافٹ ویئر ڈویلپمنٹ (6 ہفتے):</strong> 15,000 PKR (پہلے 7 دن فری ڈیمو کلاس)<br>
+• <strong>AI کنٹینٹ کریایشن (5 ہفتے):</strong> 20,000 PKR<br>
+• <strong>ٹریڈنگ ایجوکیشن (6 ہفتے):</strong> 20,000 PKR<br><br>
 مزید معلومات کے لیے <a href="courses.html" style="color:var(--primary-green); font-weight:700;">کورسز کا صفحہ</a> دیکھیں۔`;
   } else if (q.includes('pay') || q.includes('jazzcash') || q.includes('easypaisa') || q.includes('sadapay') || q.includes('bank') || q.includes('ادائیگی') || q.includes('پیسے') || q.includes('اکاؤنٹ')) {
     reply = `آفیشل فیس جمع کروانے کی تفصیلات:<br>

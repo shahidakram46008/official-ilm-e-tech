@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -500,19 +500,66 @@
 
       function renderCourses() {
         if (!grid || !window.ilmDB) return;
+        const courses = window.ilmDB.getCourses();
         const currentLang = document.documentElement.getAttribute('lang') || 'en';
         const isUrdu = currentLang === 'ur';
+
         grid.innerHTML = courses.map(c => {
           const title = isUrdu ? c.urduTitle : c.title;
-          const feeLabel = isUrdu ? 'فیس (روپے)' : 'Fee (PKR)';
-          const detailsBtn = isUrdu ? 'تفصیلات دیکھیں' : 'View Details';
-          const applyBtn = isUrdu ? 'آن لائن داخلہ' : 'Apply Now';
+          const feeLabel = isUrdu ? 'فیس' : 'Course Fee';
+          const detailsBtn = isUrdu ? 'تفصیلات' : 'Details';
+          const badgeClass = c.badgeType ? `badge-${c.badgeType}` : (c.isFree ? 'badge-free' : '');
+
+          let btnClass = 'btn-primary';
+          let btnIcon = 'fa-edit';
+          let btnText = isUrdu ? 'آن لائن داخلہ' : 'Apply';
+          if (c.isFree) {
+            btnClass = 'btn-free-enroll';
+            btnIcon = 'fa-bolt';
+            btnText = isUrdu ? 'مفت داخلہ لیں' : (c.actionBtnText || 'Enroll Free');
+          } else if (c.demoOffer) {
+            btnClass = 'btn-demo-enroll';
+            btnIcon = 'fa-play-circle';
+            btnText = isUrdu ? 'مفت ڈیمو کلاس' : (c.actionBtnText || 'Claim Free Demo');
+          }
+
+          let priceHtml = '';
+          if (c.isFree) {
+            priceHtml = `
+              <span class="price-label">${isUrdu ? 'خصوصی آفر' : 'Special Offer'}</span>
+              <div class="price-original-wrap">
+                ${c.originalFee ? `<span class="price-original">Rs. ${c.originalFee.toLocaleString()} PKR</span>` : ''}
+              </div>
+              <span class="price-val price-free"><i class="fas fa-gift"></i> ${isUrdu ? '100% مفت' : (c.freeLabel || '100% FREE')}</span>
+            `;
+          } else if (c.originalFee) {
+            priceHtml = `
+              <span class="price-label">${isUrdu ? 'رعایتی فیس' : 'Discounted Fee'}</span>
+              <div class="price-original-wrap">
+                <span class="price-original">Rs. ${c.originalFee.toLocaleString()} PKR</span>
+                ${c.discountLabel ? `<span class="price-discount-pill">${c.discountLabel}</span>` : ''}
+              </div>
+              <span class="price-val">Rs. ${c.fee.toLocaleString()} <span class="price-currency">PKR</span></span>
+            `;
+          } else {
+            priceHtml = `
+              <span class="price-label">${feeLabel}</span>
+              <span class="price-val">Rs. ${c.fee.toLocaleString()} <span class="price-currency">PKR</span></span>
+            `;
+          }
+
+          const demoStripHtml = c.demoOffer ? `
+            <div class="course-demo-strip">
+              <i class="fas fa-play-circle" style="color:#2563eb;"></i>
+              <span>${isUrdu ? 'پہلے 7 دن فری ڈیمو کلاس' : c.demoOffer}</span>
+            </div>
+          ` : '';
 
           return `
             <div class="course-card nasa-card">
               <div class="course-header-banner" style="background-image: url('${c.image}');">
-                ${c.badge ? `<span class="course-badge">${c.badge}</span>` : ''}
-                <div class="course-icon-badge"><i class="fas fa-robot"></i></div>
+                ${c.badge ? `<span class="course-badge ${badgeClass}">${c.badge}</span>` : ''}
+                <div class="course-icon-badge"><i class="fas fa-graduation-cap"></i></div>
                 <div class="course-header-content">
                   <h3 class="course-title ${isUrdu ? 'bombay-font' : ''}">${title}</h3>
                   ${!isUrdu ? `<div class="course-urdu-title">${c.urduTitle}</div>` : ''}
@@ -524,17 +571,17 @@
                   <span class="course-meta-item"><i class="fas fa-layer-group"></i> ${c.level}</span>
                 </div>
                 <p class="course-desc">${c.shortDesc}</p>
+                ${demoStripHtml}
                 <ul class="course-features-list">
                   ${c.outcomes.slice(0, 3).map(o => `<li><i class="fas fa-check-circle"></i> ${o}</li>`).join('')}
                 </ul>
                 <div class="course-footer">
                   <div class="course-price">
-                    <span class="price-label">${feeLabel}</span>
-                    <span class="price-val">Rs. ${c.fee.toLocaleString()}</span>
+                    ${priceHtml}
                   </div>
                   <div class="course-actions">
-                    <a href="course-detail.html?id=${c.id}" class="btn btn-outline btn-sm">${detailsBtn}</a>
-                    <a href="admissions.html?course=${c.id}" class="btn btn-primary btn-sm">${applyBtn}</a>
+                    <a href="course-detail.html?id=${c.id}" class="btn btn-outline btn-sm"><i class="fas fa-info-circle"></i> ${detailsBtn}</a>
+                    <a href="admissions.html?course=${c.id}" class="btn ${btnClass} btn-sm"><i class="fas ${btnIcon}"></i> ${btnText}</a>
                   </div>
                 </div>
               </div>
