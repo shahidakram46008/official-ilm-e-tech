@@ -1,5 +1,5 @@
-/**
- * Ilm E Tech Pakistan — Enterprise Auth & RBAC Architecture
+﻿/**
+ * ILM E TECH PAKISTAN — Enterprise Auth & RBAC Architecture
  * Handles Supabase Client Auth, JWT Token Management, Session Guards, and Navbar Updates.
  * Domain: ilmetechpakistan.com
  */
@@ -162,7 +162,7 @@ class IlmAuthService {
         const password = signupForm.querySelector('input[type="password"]').value;
         const res = await this.signup(fullName, email, password);
         if (res.success) {
-          window.showToast?.('Account created successfully! Welcome to Ilm E Tech Pakistan.', 'success');
+          window.showToast?.('Account created successfully! Welcome to ILM E TECH PAKISTAN.', 'success');
           setTimeout(() => { window.location.href = 'student-dashboard.html'; }, 800);
         }
       });

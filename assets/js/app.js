@@ -1,6 +1,6 @@
-/**
+﻿/**
  * Main Application Logic & UI Interactions
- * Ilm E Tech Pakistan (ilmetechpakistan.com)
+ * ILM E TECH PAKISTAN (ilmetechpakistan.com)
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -236,7 +236,7 @@ function initPaymentForm() {
           </div>
           
           <div style="background:#fffbeb; border:1px solid #fef08a; padding:1rem; border-radius:0.5rem; max-width:550px; margin:0 auto 1.5rem; text-align:left; font-size:0.875rem; color:#b45309;">
-            <i class="fas fa-info-circle"></i> <strong>Important Note:</strong> Payments are not marked as approved until verified by the Ilm E Tech Pakistan accounts team. Verification usually takes 2 to 24 hours. You can check your status anytime in the Student Portal.
+            <i class="fas fa-info-circle"></i> <strong>Important Note:</strong> Payments are not marked as approved until verified by the ILM E TECH PAKISTAN accounts team. Verification usually takes 2 to 24 hours. You can check your status anytime in the Student Portal.
           </div>
 
           <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">

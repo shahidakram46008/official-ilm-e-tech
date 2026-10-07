@@ -1,6 +1,6 @@
-/**
+﻿/**
  * Centralized Data Store & LocalStorage CMS Database
- * Ilm E Tech Pakistan (ilmetechpakistan.com)
+ * ILM E TECH PAKISTAN (ilmetechpakistan.com)
  * Includes Complete Payment Verification & Audit System
  */
 
@@ -22,7 +22,7 @@ const DB_KEYS = {
 
 // Initial Default Seed Data
 const DEFAULT_SETTINGS = {
-  brandName: "Ilm E Tech Pakistan",
+  brandName: "ILM E TECH PAKISTAN",
   urduName: "علمِ ٹیک پاکستان",
   founderName: "Dr. Shahid Akram Mustafai",
   urduFounderName: "ڈاکٹر شاہد اکرم مصطفائی",
@@ -35,7 +35,7 @@ const DEFAULT_SETTINGS = {
   email: "info@ilmetechpakistan.com",
   phone: "+92 307 4958837",
   whatsapp: "+92 307 4958837",
-  address: "Ilm E Tech Pakistan Head Office, Technology Campus, Lahore / Islamabad, Pakistan",
+  address: "ILM E TECH PAKISTAN Head Office, Technology Campus, Lahore / Islamabad, Pakistan",
   paymentAccounts: {
     jazzcash: { title: "Shahid Akram", number: "03206546008", enabled: true },
     easypaisa: { title: "Shahid Akram", number: "03206546008", enabled: true },
@@ -51,9 +51,9 @@ const DEFAULT_SETTINGS = {
     whatsapp: "https://wa.me/923074958837"
   },
   meta: {
-    title: "Ilm E Tech Pakistan | Official Digital Education & AI Academy Platform",
-    description: "Learn Artificial Intelligence, AI Tools, Computer Basics, Software Development, Content Creation & Trading at Ilm E Tech Pakistan. Founded by Dr. Shahid Akram Mustafai.",
-    keywords: "Ilm E Tech Pakistan, Dr Shahid Akram Mustafai, AI courses Pakistan, AI tools course Pakistan, computer course Pakistan, digital skills Pakistan"
+    title: "ILM E TECH PAKISTAN | Official Digital Education & AI Academy Platform",
+    description: "Learn Artificial Intelligence, AI Tools, Computer Basics, Software Development, Content Creation & Trading at ILM E TECH PAKISTAN. Founded by Dr. Shahid Akram Mustafai.",
+    keywords: "ILM E TECH PAKISTAN, Dr Shahid Akram Mustafai, AI courses Pakistan, AI tools course Pakistan, computer course Pakistan, digital skills Pakistan"
   }
 };
 

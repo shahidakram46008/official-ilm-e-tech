@@ -5,6 +5,19 @@
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Noto+Nastaliq+Urdu:wght@400;600;700;800&display=swap');
+@import url('https://fonts.cdnfonts.com/css/jameel-noori-nastaleeq');
+
+@font-face {
+  font-family: 'Jameel Noori Nastaleeq';
+  src: local('Jameel Noori Nastaleeq'),
+       local('JameelNooriNastaleeq'),
+       url('https://cdn.jsdelivr.net/gh/urdutext/jameel-noori-nastaleeq@master/JameelNooriNastaleeq.woff2') format('woff2'),
+       url('https://cdn.jsdelivr.net/gh/urdutext/jameel-noori-nastaleeq@master/JameelNooriNastaleeq.woff') format('woff'),
+       url('https://cdn.jsdelivr.net/gh/urdutext/jameel-noori-nastaleeq@master/JameelNooriNastaleeq.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
   /* World #1 Award-Winning Tech Palette (Emerald + Obsidian + Tech Blue) */
@@ -35,9 +48,9 @@
   
   /* Typography */
   --font-en: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-ur: 'Noto Nastaliq Urdu', 'Gulzar', 'Jameel Noori Nastaleeq', 'Urdu Typesetting', Tahoma, sans-serif;
-  --font-ur-heading: 'Noto Nastaliq Urdu', 'Gulzar', 'Jameel Noori Nastaleeq', 'Urdu Typesetting', Tahoma, sans-serif;
-  --font-ur-body: 'Noto Nastaliq Urdu', 'Gulzar', 'Jameel Noori Nastaleeq', 'Urdu Typesetting', Tahoma, sans-serif;
+  --font-ur: 'Jameel Noori Nastaleeq', 'JameelNooriNastaleeq', 'Noto Nastaliq Urdu', 'Urdu Typesetting', Tahoma, sans-serif;
+  --font-ur-heading: 'Jameel Noori Nastaleeq', 'JameelNooriNastaleeq', 'Noto Nastaliq Urdu', 'Urdu Typesetting', Tahoma, sans-serif;
+  --font-ur-body: 'Jameel Noori Nastaleeq', 'JameelNooriNastaleeq', 'Noto Nastaliq Urdu', 'Urdu Typesetting', Tahoma, sans-serif;
   
   /* Elevation & Shadows */
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
@@ -1137,12 +1150,12 @@ body {
   right: 105px !important;
   left: auto !important;
   top: auto !important;
-  width: 390px !important;
+  width: 410px !important;
   max-width: calc(100vw - 125px) !important;
-  height: 560px !important;
+  height: 590px !important;
   background: #ffffff !important;
   border-radius: var(--radius-xl) !important;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25) !important;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.28) !important;
   border: 1px solid var(--border-light) !important;
   display: none;
   flex-direction: column !important;
@@ -1153,6 +1166,9 @@ body {
   pointer-events: none;
   transform: translateY(20px) scale(0.95);
   transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+  font-family: 'Jameel Noori Nastaleeq', 'JameelNooriNastaleeq', 'Noto Nastaliq Urdu', serif !important;
+  direction: rtl !important;
+  text-align: right !important;
 }
 
 .chatbot-window.active {
@@ -1164,70 +1180,170 @@ body {
 }
 
 .chatbot-header {
-  background: var(--dark-green);
+  background: linear-gradient(135deg, #022c22 0%, #046a38 100%);
   color: #ffffff;
-  padding: 0.85rem 1rem;
+  padding: 0.85rem 1.15rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border-bottom: 2px solid #10b981;
+  direction: rtl;
 }
 
 .chatbot-header-info {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.85rem;
 }
 
 .chatbot-header-info img {
-  width: 38px;
-  height: 38px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid #10b981;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.chatbot-header-info strong {
+  font-family: 'Jameel Noori Nastaleeq', 'JameelNooriNastaleeq', 'Noto Nastaliq Urdu', serif !important;
+  font-size: 1.15rem !important;
+  line-height: 1.4 !important;
+  color: #ffffff !important;
+  letter-spacing: 0.01em;
+}
+
+.chatbot-header-info span {
+  font-family: 'Jameel Noori Nastaleeq', 'JameelNooriNastaleeq', 'Noto Nastaliq Urdu', serif !important;
+  font-size: 0.88rem !important;
+  color: #a7f3d0 !important;
 }
 
 .chatbot-messages {
   flex-grow: 1;
-  padding: 1rem;
+  padding: 1.1rem;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  background: var(--bg-slate-50);
-  font-family: inherit;
+  gap: 0.9rem;
+  background: #f8fafc;
+  font-family: 'Jameel Noori Nastaleeq', 'JameelNooriNastaleeq', 'Noto Nastaliq Urdu', serif !important;
+  direction: rtl;
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 transparent;
+}
+
+.chatbot-messages::-webkit-scrollbar {
+  width: 5px;
+}
+.chatbot-messages::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
 }
 
 .chat-bubble {
-  max-width: 85%;
-  padding: 0.75rem 1rem;
+  max-width: 88%;
+  padding: 0.9rem 1.25rem;
   border-radius: 1rem;
-  font-size: 0.9rem;
-  line-height: 1.5;
+  font-family: 'Jameel Noori Nastaleeq', 'JameelNooriNastaleeq', 'Noto Nastaliq Urdu', serif !important;
+  font-size: 1.1rem !important;
+  line-height: 2.2 !important;
+  direction: rtl !important;
+  text-align: right !important;
+  letter-spacing: 0.01em;
   position: relative;
+  word-break: break-word;
 }
 
 .chat-bubble.bot {
-  background: #ffffff;
-  color: var(--text-dark);
-  border-bottom-left-radius: 0.2rem;
-  box-shadow: var(--shadow-sm);
-  border: 1px solid var(--border-light);
+  background: #ffffff !important;
+  color: #0f172a !important;
+  border-bottom-right-radius: 0.25rem !important;
+  border-bottom-left-radius: 1rem !important;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05) !important;
+  border: 1px solid #e2e8f0 !important;
+}
+
+.chat-bubble.bot strong {
+  color: #046a38;
 }
 
 .chat-bubble.user {
-  background: var(--primary-green);
-  color: #ffffff;
-  align-self: flex-end;
-  border-bottom-right-radius: 0.2rem;
+  background: linear-gradient(135deg, #046a38 0%, #024d27 100%) !important;
+  color: #ffffff !important;
+  align-self: flex-start;
+  border-bottom-left-radius: 0.25rem !important;
+  border-bottom-right-radius: 1rem !important;
+  box-shadow: 0 4px 12px rgba(4, 106, 56, 0.25) !important;
+}
+
+.chatbot-quick-prompts {
+  padding: 0.55rem 0.85rem !important;
+  background: #ffffff !important;
+  border-top: 1px solid #e2e8f0 !important;
+  display: flex !important;
+  gap: 0.5rem !important;
+  overflow-x: auto !important;
+  white-space: nowrap !important;
+  direction: rtl !important;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+.chatbot-quick-prompts::-webkit-scrollbar {
+  display: none !important;
+}
+
+.quick-prompt {
+  font-family: 'Jameel Noori Nastaleeq', 'JameelNooriNastaleeq', 'Noto Nastaliq Urdu', serif !important;
+  font-size: 0.98rem !important;
+  line-height: 1.8 !important;
+  border-radius: 2rem !important;
+  padding: 0.35rem 0.95rem !important;
+  border: 1.5px solid #10b981 !important;
+  color: #046a38 !important;
+  background: #f0fdf4 !important;
+  font-weight: 700 !important;
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+}
+
+.quick-prompt:hover {
+  background: #046a38 !important;
+  color: #ffffff !important;
+  border-color: #046a38 !important;
 }
 
 .chatbot-input-area {
-  padding: 0.75rem 1rem;
-  background: #ffffff;
-  border-top: 1px solid var(--border-light);
-  display: flex;
-  gap: 0.6rem;
-  align-items: center;
+  padding: 0.75rem 1rem !important;
+  background: #ffffff !important;
+  border-top: 1px solid #e2e8f0 !important;
+  display: flex !important;
+  gap: 0.6rem !important;
+  align-items: center !important;
+  direction: rtl !important;
+}
+
+.chatbot-input-area input {
+  font-family: 'Jameel Noori Nastaleeq', 'JameelNooriNastaleeq', 'Noto Nastaliq Urdu', serif !important;
+  font-size: 1.05rem !important;
+  line-height: 1.8 !important;
+  direction: rtl !important;
+  text-align: right !important;
+  border: 1.5px solid #cbd5e1 !important;
+  border-radius: 0.6rem !important;
+  padding: 0.6rem 0.9rem !important;
+}
+
+.chatbot-input-area input:focus {
+  border-color: #046a38 !important;
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(4, 106, 56, 0.15) !important;
+}
+
+.chatbot-input-area button {
+  font-family: 'Jameel Noori Nastaleeq', 'JameelNooriNastaleeq', 'Noto Nastaliq Urdu', serif !important;
+  border-radius: 0.6rem !important;
 }
 
 @media (max-width: 576px) {

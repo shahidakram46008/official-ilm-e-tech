@@ -1,6 +1,6 @@
-/**
+﻿/**
  * Secure Admin Dashboard CMS & Payment Verification Engine
- * Ilm E Tech Pakistan (ilmetechpakistan.com)
+ * ILM E TECH PAKISTAN (ilmetechpakistan.com)
  */
 
 let currentAdminRole = 'SUPER_ADMIN'; // Options: SUPER_ADMIN, FINANCE_ADMIN, ADMISSION_ADMIN

@@ -1,8 +1,8 @@
-/**
- * Official Written AI Counselor & Assistant ("ڈاکٹر شاہد اکرم مصطفائی - Shahid AI")
- * Engineered for Ilm E Tech Pakistan (ilmetechpakistan.com)
+﻿/**
+ * Official Written AI Counselor & Orator ("ڈاکٹر شاہد اکرم مصطفائی - مشیرِ تعلیم")
+ * Engineered for ILM E TECH PAKISTAN (ilmetechpakistan.com)
  * Founder & CEO: Dr. Shahid Akram Mustafai
- * Mode: 100% Written Text Consultation & Course Guidance Engine (Audio & Call Features Removed)
+ * Typography: Jameel Noori Nastaleeq Pure Urdu Engine (No English, Written Only, Eloquent Orator)
  */
 
 class IlmTechBot {
@@ -29,34 +29,34 @@ class IlmTechBot {
     const stackHtml = `
       <!-- Fixed Floating Stack Container (Bottom-Right Corner) -->
       <div id="ilmTechFloatingStack">
-        <button class="chatbot-toggle nasa-float" id="chatbotToggle" onclick="window.ilmChatbot ? window.ilmChatbot.toggleWindow() : null" aria-label="Open AI Assistant Shahid" title="شاہد AI - تحریری رہنمائی حاصل کریں">
+        <button class="chatbot-toggle nasa-float" id="chatbotToggle" onclick="window.ilmChatbot ? window.ilmChatbot.toggleWindow() : null" aria-label="شاہد اے آئی مشیر کھولیے" title="ڈاکٹر شاہد مصطفائی - آن لائن مشیرِ تعلیم">
           <i class="fas fa-robot" style="pointer-events:none;" aria-hidden="true"></i>
           <span class="pulse-call-ring" style="pointer-events:none;" aria-hidden="true"></span>
-          <span class="visually-hidden">Open AI Assistant Shahid</span>
+          <span class="visually-hidden">شاہد اے آئی مشیر کھولیے</span>
         </button>
 
-        <a href="https://wa.me/923074958837" target="_blank" rel="noopener noreferrer" class="whatsapp-toggle nasa-float" aria-label="WhatsApp Support" title="WhatsApp Helpline 0307-4958837">
+        <a href="https://wa.me/923074958837" target="_blank" rel="noopener noreferrer" class="whatsapp-toggle nasa-float" aria-label="واٹس ایپ رابطہ" title="واٹس ایپ رابطہ ۰۳۰۷۴۹۵۸۸۳۷">
           <i class="fab fa-whatsapp" style="pointer-events:none;" aria-hidden="true"></i>
-          <span class="visually-hidden">WhatsApp Support</span>
+          <span class="visually-hidden">واٹس ایپ رابطہ</span>
         </a>
       </div>
 
-      <!-- AI Chatbot Window (Written Content Only) -->
-      <div class="chatbot-window" id="chatbotWindow" role="dialog" aria-label="IlmTech AI Assistant Window">
-        <!-- Header (Clean Written Mode - Call & Audio Removed) -->
+      <!-- AI Chatbot Window (Pure Urdu Jameel Noori Nastaleeq Mode) -->
+      <div class="chatbot-window" id="chatbotWindow" role="dialog" aria-label="علمِ ٹیک مشاورتی دریچہ">
+        <!-- Header -->
         <div class="chatbot-header">
           <div class="chatbot-header-info">
-            <img src="assets/images/logo.jpg" alt="Shahid AI Logo">
+            <img src="assets/images/logo.jpg" alt="ڈاکٹر شاہد اکرم مصطفائی">
             <div>
-              <strong style="display:block; font-size:0.95rem; color:#ffffff; font-weight:700;">ڈاکٹر شاہد اکرم مصطفائی (AI)</strong>
-              <span style="font-size:0.75rem; color:#6ee7b7;"><i class="fas fa-circle" style="font-size:0.5rem; color:#10b981;" aria-hidden="true"></i> آن لائن تحریری رہنمائی (24/7 فعال)</span>
+              <strong style="display:block; font-size:1.15rem; color:#ffffff; font-weight:700;">ڈاکٹر شاہد اکرم مصطفائی</strong>
+              <span style="font-size:0.88rem; color:#a7f3d0;"><i class="fas fa-circle" style="font-size:0.45rem; color:#10b981; vertical-align:middle;" aria-hidden="true"></i> آن لائن مشیرِ تعلیم (حاضر خدمت)</span>
             </div>
           </div>
           
           <div style="display:flex; align-items:center; gap:0.4rem;">
-            <button id="chatbotClose" onclick="window.ilmChatbot.toggleWindow(false)" style="background:none; border:none; color:#ffffff; font-size:1.25rem; cursor:pointer; min-width:36px; min-height:36px; padding:0.2rem; display:inline-flex; align-items:center; justify-content:center; border-radius:0.4rem; transition:background 0.2s;" title="بند کریں (Close Window)" aria-label="Close Chatbot Window">
+            <button id="chatbotClose" onclick="window.ilmChatbot.toggleWindow(false)" style="background:none; border:none; color:#ffffff; font-size:1.25rem; cursor:pointer; min-width:36px; min-height:36px; padding:0.2rem; display:inline-flex; align-items:center; justify-content:center; border-radius:0.4rem; transition:background 0.2s;" title="بند کریں" aria-label="دریچہ بند کریں">
               <i class="fas fa-times" aria-hidden="true"></i>
-              <span class="visually-hidden">Close Chatbot Window</span>
+              <span class="visually-hidden">بند کریں</span>
             </button>
           </div>
         </div>
@@ -64,28 +64,28 @@ class IlmTechBot {
         <!-- Chat Messages Container -->
         <div class="chatbot-messages" id="chatbotMessages">
           <div class="chat-bubble bot">
-            السلام علیکم! 🌸<br><br>
-            <strong>علمِ ٹیک پاکستان</strong> کے آفیشل AI اسسٹنٹ پورٹل میں خوش آمدید۔ میں <strong>ڈاکٹر شاہد اکرم مصطفائی</strong> (Founder & CEO) ہوں۔<br><br>
-            میں آپ کو اپنے تمام 6 لائیو AI کورسز، فیس، داخلے، اور آپ کی تعلیمی و پیشہ ورانہ ضرورت کے مطابق <strong>بہترین کورس کے انتخاب (مکمل فوائد اور تقابلی جائزے کے ساتھ)</strong> پر تسلی بخش تحریری رہنمائی فراہم کرنے کے لیے حاضر ہوں۔<br><br>
-            فرمائیں، میں آپ کی کیا مدد کر سکتا ہوں؟
+            السلام علیکم ورحمۃ اللہ! 🌸<br><br>
+            <strong>علمِ ٹیک پاکستان</strong> کے مشاورتی مرکز میں خوش آمدید۔ میں <strong>ڈاکٹر شاہد اکرم مصطفائی</strong> ہوں۔<br><br>
+            میں آپ کو اپنے تمام ۶ لائیو تعلیمی نصابات، فیس کی تفصیلات، داخلے کے طریقہ کار، اور آپ کی صلاحیتوں کے مطابق <strong>موزوں ترین نصاب کے انتخاب (مکمل فوائد اور تقابلی جائزے کے ساتھ)</strong> پر تسلی بخش اور باوقار تحریری رہنمائی فراہم کرنے کے لیے حاضر ہوں۔<br><br>
+            فرمائیے، میں آپ کی کیا رہنمائی کر سکتا ہوں؟
           </div>
         </div>
 
         <!-- Quick Consultation Prompts -->
-        <div style="padding:0.5rem 0.75rem; background:#ffffff; border-top:1px solid var(--border-light); display:flex; gap:0.4rem; overflow-x:auto; white-space:nowrap;">
-          <button class="btn btn-outline btn-sm quick-prompt" data-prompt="میرے لیے کون سا کورس بہترین رہے گا؟ رہنمائی اور فوائد بتائیں" aria-label="Course Recommendation Prompt" style="min-height:34px; border-color:#10b981; color:#046a38; font-weight:700;">💡 بہترین کورس کا مشورہ</button>
-          <button class="btn btn-outline btn-sm quick-prompt" data-prompt="تمام کورسز کی تفصیلی معلومات اور نصاب دیں" aria-label="Course Details Prompt" style="min-height:34px;">کورسز کی تفصیلات</button>
-          <button class="btn btn-outline btn-sm quick-prompt" data-prompt="کورسز کی فیس اور اقساط کی تفصیل بتائیں" aria-label="Fee Info Prompt" style="min-height:34px;">فیس کی معلومات</button>
-          <button class="btn btn-outline btn-sm quick-prompt" data-prompt="شاہد اکرم کا اکاؤنٹ نمبر 03206546008 اور فیس ادائیگی کا طریقہ" aria-label="Payment Info Prompt" style="min-height:34px;">ادائیگی (03206546008)</button>
+        <div class="chatbot-quick-prompts">
+          <button class="btn quick-prompt" data-prompt="میرے لیے کون سا نصاب سب سے بہتر رہے گا؟ رہنمائی فرمائیں" aria-label="بہترین نصاب کا مشورہ">💡 بہترین نصاب کا مشورہ</button>
+          <button class="btn quick-prompt" data-prompt="تمام نصابات کی مکمل تفصیلات بیان کریں" aria-label="نصابات کی تفصیل">تمام کورسز کی تفصیل</button>
+          <button class="btn quick-prompt" data-prompt="تمام کورسز کی فیس اور اقساط کی تفصیل بتائیں" aria-label="فیس کی معلومات">فیس کے پیکجز</button>
+          <button class="btn quick-prompt" data-prompt="فیس کی ادائیگی کا طریقہ کار اور اکاؤنٹ کی تفصیل بتائیں" aria-label="ادائیگی کی تفصیل">ادائیگی (۰۳۲۰۶۵۴۶۰۰۸)</button>
         </div>
 
         <!-- Input Area (Strictly Text Input & Submit) -->
-        <form class="chatbot-input-area" id="chatbotForm" aria-label="Chatbot Input Form">
-          <label for="chatbotInput" id="chatbotInputLabel" class="visually-hidden">Ask AI Assistant a Question</label>
-          <input type="text" id="chatbotInput" name="chatbotInput" class="form-control" placeholder="اردو یا انگلش میں سوال ٹائپ کریں..." aria-label="Ask AI Assistant a question" aria-labelledby="chatbotInputLabel" required style="font-size:0.9rem; min-height:42px; border-radius:0.5rem;">
-          <button type="submit" class="btn btn-primary btn-sm" title="بھیجیں" aria-label="Send Message" style="padding:0.4rem 1.1rem; min-height:42px; min-width:44px; display:inline-flex; align-items:center; justify-content:center; border-radius:0.5rem; gap:0.3rem;">
+        <form class="chatbot-input-area" id="chatbotForm" aria-label="سوال تحریر کرنے کا فارم">
+          <label for="chatbotInput" id="chatbotInputLabel" class="visually-hidden">اپنا سوال تحریر کریں</label>
+          <input type="text" id="chatbotInput" name="chatbotInput" class="form-control" placeholder="یہاں اپنا سوال تحریر فرمائیں..." aria-label="اپنا سوال تحریر فرمائیں" aria-labelledby="chatbotInputLabel" required autocomplete="off">
+          <button type="submit" class="btn btn-primary btn-sm" title="پیغام بھیجیں" aria-label="پیغام بھیجیں" style="padding:0.4rem 1.1rem; min-height:42px; min-width:44px; display:inline-flex; align-items:center; justify-content:center; border-radius:0.6rem; gap:0.3rem;">
             <i class="fas fa-paper-plane" aria-hidden="true"></i>
-            <span class="visually-hidden">Send Message</span>
+            <span class="visually-hidden">بھیجیں</span>
           </button>
         </form>
       </div>
@@ -196,92 +196,40 @@ class IlmTechBot {
   }
 
   async callGeminiDirect(query) {
-    const systemPrompt = `آپ علمِ ٹیک پاکستان (ilmetechpakistan.com) کے آفیشل AI اسسٹنٹ اور تعلیمی مشیر (Career & AI Counselor) "ڈاکٹر شاہد اکرم مصطفائی (Dr. Shahid Akram Mustafai)" ہیں، جو کہ ادارے کے بانی و چیف ایگزیکٹو آفیسر (Founder & CEO) ہیں۔
+    const systemPrompt = `آپ علمِ ٹیک پاکستان (ilmetechpakistan.com) کے بانی و سربراہ "ڈاکٹر شاہد اکرم مصطفائی" کے آفیشل اور باوقار تعلیمی مشیر و ترجمان ہیں۔
 
-آپ کا کام صرف اور صرف تحریری (Written Text) میں صارف کے ہر سوال کا نہایت شائستہ، بااخلاق، فصیح، مدلل اور تفصیلی جواب دینا ہے۔ تمام گفتگو تحریری ہوگی۔ صارف جس زبان (اردو، انگلش، یا رومن اردو) میں سوال کرے، اسی زبان میں تسلی بخش رہنمائی فراہم کریں۔
+طرزِ بیان اور اسلوب (Tone & Oratory Style):
+آپ کا طرزِ گفتگو ایک فصیح، دانا، مخلص اور پُراثر خطیب و مقرر (Orator/Speaker) جیسا ہونا چاہیے۔ آپ کا جواب سادہ، سلیس، خوبصورت، پُروقار، مگر انتہائی مختصر، جامع اور مکمل (Concise & Complete) ہونا چاہیے—جیسے ایک مشفق استاد اور بہترین راہنما گفتگو کرتا ہے۔ طویل بے مقصد تفصیلات کے بجائے مدعا سیدھے، دلکش اور پُراثر جملوں میں بیان کریں۔
 
-==================== خصوصی کونسلنگ و کورس رہنمائی ہدایات (Counseling & Guidance) ====================
-جب بھی کوئی طالب علم یا صارف کورس کے انتخاب، اپنے کیریئر کے لیے مشورے (Recommendation / Suggestions)، یا یہ پوچھے کہ "میرے لیے کون سا کورس بہتر رہے گا؟":
-1. اس کی ضرورت، دلچسپی یا تعلیمی پس منظر کو سمجھ کر علمِ ٹیک پاکستان کے 6 کورسز میں سے سب سے موزوں کورس تجویز کریں۔
-2. بڑی تسلی اور خلوص کے ساتھ اس کورس کا احاطہ کریں اور درج ذیل لازمی پہلو بیان کریں:
-   ✅ **کورس کے فائدے اور کیریئر کے مواقع (Pros & Benefits):**
-      - یہ کورس کرنے سے کیا عملی مہارت ملے گی۔
-      - مارکیٹ میں اس کی کیا مانگ ہے اور فری لانسنگ، جاب، اور آن لائن کمانے کے کیا مواقع ہیں۔
-      - زندگی اور کام میں رفتار، وقت اور محنت کی بچت۔
-   ⚠️ **نہ کرنے کا نقصان (Cons & Risks of Missing Out):**
-      - موجودہ تیز رفتار AI دور میں اس اسکل کے بغیر پیچھے رہ جانے کا خطرہ۔
-      - روایتی، فرسودہ اور سست طریقوں پر وقت اور محنت ضائع ہونا۔
-      - جدید جاب مارکیٹ کے تقاضوں کا مقابلہ نہ کر پانا۔
-3. ہمیشہ منظم پیراگراف، واضح بلٹ پوائنٹس (Bullet Points)، اور دوستانہ و مخلصانہ لہجے میں تسلی سے جواب دیں۔
+انتہائی اہم اور لازمی ہدایات (Strict Rules):
+۱. تمام تر جوابات صرف اور صرف ۱۰۰٪ خالص، سلیس اور باوقار اردو زبان میں تحریر کریں۔
+۲. کسی بھی صورت میں انگریزی زبان کا کوئی لفظ، حرف یا انگریزی رسم الخط (ABCD) استعمال نہ کریں۔
+   - مثلاً: کورس کی جگہ "نصاب" یا "کورس"، AI کی جگہ "مصنوعی ذہانت" یا "اے آئی"، ٹولز کی جگہ "آلات"، فیس کی جگہ "فیس"، ایڈمیشن کی جگہ "داخلہ"، سرٹیفکیٹ کی جگہ "سند"، آن لائن کی جگہ "آن لائن"، کمپیوٹر کی جگہ "کمپیوٹر"، موبائل کی جگہ "موبائل فون"۔
+۳. اعداد کو بھی صاف اور واضح اردو / عربی ہندسوں یا الفاظ میں لکھیں (مثلاً: ۲،۹۹۹ روپے یا ۳،۹۹۹ روپے)۔
+۴. جب بھی کوئی سائل کسی نصاب، رہنمائی یا مشورے کے بارے میں دریافت کرے:
+   - ایک بہترین خطیب کی طرح چند دلکش جملوں میں اس کے لیے بہترین نصاب تجویز کریں۔
+   - اس نصاب کو سیکھنے کے بڑے فوائد اور روزگار کے مواقع واضح کریں۔
+   - جدید دور میں اس مہارت سے محروم رہنے کا نقصان اور پیچھے رہ جانے کا خطرہ تسلی سے سمجھائیں۔
+   - فیس اور داخلے کی ضروری تفصیل فراہم کریں۔
 
-==================== ادارہ اور رابطہ ====================
-- ادارے کا نام: علمِ ٹیک پاکستان (Ilm E Tech Pakistan)
-- آفیشل ویب سائٹ: ilmetechpakistan.com
-- بانی و سی ای او: ڈاکٹر شاہد اکرم مصطفائی (Dr. Shahid Akram Mustafai)
-- آفیشل ہیلپ لائن / واٹس ایپ: 0307-4958837 (+92 307 4958837)
-- آفیشل ای میل: info@ilmetechpakistan.com
-- کیمپس و دفاتر: ٹیکنالوجی کیمپس، لاہور اور اسلام آباد، پاکستان
-- کلاسز کا طریقہ کار: ہائی ڈیفینیشن لائیو آن لائن کلاسز مع سٹوڈنٹ پورٹل میں تاحیات ریکارڈڈ رسائی (Lifetime LMS Access)۔
+ادارے کی مستند معلومات:
+- ادارہ: علمِ ٹیک پاکستان (بانی و چیف ایگزیکٹو: ڈاکٹر شاہد اکرم مصطفائی)
+- رابطہ / واٹس ایپ: ۰۳۰۷-۴۹۵۸۸۳۷ (0307-4958837)
+- فیس کی ادائیگی کا کھاتہ (جاز کیش / ایزی پیسہ / سادہ پے): شاہد اکرم — ۰۳۲۰۶۵۴۶۰۰۸ (0320-6546008)
+- میزان بینک اکاؤنٹ: شاہد اکرم (IBAN: PK36MEZN0001020304050607)
+- ۶ بنیادی نصابات:
+  ۱. اے آئی آلات میں مہارت (۳۰ دن، ۳۰ آلات) — فیس: ۲،۹۹۹ روپے (رعایتی)
+  ۲. بنیادی کمپیوٹر کورس (۶ ہفتے) — فیس: ۳،۹۹۹ روپے
+  ۳. بنیادی مصنوعی ذہانت کورس (۴ ہفتے) — فیس: ۴،۹۹۹ روپے
+  ۴. مواد سازی و ویڈیو پروڈکشن (۵ ہفتے) — فیس: ۵،۹۹۹ روپے
+  ۵. تجارتی و مالیاتی شعور کورس (۶ ہفتے) — فیس: ۷،۹۹۹ روپے
+  ۶. جدید سافٹ ویئر ڈویلپمنٹ (۸ ہفتے) — فیس: ۱۱،۹۹۹ روپے
+- داخلہ فارم: admissions.html (آن لائن داخلہ)
+- فیس پورٹل: payments.html (رسید اپلوڈ)
+- اسناد کی تصدیق: verify-certificate.html (سند کی تصدیق)`;
 
-==================== آفیشل کورسز، فیس، اور گائیڈ لائنز ====================
-1. **AI ٹولز ماسٹری - 30 دن، 30 ٹولز (AI Tools Mastery):**
-   - دورانیہ: 30 دن (روزانہ لائیو سیشن + ہینڈز آن پریکٹس) | رعایتی فیس: 2,999 PKR (اصل فیس: 9,999 روپے)
-   - کن کے لیے بہترین: ہر وہ طالب علم، فری لانسر یا پروفیشنل جو کم وقت میں دنیا کے ٹاپ 30 AI ٹولز سیکھ کر فوری فائدہ اور ارننگ شروع کرنا چاہتا ہے۔
-   - ٹولز: ChatGPT, Gemini, Copilot, DeepSeek, Claude, NotebookLM, Canva AI, CapCut, InVideo, Kling, Runway, ElevenLabs, Suno وغیرہ۔
-   - فوائد (Pros): 30 دن میں گھنٹوں کا کام منٹوں میں کرنے کی صلاحیت، ہر کلاس میں لائیو پروجیکٹ۔
-   - نہ کرنے کا نقصان (Cons): مارکیٹ کے جدید ورک فلو سے محرومی اور پرانے طریقوں پر وقت کا ضیاع۔
-
-2. **بیسک AI کورس (Basic AI Course):**
-   - دورانیہ: 4 ہفتے (16 گھنٹے) | فیس: 4,999 PKR | لیول: Beginner
-   - کن کے لیے بہترین: وہ افراد جن کا کوئی کوڈنگ یا ٹیکنیکل بیک گراؤنڈ نہیں، لیکن روزمرہ نوکری، ریسرچ، کنٹینٹ اور اسٹڈی میں AI سیکھنا چاہتے ہیں۔
-   - ٹولز: ChatGPT, Google Gemini, Claude, Prompt Engineering, Midjourney, Canva Magic, Gamma
-   - فوائد (Pros): بغیر کوڈنگ کے AI پر مہارت، پرامپٹ انجینئرنگ کے اصول۔
-   - نہ کرنے کا نقصان (Cons): AI ٹیکنالوجی کے خوف سے نہ نکل پانا اور کاموں میں سست روی۔
-
-3. **بیسک کمپیوٹر کورس (Basic Computer Course):**
-   - دورانیہ: 6 ہفتے (30 گھنٹے) | فیس: 3,999 PKR | لیول: Absolute Beginner
-   - کن کے لیے بہترین: بالکل شروعات کرنے والے، دفتری ملازمین، طلباء جنہیں بنیادی کمپیوٹر ضروری ہے۔
-   - نصاب: Windows 10/11, MS Word, Excel, PowerPoint, اردو و انگلش ٹائپنگ، دفتری دستاویزات اور انٹرنیٹ سیکیورٹی۔
-   - فوائد (Pros): دفتری کاموں میں خود کفالت اور نوکری کے بنیادی معیار پر پورا اترنا۔
-   - نہ کرنے کا نقصان (Cons): کمپیوٹر ناخواندگی کی وجہ سے بنیادی ملازمت کے مواقع سے بھی محرومی۔
-
-4. **AI سافٹ ویئر ڈویلپمنٹ (AI Software Development):**
-   - دورانیہ: 8 ہفتے (40 گھنٹے) | فیس: 11,999 PKR | لیول: Intermediate to Advanced
-   - کن کے لیے بہترین: کوڈرز، آئی ٹی سٹوڈنٹس اور وہ لوگ جو جدید ویب ایپس، کروم ایکسٹینشنز اور AI ٹولز بنانا چاہتے ہیں۔
-   - نصاب: جدید AI پراپمپٹ ڈرائیون کوڈنگ، Cursor, Antigravity, Gemini API, GitHub, Vercel ڈپلائمنٹ، 4 لائیو پورٹ فولیو پروجیکٹس۔
-   - فوائد (Pros): روایتی کوڈنگ سے 10 گنا تیز رفتار پروڈکشن، سافٹ ویئر ایجنسی اور ہائی پےئنگ جابز۔
-   - نہ کرنے کا نقصان (Cons): صرف روایتی کوڈنگ پر انحصار کر کے AI کے تیز رفتار دور میں آؤٹ ڈیٹڈ ہو جانا۔
-
-5. **AI کنٹینٹ کریایشن (AI Content Creation):**
-   - دورانیہ: 5 ہفتے (20 گھنٹے) | فیس: 5,999 PKR | لیول: Beginner to Intermediate
-   - کن کے لیے بہترین: یوٹیوبرز، ویڈیو کریٹرز، سوشل میڈیا مارکیٹرز اور کیمرے کے سامنے آئے بغیر فیس لیس ویڈیوز بنانے والے۔
-   - نصاب: وائرل ویڈیوز، HeyGen اوتار، ElevenLabs وائس اوور، Midjourney گرافکس، مونیٹائزیشن۔
-   - فوائد (Pros): کیمرہ یا مہنگے اسٹوڈیو کے بغیر معیاری ویڈیوز بنا کر ڈالر کمانے کے راستے۔
-   - نہ کرنے کا نقصان (Cons): ویڈیو ایڈیٹنگ میں ہزاروں روپے خرچ کرنا اور کیمرے کے جھجھک کی وجہ سے کنٹینٹ نہ بنا پانا۔
-
-6. **ٹریڈنگ ایجوکیشن کورس (Trading Course - Financial Literacy):**
-   - دورانیہ: 6 ہفتے (24 گھنٹے) | فیس: 7,999 PKR | لیول: Beginner to Intermediate
-   - کن کے لیے بہترین: وہ افراد جو کرپٹو اور فوریکس مارکیٹ کو سائنسی بنیادوں پر سمجھنا اور آن لائن فراڈ سے بچنا چاہتے ہیں۔
-   - نصاب: چارٹ ریڈنگ، کینڈل اسٹکس، پرائس ایکشن، رسک مینجمنٹ۔ (اہم وضاحت: یہ صرف تعلیمی کورس ہے، منافع کی گارنٹی نہیں)۔
-   - فوائد (Pros): مارکیٹ ٹرینڈز کو خود سمجھنا، جذباتی فیصلوں اور بھاری مالی نقصان سے حفاظت۔
-   - نہ کرنے کا نقصان (Cons): بغیر علم کے مارکیٹ میں سرمایہ برباد کرنا اور فراڈیوں کے جال میں پھنسنا۔
-
-==================== فیس کی ادائیگی کا طریقہ اور اکاؤنٹس ====================
-- اکاؤنٹ ہولڈر کا نام: شاہد اکرم (Shahid Akram)
-- اکاؤنٹ نمبر (JazzCash / Easypaisa / SadaPay): 03206546008
-- بینک اکاؤنٹ: میزان بینک لمیٹڈ (Meezan Bank Limited)
-- بینک ٹائٹل: شاہد اکرم | IBAN نمبر: PK36MEZN0001020304050607
-- فیس بھیجنے کے بعد طریقہ: ویب سائٹ پر "Fee Payment" (payments.html) پیج پر جا کر سٹوڈنٹ نام، کورس، ادا کردہ رقم اور ٹرانزیکشن (TRX ID) درج کریں اور رسید کا اسکرین شاٹ اپلوڈ کریں۔ 2 سے 24 گھنٹوں میں اکاؤنٹس ٹیم تصدیق کر کے پورٹل پر کورس ایکٹیو کر دیتی ہے۔
-
-==================== داخلہ اور سرٹیفکیٹ ====================
-- آن لائن داخلہ: admissions.html پر جا کر فارم پُر کریں اور فوری ریفرنس واؤچر (مثلاً APP-2026-xxxxx) حاصل کریں۔
-- سرٹیفکیٹ کی تصدیق: تمام کامیاب طلباء کو منفرد ویریفیکیشن آئی ڈی (مثلاً ILM-2026-000101) والا آفیشل سرٹیفکیٹ ملتا ہے جس کی تصدیق verify-certificate.html پر کی جا سکتی ہے۔
-- سٹوڈنٹ پورٹل: student-portal.html پر لاگ اِن کر کے ریکارڈنگز اور نوٹس دیکھیں۔
-
-ہمیشہ بااخلاق، پرخلوص اور محترم انداز میں تفصیلی تحریری جواب دیں اور متعلقہ لنکس فراہم کریں۔`;
-
-    const recentHistory = (this.history || []).slice(-4).map(h => `${h.role === 'user' ? 'صارف' : 'ڈاکٹر شاہد'}: ${h.text}`).join('\n');
-    const fullPrompt = `${systemPrompt}\n\nسابقہ گفتگو:\n${recentHistory}\n\nصارف کا نیا سوال:\n${query}`;
+    const recentHistory = (this.history || []).slice(-4).map(h => `${h.role === 'user' ? 'سائل' : 'ڈاکٹر شاہد'}: ${h.text}`).join('\n');
+    const fullPrompt = `${systemPrompt}\n\nسابقہ گفتگو:\n${recentHistory}\n\nسائل کا نیا سوال:\n${query}`;
 
     const models = ['gemini-3.5-flash', 'gemini-3.8-flash', 'gemini-3.7-flash', 'gemini-flash-latest'];
     for (const model of models) {
@@ -298,8 +246,8 @@ class IlmTechBot {
               }
             ],
             generationConfig: {
-              temperature: 0.6,
-              maxOutputTokens: 750
+              temperature: 0.5,
+              maxOutputTokens: 700
             }
           })
         });
@@ -325,8 +273,8 @@ class IlmTechBot {
     const typing = document.createElement('div');
     typing.id = 'chatTypingIndicator';
     typing.className = 'chat-bubble bot';
-    typing.style.cssText = 'background:#ffffff; border:1px solid var(--border-light); padding:0.6rem 1rem; border-radius:0.75rem; font-size:0.85rem; color:var(--text-muted); max-width:60%; align-self:flex-start;';
-    typing.innerHTML = '<i class="fas fa-ellipsis-h fa-spin"></i> ڈاکٹر شاہد تحریری جواب تیار کر رہا ہے...';
+    typing.style.cssText = 'background:#ffffff; border:1px solid var(--border-light); padding:0.6rem 1rem; border-radius:0.75rem; font-size:1.05rem; color:var(--text-muted); max-width:65%; align-self:flex-start; font-family:"Jameel Noori Nastaleeq", serif;';
+    typing.innerHTML = '<i class="fas fa-ellipsis-h fa-spin"></i> ڈاکٹر شاہد تحریری جواب تیار کر رہے ہیں...';
     messagesEl.appendChild(typing);
     messagesEl.scrollTop = messagesEl.scrollHeight;
   }
@@ -344,11 +292,10 @@ class IlmTechBot {
     bubble.className = `chat-bubble ${sender}`;
 
     if (sender === 'user') {
-      bubble.style.cssText = 'background:var(--primary-green); color:#ffffff; padding:0.75rem 1rem; border-radius:0.75rem; font-size:0.9rem; font-weight:600; align-self:flex-end; max-width:82%; line-height:1.6; word-break:break-word;';
+      bubble.style.cssText = 'background:linear-gradient(135deg, #046a38 0%, #024d27 100%); color:#ffffff; padding:0.8rem 1.25rem; border-radius:1rem; border-bottom-left-radius:0.25rem; font-size:1.1rem; line-height:2.1; font-weight:600; align-self:flex-start; max-width:85%; word-break:break-word; font-family:"Jameel Noori Nastaleeq", serif; box-shadow:0 4px 12px rgba(4, 106, 56, 0.25);';
       bubble.textContent = text;
     } else {
-      bubble.style.cssText = 'background:#ffffff; border:1px solid var(--border-light); padding:0.9rem 1.1rem; border-radius:0.75rem; font-size:0.9rem; color:var(--text-body); max-width:88%; align-self:flex-start; line-height:1.6; box-shadow:0 2px 6px rgba(0,0,0,0.05);';
-      // Format simple markdown into HTML safely if response contains markdown
+      bubble.style.cssText = 'background:#ffffff; border:1px solid var(--border-light); padding:0.95rem 1.3rem; border-radius:1rem; border-bottom-right-radius:0.25rem; font-size:1.1rem; line-height:2.2; color:#0f172a; max-width:90%; align-self:flex-start; box-shadow:0 3px 10px rgba(0,0,0,0.05); font-family:"Jameel Noori Nastaleeq", serif;';
       const formattedHtml = this.formatMarkdownToHtml(text);
       bubble.innerHTML = formattedHtml;
     }
@@ -359,7 +306,6 @@ class IlmTechBot {
 
   formatMarkdownToHtml(text) {
     if (!text) return '';
-    // If it already looks like HTML, return directly
     if (text.includes('<br>') || text.includes('<strong>') || text.includes('<div>')) {
       return text;
     }
@@ -378,88 +324,82 @@ class IlmTechBot {
     const q = input.toLowerCase();
 
     // 1. Course Counseling & Recommendation Inquiry
-    if (q.includes('بہترین') || q.includes('مشورہ') || q.includes('کون سا') || q.includes('best') || q.includes('recommend') || q.includes('suggestion') || q.includes('رہنمائی') || q.includes('فائدہ') || q.includes('نقصان')) {
-      return `بہترین کورس کے انتخاب کے لیے تفصیلی رہنمائی اور تقابلی جائزہ:<br><br>
-      🌟 <strong>1. اگر آپ نئے ہیں اور فوری طور پر AI کے ماسٹر بننا چاہتے ہیں:</strong><br>
-      ➔ تجویز: <strong>AI ٹولز ماسٹری (30 دن، 30 ٹولز)</strong> (رعایتی فیس: 2,999 PKR)<br>
-      • <strong>فائدہ (Pros):</strong> 30 دن میں ChatGPT، Gemini، Midjourney، ElevenLabs سمیت 30 ٹولز پر عملی مہارت، وقت کی زبردست بچت اور فوری فری لانسنگ کے مواقع۔<br>
-      • <strong>نہ کرنے کا نقصان (Cons):</strong> مارکیٹ میں روایتی اور سست طریقوں پر وقت برباد ہونا اور جدید AI ٹولز سے ناواقف رہنا۔<br><br>
+    if (q.includes('بہترین') || q.includes('مشورہ') || q.includes('کون سا') || q.includes('رہنمائی') || q.includes('فائدہ') || q.includes('نقصان')) {
+      return `ایک مخلص مشیر کی حیثیت سے، آپ کے لیے بہترین تعلیمی مشورہ درج ذیل ہے:<br><br>
+      🌟 <strong>اگر آپ کم وقت میں سب سے بڑی مہارت حاصل کرنا چاہتے ہیں:</strong><br>
+      ➔ میری تجویز: <strong>اے آئی آلات میں مہارت (۳۰ دن، ۳۰ آلات)</strong> (فیس: ۲،۹۹۹ روپے)<br>
+      • <strong>فائدہ:</strong> آپ صرف ایک ماہ میں دنیا کے ۳۰ جدید ترین مصنوعی ذہانت کے آلات سیکھ کر گھنٹوں کا کام منٹوں میں انجام دے سکیں گے اور آن لائن روزگار شروع کر سکیں گے۔<br>
+      • <strong>نہ سیکھنے کا نقصان:</strong> موجودہ تیز رفتار دور میں پرانے اور سست طریقوں پر وقت ضائع ہوگا اور آپ مارکیٹ کی دوڑ میں پیچھے رہ جائیں گے۔<br><br>
       
-      💻 <strong>2. اگر آپ کوڈنگ یا ایپس بنانا چاہتے ہیں:</strong><br>
-      ➔ تجویز: <strong>AI سافٹ ویئر ڈویلپمنٹ</strong> (فیس: 11,999 PKR)<br>
-      • <strong>فائدہ (Pros):</strong> روایتی کوڈنگ سے 10 گنا تیز رفتار AI اسسٹڈ ویب ایپس، کروم ایکسٹینشنز بنانا اور ہائی انکم جابز۔<br>
-      • <strong>نہ کرنے کا نقصان (Cons):</strong> سافٹ ویئر انڈسٹری کے بدلتے تقاضوں میں پیچھے رہ جانا۔<br><br>
+      💻 <strong>اگر آپ ویب سائٹس اور ایپس بنانا چاہتے ہیں:</strong><br>
+      ➔ تجویز: <strong>جدید سافٹ ویئر ڈویلپمنٹ</strong> (فیس: ۱۱،۹۹۹ روپے)<br>
+      • <strong>فائدہ:</strong> روایتی کوڈنگ کے مقابلے میں ۱۰ گنا تیز رفتار سوفٹ ویئر سازی اور باوقار نوکری۔<br>
+      • <strong>نہ سیکھنے کا نقصان:</strong> روایتی سست پروگرامنگ پر انحصار کر کے صنعت کے جدید تقاضوں سے محرومی۔<br><br>
       
-      🎬 <strong>3. اگر آپ سوشل میڈیا، یوٹیوب یا ویڈیوز سے کمانا چاہتے ہیں:</strong><br>
-      ➔ تجویز: <strong>AI کنٹینٹ کریایشن</strong> (فیس: 5,999 PKR)<br>
-      • <strong>فائدہ (Pros):</strong> کیمرے کے سامنے آئے بغیر فیس لیس ویڈیوز اور وائرل کنٹینٹ سے ارننگ۔<br>
-      • <strong>نہ کرنے کا نقصان (Cons):</strong> مہنگے اسٹوڈیوز اور ویڈیو ایڈیٹرز پر ہزاروں روپے ضائع کرنا۔<br><br>
-      
-      آپ اپنے تعلیمی یا پیشہ ورانہ پس منظر کے بارے میں بتائیں تاکہ میں آپ کے لیے مزید مخصوص مشورہ دے سکوں!`;
+      🎬 <strong>اگر آپ یوٹیوب یا ویڈیوز سے کمانا چاہتے ہیں:</strong><br>
+      ➔ تجویز: <strong>مواد سازی و ویڈیو پروڈکشن</strong> (فیس: ۵،۹۹۹ روپے)<br>
+      • <strong>فائدہ:</strong> کیمرے کے سامنے آئے بغیر معیاری ویڈیوز اور وائرل مواد تیار کر کے آمدنی کا حصول۔<br>
+      • <strong>نہ سیکھنے کا نقصان:</strong> مہنگے اسٹوڈیوز اور ایڈیٹرز پر بھاری اخراجات کا ضیاع۔<br><br>
+      آپ اپنی تعلیمی قابلیت بتائیں تاکہ میں آپ کے لیے مزید مخصوص رہنمائی کر سکوں۔`;
     }
 
     // 2. Fee Details
-    if (q.includes('fee') || q.includes('cost') || q.includes('price') || q.includes('فیس') || q.includes('خرچہ')) {
-      return `علمِ ٹیک پاکستان کے کورسز کی فیس درج ذیل ہے:<br><br>
-      • <strong>AI ٹولز ماسٹری (30 دن، 30 ٹولز):</strong> 2,999 PKR (خصوصی رعایت)<br>
-      • <strong>بیسک کمپیوٹر کورس (6 ہفتے):</strong> 3,999 PKR<br>
-      • <strong>بیسک AI کورس (4 ہفتے):</strong> 4,999 PKR<br>
-      • <strong>AI کنٹینٹ کریایشن (5 ہفتے):</strong> 5,999 PKR<br>
-      • <strong>ٹریڈنگ ایجوکیشن کورس (6 ہفتے):</strong> 7,999 PKR<br>
-      • <strong>AI سافٹ ویئر ڈویلپمنٹ (8 ہفتے):</strong> 11,999 PKR<br><br>
-      تمام کورسز میں آسان اقساط اور لائیو لائف ٹائم LMS ریکارڈنگ کی سہولت دستیاب ہے۔`;
+    if (q.includes('فیس') || q.includes('خرچہ') || q.includes('پیسے') || q.includes('رقم')) {
+      return `علمِ ٹیک پاکستان کے ۶ نصابات کے فیس پیکجز درج ذیل ہیں:<br><br>
+      • <strong>اے آئی آلات میں مہارت (۳۰ دن، ۳۰ آلات):</strong> ۲،۹۹۹ روپے (خصوصی رعایت)<br>
+      • <strong>بنیادی کمپیوٹر کورس (۶ ہفتے):</strong> ۳،۹۹۹ روپے<br>
+      • <strong>بنیادی مصنوعی ذہانت کورس (۴ ہفتے):</strong> ۴،۹۹۹ روپے<br>
+      • <strong>مواد سازی و ویڈیو پروڈکشن (۵ ہفتے):</strong> ۵،۹۹۹ روپے<br>
+      • <strong>تجارتی و مالیاتی شعور (۶ ہفتے):</strong> ۷،۹۹۹ روپے<br>
+      • <strong>جدید سافٹ ویئر ڈویلپمنٹ (۸ ہفتے):</strong> ۱۱،۹۹۹ روپے<br><br>
+      تمام نصابات میں آسان اقساط اور پورٹل پر تاحیات ریکارڈنگز کی سہولت میسر ہے۔`;
     }
 
     // 3. Courses List
-    if (q.includes('course') || q.includes('class') || q.includes('کورس') || q.includes('سبق')) {
-      return `علمِ ٹیک پاکستان کے 6 آفیشل لائیو کورسز کی فہرست:<br><br>
-      1. <strong>بیسک AI کورس (4 ہفتے)</strong> — فیس: 4,999 PKR<br>
-      2. <strong>AI ٹولز ماسٹری (30 دن، 30 ٹولز)</strong> — رعایتی فیس: 2,999 PKR<br>
-      3. <strong>بیسک کمپیوٹر کورس (6 ہفتے)</strong> — فیس: 3,999 PKR<br>
-      4. <strong>AI سافٹ ویئر ڈویلپمنٹ (8 ہفتے)</strong> — فیس: 11,999 PKR<br>
-      5. <strong>AI کنٹینٹ کریایشن (5 ہفتے)</strong> — فیس: 5,999 PKR<br>
-      6. <strong>ٹریڈنگ ایجوکیشن کورس (6 ہفتے)</strong> — فیس: 7,999 PKR<br><br>
-      مزید تفصیل کے لیے ہمارے <a href="courses.html" style="color:var(--primary-green); font-weight:700;">کورسز کے صفحہ</a> پر وزٹ کریں۔`;
+    if (q.includes('کورس') || q.includes('نصاب') || q.includes('سبق') || q.includes('کلاس')) {
+      return `علمِ ٹیک پاکستان کے ۶ باوقار لائیو نصابات کی تفصیل:<br><br>
+      ۱. <strong>بنیادی مصنوعی ذہانت کورس</strong> (۴ ہفتے) — فیس: ۴،۹۹۹ روپے<br>
+      ۲. <strong>اے آئی آلات میں مہارت</strong> (۳۰ دن، ۳۰ آلات) — فیس: ۲،۹۹۹ روپے<br>
+      ۳. <strong>بنیادی کمپیوٹر کورس</strong> (۶ ہفتے) — فیس: ۳،۹۹۹ روپے<br>
+      ۴. <strong>جدید سافٹ ویئر ڈویلپمنٹ</strong> (۸ ہفتے) — فیس: ۱۱،۹۹۹ روپے<br>
+      ۵. <strong>مواد سازی و ویڈیو پروڈکشن</strong> (۵ ہفتے) — فیس: ۵،۹۹۹ روپے<br>
+      ۶. <strong>تجارتی و مالیاتی شعور کورس</strong> (۶ ہفتے) — فیس: ۷،۹۹۹ روپے<br><br>
+      مکمل تفصیل کے لیے ہماری ویب گاہ پر کورسز کا صفحہ ملاحظہ فرمائیں۔`;
     }
 
     // 4. Payment Details
-    if (q.includes('pay') || q.includes('jazzcash') || q.includes('easypaisa') || q.includes('sadapay') || q.includes('bank') || q.includes('shahid') || q.includes('ادائیگی') || q.includes('پیسے') || q.includes('اکاؤنٹ')) {
-      return `فیس کی آن لائن ادائیگی کی آفیشل تفصیلات:<br><br>
-      👤 <strong>اکاؤنٹ ہولڈر:</strong> شاہد اکرم (Shahid Akram)<br>
-      📱 <strong>JazzCash / Easypaisa / SadaPay:</strong> <code>03206546008</code><br>
-      🏦 <strong>میزان بینک IBAN:</strong> <code>PK36MEZN0001020304050607</code><br><br>
-      فیس بھیجنے کے بعد رسید <a href="payments.html" style="color:var(--primary-green); font-weight:700;">آن لائن پیمنٹ پورٹل</a> پر اپلوڈ کریں۔ چند گھنٹوں میں داخلہ کنفرم ہو جائے گا۔`;
+    if (q.includes('ادائیگی') || q.includes('کھاتہ') || q.includes('اکاؤنٹ') || q.includes('شاہد')) {
+      return `فیس کی آن لائن ادائیگی کی آفیشل معلومات درج ذیل ہیں:<br><br>
+      👤 <strong>کھاتہ دار کا نام:</strong> شاہد اکرم<br>
+      📱 <strong>جاز کیش / ایزی پیسہ / سادہ پے:</strong> <code>۰۳۲۰۶۵۴۶۰۰۸</code> (0320-6546008)<br>
+      🏦 <strong>میزان بینک انٹرنیشنل نمبر:</strong> <code>PK36MEZN0001020304050607</code><br><br>
+      ادائیگی کے بعد رسید آن لائن پیمنٹ پورٹل پر جمع کروائیں۔ چند گھنٹوں میں داخلے کی تصدیق کر دی جائے گی۔`;
     }
 
     // 5. Admissions
-    if (q.includes('admission') || q.includes('apply') || q.includes('داخلہ') || q.includes('رجسٹریشن')) {
-      return `آن لائن داخلہ لینے کا طریقہ:<br><br>
-      1. ہمارے <a href="admissions.html" style="color:var(--primary-green); font-weight:700;">داخلہ پورٹل</a> پر تشریف لے جائیں اور فارم جمع کریں۔<br>
-      2. اکاؤنٹ <code>03206546008</code> پر فیس ادا کریں۔<br>
-      3. رسید <a href="payments.html" style="color:var(--primary-green); font-weight:700;">پیمنٹ پیج</a> پر اپلوڈ کریں اور لاگ ان حاصل کریں۔`;
+    if (q.includes('داخلہ') || q.includes('رجسٹریشن')) {
+      return `آن لائن داخلے کا سادہ طریقہ کار:<br><br>
+      ۱. ہماری ویب گاہ پر آن لائن داخلہ فارم پر تشریف لے جائیں اور کوائف جمع کروائیں۔<br>
+      ۲. کھاتہ <code>۰۳۲۰۶۵۴۶۰۰۸</code> پر فیس جمع کروائیں۔<br>
+      ۳. رسید کی تصویر پورٹل پر اپلوڈ کر کے کلاس میں شمولیت اختیار کریں۔`;
     }
 
     // 6. Certificate Verification
-    if (q.includes('certificate') || q.includes('verify') || q.includes('سرٹیفکیٹ') || q.includes('تصدیق')) {
-      return `سرٹیفکیٹ کی تصدیق کے لیے ہمارے <a href="verify-certificate.html" style="color:var(--primary-green); font-weight:700;">سرٹیفکیٹ تصدیقی پورٹل</a> پر جا کر اپنا ویریفیکیشن کوڈ (مثلاً <code>ILM-2026-000101</code>) درج کریں۔`;
+    if (q.includes('سند') || q.includes('سرٹیفکیٹ') || q.includes('تصدیق')) {
+      return `سند کی تصدیق کے لیے ہمارے تصدیقی پورٹل پر تشریف لے جائیں اور اپنی سند کا کوڈ (مثلاً <code>ILM-2026-000101</code>) درج کر کے آن لائن تصدیق حاصل کریں۔`;
     }
 
     // 7. Contact / Helpline
-    if (q.includes('contact') || q.includes('whatsapp') || q.includes('phone') || q.includes('number') || q.includes('رابطہ') || q.includes('نمبر')) {
-      return `علمِ ٹیک پاکستان سے رابطہ کرنے کی تفصیلات:<br><br>
-      📞 <strong>آفیشل ہیلپ لائن / واٹس ایپ:</strong> <code>0307-4958837</code> (+92 307 4958837)<br>
-      📧 <strong>ای میل:</strong> info@ilmetechpakistan.com<br>
-      📍 <strong>کیمپس:</strong> لاہور اور اسلام آباد، پاکستان۔`;
-    }
-
-    // 8. Founder / CEO
-    if (q.includes('shahid') || q.includes('founder') || q.includes('ceo') || q.includes('بانی')) {
-      return `علمِ ٹیک پاکستان کے بانی و چیف ایگزیکٹو آفیسر <strong>ڈاکٹر شاہد اکرم مصطفائی (Dr. Shahid Akram Mustafai)</strong> ہیں۔ وہ جدید آرٹیفیشل انٹیلیجنس اور آئی ٹی کے شعبے میں طلباء کی رہنمائی اور بااختیار بنانے کے مشن پر گامزن ہیں۔`;
+    if (q.includes('رابطہ') || q.includes('نمبر') || q.includes('واٹس ایپ')) {
+      return `علمِ ٹیک پاکستان سے رابطے کی تفصیلات:<br><br>
+      📞 <strong>آفیشل ہیلپ لائن و واٹس ایپ:</strong> <code>۰۳۰۷-۴۹۵۸۸۳۷</code> (0307-4958837)<br>
+      📧 <strong>برقی پتہ:</strong> info@ilmetechpakistan.com<br>
+      📍 <strong>مراکز:</strong> لاہور اور اسلام آباد، پاکستان۔`;
     }
 
     // Default Greeting & Counselor Assistance
-    return `علمِ ٹیک پاکستان کے مشاورتی پورٹل میں خوش آمدید! میں <strong>ڈاکٹر شاہد اکرم مصطفائی</strong> ہوں۔<br><br>
-    آپ مجھ سے اپنے لیے بہترین کورس کے مشورے، کورسز کے فوائد و نقصانات کے موازنے، فیس، داخلے، یا فیس کی ادائیگی (اکاؤنٹ: شاہد اکرم - <code>03206546008</code>) کے بارے میں کچھ بھی تحریری طور پر دریافت کر سکتے ہیں۔`;
+    return `علمِ ٹیک پاکستان کے مشاورتی مرکز میں خوش آمدید! میں <strong>ڈاکٹر شاہد اکرم مصطفائی</strong> ہوں۔<br><br>
+    آپ مجھ سے اپنے کیریئر کے لیے بہترین نصاب کے مشورے، فوائد و نقصانات کے موازنے، فیس، داخلے، یا ادائیگی (کھاتہ دار: شاہد اکرم — <code>۰۳۲۰۶۵۴۶۰۰۸</code>) کے بارے میں کچھ بھی دریافت فرما سکتے ہیں۔`;
   }
 }
 
