@@ -551,49 +551,28 @@
             btnText = c.actionBtnText;
           }
 
-          // Pricing
-          let priceHtml = '';
+          // Pricing block with laser alignment
+          let tierLabel = c.isFree ? (isUrdu ? 'خصوصی آفر' : 'LAUNCH PRIVILEGE') : (c.discountPercent ? (isUrdu ? 'خصوصی رعایت' : 'SUBSIDIZED TUITION') : (isUrdu ? 'کورس فیس' : 'OFFICIAL TUITION'));
+          let regularPrice = c.originalFee ? c.originalFee.toLocaleString() : (c.fee ? Math.round(c.fee * 2).toLocaleString() : '4,999');
+          
+          let priceMainHtml = '';
           if (c.isFree) {
-            priceHtml = `
-              <span class="price-dim-label">${isUrdu ? 'خصوصی آفر' : 'LAUNCH PRIVILEGE'}</span>
-              <div class="price-was-row">
-                <span class="price-was-tag">${isUrdu ? 'پرانی فیس:' : 'WAS:'}</span>
-                <span class="price-was-val">Rs. ${c.originalFee ? c.originalFee.toLocaleString() : '4,999'} PKR</span>
-              </div>
+            priceMainHtml = `
               <div class="price-val-hero-free">
                 <i class="fas fa-gift"></i>
-                <span>${isUrdu ? '100% مفت' : (c.freeLabel || '100% FREE')}</span>
-              </div>
-            `;
-          } else if (c.originalFee) {
-            priceHtml = `
-              <span class="price-dim-label">${isUrdu ? 'خصوصی رعایت' : 'SUBSIDIZED TUITION'}</span>
-              <div class="price-was-row">
-                <span class="price-was-tag">${isUrdu ? 'ریگولر فیس:' : 'REGULAR:'}</span>
-                <span class="price-was-val">Rs. ${c.originalFee.toLocaleString()} PKR</span>
-              </div>
-              <div class="price-val-hero-discounted">
-                <span class="price-number-big">Rs. ${c.fee.toLocaleString()}</span>
-                <span class="price-curr-label">PKR</span>
-                <span class="discount-glow-badge">${c.discountLabel || '80% OFF'}</span>
+                <span>${isUrdu ? '100% مفت' : '100% FREE'}</span>
               </div>
             `;
           } else {
-            priceHtml = `
-              <span class="price-dim-label">${isUrdu ? 'کورس فیس' : 'OFFICIAL TUITION'}</span>
+            let discountPill = c.discountPercent ? `<span class="discount-glow-badge">${c.discountPercent}% OFF</span>` : `<span class="discount-glow-badge" style="background:#ecfdf5; color:#047857; border-color:#a7f3d0;">Verified</span>`;
+            priceMainHtml = `
               <div class="price-val-hero-discounted">
                 <span class="price-number-big">Rs. ${c.fee.toLocaleString()}</span>
                 <span class="price-curr-label">PKR</span>
+                ${discountPill}
               </div>
             `;
           }
-
-          const demoStripHtml = c.demoOffer ? `
-            <div class="nasa-demo-callout">
-              <i class="fas fa-sparkles"></i>
-              <span><strong>${isUrdu ? 'خصوصی آفر:' : 'SPECIAL PRIVILEGE:'}</strong> ${isUrdu ? 'پہلے 7 دن فری ڈیمو کلاس شامل ہے' : c.demoOffer + ' Included'}</span>
-            </div>
-          ` : '';
 
           return `
             <div class="course-card nasa-card">
@@ -601,7 +580,7 @@
                 ${badgeHtml}
                 <div class="course-icon-badge"><i class="fas fa-graduation-cap"></i></div>
                 <div class="course-header-content">
-                  <h3 class="course-title ${isUrdu ? 'bombay-font' : ''}">${title}</h3>
+                  <h3 class="course-title ${isUrdu ? 'bombay-font' : ''}" title="${title}">${title}</h3>
                   ${!isUrdu ? `<div class="course-urdu-title">${c.urduTitle}</div>` : ''}
                 </div>
               </div>
@@ -612,22 +591,32 @@
                   <span class="nasa-meta-pill pill-live"><span class="pulse-live"></span> Live Cohort</span>
                 </div>
                 
-                <p class="course-desc">${c.shortDesc}</p>
-                
-                ${demoStripHtml}
+                <p class="course-desc" title="${c.shortDesc}">${c.shortDesc}</p>
                 
                 <ul class="course-features-list">
-                  ${c.outcomes.slice(0, 3).map(o => `<li><i class="fas fa-circle-check"></i> <span>${o}</span></li>`).join('')}
+                  ${c.outcomes.slice(0, 3).map(o => `<li><i class="fas fa-circle-check"></i> <span title="${o}">${o}</span></li>`).join('')}
                 </ul>
                 
                 <div class="course-footer">
                   <div class="course-price-zone">
-                    ${priceHtml}
+                    <div class="price-meta-block">
+                      <span class="price-dim-label">${tierLabel}</span>
+                      <div class="price-was-row">
+                        <span class="price-was-tag">${isUrdu ? 'ریگولر:' : 'REGULAR:'}</span>
+                        <span class="price-was-val">Rs. ${regularPrice} PKR</span>
+                      </div>
+                    </div>
+                    <div class="price-main-block">
+                      ${priceMainHtml}
+                    </div>
                   </div>
                   <div class="course-actions-zone">
                     <a href="course-detail.html?id=${c.id}" class="btn-nasa-details"><i class="fas fa-info-circle"></i> ${detailsBtn}</a>
                     <a href="admissions.html?course=${c.id}" class="${btnClass}"><i class="fas ${btnIcon}"></i> ${btnText}</a>
                   </div>
+                  <a href="courses.html" class="card-cert-cue" style="text-decoration:none;" title="Official Certificate Available">
+                    <i class="fas fa-certificate text-emerald-500"></i> ${isUrdu ? 'آفیشل سند دستیاب ہے • فیس 1500 روپے' : 'Official Certificate Available • Fee: Rs. 1,500'}
+                  </a>
                 </div>
               </div>
             </div>

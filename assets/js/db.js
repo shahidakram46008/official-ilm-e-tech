@@ -12,6 +12,7 @@ const DB_KEYS = {
   ENROLLMENTS: 'ilmetech_enrollments',
   AUDIT_LOGS: 'ilmetech_audit_logs',
   CERTIFICATES: 'ilmetech_certificates',
+  CERT_CLAIMS: 'ilmetech_cert_claims',
   BLOG: 'ilmetech_blog',
   DOWNLOADS: 'ilmetech_downloads',
   ANNOUNCEMENTS: 'ilmetech_announcements',
@@ -52,7 +53,6 @@ const DEFAULT_SETTINGS = {
   },
   meta: {
     title: "ILM E TECH PAKISTAN | Official Digital Education & AI Academy Platform",
-    description: "Learn Artificial Intelligence, AI Tools, Computer Basics, Software Development, Content Creation & Trading at ILM E TECH PAKISTAN. Founded by Dr. Shahid Akram Mustafai.",
     keywords: "ILM E TECH PAKISTAN, Dr Shahid Akram Mustafai, AI courses Pakistan, AI tools course Pakistan, computer course Pakistan, digital skills Pakistan"
   }
 };
@@ -64,31 +64,31 @@ const DEFAULT_COURSES = [
     urduTitle: "بیسک AI کورس",
     category: "Artificial Intelligence",
     slug: "basic-ai-course",
-    shortDesc: "A complete beginner-friendly course covering fundamental AI concepts (AI Basics), prompt engineering, ChatGPT, Claude, and everyday practical productivity tools.",
-    fullDesc: "This 1-week intensive foundation course is specially designed to teach essential AI basics and fundamental concepts for Pakistani students, beginners, job seekers, and entrepreneurs with no technical background. You will learn fundamental AI concepts (AI Basics), ChatGPT, Claude, Gemini, prompt engineering, AI for writing, research, presentation building, and practical everyday workflows with 100% free access.",
+    shortDesc: "A complete beginner-friendly foundation covering prompt engineering, ChatGPT, Claude, and everyday practical productivity tools.",
+    fullDesc: "This 1-week intensive foundation course is specially designed to teach essential AI basics and fundamental concepts for Pakistani students, beginners, job seekers, and entrepreneurs with no technical background. You will learn ChatGPT, Claude, Gemini, prompt engineering, AI for writing, research, presentation building, and practical everyday workflows with 100% free access.",
     duration: "1 Week (7 Days)",
     level: "Beginner",
     fee: 0,
     originalFee: 4999,
     isFree: true,
     freeLabel: "100% FREE",
-    badge: "Free Access",
+    badge: "100% Free Launch",
     badgeType: "free",
-    actionBtnText: "Enroll 100% Free",
+    actionBtnText: "Enroll Free",
     mode: "Online Live & Recorded",
     startDate: "15th October 2026",
     instructor: "Dr. Shahid Akram Mustafai & Team",
     status: "Active",
     image: "https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=800&q=80",
     outcomes: [
-      "Master Core AI Basics & Foundational Concepts",
-      "Master Prompt Engineering for ChatGPT, Gemini, and Claude",
-      "Generate AI images, graphics, and presentations effortlessly",
-      "Automate research, email drafting, and document summary tasks",
-      "Build practical AI productivity workflows for studies & jobs"
+      "Master Core AI Foundations & LLM Architecture",
+      "Prompt Engineering for ChatGPT, Gemini & Claude",
+      "Generate AI Images, Graphics & Dynamic Slides",
+      "Automate Academic Research, Emails & Documents",
+      "Build Practical Productivity Workflows for Studies & Jobs"
     ],
     syllabus: [
-      { week: 1, topic: "Complete AI Basics & LLM Foundations (Day 1 - 7)", detail: "What is AI, AI basics, how LLMs work, setting up accounts, prompt engineering, content generation, and practical productivity workflows." }
+      { week: 1, topic: "Complete AI Basics & LLM Foundations (Day 1 - 7)", detail: "What is AI, how LLMs work, setting up accounts, prompt engineering, content generation, and practical productivity workflows." }
     ],
     tools: ["ChatGPT", "Google Gemini", "Claude AI", "Canva Magic Studio", "Gamma.app"],
     certificateInfo: "Includes Official Verification ID & Downloadable PDF Certificate signed by Founder & CEO Dr. Shahid Akram Mustafai."
@@ -99,16 +99,16 @@ const DEFAULT_COURSES = [
     urduTitle: "AI ٹولز ماسٹری",
     category: "AI Productivity & Skills",
     slug: "ai-tools-mastery",
-    shortDesc: "Master 25+ cutting-edge AI tools for writing, graphic design, video editing, voice cloning, automation, and digital marketing.",
+    shortDesc: "Master 25+ cutting-edge AI tools for writing, graphic design, video editing, voice cloning, automation, and marketing.",
     fullDesc: "Unlock Your Future with AI: 30 Days, 30 Tools, Infinite Possibilities. Join 100,000+ Learners on a Practical AI Journey. Delivered via Google Meet & YouTube Live with daily interactive live Q&A sessions. Every Class: Learn ➔ Create Now ➔ Apply in Life ➔ Earn. 100% FREE for First Batch Launch!",
     duration: "30 Days (Daily Live + Q&A)",
     level: "Beginner Friendly",
     fee: 0,
     originalFee: 10000,
     isFree: true,
-    freeLabel: "FREE (October Launch Offer)",
+    freeLabel: "100% FREE",
     freeSubLabel: "100% FREE for First Batch",
-    badge: "Launch Offer - Free",
+    badge: "30-Day Masterclass",
     badgeType: "free-launch",
     actionBtnText: "Join Free Batch",
     mode: "Google Meet & YouTube Live (Daily Live + Interactive Q&A)",
@@ -117,11 +117,11 @@ const DEFAULT_COURSES = [
     status: "Active",
     image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
     outcomes: [
-      "Master 25+ essential AI productivity and creative tools",
-      "Create high-converting social media videos using AI avatars",
-      "Clone realistic AI voices and generate professional voiceovers",
-      "Automate research, documentation, presentations, and marketing with AI",
-      "Build a verified portfolio and earn an official verifiable certificate"
+      "Master 25+ Essential Productivity & Creative AI Tools",
+      "Create High-Converting Social Media Videos & AI Avatars",
+      "Clone Studio-Quality Voices & Generate Voiceovers",
+      "Automate Research, Documentation & Presentations",
+      "Build a Verified Portfolio & Earn an Official Verifiable Certificate"
     ],
     methodology: {
       motto: "Every Class: Learn ➔ Create Now ➔ Apply in Life ➔ Earn",
@@ -148,7 +148,7 @@ const DEFAULT_COURSES = [
         urduTitle: "حصہ دوم: تعلیمی مواد اور ریسرچ (دن 8 تا 12)",
         days: "Days 8 - 12",
         tools: ["NotebookLM", "Qwen", "Grok", "Khanmigo", "Gamma"],
-        focus: "تعلیمی مواد، ریسرچ، نوٹس اور پریزنٹیشنز بنانے کے جدید طریقے.",
+        focus: "تعلیمی مواد، ریسرچ، نوٹس اور پریزنٹیشنز بنانے کے جدید طریقے۔",
         focusEn: "Modern methods for educational materials, academic research, smart notes, and automated presentations."
       },
       {
@@ -175,15 +175,15 @@ const DEFAULT_COURSES = [
         urduTitle: "حصہ پنجم: آواز، موسیقی اور جدید تصاویر (دن 21 تا 24)",
         days: "Days 21 - 24",
         tools: ["ElevenLabs", "Suno", "Ideogram", "Leonardo AI"],
-        focus: "اے آئی وائس اوور، موسیقی (Suno) اور ایڈوانس امیج جنریشن (Ideogram, Leonardo)۔",
-        focusEn: "Ultra-realistic voice cloning, AI music composition (Suno), and advanced image synthesis."
+        focus: "اے آئی وائس اوور، موسیقی اور ایڈوانس امیج جنریشن۔",
+        focusEn: "Ultra-realistic voice cloning, AI music composition, and advanced image synthesis."
       },
       {
         part: 6,
         title: "Part 6: Professional AI & Consolidation (Days 25-30)",
         urduTitle: "حصہ ششم: پروفیشنل اے آئی اور تکمیل (دن 25 تا 30)",
         days: "Days 25 - 30",
-        tools: ["Google AI Studio", "Mistral/Le Chat", "Poe", "Google Gemini Deep Research", "Canva Magic Studio", "Google AI Studio (App Intro)"],
+        tools: ["Google AI Studio", "Mistral/Le Chat", "Poe", "Google Gemini Deep Research", "Canva Magic Studio"],
         focus: "پروفیشنل لیول پر اے آئی کا استعمال اور پروجیکٹ کی تکمیل۔",
         focusEn: "Professional-grade AI workflows, deep research, prompt engineering, and capstone project completion."
       }
@@ -217,8 +217,8 @@ const DEFAULT_COURSES = [
     fee: 3000,
     originalFee: 15000,
     discountPercent: 80,
-    discountLabel: "80% OFF - Limited Time",
-    badge: "80% OFF - Limited Time",
+    discountLabel: "80% Subsidized",
+    badge: "80% Subsidized",
     badgeType: "discount",
     actionBtnText: "Apply Now",
     mode: "Online & Physical Campus",
@@ -227,11 +227,11 @@ const DEFAULT_COURSES = [
     status: "Active",
     image: "https://images.unsplash.com/photo-1587614382346-4ec70e388b28?auto=format&fit=crop&w=800&q=80",
     outcomes: [
-      "Confidently operate Windows 10/11 operating system",
+      "Confidently Operate Windows 10/11 Operating System",
       "Master Microsoft Office: Word, Excel & PowerPoint",
-      "Draft professional emails and manage online forms",
-      "Perform fast typing and computer file management",
-      "Understand digital security, scanning, printing & cloud tools"
+      "Draft Professional Business Emails & Online Forms",
+      "Perform Fast English/Urdu Typing & File Management",
+      "Understand Digital Security, Printing & Cloud Tools"
     ],
     syllabus: [
       { week: 1, topic: "Computer Hardware & Windows OS Fundamentals", detail: "Components, desktop, file explorer, settings, software installation." },
@@ -253,22 +253,24 @@ const DEFAULT_COURSES = [
     duration: "6 Weeks (1.5 Months)",
     level: "Intermediate to Advanced",
     fee: 15000,
-    originalFee: null,
-    demoOffer: "First 7 Days Free Demo Class",
-    badge: "First 7 Days Free Demo Class",
+    originalFee: 30000,
+    discountPercent: 50,
+    discountLabel: "50% Subsidized",
+    demoOffer: "7 Days Free Demo Class Included",
+    badge: "7 Days Free Demo",
     badgeType: "demo",
-    actionBtnText: "Claim Free Demo",
+    actionBtnText: "Start Free Demo",
     mode: "Online Live & Project Based",
     startDate: "1st November 2026",
     instructor: "Engr. Hamza Khan (Lead Full-Stack Architect)",
     status: "Active",
     image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80",
     outcomes: [
-      "Build production-grade web applications using AI coding tools",
-      "Integrate Gemini API, OpenAI API, and Google AI Studio into apps",
-      "Develop useful Chrome extensions and cross-platform mobile apps",
-      "Master GitHub, Vercel deployment, and database setup",
-      "Create a professional developer portfolio with 4 live projects"
+      "Build Production-Grade Web Applications Using AI Coding Tools",
+      "Integrate Gemini API, OpenAI API & Google AI Studio into Apps",
+      "Develop Useful Chrome Extensions & Mobile Applications",
+      "Master GitHub, Vercel Deployment & Database Setup",
+      "Create a Professional Developer Portfolio with 4 Live Projects"
     ],
     syllabus: [
       { week: 1, topic: "AI-Assisted Engineering Workflow", detail: "Prompt-driven code architecture, Google AI Studio, Cursor, Antigravity." },
@@ -288,10 +290,12 @@ const DEFAULT_COURSES = [
     shortDesc: "Create viral short-form videos, YouTube reels, AI avatars, automated voiceovers, social graphics, and digital ads using AI.",
     fullDesc: "Learn how to build a scalable digital content creator brand or provide content services to global clients. Master AI scripting, thumbnail design, photorealistic image creation, AI avatar video generation, automated voiceovers, and social media growth strategies for YouTube, TikTok, Facebook, and Instagram.",
     duration: "5 Weeks (20 Hours)",
-    level: "Beginner to Intermediate",
+    level: "All Skill Levels",
     fee: 20000,
-    originalFee: null,
-    badge: "Trending",
+    originalFee: 35000,
+    discountPercent: 43,
+    discountLabel: "43% Subsidized",
+    badge: "Trending Track",
     badgeType: "trending",
     actionBtnText: "Apply Now",
     mode: "Online Live",
@@ -300,11 +304,11 @@ const DEFAULT_COURSES = [
     status: "Active",
     image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80",
     outcomes: [
-      "Write high-engaging video scripts using AI writing tools",
-      "Produce AI avatar videos and faceless channel content",
-      "Create hyper-realistic AI images and social media graphics",
-      "Generate natural-sounding Urdu and English AI voiceovers",
-      "Build content calendars and automate social media posting"
+      "Write High-Engaging Video Scripts Using AI Writing Tools",
+      "Produce AI Avatar Videos & Faceless Channel Content",
+      "Create Hyper-Realistic AI Images & Social Media Graphics",
+      "Generate Natural-Sounding Urdu & English AI Voiceovers",
+      "Build Content Calendars & Automate Social Media Posting"
     ],
     syllabus: [
       { week: 1, topic: "Content Strategy & AI Scripting", detail: "Niche selection, viral hook formulas, ChatGPT script writing." },
@@ -326,7 +330,9 @@ const DEFAULT_COURSES = [
     duration: "6 Weeks (24 Hours)",
     level: "Beginner to Intermediate",
     fee: 20000,
-    originalFee: null,
+    originalFee: 40000,
+    discountPercent: 50,
+    discountLabel: "50% Subsidized",
     badge: "Educational Only",
     badgeType: "educational",
     actionBtnText: "Apply Now",
@@ -337,11 +343,11 @@ const DEFAULT_COURSES = [
     status: "Active",
     image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=80",
     outcomes: [
-      "Understand financial market structure and key terminology",
-      "Read technical charts, candlesticks, support & resistance levels",
-      "Apply strict Risk-to-Reward ratios and position sizing",
-      "Master market psychology and emotional control while trading",
-      "Identify common online scams, fake schemes, and capital risks"
+      "Understand Financial Market Structure & Key Terminology",
+      "Read Technical Charts, Candlesticks, Support & Resistance",
+      "Apply Strict Risk-to-Reward Ratios & Position Sizing",
+      "Master Market Psychology & Discipline While Trading",
+      "Identify Common Online Scams, Fake Schemes & Capital Risks"
     ],
     syllabus: [
       { week: 1, topic: "Financial Markets Fundamentals & Terminology", detail: "Market types, terminology, bid/ask, charts introduction." },
@@ -571,7 +577,13 @@ class IlmTechDB {
   }
 
   getCourses() {
-    return JSON.parse(localStorage.getItem(DB_KEYS.COURSES)) || DEFAULT_COURSES;
+    const stored = JSON.parse(localStorage.getItem(DB_KEYS.COURSES));
+    if (stored && Array.isArray(stored) && stored.length >= DEFAULT_COURSES.length && localStorage.getItem('ilmetech_courses_version') === '2026.2') {
+      return stored;
+    }
+    localStorage.setItem(DB_KEYS.COURSES, JSON.stringify(DEFAULT_COURSES));
+    localStorage.setItem('ilmetech_courses_version', '2026.2');
+    return DEFAULT_COURSES;
   }
 
   getCourseById(id) {
@@ -838,6 +850,28 @@ class IlmTechDB {
     const certs = this.getCertificates();
     certs.unshift(cert);
     localStorage.setItem(DB_KEYS.CERTIFICATES, JSON.stringify(certs));
+  }
+
+  getCertificateClaims() {
+    return JSON.parse(localStorage.getItem(DB_KEYS.CERT_CLAIMS)) || [];
+  }
+
+  addCertificateClaim(claim) {
+    const claims = this.getCertificateClaims();
+    claims.unshift(claim);
+    localStorage.setItem(DB_KEYS.CERT_CLAIMS, JSON.stringify(claims));
+
+    // Also record in audit log
+    this.addAuditLog({
+      payId: claim.claimId || claim.trxId,
+      action: "Certificate Claim (Rs. 1,500)",
+      previousStatus: "NONE",
+      newStatus: "PENDING_VERIFICATION",
+      performedBy: `Applicant: ${claim.studentName}`,
+      role: "STUDENT",
+      note: `Claimed certificate for ${claim.courseName} via ${claim.paymentMethod} (TRX: ${claim.trxId}). Fee: Rs. 1,500 PKR.`
+    });
+    return claim;
   }
 
   getBlogPosts() {

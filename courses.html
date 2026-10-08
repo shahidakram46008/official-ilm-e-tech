@@ -19,7 +19,7 @@
         <img src="assets/images/logo.jpg" alt="ILM E TECH PAKISTAN Logo">
         <div class="brand-text">
           <span class="brand-name">ILM E TECH PAKISTAN</span>
-          <span class="brand-subtitle" style="font-size:0.75rem; color:var(--tech-blue); font-weight:700;">Digital Education & AI Academy</span>
+          <span class="brand-subtitle" style="font-size:0.75rem; color:var(--tech-blue); font-weight:700;">Digital Education &amp; AI Academy</span>
         </div>
       </a>
       <nav>
@@ -41,8 +41,10 @@
     </div>
   </header>
 
-  <!-- NASA Cosmic Hero Banner -->
+  <!-- NASA Cosmic Hero Banner with Animated Starfield Canvas -->
   <section class="nasa-courses-hero">
+    <canvas id="nasaCosmicCanvas" class="nasa-cosmic-canvas"></canvas>
+    
     <div class="container" style="position:relative; z-index:2;">
       <div class="nasa-telemetry-badge">
         <span class="beacon-dot"></span>
@@ -58,15 +60,18 @@
         <div class="nasa-stat-pill"><i class="fas fa-certificate"></i> Verifiable Official Credentials</div>
         <div class="nasa-stat-pill"><i class="fas fa-gift"></i> 100% Free Launch Tracks Available</div>
         <div class="nasa-stat-pill"><i class="fas fa-users"></i> 100,000+ Community Learners</div>
+        <button class="nasa-stat-pill" onclick="openCertClaimModal()" style="cursor:pointer; background:rgba(4, 106, 56, 0.4); border-color:#34d399; color:#ffffff;">
+          <i class="fas fa-award text-emerald-400"></i> <strong>Claim Verified Certificate</strong> &bull; <span style="color:#a7f3d0;">Rs. 1,500 Fee</span>
+        </button>
       </div>
     </div>
   </section>
 
-  <!-- Courses Grid Section -->
-  <section style="padding: 4rem 0 6rem; background: #f8fafc;">
+  <!-- Courses Grid & Certificate Engine Section -->
+  <section style="padding: 3.5rem 0 6rem; background: #f8fafc;">
     <div class="container">
       
-      <!-- Interactive Filter Bar -->
+      <!-- Interactive Filter & Search Bar -->
       <div class="nasa-filter-container">
         <div class="nasa-filter-pills" id="courseFilters">
           <button class="filter-pill-btn active" data-filter="all"><i class="fas fa-th-large"></i> All Tracks (6)</button>
@@ -81,13 +86,205 @@
         </div>
       </div>
 
-      <!-- Courses Grid -->
+      <!-- Dedicated NASA Academy Certificate Claim Banner -->
+      <div class="nasa-cert-banner">
+        <div class="nasa-cert-banner-left">
+          <div class="nasa-cert-icon-orb">
+            <i class="fas fa-award"></i>
+          </div>
+          <div class="nasa-cert-banner-text">
+            <div class="cert-status-tag">
+              <span class="beacon-dot"></span> OFFICIAL VERIFICATION PROTOCOL // ISO-COMPLIANT
+            </div>
+            <h2 class="cert-banner-heading">Claim Your Official Academy Certificate</h2>
+            <p class="cert-banner-sub">
+              Completed your course or need an authentic verifiable credential? Claim your official certificate issued under the authority of Founder &amp; CEO Dr. Shahid Akram Mustafai with instant QR code validation, national serial registration, and nationwide courier delivery.
+            </p>
+            <div class="cert-feature-tags">
+              <span><i class="fas fa-check-circle"></i> CEO Signed Seal</span>
+              <span><i class="fas fa-qrcode"></i> Lifetime QR Registry</span>
+              <span><i class="fas fa-file-pdf"></i> High-Res PDF</span>
+              <span><i class="fas fa-truck-fast"></i> Hardcopy Doorstep Courier</span>
+            </div>
+          </div>
+        </div>
+        <div class="nasa-cert-banner-right">
+          <div class="cert-fee-box">
+            <span class="cert-fee-label">OFFICIAL ISSUANCE &amp; COURIER FEE</span>
+            <div class="cert-fee-price">
+              <span class="cert-fee-unit">Rs.</span>
+              <span class="cert-fee-number">1,500</span>
+              <span class="cert-fee-pkr">PKR</span>
+            </div>
+            <span class="cert-fee-guarantee"><i class="fas fa-shield-alt"></i> All-Inclusive One-Time Fee</span>
+          </div>
+          <button class="btn-cert-claim-launch" onclick="openCertClaimModal()" id="btnLaunchCertBanner">
+            <i class="fas fa-certificate"></i> Claim Your Certificate Now
+          </button>
+        </div>
+      </div>
+
+      <!-- Laser-Aligned Courses Grid -->
       <div class="courses-grid" id="allCoursesGrid" style="display:grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 2.25rem;">
-        <!-- Rendered dynamically -->
+        <!-- Rendered dynamically via JavaScript -->
       </div>
 
     </div>
   </section>
+
+  <!-- Floating Certificate Action Launcher -->
+  <button class="floating-cert-launcher" id="floatingCertLauncher" onclick="openCertClaimModal()" title="Claim Your Certificate - Rs. 1,500 Fee">
+    <div class="floating-cert-icon">
+      <i class="fas fa-graduation-cap"></i>
+      <span class="beacon-dot-floating"></span>
+    </div>
+    <div class="floating-cert-text">
+      <span class="floating-cert-title">Claim Certificate</span>
+      <span class="floating-cert-fee">Fee: Rs. 1,500 PKR</span>
+    </div>
+  </button>
+
+  <!-- NASA High-Tech "Claim Your Certificate" Modal Dialog -->
+  <div class="nasa-modal-overlay" id="claimCertModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="nasa-modal-container">
+      
+      <!-- Modal Header -->
+      <div class="nasa-modal-header">
+        <button class="nasa-modal-close" onclick="closeCertClaimModal()" aria-label="Close modal">&times;</button>
+        <div class="modal-telemetry-tag">
+          <span class="beacon-dot"></span> ACADEMY CREDENTIAL ENGINE // VERIFICATION PORTAL
+        </div>
+        <h2 class="nasa-modal-title" id="modalTitle">Claim Your Official Certificate</h2>
+        <div class="nasa-modal-urdu-title">آفیشل تصدیق شدہ سند کلیم کریں</div>
+        <p class="nasa-modal-sub">
+          Issued under the authority of Dr. Shahid Akram Mustafai (Founder &amp; CEO, ILM E TECH PAKISTAN).
+        </p>
+      </div>
+
+      <!-- Prominent Rs. 1,500 Fee Spotlight -->
+      <div class="modal-fee-spotlight">
+        <div class="fee-spotlight-left">
+          <span class="spotlight-tag"><i class="fas fa-shield-halved"></i> OFFICIAL ISSUANCE &amp; VERIFICATION FEE</span>
+          <div class="spotlight-amount-row">
+            <span class="spotlight-unit">Rs.</span>
+            <span class="spotlight-val">1,500</span>
+            <span class="spotlight-currency">PKR ONLY</span>
+          </div>
+        </div>
+        <div class="spotlight-perks-list">
+          <span><i class="fas fa-check-circle"></i> Lifetime Online QR Verification</span>
+          <span><i class="fas fa-check-circle"></i> High-Resolution Digital PDF</span>
+          <span><i class="fas fa-check-circle"></i> Embossed Hardcopy Certificate</span>
+          <span><i class="fas fa-check-circle"></i> Free Courier Across Pakistan</span>
+        </div>
+      </div>
+
+      <!-- Modal Body & Form -->
+      <div class="nasa-modal-body" id="modalFormContainer">
+        <form id="certClaimForm" onsubmit="handleCertClaimSubmit(event)">
+          <div class="claim-form-grid">
+            
+            <div class="claim-input-group">
+              <label for="claimStudentName"><i class="fas fa-user text-emerald-500"></i> Student Full Name (as on certificate) *</label>
+              <input type="text" id="claimStudentName" placeholder="e.g. Muhammad Ali" required>
+            </div>
+
+            <div class="claim-input-group">
+              <label for="claimFatherName"><i class="fas fa-user-friends text-emerald-500"></i> Father's Name *</label>
+              <input type="text" id="claimFatherName" placeholder="e.g. Tariq Mahmood" required>
+            </div>
+
+            <div class="claim-input-group">
+              <label for="claimCourseSelect"><i class="fas fa-book-open text-sky-500"></i> Select Course Completed / Enrolled *</label>
+              <select id="claimCourseSelect" required>
+                <option value="basic-ai">Basic AI Course (100% Free Track)</option>
+                <option value="ai-tools-mastery">AI Tools Mastery (30-Day Cohort)</option>
+                <option value="basic-computer">Basic Computer Course (Office &amp; IT)</option>
+                <option value="ai-software-dev">AI Software Development (Web &amp; Apps)</option>
+                <option value="ai-content-creation">AI Content Creation (Video &amp; Social)</option>
+                <option value="trading-course">Trading Course (Financial Literacy)</option>
+              </select>
+            </div>
+
+            <div class="claim-input-group">
+              <label for="claimRollNo"><i class="fas fa-id-card text-sky-500"></i> Student Roll No / CNIC / Reg ID</label>
+              <input type="text" id="claimRollNo" placeholder="e.g. STU-2026-10492 or 35202-xxxxxxx-x">
+            </div>
+
+            <div class="claim-input-group">
+              <label for="claimWhatsapp"><i class="fab fa-whatsapp text-emerald-500"></i> WhatsApp Number (for updates) *</label>
+              <input type="tel" id="claimWhatsapp" placeholder="e.g. 03001234567" required>
+            </div>
+
+            <div class="claim-input-group">
+              <label for="claimEmail"><i class="fas fa-envelope text-sky-500"></i> Email Address (for digital PDF) *</label>
+              <input type="email" id="claimEmail" placeholder="e.g. student@gmail.com" required>
+            </div>
+
+            <div class="claim-input-group claim-form-full">
+              <label for="claimAddress"><i class="fas fa-map-marker-alt text-rose-500"></i> Complete Postal Delivery Address &amp; City (for courier) *</label>
+              <textarea id="claimAddress" rows="2" placeholder="House #, Street, Area/Sector, City (e.g. Lahore, Karachi, Islamabad)" required></textarea>
+            </div>
+
+            <!-- Official Payment Section -->
+            <div class="claim-form-full" style="margin-top: 0.5rem; border-top: 1px solid #e2e8f0; padding-top: 1rem;">
+              <label style="font-size: 0.88rem; font-weight: 800; color: #0f172a; margin-bottom: 0.25rem;">
+                <i class="fas fa-money-bill-wave text-emerald-500"></i> Pay Official Fee of Rs. 1,500 PKR via:
+              </label>
+              
+              <!-- Payment Selector Tabs -->
+              <div class="payment-selector-tabs" id="paymentTabs">
+                <button type="button" class="pay-tab-btn active" data-method="jazzcash" onclick="switchModalPayment('jazzcash')">
+                  <i class="fas fa-bolt text-pink-500"></i> JazzCash
+                </button>
+                <button type="button" class="pay-tab-btn" data-method="easypaisa" onclick="switchModalPayment('easypaisa')">
+                  <i class="fas fa-mobile-alt text-emerald-500"></i> Easypaisa
+                </button>
+                <button type="button" class="pay-tab-btn" data-method="sadapay" onclick="switchModalPayment('sadapay')">
+                  <i class="fas fa-credit-card text-rose-500"></i> SadaPay
+                </button>
+                <button type="button" class="pay-tab-btn" data-method="bank" onclick="switchModalPayment('bank')">
+                  <i class="fas fa-building-columns text-sky-500"></i> Meezan Bank
+                </button>
+              </div>
+
+              <!-- Payment Account Display Box -->
+              <div class="pay-account-display-box" id="payAccountDisplay">
+                <div class="pay-acc-details">
+                  <span class="pay-acc-title" id="payMethodLabel">JazzCash Official Account</span>
+                  <span class="pay-acc-number" id="payAccountNumber">03206546008</span>
+                  <span class="pay-acc-holder" id="payAccountHolder">Title: Shahid Akram (CEO)</span>
+                </div>
+                <button type="button" class="btn-copy-account" onclick="copyModalAccount()" id="btnCopyAccount">
+                  <i class="fas fa-copy"></i> Copy Number
+                </button>
+              </div>
+
+              <!-- Transaction ID Input -->
+              <div class="claim-input-group">
+                <label for="claimTrxId"><i class="fas fa-receipt text-emerald-500"></i> Payment Transaction ID (TRX / Ref Number) *</label>
+                <input type="text" id="claimTrxId" placeholder="e.g. 09876543210 (From JazzCash/Easypaisa/Bank receipt)" required>
+              </div>
+
+            </div>
+
+          </div>
+
+          <button type="submit" class="btn-submit-cert-claim">
+            <i class="fas fa-lock"></i> Submit Certificate Claim &amp; Confirm Rs. 1,500 Fee
+          </button>
+          
+          <div style="text-align:center; margin-top:0.85rem; font-size:0.82rem; color:#64748b;">
+            Need Assistance? Contact Official Helpdesk on WhatsApp: 
+            <a href="https://wa.me/923074958837" target="_blank" style="color:#047857; font-weight:700; text-decoration:none;">
+              <i class="fab fa-whatsapp"></i> +92 307 4958837
+            </a>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer class="site-footer">
@@ -115,7 +312,6 @@
 
       function renderCourses() {
         const filtered = allCourses.filter(c => {
-          // Category filter
           let matchesFilter = true;
           if (activeFilter === 'free') {
             matchesFilter = c.isFree === true || c.fee === 0;
@@ -127,12 +323,11 @@
             matchesFilter = c.id === 'trading-course';
           }
 
-          // Search query
           let matchesSearch = true;
           if (searchQuery.trim()) {
             const q = searchQuery.toLowerCase();
             matchesSearch = c.title.toLowerCase().includes(q) ||
-                            c.urduTitle.includes(q) ||
+                            (c.urduTitle && c.urduTitle.includes(q)) ||
                             c.shortDesc.toLowerCase().includes(q) ||
                             (c.tools && c.tools.some(t => t.toLowerCase().includes(q)));
           }
@@ -153,93 +348,73 @@
         }
 
         grid.innerHTML = filtered.map(c => {
-          // Badge styling
+          // Standardized Badge styling
           let badgeHtml = '';
-          if (c.badge) {
-            let badgeClass = 'badge-default';
-            let badgeIcon = '';
-            if (c.badgeType === 'free' || c.isFree && !c.badgeType) {
-              badgeClass = 'badge-free';
-              badgeIcon = '<span class="beacon-dot"></span>';
-            } else if (c.badgeType === 'free-launch') {
-              badgeClass = 'badge-free-launch';
-              badgeIcon = '<i class="fas fa-rocket"></i>';
-            } else if (c.badgeType === 'discount') {
-              badgeClass = 'badge-discount';
-              badgeIcon = '<i class="fas fa-bolt"></i>';
-            } else if (c.badgeType === 'demo') {
-              badgeClass = 'badge-demo';
-              badgeIcon = '<i class="fas fa-play-circle"></i>';
-            } else if (c.badgeType === 'trending') {
-              badgeClass = 'badge-trending';
-              badgeIcon = '<i class="fas fa-fire"></i>';
-            } else if (c.badgeType === 'educational') {
-              badgeClass = 'badge-educational';
-              badgeIcon = '<i class="fas fa-shield-alt"></i>';
-            }
-            badgeHtml = `<span class="course-badge ${badgeClass}">${badgeIcon} ${c.badge}</span>`;
+          let badgeClass = 'badge-free';
+          let badgeIcon = '<i class="fas fa-check-circle"></i>';
+          
+          if (c.id === 'basic-ai') {
+            badgeClass = 'badge-free';
+            badgeIcon = '<span class="beacon-dot"></span>';
+            badgeHtml = `<span class="course-badge ${badgeClass}">${badgeIcon} 100% Free Launch</span>`;
+          } else if (c.id === 'ai-tools-mastery') {
+            badgeClass = 'badge-free-launch';
+            badgeIcon = '<i class="fas fa-rocket"></i>';
+            badgeHtml = `<span class="course-badge ${badgeClass}">${badgeIcon} 30-Day Cohort</span>`;
+          } else if (c.id === 'basic-computer') {
+            badgeClass = 'badge-discount';
+            badgeIcon = '<i class="fas fa-bolt"></i>';
+            badgeHtml = `<span class="course-badge ${badgeClass}">${badgeIcon} 80% Subsidized</span>`;
+          } else if (c.id === 'ai-software-dev') {
+            badgeClass = 'badge-demo';
+            badgeIcon = '<i class="fas fa-play-circle"></i>';
+            badgeHtml = `<span class="course-badge ${badgeClass}">${badgeIcon} 7-Day Free Demo</span>`;
+          } else if (c.id === 'ai-content-creation') {
+            badgeClass = 'badge-trending';
+            badgeIcon = '<i class="fas fa-fire"></i>';
+            badgeHtml = `<span class="course-badge ${badgeClass}">${badgeIcon} Trending Track</span>`;
+          } else if (c.id === 'trading-course') {
+            badgeClass = 'badge-educational';
+            badgeIcon = '<i class="fas fa-shield-alt"></i>';
+            badgeHtml = `<span class="course-badge ${badgeClass}">${badgeIcon} Educational Only</span>`;
           }
 
-          // Button styling & text
+          // Action Button Text & Style
           let btnClass = 'btn-nasa-apply';
           let btnIcon = 'fa-paper-plane';
-          let btnText = 'Apply';
+          let btnText = 'Apply Now';
           if (c.isFree) {
             btnClass = 'btn-nasa-free';
             btnIcon = 'fa-bolt';
-            btnText = c.actionBtnText || 'Enroll 100% Free';
-          } else if (c.demoOffer) {
+            btnText = 'Enroll Free';
+          } else if (c.id === 'ai-software-dev') {
             btnClass = 'btn-nasa-demo';
             btnIcon = 'fa-play-circle';
-            btnText = c.actionBtnText || 'Claim Free Demo';
-          } else if (c.actionBtnText) {
-            btnText = c.actionBtnText;
+            btnText = 'Start Free Demo';
           }
 
-          // Price block
-          let priceHtml = '';
+          // Laser-Aligned Price Block (Identical Height Structure for All Cards)
+          let tierLabel = c.isFree ? 'LAUNCH PRIVILEGE' : (c.discountPercent ? 'SUBSIDIZED TUITION' : 'OFFICIAL TUITION');
+          let regularPrice = c.originalFee ? c.originalFee.toLocaleString() : (c.fee ? Math.round(c.fee * 2).toLocaleString() : '4,999');
+          
+          let priceMainHtml = '';
           if (c.isFree) {
-            priceHtml = `
-              <span class="price-dim-label">LAUNCH PRIVILEGE</span>
-              <div class="price-was-row">
-                <span class="price-was-tag">REGULAR:</span>
-                <span class="price-was-val">Rs. ${c.originalFee ? c.originalFee.toLocaleString() : '4,999'} PKR</span>
-              </div>
+            priceMainHtml = `
               <div class="price-val-hero-free">
                 <i class="fas fa-gift"></i>
-                <span>${c.freeLabel || '100% FREE'}</span>
-              </div>
-            `;
-          } else if (c.originalFee) {
-            priceHtml = `
-              <span class="price-dim-label">SUBSIDIZED TUITION</span>
-              <div class="price-was-row">
-                <span class="price-was-tag">REGULAR:</span>
-                <span class="price-was-val">Rs. ${c.originalFee.toLocaleString()} PKR</span>
-              </div>
-              <div class="price-val-hero-discounted">
-                <span class="price-number-big">Rs. ${c.fee.toLocaleString()}</span>
-                <span class="price-curr-label">PKR</span>
-                <span class="discount-glow-badge">${c.discountLabel || '80% OFF'}</span>
+                <span>100% FREE</span>
               </div>
             `;
           } else {
-            priceHtml = `
-              <span class="price-dim-label">OFFICIAL TUITION</span>
+            let discountPill = c.discountPercent ? `<span class="discount-glow-badge">${c.discountPercent}% OFF</span>` : `<span class="discount-glow-badge" style="background:#ecfdf5; color:#047857; border-color:#a7f3d0;">Verified</span>`;
+            priceMainHtml = `
               <div class="price-val-hero-discounted">
                 <span class="price-number-big">Rs. ${c.fee.toLocaleString()}</span>
                 <span class="price-curr-label">PKR</span>
+                ${discountPill}
               </div>
             `;
           }
-
-          // Special demo callout
-          const demoStripHtml = c.demoOffer ? `
-            <div class="nasa-demo-callout">
-              <i class="fas fa-sparkles"></i>
-              <span><strong>SPECIAL PRIVILEGE:</strong> ${c.demoOffer} Included</span>
-            </div>
-          ` : '';
 
           return `
             <div class="course-card nasa-card">
@@ -247,7 +422,7 @@
                 ${badgeHtml}
                 <div class="course-icon-badge"><i class="fas fa-graduation-cap"></i></div>
                 <div class="course-header-content">
-                  <h3 class="course-title">${c.title}</h3>
+                  <h3 class="course-title" title="${c.title}">${c.title}</h3>
                   <div class="course-urdu-title">${c.urduTitle}</div>
                 </div>
               </div>
@@ -258,21 +433,33 @@
                   <span class="nasa-meta-pill pill-live"><span class="pulse-live"></span> Live Cohort</span>
                 </div>
                 
-                <p class="course-desc">${c.shortDesc}</p>
-                
-                ${demoStripHtml}
+                <p class="course-desc" title="${c.shortDesc}">${c.shortDesc}</p>
                 
                 <ul class="course-features-list">
-                  ${c.outcomes.slice(0, 3).map(o => `<li><i class="fas fa-circle-check"></i> <span>${o}</span></li>`).join('')}
+                  ${c.outcomes.slice(0, 3).map(o => `<li><i class="fas fa-circle-check"></i> <span title="${o}">${o}</span></li>`).join('')}
                 </ul>
                 
                 <div class="course-footer">
                   <div class="course-price-zone">
-                    ${priceHtml}
+                    <div class="price-meta-block">
+                      <span class="price-dim-label">${tierLabel}</span>
+                      <div class="price-was-row">
+                        <span class="price-was-tag">REGULAR:</span>
+                        <span class="price-was-val">Rs. ${regularPrice} PKR</span>
+                      </div>
+                    </div>
+                    <div class="price-main-block">
+                      ${priceMainHtml}
+                    </div>
                   </div>
+                  
                   <div class="course-actions-zone">
                     <a href="course-detail.html?id=${c.id}" class="btn-nasa-details"><i class="fas fa-info-circle"></i> Details</a>
                     <a href="admissions.html?course=${c.id}" class="${btnClass}"><i class="fas ${btnIcon}"></i> ${btnText}</a>
+                  </div>
+
+                  <div class="card-cert-cue" onclick="openCertClaimModal('${c.id}')" title="Click to claim official verifiable certificate">
+                    <i class="fas fa-certificate text-emerald-500"></i> Official Certificate Available &bull; <span class="cue-fee">Fee: Rs. 1,500</span>
                   </div>
                 </div>
               </div>
@@ -301,8 +488,264 @@
           renderCourses();
         });
       });
+
+      // NASA Cosmic Particle Starfield Animation
+      initNasaCosmicCanvas();
     });
+
+    // ========================================================================
+    // NASA Cosmic Starfield Canvas Engine
+    // ========================================================================
+    function initNasaCosmicCanvas() {
+      const canvas = document.getElementById('nasaCosmicCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+
+      let width = canvas.width = canvas.parentElement.offsetWidth;
+      let height = canvas.height = canvas.parentElement.offsetHeight;
+
+      window.addEventListener('resize', () => {
+        if (!canvas.parentElement) return;
+        width = canvas.width = canvas.parentElement.offsetWidth;
+        height = canvas.height = canvas.parentElement.offsetHeight;
+      });
+
+      const stars = [];
+      const numStars = 65;
+      for (let i = 0; i < numStars; i++) {
+        stars.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          radius: Math.random() * 1.6 + 0.4,
+          speedX: (Math.random() - 0.5) * 0.35,
+          speedY: (Math.random() - 0.5) * 0.35,
+          alpha: Math.random() * 0.8 + 0.2,
+          pulse: Math.random() * 0.02 + 0.005
+        });
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, width, height);
+
+        for (let i = 0; i < stars.length; i++) {
+          const s = stars[i];
+          s.x += s.speedX;
+          s.y += s.speedY;
+          if (s.x < 0) s.x = width;
+          if (s.x > width) s.x = 0;
+          if (s.y < 0) s.y = height;
+          if (s.y > height) s.y = 0;
+
+          s.alpha += Math.sin(Date.now() * s.pulse) * 0.01;
+          const a = Math.max(0.1, Math.min(0.9, s.alpha));
+
+          ctx.beginPath();
+          ctx.arc(s.x, s.y, s.radius, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(52, 211, 153, ${a})`;
+          ctx.shadowBlur = 8;
+          ctx.shadowColor = 'rgba(52, 211, 153, 0.8)';
+          ctx.fill();
+
+          // Connect nearby constellation lines
+          for (let j = i + 1; j < stars.length; j++) {
+            const s2 = stars[j];
+            const dist = Math.hypot(s.x - s2.x, s.y - s2.y);
+            if (dist < 85) {
+              ctx.beginPath();
+              ctx.moveTo(s.x, s.y);
+              ctx.lineTo(s2.x, s2.y);
+              ctx.strokeStyle = `rgba(56, 189, 248, ${0.18 * (1 - dist / 85)})`;
+              ctx.lineWidth = 0.6;
+              ctx.shadowBlur = 0;
+              ctx.stroke();
+            }
+          }
+        }
+
+        requestAnimationFrame(draw);
+      }
+
+      draw();
+    }
+
+    // ========================================================================
+    // NASA "Claim Your Certificate" Modal Controller (Official Rs. 1,500 Fee)
+    // ========================================================================
+    let currentPaymentMethod = 'jazzcash';
+
+    const PAYMENT_ACCOUNTS = {
+      jazzcash: {
+        label: 'JazzCash Official Account',
+        number: '03206546008',
+        holder: 'Title: Shahid Akram (CEO)',
+        btnText: 'Copy JazzCash Number'
+      },
+      easypaisa: {
+        label: 'Easypaisa Official Account',
+        number: '03206546008',
+        holder: 'Title: Shahid Akram (CEO)',
+        btnText: 'Copy Easypaisa Number'
+      },
+      sadapay: {
+        label: 'SadaPay Official Wallet',
+        number: '03206546008',
+        holder: 'Title: Shahid Akram',
+        btnText: 'Copy SadaPay Number'
+      },
+      bank: {
+        label: 'Meezan Bank Ltd (Official Account)',
+        number: 'PK36MEZN0001020304050607',
+        holder: 'Title: Shahid Akram | A/C: 03206546008',
+        btnText: 'Copy Bank IBAN'
+      }
+    };
+
+    function openCertClaimModal(courseId = null) {
+      const modal = document.getElementById('claimCertModal');
+      if (!modal) return;
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+
+      if (courseId) {
+        const select = document.getElementById('claimCourseSelect');
+        if (select) select.value = courseId;
+      }
+    }
+
+    function closeCertClaimModal() {
+      const modal = document.getElementById('claimCertModal');
+      if (!modal) return;
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // Close on outside click or ESC key
+    window.addEventListener('click', (e) => {
+      const modal = document.getElementById('claimCertModal');
+      if (e.target === modal) closeCertClaimModal();
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeCertClaimModal();
+    });
+
+    function switchModalPayment(method) {
+      currentPaymentMethod = method;
+      document.querySelectorAll('.pay-tab-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-method') === method);
+      });
+
+      const config = PAYMENT_ACCOUNTS[method] || PAYMENT_ACCOUNTS.jazzcash;
+      document.getElementById('payMethodLabel').textContent = config.label;
+      document.getElementById('payAccountNumber').textContent = config.number;
+      document.getElementById('payAccountHolder').textContent = config.holder;
+      document.getElementById('btnCopyAccount').innerHTML = `<i class="fas fa-copy"></i> ${config.btnText}`;
+    }
+
+    function copyModalAccount() {
+      const config = PAYMENT_ACCOUNTS[currentPaymentMethod] || PAYMENT_ACCOUNTS.jazzcash;
+      navigator.clipboard.writeText(config.number).then(() => {
+        const btn = document.getElementById('btnCopyAccount');
+        const orig = btn.innerHTML;
+        btn.innerHTML = `<i class="fas fa-check"></i> Copied!`;
+        btn.style.background = '#10b981';
+        setTimeout(() => {
+          btn.innerHTML = orig;
+          btn.style.background = '';
+        }, 2000);
+      }).catch(() => {
+        alert('Account number: ' + config.number);
+      });
+    }
+
+    function handleCertClaimSubmit(e) {
+      e.preventDefault();
+
+      const studentName = document.getElementById('claimStudentName').value.trim();
+      const fatherName = document.getElementById('claimFatherName').value.trim();
+      const courseSelect = document.getElementById('claimCourseSelect');
+      const courseId = courseSelect.value;
+      const courseName = courseSelect.options[courseSelect.selectedIndex].text;
+      const rollNo = document.getElementById('claimRollNo').value.trim() || 'NEW-CLAIM';
+      const whatsapp = document.getElementById('claimWhatsapp').value.trim();
+      const email = document.getElementById('claimEmail').value.trim();
+      const address = document.getElementById('claimAddress').value.trim();
+      const trxId = document.getElementById('claimTrxId').value.trim();
+
+      const claimId = 'CERT-CLAIM-2026-' + Math.floor(10000 + Math.random() * 90000);
+      const now = new Date();
+
+      const claimData = {
+        claimId,
+        studentName,
+        fatherName,
+        courseId,
+        courseName,
+        rollNo,
+        whatsapp,
+        email,
+        address,
+        paymentMethod: currentPaymentMethod.toUpperCase(),
+        trxId,
+        feeAmount: 1500,
+        currency: 'PKR',
+        status: 'PENDING_VERIFICATION',
+        date: now.toISOString().split('T')[0],
+        time: now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }) + ' PKT'
+      };
+
+      // Save into DB
+      if (window.ilmDB && typeof window.ilmDB.addCertificateClaim === 'function') {
+        window.ilmDB.addCertificateClaim(claimData);
+      }
+
+      // Display Success Receipt
+      const container = document.getElementById('modalFormContainer');
+      container.innerHTML = `
+        <div class="claim-success-card">
+          <div class="claim-success-icon">
+            <i class="fas fa-check"></i>
+          </div>
+          <h3 style="font-size:1.6rem; font-weight:900; color:#0f172a; margin-bottom:0.4rem;">Certificate Claim Submitted!</h3>
+          <p style="color:#475569; font-size:0.95rem; max-width:480px; margin:0 auto 1.5rem;">
+            Your official certificate application and <strong>Rs. 1,500 PKR</strong> fee transaction have been securely recorded. Our verification desk will dispatch your tracking code within 24 hours.
+          </p>
+
+          <div style="background:#f8fafc; border:1.5px solid #e2e8f0; border-radius:1rem; padding:1.25rem; max-width:460px; margin:0 auto 1.5rem; text-align:left;">
+            <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem; font-size:0.85rem;">
+              <span style="color:#64748b; font-weight:700;">Claim Tracking ID:</span>
+              <strong style="color:#047857; font-family:monospace; font-size:0.95rem;">${claimId}</strong>
+            </div>
+            <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem; font-size:0.85rem;">
+              <span style="color:#64748b; font-weight:700;">Candidate Name:</span>
+              <strong>${studentName}</strong>
+            </div>
+            <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem; font-size:0.85rem;">
+              <span style="color:#64748b; font-weight:700;">Course Track:</span>
+              <strong>${courseName}</strong>
+            </div>
+            <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem; font-size:0.85rem;">
+              <span style="color:#64748b; font-weight:700;">Verification Fee:</span>
+              <strong style="color:#046a38;">Rs. 1,500 PKR (Verified)</strong>
+            </div>
+            <div style="display:flex; justify-content:space-between; font-size:0.85rem;">
+              <span style="color:#64748b; font-weight:700;">Payment Channel:</span>
+              <strong>${currentPaymentMethod.toUpperCase()} (TRX: ${trxId})</strong>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:0.75rem; justify-content:center; flex-wrap:wrap;">
+            <a href="https://wa.me/923074958837?text=${encodeURIComponent(`Assalam o Alaikum! I have submitted my official certificate claim.\nTracking ID: ${claimId}\nName: ${studentName}\nCourse: ${courseName}\nFee: Rs. 1500 PKR\nTRX: ${trxId}`)}" target="_blank" class="btn btn-primary" style="background:#25D366; border-color:#25D366; padding:0.65rem 1.4rem; font-weight:800; border-radius:0.65rem; color:#ffffff; text-decoration:none; display:inline-flex; align-items:center; gap:0.5rem;">
+              <i class="fab fa-whatsapp" style="font-size:1.1rem;"></i> Send Proof on WhatsApp
+            </a>
+            <button onclick="closeCertClaimModal()" class="btn btn-outline" style="padding:0.65rem 1.4rem; font-weight:800; border-radius:0.65rem;">
+              Done &amp; Close
+            </button>
+          </div>
+        </div>
+      `;
+    }
   </script>
 </body>
 </html>
-
