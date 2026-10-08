@@ -229,7 +229,7 @@
         `;
         const applyBtn = document.getElementById('btnApplyNow');
         applyBtn.innerHTML = `<i class="fas fa-bolt"></i> ${course.actionBtnText || 'Enroll 100% Free'}`;
-        applyBtn.className = 'btn btn-free-enroll';
+        applyBtn.className = 'btn btn-nasa-free';
 
         const payBtn = document.getElementById('btnPayFee');
         if (payBtn) payBtn.style.display = 'none';
@@ -250,7 +250,7 @@
       if (course.demoOffer) {
         const applyBtn = document.getElementById('btnApplyNow');
         applyBtn.innerHTML = `<i class="fas fa-play-circle"></i> ${course.actionBtnText || 'Claim 7 Days Free Demo'}`;
-        applyBtn.className = 'btn btn-demo-enroll';
+        applyBtn.className = 'btn btn-nasa-demo';
       }
 
       document.getElementById('sideDuration').textContent = course.duration;

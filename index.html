@@ -506,59 +506,99 @@
 
         grid.innerHTML = courses.map(c => {
           const title = isUrdu ? c.urduTitle : c.title;
-          const feeLabel = isUrdu ? 'فیس' : 'Course Fee';
-          const detailsBtn = isUrdu ? 'تفصیلات' : 'Details';
-          const badgeClass = c.badgeType ? `badge-${c.badgeType}` : (c.isFree ? 'badge-free' : '');
+          const detailsBtn = isUrdu ? 'تفصیلات دیکھیں' : 'Details';
 
-          let btnClass = 'btn-primary';
-          let btnIcon = 'fa-edit';
-          let btnText = isUrdu ? 'آن لائن داخلہ' : 'Apply';
-          if (c.isFree) {
-            btnClass = 'btn-free-enroll';
-            btnIcon = 'fa-bolt';
-            btnText = isUrdu ? 'مفت داخلہ لیں' : (c.actionBtnText || 'Enroll Free');
-          } else if (c.demoOffer) {
-            btnClass = 'btn-demo-enroll';
-            btnIcon = 'fa-play-circle';
-            btnText = isUrdu ? 'مفت ڈیمو کلاس' : (c.actionBtnText || 'Claim Free Demo');
+          // Badge
+          let badgeHtml = '';
+          if (c.badge) {
+            let badgeClass = 'badge-default';
+            let badgeIcon = '';
+            if (c.badgeType === 'free' || c.isFree && !c.badgeType) {
+              badgeClass = 'badge-free';
+              badgeIcon = '<span class="beacon-dot"></span>';
+            } else if (c.badgeType === 'free-launch') {
+              badgeClass = 'badge-free-launch';
+              badgeIcon = '<i class="fas fa-rocket"></i>';
+            } else if (c.badgeType === 'discount') {
+              badgeClass = 'badge-discount';
+              badgeIcon = '<i class="fas fa-bolt"></i>';
+            } else if (c.badgeType === 'demo') {
+              badgeClass = 'badge-demo';
+              badgeIcon = '<i class="fas fa-play-circle"></i>';
+            } else if (c.badgeType === 'trending') {
+              badgeClass = 'badge-trending';
+              badgeIcon = '<i class="fas fa-fire"></i>';
+            } else if (c.badgeType === 'educational') {
+              badgeClass = 'badge-educational';
+              badgeIcon = '<i class="fas fa-shield-alt"></i>';
+            }
+            badgeHtml = `<span class="course-badge ${badgeClass}">${badgeIcon} ${c.badge}</span>`;
           }
 
+          // Action button
+          let btnClass = 'btn-nasa-apply';
+          let btnIcon = 'fa-paper-plane';
+          let btnText = isUrdu ? 'آن لائن داخلہ' : 'Apply Now';
+          if (c.isFree) {
+            btnClass = 'btn-nasa-free';
+            btnIcon = 'fa-bolt';
+            btnText = isUrdu ? 'مفت داخلہ لیں' : (c.actionBtnText || 'Enroll 100% Free');
+          } else if (c.demoOffer) {
+            btnClass = 'btn-nasa-demo';
+            btnIcon = 'fa-play-circle';
+            btnText = isUrdu ? 'مفت ڈیمو کلاس' : (c.actionBtnText || 'Claim Free Demo');
+          } else if (c.actionBtnText) {
+            btnText = c.actionBtnText;
+          }
+
+          // Pricing
           let priceHtml = '';
           if (c.isFree) {
             priceHtml = `
-              <span class="price-label">${isUrdu ? 'خصوصی آفر' : 'Special Offer'}</span>
-              <div class="price-original-wrap">
-                ${c.originalFee ? `<span class="price-original">Rs. ${c.originalFee.toLocaleString()} PKR</span>` : ''}
+              <span class="price-dim-label">${isUrdu ? 'خصوصی آفر' : 'LAUNCH PRIVILEGE'}</span>
+              <div class="price-was-row">
+                <span class="price-was-tag">${isUrdu ? 'پرانی فیس:' : 'WAS:'}</span>
+                <span class="price-was-val">Rs. ${c.originalFee ? c.originalFee.toLocaleString() : '4,999'} PKR</span>
               </div>
-              <span class="price-val price-free"><i class="fas fa-gift"></i> ${isUrdu ? '100% مفت' : (c.freeLabel || '100% FREE')}</span>
+              <div class="price-val-hero-free">
+                <i class="fas fa-gift"></i>
+                <span>${isUrdu ? '100% مفت' : (c.freeLabel || '100% FREE')}</span>
+              </div>
             `;
           } else if (c.originalFee) {
             priceHtml = `
-              <span class="price-label">${isUrdu ? 'رعایتی فیس' : 'Discounted Fee'}</span>
-              <div class="price-original-wrap">
-                <span class="price-original">Rs. ${c.originalFee.toLocaleString()} PKR</span>
-                ${c.discountLabel ? `<span class="price-discount-pill">${c.discountLabel}</span>` : ''}
+              <span class="price-dim-label">${isUrdu ? 'خصوصی رعایت' : 'SUBSIDIZED TUITION'}</span>
+              <div class="price-was-row">
+                <span class="price-was-tag">${isUrdu ? 'ریگولر فیس:' : 'REGULAR:'}</span>
+                <span class="price-was-val">Rs. ${c.originalFee.toLocaleString()} PKR</span>
               </div>
-              <span class="price-val">Rs. ${c.fee.toLocaleString()} <span class="price-currency">PKR</span></span>
+              <div class="price-val-hero-discounted">
+                <span class="price-number-big">Rs. ${c.fee.toLocaleString()}</span>
+                <span class="price-curr-label">PKR</span>
+                <span class="discount-glow-badge">${c.discountLabel || '80% OFF'}</span>
+              </div>
             `;
           } else {
             priceHtml = `
-              <span class="price-label">${feeLabel}</span>
-              <span class="price-val">Rs. ${c.fee.toLocaleString()} <span class="price-currency">PKR</span></span>
+              <span class="price-dim-label">${isUrdu ? 'کورس فیس' : 'OFFICIAL TUITION'}</span>
+              <div class="price-val-hero-discounted">
+                <span class="price-number-big">Rs. ${c.fee.toLocaleString()}</span>
+                <span class="price-curr-label">PKR</span>
+              </div>
             `;
           }
 
           const demoStripHtml = c.demoOffer ? `
-            <div class="course-demo-strip">
-              <i class="fas fa-play-circle" style="color:#2563eb;"></i>
-              <span>${isUrdu ? 'پہلے 7 دن فری ڈیمو کلاس' : c.demoOffer}</span>
+            <div class="nasa-demo-callout">
+              <i class="fas fa-sparkles"></i>
+              <span><strong>${isUrdu ? 'خصوصی آفر:' : 'SPECIAL PRIVILEGE:'}</strong> ${isUrdu ? 'پہلے 7 دن فری ڈیمو کلاس شامل ہے' : c.demoOffer + ' Included'}</span>
             </div>
           ` : '';
 
           return `
             <div class="course-card nasa-card">
               <div class="course-header-banner" style="background-image: url('${c.image}');">
-                ${c.badge ? `<span class="course-badge ${badgeClass}">${c.badge}</span>` : ''}
+                ${badgeHtml}
                 <div class="course-icon-badge"><i class="fas fa-graduation-cap"></i></div>
                 <div class="course-header-content">
                   <h3 class="course-title ${isUrdu ? 'bombay-font' : ''}">${title}</h3>
@@ -566,22 +606,27 @@
                 </div>
               </div>
               <div class="course-body">
-                <div class="course-meta">
-                  <span class="course-meta-item"><i class="fas fa-clock"></i> ${c.duration}</span>
-                  <span class="course-meta-item"><i class="fas fa-layer-group"></i> ${c.level}</span>
+                <div class="nasa-telemetry-bar">
+                  <span class="nasa-meta-pill"><i class="fas fa-calendar-alt text-emerald-500"></i> ${c.duration}</span>
+                  <span class="nasa-meta-pill"><i class="fas fa-layer-group text-sky-500"></i> ${c.level}</span>
+                  <span class="nasa-meta-pill pill-live"><span class="pulse-live"></span> Live Cohort</span>
                 </div>
+                
                 <p class="course-desc">${c.shortDesc}</p>
+                
                 ${demoStripHtml}
+                
                 <ul class="course-features-list">
-                  ${c.outcomes.slice(0, 3).map(o => `<li><i class="fas fa-check-circle"></i> ${o}</li>`).join('')}
+                  ${c.outcomes.slice(0, 3).map(o => `<li><i class="fas fa-circle-check"></i> <span>${o}</span></li>`).join('')}
                 </ul>
+                
                 <div class="course-footer">
-                  <div class="course-price">
+                  <div class="course-price-zone">
                     ${priceHtml}
                   </div>
-                  <div class="course-actions">
-                    <a href="course-detail.html?id=${c.id}" class="btn btn-outline btn-sm"><i class="fas fa-info-circle"></i> ${detailsBtn}</a>
-                    <a href="admissions.html?course=${c.id}" class="btn ${btnClass} btn-sm"><i class="fas ${btnIcon}"></i> ${btnText}</a>
+                  <div class="course-actions-zone">
+                    <a href="course-detail.html?id=${c.id}" class="btn-nasa-details"><i class="fas fa-info-circle"></i> ${detailsBtn}</a>
+                    <a href="admissions.html?course=${c.id}" class="${btnClass}"><i class="fas ${btnIcon}"></i> ${btnText}</a>
                   </div>
                 </div>
               </div>
