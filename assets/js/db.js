@@ -539,7 +539,60 @@ const DEFAULT_CERTIFICATES = [
     grade: "A+ Distinction",
     status: "Verified",
     cnic: "35202-1234567-1",
-    verificationUrl: "verify-certificate.html?id=ILM-2026-000101"
+    verificationUrl: "verify-certificate.html?id=ILM-2026-000101",
+    skills: ["Prompt Engineering", "ChatGPT", "Gemini", "AI Productivity"]
+  },
+  {
+    id: "ILM-2026-000102",
+    studentName: "Ayesha Noor",
+    fatherName: "Muhammad Younas",
+    courseId: "ai-tools-mastery",
+    courseName: "AI Tools Mastery (30-Day Masterclass)",
+    issueDate: "2026-09-10",
+    grade: "A+ Distinction",
+    status: "Verified",
+    cnic: "35201-2223334-2",
+    verificationUrl: "verify-certificate.html?id=ILM-2026-000102",
+    skills: ["Midjourney", "ElevenLabs", "Runway Gen-2", "CapCut AI", "Claude"]
+  },
+  {
+    id: "ILM-2026-000103",
+    studentName: "Muhammad Hamza Butt",
+    fatherName: "Muhammad Arshad Butt",
+    courseId: "ai-software-dev",
+    courseName: "AI Software Development",
+    issueDate: "2026-09-18",
+    grade: "Grade A (Honors)",
+    status: "Verified",
+    cnic: "34101-9988776-5",
+    verificationUrl: "verify-certificate.html?id=ILM-2026-000103",
+    skills: ["Python AI", "OpenAI APIs", "LangChain", "Full-Stack Web", "Agentic Workflows"]
+  },
+  {
+    id: "ILM-2026-000104",
+    studentName: "Zainab Fatima",
+    fatherName: "Tariq Jamil",
+    courseId: "ai-content-creation",
+    courseName: "AI Content Creation & Video Making",
+    issueDate: "2026-09-25",
+    grade: "A+ Distinction",
+    status: "Verified",
+    cnic: "38403-5566778-4",
+    verificationUrl: "verify-certificate.html?id=ILM-2026-000104",
+    skills: ["AI Video Ads", "Social Media Copywriting", "HeyGen Avatars", "Voice Cloning"]
+  },
+  {
+    id: "ILM-2026-000105",
+    studentName: "Farhan Tariq Malik",
+    fatherName: "Tariq Malik",
+    courseId: "one-on-one-session",
+    courseName: "One on One Session (VIP Direct Mentorship)",
+    issueDate: "2026-10-02",
+    grade: "Executive Honors",
+    status: "Verified",
+    cnic: "37405-1122334-9",
+    verificationUrl: "verify-certificate.html?id=ILM-2026-000105",
+    skills: ["Executive Strategy", "Private AI Architecture", "Monetization Roadmap", "Agency Building"]
   }
 ];
 
@@ -571,7 +624,7 @@ class IlmTechDB {
   }
 
   init() {
-    const DB_VERSION = 'v3_one_on_one_session_2026';
+    const DB_VERSION = 'v4_official_cert_nda_beat_2026';
     const currentVersion = localStorage.getItem('ilmetech_db_version');
 
     let settings = localStorage.getItem(DB_KEYS.SETTINGS);
@@ -581,6 +634,7 @@ class IlmTechDB {
 
     if (!localStorage.getItem(DB_KEYS.COURSES) || currentVersion !== DB_VERSION) {
       localStorage.setItem(DB_KEYS.COURSES, JSON.stringify(DEFAULT_COURSES));
+      localStorage.setItem(DB_KEYS.CERTIFICATES, JSON.stringify(DEFAULT_CERTIFICATES));
       localStorage.setItem('ilmetech_db_version', DB_VERSION);
     }
     if (!localStorage.getItem(DB_KEYS.ADMISSIONS)) {

@@ -4,7 +4,7 @@
    Domain: ilmetechpakistan.com
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Noto+Nastaliq+Urdu:wght@400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Alex+Brush&family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Noto+Nastaliq+Urdu:wght@400;600;700;800&display=swap');
 @import url('https://fonts.cdnfonts.com/css/jameel-noori-nastaleeq');
 
 @font-face {
@@ -3882,6 +3882,857 @@ html[dir="rtl"] .mobile-drawer.open, body.font-urdu .mobile-drawer.open {
     padding: 2rem 1.25rem;
   }
 }
+
+/* ==========================================================================
+   OFFICIAL ACADEMIC CERTIFICATE & CREDENTIAL VERIFICATION SYSTEM
+   Iso-Grade Security Design with Guilloché Borders & Golden Foil Seal
+   ========================================================================== */
+.official-cert-stage {
+  perspective: 1000px;
+  margin: 2rem auto;
+  max-width: 960px;
+  width: 100%;
+}
+
+.official-cert-card {
+  position: relative;
+  background: radial-gradient(circle at center, #ffffff 0%, #fefdf8 65%, #faf5ea 100%);
+  border: 12px double #b45309;
+  border-radius: 8px;
+  padding: 3rem 3.5rem;
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(180, 83, 9, 0.4);
+  color: #0f172a;
+  overflow: hidden;
+  font-family: var(--font-en);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Guilloché Inner Border Inlay */
+.official-cert-card::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border: 2px solid #046a38;
+  outline: 1px dashed rgba(202, 138, 4, 0.5);
+  outline-offset: 4px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Corner Filigree Accents */
+.cert-corner-ornament {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  pointer-events: none;
+  z-index: 2;
+  color: #b45309;
+}
+.cert-corner-tl { top: 14px; left: 14px; }
+.cert-corner-tr { top: 14px; right: 14px; transform: scaleX(-1); }
+.cert-corner-bl { bottom: 14px; left: 14px; transform: scaleY(-1); }
+.cert-corner-br { bottom: 14px; right: 14px; transform: scale(-1); }
+
+/* Watermark Insignia */
+.cert-watermark-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 420px;
+  height: 420px;
+  background: url('../images/logo.jpg') no-repeat center center;
+  background-size: contain;
+  opacity: 0.045;
+  pointer-events: none;
+  z-index: 0;
+  filter: grayscale(100%);
+}
+
+.cert-content-layer {
+  position: relative;
+  z-index: 3;
+}
+
+/* Certificate Top Header */
+.cert-top-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.cert-emblem-group {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.cert-crest-logo {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  border: 3px solid #b45309;
+  box-shadow: 0 4px 12px rgba(180, 83, 9, 0.2);
+  object-fit: cover;
+}
+
+.cert-institution-name {
+  font-family: 'Cinzel', serif, Georgia;
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #046a38;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.cert-institution-sub {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #b45309;
+  text-transform: uppercase;
+  margin-top: 0.25rem;
+}
+
+.cert-security-badge-top {
+  text-align: right;
+  font-size: 0.75rem;
+  color: #475569;
+  font-family: monospace;
+  background: rgba(241, 245, 249, 0.85);
+  border: 1px solid #cbd5e1;
+  border-radius: 0.4rem;
+  padding: 0.5rem 0.75rem;
+}
+
+.cert-security-badge-top strong {
+  color: #0f172a;
+  display: block;
+  font-size: 0.82rem;
+}
+
+/* Certificate Titles */
+.cert-headings-zone {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.cert-urdu-title {
+  font-family: 'Jameel Noori Nastaleeq', 'Noto Nastaliq Urdu', serif;
+  font-size: 2rem;
+  color: #046a38;
+  line-height: 1.4;
+  margin-bottom: 0.25rem;
+}
+
+.cert-main-title {
+  font-family: 'Cinzel', serif, Georgia;
+  font-size: 1.85rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #1e293b;
+  text-transform: uppercase;
+  margin: 0;
+  position: relative;
+  display: inline-block;
+}
+
+.cert-main-title::after {
+  content: "";
+  position: absolute;
+  left: 20%;
+  right: 20%;
+  bottom: -6px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #b45309, #046a38, #b45309, transparent);
+}
+
+.cert-conferral-text {
+  text-align: center;
+  font-size: 0.95rem;
+  font-style: italic;
+  color: #475569;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Student Recipient Display */
+.cert-student-box {
+  text-align: center;
+  margin: 1.25rem 0 1.5rem;
+}
+
+.cert-student-name {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #046a38;
+  letter-spacing: 0.02em;
+  display: inline-block;
+  padding: 0 2rem 0.4rem;
+  border-bottom: 2px solid #ca8a04;
+  min-width: 320px;
+}
+
+.cert-student-meta {
+  font-size: 0.92rem;
+  color: #475569;
+  margin-top: 0.5rem;
+}
+
+.cert-student-meta strong {
+  color: #0f172a;
+}
+
+/* Course Achievement Statement */
+.cert-achievement-text {
+  text-align: center;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: #334155;
+  max-width: 780px;
+  margin: 0 auto 1.25rem;
+}
+
+.cert-course-pill {
+  display: inline-block;
+  background: linear-gradient(135deg, #046a38 0%, #034b75 100%);
+  color: #ffffff;
+  font-family: 'Cinzel', serif, Georgia;
+  font-size: 1.35rem;
+  font-weight: 700;
+  padding: 0.6rem 2rem;
+  border-radius: 2rem;
+  box-shadow: 0 4px 15px rgba(4, 106, 56, 0.25);
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.04em;
+}
+
+.cert-grade-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.cert-grade-tag {
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fde68a;
+  font-weight: 800;
+  font-size: 0.85rem;
+  padding: 0.35rem 1rem;
+  border-radius: 1rem;
+}
+
+/* Bottom Verification & Signatures Layer */
+.cert-bottom-signatures {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1.5px dashed #cbd5e1;
+  margin-top: 1.5rem;
+}
+
+.cert-sign-col {
+  text-align: center;
+}
+
+.cert-signature-img-text {
+  font-family: 'Alex Brush', cursive;
+  font-size: 2.4rem;
+  color: #046a38;
+  line-height: 1;
+  margin-bottom: 0.35rem;
+  user-select: none;
+}
+
+.cert-sign-line {
+  border-top: 1.5px solid #64748b;
+  width: 170px;
+  margin: 0 auto 0.4rem;
+}
+
+.cert-sign-title {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.cert-sign-role {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #475569;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* 3D Gold Foil Medallion Seal */
+.cert-medallion-seal {
+  position: relative;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #fef08a 0%, #eab308 30%, #ca8a04 70%, #854d0e 100%);
+  box-shadow: 0 8px 24px rgba(180, 83, 9, 0.45), inset 0 2px 4px rgba(255, 255, 255, 0.8), inset 0 -3px 6px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  text-align: center;
+  border: 3px double #fef08a;
+}
+
+.cert-medallion-seal::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  border: 1.5px dashed rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+}
+
+.seal-icon {
+  font-size: 1.4rem;
+  color: #713f12;
+  margin-bottom: 0.15rem;
+  filter: drop-shadow(0 1px 1px rgba(255, 255, 255, 0.4));
+}
+
+.seal-text-top {
+  font-size: 0.52rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  color: #713f12;
+  text-transform: uppercase;
+}
+
+.seal-text-center {
+  font-size: 0.65rem;
+  font-weight: 900;
+  color: #422006;
+  text-transform: uppercase;
+  line-height: 1;
+  margin: 0.15rem 0;
+}
+
+.seal-text-bottom {
+  font-size: 0.48rem;
+  font-weight: 800;
+  color: #713f12;
+  letter-spacing: 0.04em;
+}
+
+/* Certificate Footer Security Strip */
+.cert-footer-security {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #e2e8f0;
+  font-size: 0.72rem;
+  color: #64748b;
+  font-family: monospace;
+}
+
+.cert-qr-mini {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.cert-qr-box {
+  width: 44px;
+  height: 44px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  color: #0f172a;
+}
+
+/* Certificate Action Bar */
+.cert-action-bar {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.btn-cert-gold {
+  background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+  color: #ffffff !important;
+  font-weight: 700;
+  padding: 0.75rem 1.75rem;
+  border-radius: 0.65rem;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 15px rgba(217, 119, 6, 0.35);
+  text-decoration: none;
+}
+
+.btn-cert-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(217, 119, 6, 0.5);
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+}
+
+.btn-cert-share {
+  background: #25d366;
+  color: #ffffff !important;
+  font-weight: 700;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.65rem;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.btn-cert-share:hover {
+  transform: translateY(-2px);
+  background: #1eb956;
+}
+
+/* Interactive Certificate Generator Sandbox Form */
+.cert-sandbox-card {
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 1.25rem;
+  padding: 2.25rem;
+  box-shadow: var(--shadow-lg);
+  margin-bottom: 2.5rem;
+}
+
+.cert-sandbox-tabs {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 0.5rem;
+}
+
+.cert-tab-btn {
+  background: none;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #64748b;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cert-tab-btn.active {
+  background: var(--emerald-light);
+  color: var(--primary-green);
+  box-shadow: 0 0 0 1px rgba(4, 106, 56, 0.2);
+}
+
+/* Print Rules - Isolates Certificate into Pure Landscape A4 Page */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .official-cert-card,
+  .official-cert-card * {
+    visibility: visible;
+  }
+  .official-cert-card {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 2.5rem;
+    box-shadow: none;
+    border-width: 8px;
+    page-break-inside: avoid;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .cert-action-bar,
+  .header-nav,
+  .site-footer,
+  #certVerificationForm,
+  .cert-sandbox-card,
+  .ticker-wrapper {
+    display: none !important;
+  }
+}
+
+/* ==========================================================================
+   BRANDS & ENTERPRISE PARTNERS SHOWCASE SECTION
+   "Multiple Brands We Have Worked With"
+   ========================================================================== */
+.brands-showcase-section {
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  padding: 5rem 0;
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+  position: relative;
+  overflow: hidden;
+}
+
+.brands-grid-wall {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+
+.brand-showcase-card {
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 1rem;
+  padding: 1.5rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.brand-showcase-card:hover {
+  transform: translateY(-5px);
+  border-color: #10b981;
+  box-shadow: 0 15px 30px -5px rgba(4, 106, 56, 0.15);
+}
+
+.brand-logo-emblem {
+  width: 58px;
+  height: 58px;
+  border-radius: 0.85rem;
+  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.7rem;
+  color: #046a38;
+  margin-bottom: 1rem;
+  box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.8);
+  transition: transform 0.3s ease;
+}
+
+.brand-showcase-card:hover .brand-logo-emblem {
+  transform: scale(1.1);
+  background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+}
+
+.brand-card-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 0.3rem;
+}
+
+.brand-card-sector {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #0284c7;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.brand-card-scope {
+  font-size: 0.8rem;
+  color: #475569;
+  line-height: 1.4;
+}
+
+.brand-verified-pill {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #ecfdf5;
+  color: #059669;
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 0.2rem 0.5rem;
+  border-radius: 1rem;
+  border: 1px solid #a7f3d0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* Impact Telemetry Row */
+.brand-impact-stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3.5rem;
+  padding: 2rem 2.5rem;
+  background: linear-gradient(135deg, #002b15 0%, #034b75 100%);
+  border-radius: 1.25rem;
+  color: #ffffff;
+}
+
+.brand-stat-box {
+  text-align: center;
+}
+
+.brand-stat-num {
+  font-size: 2.4rem;
+  font-weight: 900;
+  color: #6ee7b7;
+  line-height: 1;
+  font-family: var(--font-en);
+}
+
+.brand-stat-lbl {
+  font-size: 0.88rem;
+  color: #cbd5e1;
+  font-weight: 600;
+  margin-top: 0.4rem;
+}
+
+/* ==========================================================================
+   INTERACTIVE AI COURSE & CAREER MATCHER WIZARD
+   Beats Competitor Course Finder in 30 Seconds
+   ========================================================================== */
+.career-matcher-card {
+  background: linear-gradient(135deg, #00190a 0%, #032b45 100%);
+  border: 2px solid rgba(16, 185, 129, 0.35);
+  border-radius: 1.5rem;
+  padding: 3rem 2.5rem;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+  color: #ffffff;
+  margin: 3.5rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.career-matcher-card::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.2) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.matcher-grid-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0 2rem;
+}
+
+.matcher-option-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1.5px solid rgba(255, 255, 255, 0.15);
+  border-radius: 0.85rem;
+  padding: 1.25rem 1rem;
+  color: #ffffff;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.matcher-option-btn:hover,
+.matcher-option-btn.active {
+  background: rgba(16, 185, 129, 0.18);
+  border-color: #10b981;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.25);
+}
+
+.matcher-opt-icon {
+  font-size: 1.5rem;
+  color: #6ee7b7;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.matcher-opt-title {
+  font-size: 0.95rem;
+  font-weight: 800;
+  margin-bottom: 0.2rem;
+}
+
+.matcher-opt-desc {
+  font-size: 0.78rem;
+  color: #94a3b8;
+  line-height: 1.35;
+}
+
+.matcher-result-display {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(110, 231, 183, 0.4);
+  border-radius: 1rem;
+  padding: 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  animation: fadeIn 0.4s ease;
+}
+
+/* ==========================================================================
+   NATIONAL TALENT SCHOLARSHIP BATCH #14 FLOATING NOTIFICATION & MODAL
+   ========================================================================== */
+.scholarship-float-badge {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 998;
+  background: linear-gradient(135deg, #046a38 0%, #0f172a 100%);
+  color: #ffffff;
+  border: 2px solid #10b981;
+  border-radius: 2rem;
+  padding: 0.65rem 1.25rem;
+  box-shadow: 0 10px 30px rgba(4, 106, 56, 0.4);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  animation: floatPulse 3s infinite ease-in-out;
+  transition: transform 0.25s ease;
+}
+
+.scholarship-float-badge:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 35px rgba(16, 185, 129, 0.5);
+}
+
+@keyframes floatPulse {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.scholarship-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
+  z-index: 10000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.scholarship-modal-overlay.active {
+  display: flex;
+}
+
+.scholarship-modal-content {
+  background: linear-gradient(135deg, #00190a 0%, #032b45 100%);
+  border: 2px solid #10b981;
+  border-radius: 1.5rem;
+  width: 100%;
+  max-width: 620px;
+  color: #ffffff;
+  padding: 2.5rem;
+  position: relative;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.6);
+  animation: modalPop 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalPop {
+  0% { transform: scale(0.92); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.scholarship-modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: #ffffff;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  transition: all 0.2s ease;
+}
+
+.scholarship-modal-close:hover {
+  background: rgba(239, 68, 68, 0.8);
+}
+
+.scholarship-countdown-strip {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+}
+
+.countdown-box {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  border-radius: 0.65rem;
+  padding: 0.75rem 0.5rem;
+  min-width: 70px;
+  text-align: center;
+}
+
+.countdown-num {
+  font-size: 1.75rem;
+  font-weight: 900;
+  color: #6ee7b7;
+  line-height: 1;
+  font-family: monospace;
+}
+
+.countdown-lbl {
+  font-size: 0.68rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  margin-top: 0.25rem;
+}
+
 
 
 

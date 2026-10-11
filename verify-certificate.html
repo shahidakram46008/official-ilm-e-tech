@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Official Certificate Verification | ILM E TECH PAKISTAN</title>
-  <meta name="description" content="Verify authentic certificates issued by ILM E TECH PAKISTAN using student Certificate Verification Code. Instant digital record validation.">
+  <title>Official Academic Certificate Verification & Generator | ILM E TECH PAKISTAN</title>
+  <meta name="description" content="Verify authentic certificates and preview official credentials issued by ILM E TECH PAKISTAN, signed by Founder & CEO Dr. Shahid Akram Mustafai. Instant QR validation & ISO-grade credential protocol.">
   <link rel="canonical" href="https://ilmetechpakistan.com/verify-certificate.html">
   <link rel="icon" type="image/jpeg" href="assets/images/logo.jpg">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -19,7 +19,7 @@
         <img src="assets/images/logo.jpg" alt="ILM E TECH PAKISTAN Logo">
         <div class="brand-text">
           <span class="brand-name">ILM E TECH PAKISTAN</span>
-          <span class="brand-subtitle" style="font-size:0.75rem; color:var(--tech-blue); font-weight:700;">Digital Education & AI Academy</span>
+          <span class="brand-subtitle" style="font-size:0.75rem; color:var(--tech-blue-hover); font-weight:700;">Digital Education & AI Academy</span>
         </div>
       </a>
       <nav>
@@ -36,41 +36,179 @@
         </ul>
       </nav>
       <div class="nav-actions">
-        <button class="lang-switcher btn btn-sm btn-outline-blue"><i class="fas fa-globe"></i> </button>
-        <a href="student-portal.html" class="btn btn-outline-blue btn-sm" data-en='<i class="fas fa-user-graduate"></i> Portal' data-ur='<i class="fas fa-user-graduate"></i>  '><i class="fas fa-user-graduate"></i> Portal</a>
+        <button class="lang-switcher btn btn-sm btn-outline-blue"><i class="fas fa-globe"></i> اردو / EN</button>
+        <a href="student-portal.html" class="btn btn-outline-blue btn-sm"><i class="fas fa-user-graduate"></i> Portal</a>
       </div>
     </div>
   </header>
 
-  <!-- Banner -->
-  <section style="background: linear-gradient(135deg, var(--dark-green) 0%, #00190a 100%); color:#ffffff; padding: 4rem 0; text-align:center;">
-    <div class="container">
-      <span class="section-tag" style="background:rgba(255,255,255,0.15); color:#6ee7b7;">PUBLIC VERIFICATION SYSTEM</span>
-      <h1 style="font-size:2.5rem; font-weight:900; margin:0.4rem 0;">Certificate Verification Portal</h1>
-      <p style="color:#cbd5e1; max-width:650px; margin:0.5rem auto 0;">Verify authentic academic certificates issued by ILM E TECH PAKISTAN using unique verification IDs.</p>
-    </div>
-  </section>
-
-  <!-- Search Box Section -->
-  <section style="padding: 3rem 0; background: var(--bg-slate-100);">
-    <div class="container" style="max-width: 700px;">
-      <div class="card" style="background:#ffffff; padding:2rem; border-radius:1rem; border:1px solid var(--border-light); box-shadow:var(--shadow-lg);">
-        <form id="certVerificationForm">
-          <label class="form-label" style="font-size:1rem; font-weight:700;">Enter Certificate Verification Code / ID:</label>
-          <div style="display:flex; gap:0.75rem; margin-top:0.5rem;">
-            <input type="text" id="certSearchInput" class="form-control" placeholder="e.g. ILM-2026-000101" required>
-            <button type="submit" class="btn btn-primary" style="white-space:nowrap;"><i class="fas fa-search"></i> Verify Certificate</button>
-          </div>
-          <small style="color:var(--text-muted); margin-top:0.5rem; display:block;">Try sample verified IDs: <code>ILM-2026-000101</code>, <code>ILM-2026-000102</code>, or <code>ILM-2026-000103</code></small>
-        </form>
+  <!-- Presidential Header Banner -->
+  <section style="background: linear-gradient(135deg, var(--dark-green) 0%, #00190a 100%); color:#ffffff; padding: 4rem 0; text-align:center; position:relative; overflow:hidden;">
+    <div class="container" style="position:relative; z-index:2;">
+      <span class="section-tag" style="background:rgba(255,255,255,0.15); color:#6ee7b7; border:1px solid rgba(110,231,183,0.3);">
+        <i class="fas fa-shield-halved"></i> GOVERNMENT &amp; ACADEMIC CREDENTIAL PROTOCOL
+      </span>
+      <h1 style="font-size:2.6rem; font-weight:900; margin:0.5rem 0 0.8rem;">Official Academic Certificate Portal</h1>
+      <p style="color:#cbd5e1; max-width:720px; margin:0 auto; font-size:1.05rem;">
+        Verify authentic student credentials issued by <strong>ILM E TECH PAKISTAN</strong>, bearing the official seal and personal signature of Founder &amp; CEO <strong>Dr. Shahid Akram Mustafai</strong>.
+      </p>
+      <div style="display:inline-flex; align-items:center; gap:0.5rem; margin-top:1.25rem; background:rgba(0,0,0,0.3); border:1px solid rgba(255,255,255,0.15); border-radius:2rem; padding:0.4rem 1.25rem; font-size:0.85rem; color:#a7f3d0;">
+        <i class="fas fa-check-circle text-emerald-400"></i> ISO-Aligned Digital Verification &bull; Cryptographically Anchored Student Records
       </div>
     </div>
   </section>
 
-  <!-- Verification Result Box -->
-  <section style="padding: 3rem 0;">
+  <!-- Interactive Controls Section (Dual Mode: Verify ID + Live Generator Sandbox) -->
+  <section style="padding: 3rem 0; background: var(--bg-slate-100);">
+    <div class="container" style="max-width: 960px;">
+      
+      <div class="cert-sandbox-card">
+        <!-- Mode Tabs -->
+        <div class="cert-sandbox-tabs" role="tablist">
+          <button type="button" class="cert-tab-btn active" id="tabVerifyBtn" role="tab" aria-selected="true">
+            <i class="fas fa-search"></i> 1. Verify Student Credential
+          </button>
+          <button type="button" class="cert-tab-btn" id="tabGenerateBtn" role="tab" aria-selected="false">
+            <i class="fas fa-wand-magic-sparkles"></i> 2. Live Certificate Generator &amp; Preview
+          </button>
+        </div>
+
+        <!-- Mode 1: Search Form -->
+        <div id="verifyPanel">
+          <form id="certVerificationForm">
+            <label class="form-label" style="font-size:1rem; font-weight:700; color:var(--text-dark);">
+              Enter Official Certificate Verification Code / ID:
+            </label>
+            <div style="display:flex; gap:0.75rem; margin-top:0.5rem; flex-wrap:wrap;">
+              <input type="text" id="certSearchInput" class="form-control" style="flex:1; min-width:260px;" placeholder="e.g. ILM-2026-000101" value="ILM-2026-000101" required>
+              <button type="submit" class="btn btn-primary" style="white-space:nowrap; padding:0.75rem 1.75rem;">
+                <i class="fas fa-search"></i> Verify Certificate
+              </button>
+            </div>
+            
+            <!-- Quick Verified Sample ID Chips -->
+            <div style="margin-top:1.25rem;">
+              <span style="font-size:0.82rem; font-weight:700; color:var(--text-muted); display:block; margin-bottom:0.5rem;">
+                <i class="fas fa-bolt text-amber-500"></i> Click to instantly test verified student records:
+              </span>
+              <div style="display:flex; flex-wrap:wrap; gap:0.5rem;">
+                <button type="button" class="sample-cert-btn btn btn-sm btn-outline-blue" data-id="ILM-2026-000101">
+                  <strong>ILM-2026-000101</strong> (Syed Usama &bull; Basic AI)
+                </button>
+                <button type="button" class="sample-cert-btn btn btn-sm btn-outline-blue" data-id="ILM-2026-000102">
+                  <strong>ILM-2026-000102</strong> (Ayesha Noor &bull; AI Tools Mastery)
+                </button>
+                <button type="button" class="sample-cert-btn btn btn-sm btn-outline-blue" data-id="ILM-2026-000103">
+                  <strong>ILM-2026-000103</strong> (Muhammad Hamza &bull; Software Dev)
+                </button>
+                <button type="button" class="sample-cert-btn btn btn-sm btn-outline-blue" data-id="ILM-2026-000104">
+                  <strong>ILM-2026-000104</strong> (Zainab Fatima &bull; AI Content)
+                </button>
+                <button type="button" class="sample-cert-btn btn btn-sm btn-outline-blue" data-id="ILM-2026-000105">
+                  <strong>ILM-2026-000105</strong> (Farhan Malik &bull; VIP 1-on-1)
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <!-- Mode 2: Interactive Live Certificate Generator & Sandbox -->
+        <div id="generatePanel" style="display:none;">
+          <div style="background:#f0fdf4; border:1px solid #bbf7d0; border-radius:0.75rem; padding:1rem; margin-bottom:1.5rem; font-size:0.9rem; color:#166534;">
+            <i class="fas fa-info-circle"></i> <strong>Interactive Certificate Generator Sandbox:</strong> Prospective students and visitors can customize this form to see exactly what their official graduation certificate will look like upon completing training with Dr. Shahid Akram Mustafai.
+          </div>
+
+          <form id="certGeneratorForm" class="claim-form-grid">
+            <div class="claim-input-group">
+              <label for="genStudentName">Student Full Name *</label>
+              <input type="text" id="genStudentName" value="Muhammad Zeeshan" required>
+            </div>
+            <div class="claim-input-group">
+              <label for="genFatherName">Father / Guardian Name</label>
+              <input type="text" id="genFatherName" value="Tariq Mahmood">
+            </div>
+            <div class="claim-input-group">
+              <label for="genCourseName">Course / Executive Track *</label>
+              <select id="genCourseName">
+                <option value="AI Tools Mastery (30-Day Masterclass)">AI Tools Mastery (30-Day Masterclass)</option>
+                <option value="Basic AI Course">Basic AI Course</option>
+                <option value="AI Software Development">AI Software Development</option>
+                <option value="AI Content Creation &amp; Video Making">AI Content Creation &amp; Video Making</option>
+                <option value="One on One Session (VIP Direct Mentorship)">One on One Session (VIP Direct Mentorship)</option>
+                <option value="Digital Marketing &amp; Agency Pro">Digital Marketing &amp; Agency Pro</option>
+                <option value="Financial Markets &amp; Trading Masterclass">Financial Markets &amp; Trading Masterclass</option>
+              </select>
+            </div>
+            <div class="claim-input-group">
+              <label for="genGrade">Grade / Honor Distinction</label>
+              <select id="genGrade">
+                <option value="A+ Distinction">A+ Distinction (Highest Honors)</option>
+                <option value="Grade A (Honors)">Grade A (Academic Honors)</option>
+                <option value="Executive Honors">Executive Honors</option>
+                <option value="Grade A+">Grade A+</option>
+              </select>
+            </div>
+            <div class="claim-input-group">
+              <label for="genIssueDate">Date of Graduation</label>
+              <input type="text" id="genIssueDate" value="October 2026">
+            </div>
+            <div class="claim-input-group">
+              <label for="genCertId">Custom Credential ID</label>
+              <input type="text" id="genCertId" value="ILM-2026-DEMO99" readonly style="background:#f1f5f9; cursor:not-allowed;">
+            </div>
+            <div class="claim-form-full" style="margin-top:0.5rem; display:flex; gap:1rem; flex-wrap:wrap;">
+              <button type="submit" class="btn btn-primary" style="flex:1;">
+                <i class="fas fa-wand-magic-sparkles"></i> Update &amp; Preview Certificate Live
+              </button>
+              <button type="button" id="resetSandboxBtn" class="btn btn-outline" style="white-space:nowrap;">
+                <i class="fas fa-rotate-left"></i> Reset Defaults
+              </button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Live Certificate Display Stage -->
+  <section style="padding: 2rem 0 5rem;">
     <div class="container">
-      <div id="verificationResultContainer"></div>
+      <div id="verificationResultContainer">
+        <!-- Dynamically injected authentic certificate -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Official Credential Security & FAQ Section -->
+  <section style="background: var(--bg-slate-50); padding: 5rem 0; border-top: 1px solid var(--border-light);">
+    <div class="container" style="max-width: 900px;">
+      <div class="section-header">
+        <span class="section-tag" style="background:#ecfdf5; color:#047857;">VERIFICATION INTEGRITY</span>
+        <h2 class="section-title">Institutional Certificate Standards</h2>
+        <p class="section-subtitle">How ILM E TECH PAKISTAN ensures world-standard credentials for freelancing and global employers.</p>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:1.5rem; margin-top:2rem;">
+        <div class="card nasa-card" style="background:#ffffff; padding:1.75rem; border-radius:1rem; border:1px solid var(--border-light);">
+          <div style="font-size:2rem; color:var(--primary-green); margin-bottom:0.75rem;"><i class="fas fa-fingerprint"></i></div>
+          <h3 style="font-size:1.15rem; font-weight:800; color:var(--text-dark); margin-bottom:0.4rem;">Unique Cryptographic ID</h3>
+          <p style="color:var(--text-muted); font-size:0.9rem;">Every certificate carries a tamper-evident serial format registered on our secure servers, enabling instant validation worldwide.</p>
+        </div>
+
+        <div class="card nasa-card" style="background:#ffffff; padding:1.75rem; border-radius:1rem; border:1px solid var(--border-light);">
+          <div style="font-size:2rem; color:#b45309; margin-bottom:0.75rem;"><i class="fas fa-stamp"></i></div>
+          <h3 style="font-size:1.15rem; font-weight:800; color:var(--text-dark); margin-bottom:0.4rem;">CEO Signature &amp; Gold Seal</h3>
+          <p style="color:var(--text-muted); font-size:0.9rem;">Personally endorsed and signed by Founder &amp; CEO Dr. Shahid Akram Mustafai with high-security embossed golden seal.</p>
+        </div>
+
+        <div class="card nasa-card" style="background:#ffffff; padding:1.75rem; border-radius:1rem; border:1px solid var(--border-light);">
+          <div style="font-size:2rem; color:var(--tech-blue); margin-bottom:0.75rem;"><i class="fas fa-briefcase"></i></div>
+          <h3 style="font-size:1.15rem; font-weight:800; color:var(--text-dark); margin-bottom:0.4rem;">LinkedIn &amp; Upwork Ready</h3>
+          <p style="color:var(--text-muted); font-size:0.9rem;">Share your certificate link directly on Upwork profiles, LinkedIn licenses, Fiverr portfolios, or CVs for instant client trust.</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -78,7 +216,7 @@
   <footer class="site-footer">
     <div class="container">
       <div class="footer-bottom">
-        <div>© 2026 <strong>ILM E TECH PAKISTAN</strong>. Official Domain: <code>ilmetechpakistan.com</code></div>
+        <div>© 2026 <strong>ILM E TECH PAKISTAN</strong>. Founder &amp; CEO: <strong>Dr. Shahid Akram Mustafai</strong>. Official Domain: <code>ilmetechpakistan.com</code></div>
         <div style="display:flex; gap:1rem;"><a href="privacy-policy.html">Privacy</a> <a href="terms.html">Terms</a></div>
       </div>
     </div>
@@ -89,16 +227,57 @@
   <script src="assets/js/chatbot.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      const verifyPanel = document.getElementById('verifyPanel');
+      const generatePanel = document.getElementById('generatePanel');
+      const tabVerifyBtn = document.getElementById('tabVerifyBtn');
+      const tabGenerateBtn = document.getElementById('tabGenerateBtn');
+
       const form = document.getElementById('certVerificationForm');
       const input = document.getElementById('certSearchInput');
       const container = document.getElementById('verificationResultContainer');
 
+      const genForm = document.getElementById('certGeneratorForm');
+      const resetSandboxBtn = document.getElementById('resetSandboxBtn');
+
+      // Tab switcher
+      tabVerifyBtn.addEventListener('click', () => {
+        tabVerifyBtn.classList.add('active');
+        tabVerifyBtn.setAttribute('aria-selected', 'true');
+        tabGenerateBtn.classList.remove('active');
+        tabGenerateBtn.setAttribute('aria-selected', 'false');
+        verifyPanel.style.display = 'block';
+        generatePanel.style.display = 'none';
+      });
+
+      tabGenerateBtn.addEventListener('click', () => {
+        tabGenerateBtn.classList.add('active');
+        tabGenerateBtn.setAttribute('aria-selected', 'true');
+        tabVerifyBtn.classList.remove('active');
+        tabVerifyBtn.setAttribute('aria-selected', 'false');
+        verifyPanel.style.display = 'none';
+        generatePanel.style.display = 'block';
+        triggerSandboxPreview();
+      });
+
+      // Quick sample buttons
+      document.querySelectorAll('.sample-cert-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const id = btn.getAttribute('data-id');
+          input.value = id;
+          performVerification(id);
+        });
+      });
+
+      // Check URL query parameters
       const params = new URLSearchParams(window.location.search);
       const queryId = params.get('id');
 
       if (queryId) {
         input.value = queryId;
         performVerification(queryId);
+      } else {
+        // Default display featured certificate so user immediately sees what certificate looks like!
+        performVerification('ILM-2026-000101');
       }
 
       form.addEventListener('submit', (e) => {
@@ -109,84 +288,248 @@
         }
       });
 
+      // Sandbox form submission
+      if (genForm) {
+        genForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          triggerSandboxPreview();
+        });
+      }
+
+      if (resetSandboxBtn) {
+        resetSandboxBtn.addEventListener('click', () => {
+          document.getElementById('genStudentName').value = "Muhammad Zeeshan";
+          document.getElementById('genFatherName').value = "Tariq Mahmood";
+          document.getElementById('genCourseName').selectedIndex = 0;
+          document.getElementById('genGrade').selectedIndex = 0;
+          document.getElementById('genIssueDate').value = "October 2026";
+          triggerSandboxPreview();
+        });
+      }
+
+      function triggerSandboxPreview() {
+        const customCert = {
+          id: "ILM-2026-DEMO99",
+          studentName: document.getElementById('genStudentName').value.trim() || "Student Name",
+          fatherName: document.getElementById('genFatherName').value.trim() || "Father Name",
+          courseName: document.getElementById('genCourseName').value,
+          grade: document.getElementById('genGrade').value,
+          issueDate: document.getElementById('genIssueDate').value.trim() || "October 2026",
+          status: "Sample Interactive Preview",
+          isSandbox: true,
+          verificationUrl: "verify-certificate.html?id=ILM-2026-DEMO99"
+        };
+        renderOfficialCertificate(customCert);
+      }
+
       function performVerification(certId) {
         const cert = window.ilmDB ? window.ilmDB.getCertificateById(certId) : null;
-
         if (cert) {
-          container.innerHTML = `
-            <div style="max-width:900px; margin:0 auto;">
-              <!-- Verification Success Badge -->
-              <div class="card" style="background:#ecfdf5; border:2px solid #10b981; padding:1.5rem; border-radius:1rem; text-align:center; margin-bottom:2rem;">
-                <div style="display:inline-flex; align-items:center; gap:0.5rem; background:#16a34a; color:#ffffff; padding:0.5rem 1.25rem; border-radius:2rem; font-weight:800; font-size:1.1rem; margin-bottom:0.5rem;">
-                  <i class="fas fa-check-circle"></i> CERTIFICATE VERIFIED & AUTHENTIC
-                </div>
-                <h3 style="color:#046a38; font-size:1.3rem; margin-top:0.5rem;">ILM E TECH PAKISTAN Official Student Record</h3>
-                <p style="color:#065f46; font-size:0.95rem;">This certificate is officially recognized and registered in the ILM E TECH PAKISTAN verification database.</p>
-              </div>
+          renderOfficialCertificate(cert);
+        } else {
+          renderNotFound(certId);
+        }
+      }
 
-              <!-- Printable Certificate Display -->
-              <div class="certificate-frame">
-                <div class="certificate-header">
-                  <img src="assets/images/logo.jpg" alt="Ilm E Tech Logo" style="height:70px; margin-bottom:1rem; border-radius:50%;">
-                  <div style="font-size:1.2rem; font-weight:800; color:var(--tech-blue);">ILM E TECH PAKISTAN</div>
-                  <div class="certificate-title">Certificate of Completion</div>
-                  <p style="color:var(--text-muted); font-size:0.95rem;">This is to officially certify that</p>
-                </div>
+      function renderOfficialCertificate(cert) {
+        const isSandbox = !!cert.isSandbox;
+        const currentUrl = window.location.origin + window.location.pathname + '?id=' + encodeURIComponent(cert.id);
+        const fatherHtml = cert.fatherName ? `<span style="margin: 0 0.5rem; color:#cbd5e1;">|</span> S/O, D/O: <strong>${cert.fatherName}</strong>` : '';
 
-                <div class="certificate-student">${cert.studentName}</div>
+        const badgeBanner = isSandbox ? `
+          <div class="card" style="background:#fefce8; border:2px solid #facc15; padding:1.25rem; border-radius:1rem; text-align:center; margin-bottom:2rem;">
+            <div style="display:inline-flex; align-items:center; gap:0.5rem; background:#ca8a04; color:#ffffff; padding:0.4rem 1.25rem; border-radius:2rem; font-weight:800; font-size:0.95rem; margin-bottom:0.4rem;">
+              <i class="fas fa-wand-magic-sparkles"></i> LIVE INTERACTIVE CERTIFICATE PREVIEW
+            </div>
+            <h3 style="color:#854d0e; font-size:1.2rem; margin-top:0.3rem;">Official Certificate Specimen</h3>
+            <p style="color:#713f12; font-size:0.9rem; margin:0;">This shows exactly what your official credential will look like upon graduating from ILM E TECH PAKISTAN.</p>
+          </div>
+        ` : `
+          <div class="card" style="background:#ecfdf5; border:2px solid #10b981; padding:1.25rem; border-radius:1rem; text-align:center; margin-bottom:2rem;">
+            <div style="display:inline-flex; align-items:center; gap:0.5rem; background:#16a34a; color:#ffffff; padding:0.4rem 1.25rem; border-radius:2rem; font-weight:800; font-size:1.05rem; margin-bottom:0.4rem;">
+              <i class="fas fa-check-circle"></i> OFFICIALLY VERIFIED &amp; AUTHENTIC RECORD
+            </div>
+            <h3 style="color:#046a38; font-size:1.25rem; margin-top:0.3rem;">ILM E TECH PAKISTAN Official Student Credential</h3>
+            <p style="color:#065f46; font-size:0.92rem; margin:0;">This certificate record is cryptographically confirmed and registered in the institutional academic registry.</p>
+          </div>
+        `;
 
-                <p style="font-size:1.1rem; color:var(--text-body); max-width:650px; margin:0 auto 1.5rem;">
-                  has successfully completed all requirements, practical projects, and evaluation for the course
-                </p>
+        container.innerHTML = `
+          <div style="max-width:960px; margin:0 auto;">
+            ${badgeBanner}
 
-                <h3 style="font-size:1.6rem; font-weight:800; color:var(--primary-green); margin-bottom:1rem;">${cert.courseName}</h3>
-                <span class="badge" style="background:#dbeafe; color:#1e40af; padding:0.4rem 1rem; border-radius:1rem; font-size:1rem; font-weight:700;">Grade: ${cert.grade}</span>
+            <!-- Official High-Resolution Academic Certificate Canvas -->
+            <div class="official-cert-stage">
+              <div class="official-cert-card" id="printableCertificate">
+                
+                <!-- Corner Filigree Ornaments -->
+                <svg class="cert-corner-ornament cert-corner-tl" viewBox="0 0 100 100" fill="currentColor">
+                  <path d="M0,0 L100,0 C70,10 30,30 20,60 C10,70 0,100 0,100 Z M15,15 L75,15 C55,25 25,55 15,75 Z"></path>
+                </svg>
+                <svg class="cert-corner-ornament cert-corner-tr" viewBox="0 0 100 100" fill="currentColor">
+                  <path d="M0,0 L100,0 C70,10 30,30 20,60 C10,70 0,100 0,100 Z M15,15 L75,15 C55,25 25,55 15,75 Z"></path>
+                </svg>
+                <svg class="cert-corner-ornament cert-corner-bl" viewBox="0 0 100 100" fill="currentColor">
+                  <path d="M0,0 L100,0 C70,10 30,30 20,60 C10,70 0,100 0,100 Z M15,15 L75,15 C55,25 25,55 15,75 Z"></path>
+                </svg>
+                <svg class="cert-corner-ornament cert-corner-br" viewBox="0 0 100 100" fill="currentColor">
+                  <path d="M0,0 L100,0 C70,10 30,30 20,60 C10,70 0,100 0,100 Z M15,15 L75,15 C55,25 25,55 15,75 Z"></path>
+                </svg>
 
-                <div class="certificate-details">
-                  <div style="text-align:left;">
-                    <p style="font-size:0.85rem; color:var(--text-muted);">Verification Code:</p>
-                    <strong style="color:var(--text-dark); font-family:monospace; font-size:1rem;">${cert.id}</strong>
-                    <p style="font-size:0.85rem; color:var(--text-muted); margin-top:0.5rem;">Issue Date:</p>
-                    <strong style="color:var(--text-dark);">${cert.issueDate}</strong>
-                  </div>
+                <!-- Watermark Logo Overlay -->
+                <div class="cert-watermark-overlay"></div>
 
-                  <!-- Simulated QR Code -->
-                  <div style="text-align:center;">
-                    <div style="width:90px; height:90px; background:#f1f5f9; border:2px dashed #94a3b8; display:flex; flex-direction:column; align-items:center; justify-content:center; border-radius:0.5rem; margin:0 auto;">
-                      <i class="fas fa-qrcode" style="font-size:2.5rem; color:var(--text-dark);"></i>
-                      <span style="font-size:0.6rem; color:var(--text-muted); margin-top:0.2rem;">VERIFIED QR</span>
+                <!-- Main Certificate Content -->
+                <div class="cert-content-layer">
+                  
+                  <!-- Top Institutional Header -->
+                  <div class="cert-top-header">
+                    <div class="cert-emblem-group">
+                      <img src="assets/images/logo.jpg" alt="ILM E TECH Logo" class="cert-crest-logo">
+                      <div>
+                        <div class="cert-institution-name">ILM E TECH PAKISTAN</div>
+                        <div class="cert-institution-sub">Academy for Digital Skills &amp; AI Innovation</div>
+                      </div>
+                    </div>
+                    <div class="cert-security-badge-top">
+                      <strong>CREDENTIAL ID: ${cert.id}</strong>
+                      <span>STATUS: ${cert.status.toUpperCase()}</span>
                     </div>
                   </div>
 
-                  <div style="text-align:right;">
-                    <div style="border-bottom:1px solid #94a3b8; width:140px; display:inline-block; margin-bottom:0.3rem;"></div>
-                    <p style="font-size:0.85rem; font-weight:800; color:var(--primary-green);">Director Academics</p>
-                    <p style="font-size:0.75rem; color:var(--text-muted);">ILM E TECH PAKISTAN</p>
+                  <!-- Titles -->
+                  <div class="cert-headings-zone">
+                    <div class="cert-urdu-title">سندِ فراغت و اعلیٰ کارکردگی</div>
+                    <h2 class="cert-main-title">Certificate of Professional Mastery</h2>
+                    <div class="cert-conferral-text">This is to officially and proudly confer upon</div>
                   </div>
-                </div>
 
-                <div style="margin-top:2.5rem; text-align:center;">
-                  <button onclick="window.print()" class="btn btn-primary"><i class="fas fa-print"></i> Print / Download PDF Certificate</button>
+                  <!-- Student Name -->
+                  <div class="cert-student-box">
+                    <div class="cert-student-name">${cert.studentName}</div>
+                    <div class="cert-student-meta">
+                      Credential ID: <strong>${cert.id}</strong>
+                      ${fatherHtml}
+                    </div>
+                  </div>
+
+                  <!-- Description & Course Pill -->
+                  <div class="cert-achievement-text">
+                    for successfully completing all prescribed curriculum requirements, hands-on capstone projects, assessments, and demonstrating professional mastery in the specialized program:
+                  </div>
+
+                  <div style="text-align:center;">
+                    <div class="cert-course-pill">
+                      <i class="fas fa-graduation-cap" style="margin-right:0.5rem; color:#fef08a;"></i> ${cert.courseName}
+                    </div>
+                  </div>
+
+                  <div class="cert-grade-row">
+                    <span class="cert-grade-tag"><i class="fas fa-star text-amber-500"></i> ${cert.grade || 'A+ Distinction'}</span>
+                    <span class="cert-grade-tag" style="background:#ecfdf5; color:#065f46; border-color:#a7f3d0;"><i class="fas fa-shield-alt text-emerald-600"></i> Verified Graduate</span>
+                  </div>
+
+                  <!-- Bottom Signatures & 3D Gold Foil Medallion Seal -->
+                  <div class="cert-bottom-signatures">
+                    <!-- Left: Academic Dean / Examination Registrar -->
+                    <div class="cert-sign-col">
+                      <div class="cert-signature-img-text" style="font-family:'Alex Brush', cursive; font-size:2.2rem; color:#034b75;">M. Farooq</div>
+                      <div class="cert-sign-line"></div>
+                      <div class="cert-sign-title">Director of Academics</div>
+                      <div class="cert-sign-role">Board of Technology &amp; Training</div>
+                    </div>
+
+                    <!-- Center: 3D Holographic Gold Foil Medallion Seal -->
+                    <div class="cert-medallion-seal" title="Official Seal of ILM E TECH PAKISTAN">
+                      <i class="fas fa-award seal-icon"></i>
+                      <span class="seal-text-top">ILM E TECH</span>
+                      <span class="seal-text-center">OFFICIAL<br>SEAL</span>
+                      <span class="seal-text-bottom">PAKISTAN</span>
+                    </div>
+
+                    <!-- Right: Founder & CEO Dr. Shahid Akram Mustafai -->
+                    <div class="cert-sign-col">
+                      <div class="cert-signature-img-text" style="font-family:'Alex Brush', cursive; font-size:2.5rem; color:#046a38;">Dr. Shahid Akram</div>
+                      <div class="cert-sign-line"></div>
+                      <div class="cert-sign-title">Dr. Shahid Akram Mustafai</div>
+                      <div class="cert-sign-role">Founder &amp; Chief Executive Officer</div>
+                    </div>
+                  </div>
+
+                  <!-- Security Strip & Live QR Verification Bar -->
+                  <div class="cert-footer-security">
+                    <div class="cert-qr-mini">
+                      <div class="cert-qr-box">
+                        <i class="fas fa-qrcode"></i>
+                      </div>
+                      <div>
+                        <div style="font-weight:700; color:#0f172a;">SCAN TO VERIFY RECORD</div>
+                        <div style="font-size:0.68rem; color:#64748b;">ilmetechpakistan.com/verify-certificate.html?id=${cert.id}</div>
+                      </div>
+                    </div>
+
+                    <div style="text-align:right;">
+                      <div>DATE ISSUED: <strong>${cert.issueDate}</strong></div>
+                      <div style="font-size:0.65rem; color:#94a3b8;">SECURE REGISTRY PROTOCOL &bull; ISO 9001:2015 AUDITED STANDARDS</div>
+                    </div>
+                  </div>
+
                 </div>
               </div>
             </div>
-          `;
-        } else {
-          container.innerHTML = `
-            <div class="card text-center" style="max-width:600px; margin:0 auto; background:#fff1f2; border:2px solid #f43f5e; padding:2.5rem; border-radius:1rem; text-align:center;">
-              <div style="font-size:3.5rem; color:#dc2626; margin-bottom:1rem;"><i class="fas fa-times-circle"></i></div>
-              <h3 style="color:#9f1239; font-size:1.6rem; font-weight:800; margin-bottom:0.5rem;">Certificate Not Found</h3>
-              
-              <p style="color:#881337; font-size:0.95rem; margin-bottom:1.5rem;">
-                No certificate found matching code <code>${certId}</code>. Please double check the ID entered or contact ILM E TECH PAKISTAN administration for verification support.
-              </p>
-              <a href="contact.html" class="btn btn-outline" style="border-color:#dc2626; color:#dc2626;"><i class="fas fa-envelope"></i> Contact Support</a>
+
+            <!-- Action Bar -->
+            <div class="cert-action-bar">
+              <button type="button" onclick="window.print()" class="btn-cert-gold">
+                <i class="fas fa-print"></i> Print / Save as High-Res PDF
+              </button>
+              <a href="https://api.whatsapp.com/send?text=Check%20out%20my%20official%20verified%20certificate%20from%20ILM%20E%20TECH%20PAKISTAN:%20${encodeURIComponent(currentUrl)}" target="_blank" rel="noopener noreferrer" class="btn-cert-share">
+                <i class="fab fa-whatsapp"></i> Share on WhatsApp
+              </a>
+              <button type="button" id="copyCertLinkBtn" class="btn btn-outline" style="border-color:#cbd5e1;">
+                <i class="fas fa-link"></i> Copy Verification Link
+              </button>
+              <a href="admissions.html" class="btn btn-primary">
+                <i class="fas fa-graduation-cap"></i> Enroll in This Program
+              </a>
             </div>
-          `;
+
+          </div>
+        `;
+
+        const copyBtn = document.getElementById('copyCertLinkBtn');
+        if (copyBtn) {
+          copyBtn.addEventListener('click', () => {
+            navigator.clipboard.writeText(currentUrl).then(() => {
+              copyBtn.innerHTML = '<i class="fas fa-check text-emerald-500"></i> Link Copied!';
+              setTimeout(() => {
+                copyBtn.innerHTML = '<i class="fas fa-link"></i> Copy Verification Link';
+              }, 2500);
+            });
+          });
         }
+      }
+
+      function renderNotFound(certId) {
+        container.innerHTML = `
+          <div class="card text-center" style="max-width:600px; margin:0 auto; background:#fff1f2; border:2px solid #f43f5e; padding:3rem 2rem; border-radius:1rem; text-align:center;">
+            <div style="font-size:3.5rem; color:#dc2626; margin-bottom:1rem;"><i class="fas fa-times-circle"></i></div>
+            <h3 style="color:#9f1239; font-size:1.6rem; font-weight:800; margin-bottom:0.5rem;">Certificate Record Not Found</h3>
+            <p style="color:#881337; font-size:0.95rem; margin-bottom:1.5rem;">
+              No authentic student certificate found matching code <code>${certId}</code>. Please double check the ID entered, or test our verified IDs above.
+            </p>
+            <div style="display:flex; justify-content:center; gap:1rem; flex-wrap:wrap;">
+              <button type="button" class="btn btn-primary" onclick="document.getElementById('certSearchInput').value='ILM-2026-000101'; document.getElementById('certVerificationForm').dispatchEvent(new Event('submit'));">
+                <i class="fas fa-eye"></i> View Sample Verified Record
+              </button>
+              <a href="contact.html" class="btn btn-outline" style="border-color:#dc2626; color:#dc2626;">
+                <i class="fas fa-headset"></i> Contact Support
+              </a>
+            </div>
+          </div>
+        `;
       }
     });
   </script>
 </body>
 </html>
-
