@@ -255,6 +255,7 @@ body {
   gap: 0.65rem;
   text-decoration: none;
   flex-shrink: 0;
+  min-width: max-content;
 }
 
 .brand-logo img {
@@ -268,15 +269,16 @@ body {
 .brand-text {
   display: flex;
   flex-direction: column;
+  white-space: nowrap !important;
 }
 
 .brand-name {
-  font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+  font-size: clamp(1rem, 2vw, 1.2rem);
   font-weight: 900;
   color: var(--primary-green);
   letter-spacing: -0.02em;
   line-height: 1.1;
-  white-space: nowrap;
+  white-space: nowrap !important;
 }
 
 .brand-subtitle {
@@ -284,7 +286,7 @@ body {
   font-weight: 700;
   color: var(--tech-blue);
   line-height: 1.2;
-  white-space: nowrap;
+  white-space: nowrap !important;
 }
 
 .brand-urdu {
@@ -292,12 +294,13 @@ body {
   font-size: 0.95rem;
   color: var(--tech-blue);
   line-height: 1.2;
+  white-space: nowrap !important;
 }
 
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: 1.2rem;
+  gap: 0.85rem;
   list-style: none;
   white-space: nowrap;
 }
@@ -306,8 +309,8 @@ body {
   color: var(--text-dark);
   text-decoration: none;
   font-weight: 700;
-  font-size: 0.92rem;
-  padding: 0.4rem 0.2rem;
+  font-size: 0.88rem;
+  padding: 0.4rem 0.25rem;
   position: relative;
   transition: color 0.2s;
 }
@@ -327,8 +330,8 @@ body {
   border-radius: 2px;
 }
 
-/* Breakpoint for 10-item menu: switch to drawer at 1180px so links NEVER wrap or break the header height */
-@media (max-width: 1180px) {
+/* Breakpoint for 10-item menu: switch to drawer at <= 1240px so links NEVER wrap or break header height */
+@media (max-width: 1240px) {
   .nav-menu {
     display: none !important;
   }
@@ -4198,45 +4201,100 @@ html[dir="rtl"] .mobile-drawer.open, body.font-urdu .mobile-drawer.open {
 
 .official-cert-card {
   position: relative;
-  background: radial-gradient(circle at center, #ffffff 0%, #fefdf8 65%, #faf5ea 100%);
-  border: 12px double #b45309;
-  border-radius: 8px;
+  background: radial-gradient(circle at center, #ffffff 0%, #fefdf9 60%, #fbf6ec 100%);
+  border: 4px solid #c59b27;
+  border-radius: 6px;
   padding: 3rem 3.5rem;
-  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(180, 83, 9, 0.4);
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.22), 0 0 0 1px rgba(197, 155, 39, 0.5);
   color: #0f172a;
   overflow: hidden;
   font-family: var(--font-en);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Guilloché Inner Border Inlay */
+/* Double Navy & Gold Frame Inlay (Screenshot 5 Match) */
 .official-cert-card::before {
   content: "";
   position: absolute;
-  top: 10px;
-  left: 10px;
-  right: 10px;
-  bottom: 10px;
-  border: 2px solid #046a38;
-  outline: 1px dashed rgba(202, 138, 4, 0.5);
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  border: 2.5px solid #1e3a5f;
+  outline: 1px solid rgba(197, 155, 39, 0.7);
   outline-offset: 4px;
   pointer-events: none;
   z-index: 1;
 }
 
-/* Corner Filigree Accents */
+/* Hanging Navy Ribbon Medal Badge (Screenshot 5 Top-Left) */
+.cert-ribbon-badge {
+  position: absolute;
+  top: 0;
+  left: 55px;
+  width: 72px;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.25));
+}
+
+.cert-ribbon-tail {
+  width: 54px;
+  height: 96px;
+  background: #1e3a5f;
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 82%, 0 100%);
+}
+
+.cert-ribbon-medal {
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #fef08a 0%, #ca8a04 70%, #854d0e 100%);
+  border: 2px solid #fef08a;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2px;
+}
+
+.cert-ribbon-medal span {
+  font-size: 0.38rem;
+  font-weight: 900;
+  color: #422006;
+  text-transform: uppercase;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+}
+
+.cert-ribbon-medal i {
+  font-size: 0.65rem;
+  color: #713f12;
+  margin-bottom: 1px;
+}
+
+/* Corner Filigree Accents (Screenshot 5 Match) */
 .cert-corner-ornament {
   position: absolute;
-  width: 50px;
-  height: 50px;
+  width: 58px;
+  height: 58px;
   pointer-events: none;
   z-index: 2;
-  color: #b45309;
+  color: #c59b27;
 }
-.cert-corner-tl { top: 14px; left: 14px; }
-.cert-corner-tr { top: 14px; right: 14px; transform: scaleX(-1); }
-.cert-corner-bl { bottom: 14px; left: 14px; transform: scaleY(-1); }
-.cert-corner-br { bottom: 14px; right: 14px; transform: scale(-1); }
+.cert-corner-tl { top: 16px; left: 16px; }
+.cert-corner-tr { top: 16px; right: 16px; transform: scaleX(-1); }
+.cert-corner-bl { bottom: 16px; left: 16px; transform: scaleY(-1); }
+.cert-corner-br { bottom: 16px; right: 16px; transform: scale(-1); }
 
 /* Watermark Insignia */
 .cert-watermark-overlay {
@@ -4713,6 +4771,71 @@ html[dir="rtl"] .mobile-drawer.open, body.font-urdu .mobile-drawer.open {
   margin-top: 2.5rem;
 }
 
+/* Compact Client Logos Strip (Single Clean Row / Marquee) */
+.compact-client-logos-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin: 2.25rem 0 1.5rem;
+  padding: 0.5rem;
+}
+
+.compact-logo-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 9999px;
+  padding: 0.4rem 1.25rem 0.4rem 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  max-width: 100%;
+}
+
+.compact-logo-card:hover {
+  border-color: #10b981;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.15);
+}
+
+.compact-logo-img {
+  width: 44px !important;
+  height: 44px !important;
+  max-width: 44px !important;
+  max-height: 44px !important;
+  border-radius: 50%;
+  object-fit: contain;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  padding: 2px;
+  flex-shrink: 0;
+}
+
+.compact-logo-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.compact-logo-name {
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.compact-logo-tag {
+  font-size: 0.7rem;
+  color: #047857;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
 .brand-showcase-card {
   background: #ffffff;
   border: 1.5px solid #e2e8f0;
@@ -5048,60 +5171,60 @@ html[dir="rtl"] .mobile-drawer.open, body.font-urdu .mobile-drawer.open {
 }
 
 /* ==========================================================================
-   SIMPLIFIED FREE COURSES LEAD MODAL (NASA-GRADE & SADA DESIGN)
+   SIMPLIFIED FREE COURSES LEAD MODAL (HIGH CONTRAST & CLEAN DESIGN)
    "ابھی اپنا ٹیکنالوجی کا سفر شروع کریں اور فری میں جوائن کریں!"
    ========================================================================== */
 .lead-quick-modal-content {
-  background: linear-gradient(145deg, #022c15 0%, #034b75 100%);
-  border: 2px solid #10b981;
-  border-radius: 1.25rem;
-  width: 100%;
-  max-width: 520px;
-  color: #ffffff;
-  padding: 2.25rem 2rem 2rem;
-  position: relative;
-  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.65), 0 0 40px rgba(16, 185, 129, 0.2);
-  animation: modalPop 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  max-height: 90vh;
-  overflow-y: auto;
+  background: #ffffff !important;
+  border: 2px solid #059669 !important;
+  border-radius: 1.25rem !important;
+  width: 100% !important;
+  max-width: 520px !important;
+  color: #0f172a !important;
+  padding: 2.25rem 2rem 2rem !important;
+  position: relative !important;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.35), 0 0 40px rgba(5, 150, 105, 0.15) !important;
+  animation: modalPop 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  max-height: 90vh !important;
+  overflow-y: auto !important;
 }
 
 .lead-pill {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  background: rgba(16, 185, 129, 0.2);
-  border: 1px solid #10b981;
-  color: #6ee7b7;
-  padding: 0.3rem 0.85rem;
+  background: #ecfdf5 !important;
+  border: 1px solid #a7f3d0 !important;
+  color: #047857 !important;
+  padding: 0.35rem 0.95rem;
   border-radius: 1.5rem;
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   font-weight: 800;
   letter-spacing: 0.05em;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.6rem;
 }
 
 .lead-title-urdu {
   font-family: 'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', serif;
-  font-size: 1.5rem;
-  color: #ffffff;
-  line-height: 1.8;
-  margin: 0.2rem 0 0.3rem;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  font-size: 1.55rem !important;
+  color: #046a38 !important;
+  line-height: 1.8 !important;
+  margin: 0.2rem 0 0.3rem !important;
+  text-shadow: none !important;
 }
 
 .lead-title-en {
-  font-size: 1.05rem;
-  font-weight: 800;
-  color: #6ee7b7;
-  margin-bottom: 0.4rem;
+  font-size: 1.05rem !important;
+  font-weight: 800 !important;
+  color: #0284c7 !important;
+  margin-bottom: 0.4rem !important;
 }
 
 .lead-desc {
-  font-size: 0.85rem;
-  color: #cbd5e1;
-  line-height: 1.5;
-  margin-bottom: 1.25rem;
+  font-size: 0.88rem !important;
+  color: #475569 !important;
+  line-height: 1.5 !important;
+  margin-bottom: 1.25rem !important;
 }
 
 /* Reusable 2-Column Responsive Form Row */

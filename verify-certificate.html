@@ -428,7 +428,16 @@
             <div class="official-cert-stage">
               <div class="official-cert-card" id="printableCertificate">
                 
-                <!-- Corner Filigree Ornaments -->
+                <!-- Hanging Navy Ribbon Medal Badge (Screenshot 5 Top-Left) -->
+                <div class="cert-ribbon-badge" aria-hidden="true">
+                  <div class="cert-ribbon-tail"></div>
+                  <div class="cert-ribbon-medal">
+                    <i class="fas fa-award"></i>
+                    <span>SKILL<br>GROWTH<br>SUCCESS</span>
+                  </div>
+                </div>
+
+                <!-- Corner Filigree Ornaments (Screenshot 5 Match) -->
                 <svg class="cert-corner-ornament cert-corner-tl" viewBox="0 0 100 100" fill="currentColor">
                   <path d="M0,0 L100,0 C70,10 30,30 20,60 C10,70 0,100 0,100 Z M15,15 L75,15 C55,25 25,55 15,75 Z"></path>
                 </svg>
@@ -448,95 +457,87 @@
                 <!-- Main Certificate Content -->
                 <div class="cert-content-layer">
                   
-                  <!-- Top Institutional Header -->
-                  <div class="cert-top-header">
+                  <!-- Top Institutional Header (Screenshot 5 Match) -->
+                  <div class="cert-top-header" style="padding-left: 65px;">
                     <div class="cert-emblem-group">
-                      <img src="assets/images/logo.jpg" alt="ILM E TECH Logo" class="cert-crest-logo">
+                      <img src="assets/images/logo.jpg" alt="ILM E TECH Logo" class="cert-crest-logo" style="border-color:#c59b27;">
                       <div>
-                        <div class="cert-institution-name">ILM E TECH PAKISTAN</div>
-                        <div class="cert-institution-sub">Academy for Digital Skills &amp; AI Innovation</div>
+                        <div class="cert-institution-name" style="color:#1e3a5f;">ILM E TECH PAKISTAN</div>
+                        <div class="cert-institution-sub" style="color:#b45309;">Digital Education &amp; AI Academy</div>
                       </div>
                     </div>
-                    <div class="cert-security-badge-top">
-                      <strong>CREDENTIAL ID: ${cert.id}</strong>
-                      <span>STATUS: ${cert.status.toUpperCase()}</span>
+                    
+                    <!-- Top Right QR Code (Screenshot 5 Match) -->
+                    <div style="display:flex; flex-direction:column; align-items:center; text-align:center;">
+                      <div class="cert-qr-box" style="width:58px; height:58px; border:1.5px solid #1e3a5f; border-radius:6px; background:#ffffff; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+                        <i class="fas fa-qrcode" style="font-size:2rem; color:#1e3a5f;"></i>
+                      </div>
+                      <span style="font-size:0.68rem; font-weight:800; color:#1e3a5f; margin-top:0.25rem; letter-spacing:0.04em;">Scan to Verify</span>
                     </div>
                   </div>
 
-                  <!-- Titles -->
-                  <div class="cert-headings-zone">
-                    <div class="cert-urdu-title">سندِ فراغت و اعلیٰ کارکردگی</div>
-                    <h2 class="cert-main-title">Certificate of Professional Mastery</h2>
-                    <div class="cert-conferral-text">This is to officially and proudly confer upon</div>
+                  <!-- Titles (Screenshot 5 Match) -->
+                  <div class="cert-headings-zone" style="margin-bottom: 1.25rem;">
+                    <h2 class="cert-main-title" style="color:#1e3a5f; letter-spacing:0.18em; font-size:2.2rem;">C E R T I F I C A T E</h2>
+                    <div style="display:flex; align-items:center; justify-content:center; gap:0.75rem; margin-top:0.35rem;">
+                      <span style="height:1.5px; width:50px; background:#c59b27;"></span>
+                      <span style="font-size:0.95rem; font-weight:800; color:#b45309; letter-spacing:0.12em; text-transform:uppercase;">✦ OF PROFESSIONAL MASTERY &amp; PARTICIPATION ✦</span>
+                      <span style="height:1.5px; width:50px; background:#c59b27;"></span>
+                    </div>
+                    <div class="cert-conferral-text" style="font-size:0.85rem; letter-spacing:0.08em; text-transform:uppercase; margin-top:0.85rem; font-weight:700;">THIS IS TO CERTIFY THAT</div>
                   </div>
 
-                  <!-- Student Name -->
-                  <div class="cert-student-box">
-                    <div class="cert-student-name">${cert.studentName}</div>
+                  <!-- Student Name with Elegant Calligraphy & Underline (Screenshot 5 Match) -->
+                  <div class="cert-student-box" style="margin: 0.5rem 0 1rem;">
+                    <div class="cert-student-name" style="font-family:'Alex Brush', cursive; font-size:3.5rem; color:#1e3a5f; border:none; padding:0; line-height:1.1;">${cert.studentName}</div>
+                    <div style="width:240px; height:2px; background:linear-gradient(90deg, transparent, #c59b27, transparent); margin:0.35rem auto 0.5rem;"></div>
                     <div class="cert-student-meta">
                       Credential ID: <strong>${cert.id}</strong>
                       ${fatherHtml}
                     </div>
                   </div>
 
-                  <!-- Description & Course Pill -->
-                  <div class="cert-achievement-text">
-                    for successfully completing all prescribed curriculum requirements, hands-on capstone projects, assessments, and demonstrating professional mastery in the specialized program:
+                  <!-- Description & Course -->
+                  <div class="cert-achievement-text" style="font-size:0.95rem; color:#334155; max-width:700px; margin:0 auto 0.85rem;">
+                    has successfully participated and demonstrated professional mastery in the specialized program
                   </div>
 
-                  <div style="text-align:center;">
-                    <div class="cert-course-pill">
+                  <div style="text-align:center; margin-bottom:1rem;">
+                    <div class="cert-course-pill" style="background:#1e3a5f; font-size:1.25rem; padding:0.5rem 2rem;">
                       <i class="fas fa-graduation-cap" style="margin-right:0.5rem; color:#fef08a;"></i> ${cert.courseName}
                     </div>
                   </div>
 
-                  <div class="cert-grade-row">
+                  <div class="cert-grade-row" style="margin-bottom:1.5rem;">
                     <span class="cert-grade-tag"><i class="fas fa-star text-amber-500"></i> ${cert.grade || 'A+ Distinction'}</span>
-                    <span class="cert-grade-tag" style="background:#ecfdf5; color:#065f46; border-color:#a7f3d0;"><i class="fas fa-shield-alt text-emerald-600"></i> Verified Graduate</span>
+                    <span class="cert-grade-tag" style="background:#ecfdf5; color:#065f46; border-color:#a7f3d0;"><i class="fas fa-shield-alt text-emerald-600"></i> Verified Academic Credential</span>
                   </div>
 
-                  <!-- Bottom Signatures & 3D Gold Foil Medallion Seal -->
-                  <div class="cert-bottom-signatures">
-                    <!-- Left: Academic Dean / Examination Registrar -->
-                    <div class="cert-sign-col">
-                      <div class="cert-signature-img-text" style="font-family:'Alex Brush', cursive; font-size:2.2rem; color:#034b75;">M. Farooq</div>
-                      <div class="cert-sign-line"></div>
-                      <div class="cert-sign-title">Director of Academics</div>
-                      <div class="cert-sign-role">Board of Technology &amp; Training</div>
+                  <!-- Bottom: Sole Signatory Dr. Shahid Akram Mustafai, 3D Gold Seal & Verification Details -->
+                  <div class="cert-bottom-signatures" style="grid-template-columns: 1fr auto 1fr; align-items:flex-end;">
+                    
+                    <!-- Left: Issuance Telemetry & Registry -->
+                    <div style="text-align:left;">
+                      <div style="font-size:0.88rem; font-weight:800; color:#1e3a5f;">Date: <strong>${cert.issueDate}</strong></div>
+                      <div style="font-size:0.75rem; color:#64748b; margin-top:0.25rem;">Credential ID: <strong>${cert.id}</strong></div>
+                      <div style="font-size:0.68rem; color:#94a3b8; font-family:monospace; margin-top:0.2rem;">STATUS: ${cert.status.toUpperCase()} &bull; ISO 9001:2015 AUDITED</div>
                     </div>
 
-                    <!-- Center: 3D Holographic Gold Foil Medallion Seal -->
-                    <div class="cert-medallion-seal" title="Official Seal of ILM E TECH PAKISTAN">
+                    <!-- Center: 3D Gold Foil Medallion Seal (Screenshot 5 Match) -->
+                    <div class="cert-medallion-seal" title="Official Seal of ILM E TECH PAKISTAN" style="border-color:#fef08a;">
                       <i class="fas fa-award seal-icon"></i>
                       <span class="seal-text-top">ILM E TECH</span>
-                      <span class="seal-text-center">OFFICIAL<br>SEAL</span>
-                      <span class="seal-text-bottom">PAKISTAN</span>
+                      <span class="seal-text-center">EXCELLENCE<br>THROUGH<br>LEARNING</span>
+                      <span class="seal-text-bottom">OFFICIAL SEAL</span>
                     </div>
 
-                    <!-- Right: Founder & CEO Dr. Shahid Akram Mustafai -->
-                    <div class="cert-sign-col">
-                      <div class="cert-signature-img-text" style="font-family:'Alex Brush', cursive; font-size:2.5rem; color:#046a38;">Dr. Shahid Akram</div>
-                      <div class="cert-sign-line"></div>
-                      <div class="cert-sign-title">Dr. Shahid Akram Mustafai</div>
-                      <div class="cert-sign-role">Founder &amp; Chief Executive Officer</div>
-                    </div>
-                  </div>
-
-                  <!-- Security Strip & Live QR Verification Bar -->
-                  <div class="cert-footer-security">
-                    <div class="cert-qr-mini">
-                      <div class="cert-qr-box">
-                        <i class="fas fa-qrcode"></i>
-                      </div>
-                      <div>
-                        <div style="font-weight:700; color:#0f172a;">SCAN TO VERIFY RECORD</div>
-                        <div style="font-size:0.68rem; color:#64748b;">ilmetechpakistan.com/verify-certificate.html?id=${cert.id}</div>
-                      </div>
-                    </div>
-
-                    <div style="text-align:right;">
-                      <div>DATE ISSUED: <strong>${cert.issueDate}</strong></div>
-                      <div style="font-size:0.65rem; color:#94a3b8;">SECURE REGISTRY PROTOCOL &bull; ISO 9001:2015 AUDITED STANDARDS</div>
+                    <!-- Right: Sole Founder & CEO Dr. Shahid Akram Mustafai (ONLY SIGNATURE) -->
+                    <div class="cert-sign-col" style="text-align:right;">
+                      <div class="cert-signature-img-text" style="font-family:'Alex Brush', cursive; font-size:2.8rem; color:#046a38; line-height:1; margin-bottom:0.2rem;">Dr. Shahid Akram</div>
+                      <div class="cert-sign-line" style="margin:0 0 0.4rem auto; width:200px; border-color:#1e3a5f;"></div>
+                      <div class="cert-sign-title" style="color:#046a38; font-size:0.92rem;">Dr. Shahid Akram Mustafai</div>
+                      <div class="cert-sign-role" style="color:#475569; font-weight:700;">Founder &amp; Chief Executive Officer</div>
+                      <div style="font-size:0.68rem; color:#1e3a5f; font-weight:800; letter-spacing:0.04em;">ILM E TECH PAKISTAN</div>
                     </div>
                   </div>
 
