@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Main Application Logic & UI Interactions
  * ILM E TECH PAKISTAN (ilmetechpakistan.com)
  */
@@ -126,6 +126,11 @@ function initAdmissionForm() {
     const formData = new FormData(form);
 
     const refNo = 'APP-2026-' + Math.floor(10000 + Math.random() * 90000);
+    const courseId = formData.get('courseId');
+    const courseOption = form.querySelector(`option[value="${courseId}"]`);
+    const courseName = courseOption ? courseOption.textContent : 'Selected Course';
+    const isFree = courseId === 'basic-ai' || courseId === 'ai-tools-mastery' || courseName.includes('FREE') || courseName.includes('مفت');
+
     const admissionData = {
       appId: refNo,
       fullName: formData.get('fullName'),
@@ -135,10 +140,10 @@ function initAdmissionForm() {
       whatsapp: formData.get('whatsapp'),
       email: formData.get('email'),
       city: formData.get('city'),
-      courseId: formData.get('courseId'),
-      courseName: form.querySelector(`option[value="${formData.get('courseId')}"]`)?.textContent || 'Selected Course',
+      courseId: courseId,
+      courseName: courseName,
       preferredMode: formData.get('preferredMode') || 'Online Live',
-      status: 'Pending Verification',
+      status: isFree ? '100% Free Enrollment Approved' : 'Pending Fee Verification',
       date: new Date().toISOString().split('T')[0]
     };
 
@@ -149,29 +154,74 @@ function initAdmissionForm() {
     const resultBox = document.getElementById('admissionResult');
     if (resultBox) {
       resultBox.style.display = 'block';
-      resultBox.innerHTML = `
-        <div class="card" style="background:#ecfdf5; border:2px solid #10b981; padding:2rem; border-radius:1rem; text-align:center;">
-          <div style="font-size:3rem; color:#16a34a; margin-bottom:1rem;"><i class="fas fa-check-circle"></i></div>
-          <h3 style="color:#046a38; font-size:1.6rem; font-weight:800; margin-bottom:0.5rem;">Admission Application Submitted!</h3>
-          
-          <div style="background:#ffffff; border:1px dashed #046a38; padding:1.25rem; border-radius:0.75rem; margin:1.5rem 0; display:inline-block; text-align:left;">
-            <p><strong>Application Reference ID:</strong> <span style="color:#0284c7; font-weight:800; font-size:1.2rem;">${refNo}</span></p>
-            <p><strong>Applicant Name:</strong> ${admissionData.fullName}</p>
-            <p><strong>Selected Course:</strong> ${admissionData.courseName}</p>
-            <p><strong>Date:</strong> ${admissionData.date}</p>
-            <p><strong>Status:</strong> <span class="badge" style="background:#fef3c7; color:#d97706; padding:0.25rem 0.6rem; border-radius:0.25rem; font-size:0.8rem; font-weight:700;">Pending Payment Verification</span></p>
+
+      if (isFree) {
+        resultBox.innerHTML = `
+          <div class="card" style="background:#ecfdf5; border:2px solid #10b981; padding:2.5rem 2rem; border-radius:1.25rem; text-align:center; box-shadow:0 10px 30px rgba(4,106,56,0.15);">
+            <div style="font-size:3.5rem; color:#16a34a; margin-bottom:0.75rem;"><i class="fas fa-check-circle"></i></div>
+            <h3 style="color:#046a38; font-size:1.75rem; font-weight:800; margin-bottom:0.3rem;">100% FREE Admission Approved!</h3>
+            <div style="font-family:'Noto Nastaliq Urdu', serif; font-size:1.35rem; color:#065f46; margin-bottom:1rem; line-height:1.7;">
+              مبارک ہو! آپ کا داخلہ 100% مفت منظور ہو چکا ہے (کوئی فیس درکار نہیں)
+            </div>
+            
+            <div style="background:#ffffff; border:1.5px dashed #046a38; padding:1.5rem; border-radius:1rem; margin:1.5rem auto; max-width:600px; text-align:left;">
+              <p style="margin-bottom:0.5rem;"><strong>Application ID:</strong> <span style="color:#0284c7; font-weight:800; font-size:1.25rem;">${refNo}</span></p>
+              <p style="margin-bottom:0.5rem;"><strong>Student Name:</strong> <span style="font-weight:700; color:#0f172a;">${admissionData.fullName}</span></p>
+              <p style="margin-bottom:0.5rem;"><strong>Course:</strong> <span style="font-weight:700; color:#046a38;">${admissionData.courseName}</span></p>
+              <p style="margin-bottom:0.5rem;"><strong>City:</strong> ${admissionData.city} &bull; <strong>Format:</strong> ${admissionData.preferredMode}</p>
+              <p style="margin:0;"><strong>Fee Status:</strong> <span class="badge" style="background:#d1fae5; color:#065f46; padding:0.3rem 0.75rem; border-radius:1rem; font-size:0.85rem; font-weight:800;"><i class="fas fa-gift"></i> 100% FREE Grant (Rs. 0 Fee)</span></p>
+            </div>
+
+            <div style="display:flex; gap:0.85rem; justify-content:center; flex-wrap:wrap; margin-top:1.5rem;">
+              <a href="https://wa.me/923074958837?text=${encodeURIComponent('السلام علیکم ڈاکٹر شاہد اکرم مصطفائی صاحب!\nمیرا نام ' + admissionData.fullName + ' ہے۔ میری فری کورس ایڈمشن ID: ' + refNo + ' منظور ہو گئی ہے۔ برائے مہربانی مجھے ' + admissionData.courseName + ' کے واٹس ایپ گروپ میں ایڈ فرمائیں۔')}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg" style="background:linear-gradient(135deg, #059669 0%, #10b981 100%);">
+                <i class="fab fa-whatsapp"></i> Join Student WhatsApp Batch
+              </a>
+              <a href="student-portal.html" class="btn btn-outline-blue btn-lg">
+                <i class="fas fa-user-graduate"></i> Student Portal
+              </a>
+              <button onclick="window.print()" class="btn btn-outline btn-lg">
+                <i class="fas fa-print"></i> Print Free Slip
+              </button>
+            </div>
           </div>
-          <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
-            <a href="payments.html?appId=${refNo}" class="btn btn-primary"><i class="fas fa-receipt"></i> Proceed to Pay Fee</a>
-            <button onclick="window.print()" class="btn btn-outline"><i class="fas fa-print"></i> Print Voucher</button>
+        `;
+      } else {
+        resultBox.innerHTML = `
+          <div class="card" style="background:#ffffff; border:2px solid #034b75; padding:2.5rem 2rem; border-radius:1.25rem; text-align:center; box-shadow:0 10px 30px rgba(3,75,117,0.15);">
+            <div style="font-size:3.5rem; color:#0284c7; margin-bottom:0.75rem;"><i class="fas fa-file-invoice"></i></div>
+            <h3 style="color:#034b75; font-size:1.75rem; font-weight:800; margin-bottom:0.3rem;">Admission Application Registered!</h3>
+            <div style="font-family:'Noto Nastaliq Urdu', serif; font-size:1.2rem; color:#475569; margin-bottom:1rem; line-height:1.6;">
+              آپ کی رجسٹریشن کامیابی سے موصول ہو گئی ہے۔ واؤچر کی ادائیگی کے بعد کلاس رسائی جاری کی جائے گی۔
+            </div>
+            
+            <div style="background:#f8fafc; border:1.5px dashed #0284c7; padding:1.5rem; border-radius:1rem; margin:1.5rem auto; max-width:600px; text-align:left;">
+              <p style="margin-bottom:0.5rem;"><strong>Application Reference ID:</strong> <span style="color:#0284c7; font-weight:800; font-size:1.25rem;">${refNo}</span></p>
+              <p style="margin-bottom:0.5rem;"><strong>Applicant Name:</strong> <span style="font-weight:700; color:#0f172a;">${admissionData.fullName}</span></p>
+              <p style="margin-bottom:0.5rem;"><strong>Selected Course:</strong> <span style="font-weight:700; color:#034b75;">${admissionData.courseName}</span></p>
+              <p style="margin-bottom:0.5rem;"><strong>Date:</strong> ${admissionData.date} &bull; <strong>City:</strong> ${admissionData.city}</p>
+              <p style="margin:0;"><strong>Status:</strong> <span class="badge" style="background:#fef3c7; color:#d97706; padding:0.3rem 0.75rem; border-radius:1rem; font-size:0.85rem; font-weight:800;">Pending Verification</span></p>
+            </div>
+
+            <div style="display:flex; gap:0.85rem; justify-content:center; flex-wrap:wrap; margin-top:1.5rem;">
+              <a href="payments.html?appId=${refNo}&course=${encodeURIComponent(admissionData.courseName)}" class="btn btn-primary btn-lg">
+                <i class="fas fa-receipt"></i> Proceed to Pay Fee
+              </a>
+              <a href="https://wa.me/923074958837?text=${encodeURIComponent('Assalam o Alaikum! I submitted application ' + refNo + ' for ' + admissionData.courseName + '. Please assist with fee verification.')}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-blue btn-lg">
+                <i class="fab fa-whatsapp"></i> WhatsApp Accounts
+              </a>
+              <button onclick="window.print()" class="btn btn-outline btn-lg">
+                <i class="fas fa-print"></i> Print Voucher
+              </button>
+            </div>
           </div>
-        </div>
-      `;
+        `;
+      }
+
       form.style.display = 'none';
       resultBox.scrollIntoView({ behavior: 'smooth' });
     }
 
-    window.showToast(`Application ${refNo} submitted successfully!`, 'success');
+    window.showToast(`Application ${refNo} registered successfully!`, 'success');
   });
 }
 

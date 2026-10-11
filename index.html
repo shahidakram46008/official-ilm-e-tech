@@ -77,13 +77,13 @@
   <div class="top-bar">
     <div class="container top-bar-inner">
       <div class="top-info">
-        <span><i class="fas fa-bullhorn text-emerald-400"></i> New Batch Admissions Open for October 2026!</span>
-        <a href="tel:+923074958837"><i class="fas fa-phone"></i> <span class="site-phone">+92 307 4958837</span></a>
-        <a href="https://wa.me/923074958837" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> <span class="site-phone">+92 307 4958837</span></a>
+        <span class="top-announcement-text"><i class="fas fa-bullhorn text-emerald-400"></i> New Batch Admissions Open for October 2026!</span>
+        <a href="tel:+923074958837" title="Direct Phone Helpline"><i class="fas fa-phone"></i> <span class="site-phone">+92 307 4958837</span></a>
+        <a href="https://wa.me/923074958837" target="_blank" rel="noopener noreferrer" title="Direct WhatsApp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
       </div>
-      <div style="display: flex; gap: 1rem; align-items: center;">
-        <a href="verify-certificate.html" style="color: #6ee7b7; text-decoration: none; font-weight: 600; font-size: 0.85rem;"><i class="fas fa-award"></i> Certificate Verification</a>
-        <a href="student-portal.html" style="color: #ffffff; text-decoration: none; font-weight: 600; font-size: 0.85rem;"><i class="fas fa-user-graduate"></i> Student Login</a>
+      <div class="top-quick-actions">
+        <a href="verify-certificate.html" class="top-quick-link" style="color: #6ee7b7;"><i class="fas fa-award"></i> Verification</a>
+        <a href="student-portal.html" class="top-quick-link" style="color: #ffffff;"><i class="fas fa-user-graduate"></i> Login</a>
       </div>
     </div>
   </div>
@@ -264,11 +264,10 @@
     <div class="container hero-grid">
       <div>
         <div class="nasa-badge">
-          <i class="fas fa-graduation-cap"></i> Founder & CEO: Dr. Shahid Akram Mustafai
+          <i class="fas fa-graduation-cap"></i> Founder &amp; CEO: Dr. Shahid Akram Mustafai
         </div>
         <h1 class="hero-title">
-          Learn Technology.<br>
-          <span class="nasa-gradient-text">Master AI.</span> Build Your Future.
+          Learn Technology. <span class="nasa-gradient-text">Master AI.</span> Build Your Future.
         </h1>
         <p class="hero-description">
           Empowering Pakistani students, beginners, freelancers, and professionals with practical hands-on training in Artificial Intelligence, Software Engineering, Digital Content Creation, and Modern Tech Skills.
@@ -298,18 +297,20 @@
         <div class="hero-logo-frame">
           <img src="assets/images/logo.jpg" alt="ILM E TECH PAKISTAN Brand Logo" class="hero-logo-img">
         </div>
-        <div class="floating-badge fb-1">
-          <div class="fb-icon"><i class="fas fa-robot"></i></div>
-          <div class="fb-text">
-            <strong>AI & Tech Focused</strong>
-            <span>Next-Gen Education</span>
+        <div class="hero-badges-wrapper">
+          <div class="floating-badge fb-1">
+            <div class="fb-icon"><i class="fas fa-robot"></i></div>
+            <div class="fb-text">
+              <strong>AI &amp; Tech Focused</strong>
+              <span>Next-Gen Education</span>
+            </div>
           </div>
-        </div>
-        <div class="floating-badge fb-2">
-          <div class="fb-icon" style="background: var(--tech-blue);"><i class="fas fa-certificate"></i></div>
-          <div class="fb-text">
-            <strong>Official Verification</strong>
-            <span>Secure Student Records</span>
+          <div class="floating-badge fb-2">
+            <div class="fb-icon" style="background: var(--tech-blue);"><i class="fas fa-certificate"></i></div>
+            <div class="fb-text">
+              <strong>Official Verification</strong>
+              <span>Secure Student Records</span>
+            </div>
           </div>
         </div>
       </div>
@@ -341,17 +342,90 @@
     <div class="container">
       <div class="section-header">
         <span class="section-tag" style="background:#ecfdf5; color:#047857; border:1px solid #a7f3d0;">
-          <i class="fas fa-handshake"></i> ENTERPRISE &amp; BRAND COLLABORATIONS
+          <i class="fas fa-handshake"></i> TRUSTED CLIENTS &amp; MARKETING SUCCESS
         </span>
-        <h2 class="section-title">Brands &amp; Corporate Clients We Have Worked With</h2>
-        <p class="section-subtitle" style="max-width:750px; margin:0.5rem auto 0;">
-          Under the visionary leadership of <strong>Dr. Shahid Akram Mustafai</strong>, ILM E TECH has partnered with leading corporate brands, retail businesses, tech ventures, and educational initiatives across Pakistan and internationally.
+        <h2 class="section-title">Our Trusted Marketing Clients &amp; Brand Collaborations</h2>
+        <div style="font-family:'Noto Nastaliq Urdu', serif; font-size:1.3rem; color:var(--primary-green); margin-top:0.4rem; line-height:1.6;">
+          ہمارے قابلِ فخر سوشل میڈیا مارکیٹنگ کلائنٹس اور برانڈز
+        </div>
+        <p class="section-subtitle" style="max-width:780px; margin:0.5rem auto 0;">
+          Under the visionary leadership of <strong>Dr. Shahid Akram Mustafai</strong>, ILM E TECH manages social media growth, viral video ads, and digital branding for prestigious education networks, popular food chains, and commercial brands across Pakistan.
         </p>
       </div>
 
       <!-- Brands Wall Grid -->
       <div class="brands-grid-wall">
         
+        <!-- Authentic Client Brand 1: The Smart School -->
+        <div class="brand-showcase-card" style="border-color: #fecdd3;">
+          <span class="brand-verified-pill" style="background:#fee2e2; color:#b91c1c;"><i class="fas fa-check-circle"></i> Verified Marketing Client</span>
+          <img src="assets/images/brands/the-smart-school.png" alt="The Smart School Logo" class="brand-logo-img">
+          <h3 class="brand-card-title">The Smart School</h3>
+          <div class="brand-card-sector" style="color:#dc2626;">Leading School Network</div>
+          <p class="brand-card-scope">Campus Digital Branding, Admission Campaigns, Promotional Video Ads &amp; Social Media Management.</p>
+          <div style="margin-top:auto; width:100%; padding-top:0.85rem; border-top:1px dashed #e2e8f0;">
+            <a href="services.html#service-smm" class="btn btn-sm btn-outline-blue" style="width:100%; justify-content:center; font-size:0.75rem;">
+              <i class="fas fa-arrow-right"></i> View Marketing Scope
+            </a>
+          </div>
+        </div>
+
+        <!-- Authentic Client Brand 2: Cheezious Bite Pizza -->
+        <div class="brand-showcase-card" style="border-color: #fde68a;">
+          <span class="brand-verified-pill" style="background:#fef3c7; color:#b45309;"><i class="fas fa-check-circle"></i> Verified Marketing Client</span>
+          <img src="assets/images/brands/cheezious-bite.jpg" alt="Cheezious Bite Pizza Logo" class="brand-logo-img">
+          <h3 class="brand-card-title">Cheezious Bite Pizza</h3>
+          <div class="brand-card-sector" style="color:#d97706;">Fast Food &amp; Dining (More Khunda)</div>
+          <p class="brand-card-scope">Complete Social Media Management, Video Ad Making, Menu Promotion &amp; High-ROAS Local Ads.</p>
+          <div style="margin-top:auto; width:100%; padding-top:0.85rem; border-top:1px dashed #e2e8f0;">
+            <a href="services.html#service-video-ads" class="btn btn-sm btn-outline-blue" style="width:100%; justify-content:center; font-size:0.75rem;">
+              <i class="fas fa-arrow-right"></i> View Marketing Scope
+            </a>
+          </div>
+        </div>
+
+        <!-- Authentic Client Brand 3: Pizza Venue -->
+        <div class="brand-showcase-card" style="border-color: #fed7aa;">
+          <span class="brand-verified-pill" style="background:#ffedd5; color:#c2410c;"><i class="fas fa-check-circle"></i> Verified Marketing Client</span>
+          <img src="assets/images/brands/pizza-venue.png" alt="Pizza Venue Logo" class="brand-logo-img">
+          <h3 class="brand-card-title">Pizza Venue</h3>
+          <div class="brand-card-sector" style="color:#ea580c;">Live Kitchen &amp; Restaurant</div>
+          <p class="brand-card-scope">Commercial 4K Video Ads, Digital Menu Creatives, On-Site Visit Vlogs &amp; Customer Acquisition.</p>
+          <div style="margin-top:auto; width:100%; padding-top:0.85rem; border-top:1px dashed #e2e8f0;">
+            <a href="services.html#service-visit-vlog" class="btn btn-sm btn-outline-blue" style="width:100%; justify-content:center; font-size:0.75rem;">
+              <i class="fas fa-arrow-right"></i> View Marketing Scope
+            </a>
+          </div>
+        </div>
+
+        <!-- Authentic Client Brand 4: Slice Up -->
+        <div class="brand-showcase-card" style="border-color: #fecdd3;">
+          <span class="brand-verified-pill" style="background:#ffe4e6; color:#be123c;"><i class="fas fa-check-circle"></i> Verified Marketing Client</span>
+          <img src="assets/images/brands/slice-up.jpg" alt="Slice Up Logo" class="brand-logo-img">
+          <h3 class="brand-card-title">Slice Up</h3>
+          <div class="brand-card-sector" style="color:#e11d48;">Artisanal Pizza &amp; QSR</div>
+          <p class="brand-card-scope">Creative Social Post Designs, Viral Video Ads, Brand Visual Identity &amp; Digital Growth Funnels.</p>
+          <div style="margin-top:auto; width:100%; padding-top:0.85rem; border-top:1px dashed #e2e8f0;">
+            <a href="services.html#service-post-design" class="btn btn-sm btn-outline-blue" style="width:100%; justify-content:center; font-size:0.75rem;">
+              <i class="fas fa-arrow-right"></i> View Marketing Scope
+            </a>
+          </div>
+        </div>
+
+        <!-- Authentic Client Brand 5: Pizza Pop -->
+        <div class="brand-showcase-card" style="border-color: #cbd5e1;">
+          <span class="brand-verified-pill" style="background:#f1f5f9; color:#334155;"><i class="fas fa-check-circle"></i> Verified Marketing Client</span>
+          <img src="assets/images/brands/pizza-pop.jpg" alt="Pizza Pop Logo" class="brand-logo-img">
+          <h3 class="brand-card-title">Pizza Pop</h3>
+          <div class="brand-card-sector" style="color:#475569;">Freshly Baked &amp; Locally Loved</div>
+          <p class="brand-card-scope">Local Social Media Branding, Commercial Ad Production, Visit Vlogs &amp; Targeted Meta Campaigns.</p>
+          <div style="margin-top:auto; width:100%; padding-top:0.85rem; border-top:1px dashed #e2e8f0;">
+            <a href="services.html#service-smm" class="btn btn-sm btn-outline-blue" style="width:100%; justify-content:center; font-size:0.75rem;">
+              <i class="fas fa-arrow-right"></i> View Marketing Scope
+            </a>
+          </div>
+        </div>
+
         <div class="brand-showcase-card">
           <span class="brand-verified-pill"><i class="fas fa-check-circle"></i> Partner</span>
           <div class="brand-logo-emblem"><i class="fas fa-bag-shopping"></i></div>
@@ -689,32 +763,46 @@
       <div style="background:#ffffff; border:2px solid #e2e8f0; border-radius:1.5rem; padding:3rem 2rem; box-shadow:var(--shadow-xl); max-width:960px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:2.5rem; align-items:center;">
         
         <!-- Left: Certificate Visual Mockup Teaser -->
-        <div style="position:relative; background:radial-gradient(circle at center, #ffffff 0%, #faf6eb 100%); border:6px double #b45309; border-radius:8px; padding:1.5rem; box-shadow:0 15px 35px rgba(0,0,0,0.12); text-align:center;">
-          <div style="font-size:0.65rem; font-weight:800; letter-spacing:0.1em; color:#b45309; text-transform:uppercase;">ILM E TECH PAKISTAN &bull; OFFICIAL CREDENTIAL</div>
-          <div style="font-family:'Cinzel', serif; font-size:1.15rem; font-weight:800; color:#046a38; margin:0.3rem 0;">Certificate of Professional Mastery</div>
+        <div style="position:relative; background:radial-gradient(circle at center, #ffffff 0%, #faf6eb 100%); border:8px double #b45309; border-radius:10px; padding:1.75rem 1.5rem; box-shadow:0 15px 35px rgba(0,0,0,0.12); text-align:center;">
+          <div style="display:inline-flex; align-items:center; gap:0.4rem; background:#046a38; color:#ffffff; padding:0.2rem 0.8rem; border-radius:1rem; font-size:0.7rem; font-weight:800; margin-bottom:0.6rem; letter-spacing:0.06em;">
+            <i class="fas fa-certificate"></i> OFFICIAL SPECIMEN // نمونہ سند
+          </div>
           
-          <div style="border-bottom:1.5px solid #d97706; width:80%; margin:0.75rem auto 0.25rem;"></div>
-          <div style="font-family:'Playfair Display', serif; font-size:1.4rem; font-weight:800; color:#0f172a;">Syed Muhammad Usama</div>
-          <div style="font-size:0.75rem; color:#64748b; margin-bottom:0.75rem;">ID: <code>ILM-2026-000101</code> &bull; Grade: A+ Distinction</div>
-
-          <div style="background:linear-gradient(135deg, #046a38, #034b75); color:#ffffff; font-size:0.85rem; font-weight:700; padding:0.35rem 1rem; border-radius:1rem; display:inline-block; margin-bottom:1rem;">
-            Basic AI Course &amp; Prompt Engineering
+          <div style="display:flex; align-items:center; justify-content:center; gap:0.6rem; margin-bottom:0.4rem;">
+            <img src="assets/images/logo.jpg" alt="ILM E TECH Logo" style="width:36px; height:36px; border-radius:50%; border:2px solid #b45309; object-fit:cover;">
+            <div style="text-align:left;">
+              <div style="font-family:'Cinzel', serif; font-size:0.95rem; font-weight:800; color:#046a38; line-height:1.1;">ILM E TECH PAKISTAN</div>
+              <div style="font-size:0.6rem; color:#b45309; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;">Official Academic Credential</div>
+            </div>
           </div>
 
-          <div style="display:flex; justify-content:space-between; align-items:flex-end; border-top:1px dashed #cbd5e1; padding-top:0.75rem; margin-top:0.5rem; font-size:0.7rem;">
+          <div style="font-family:'Noto Nastaliq Urdu', serif; font-size:1.15rem; color:#046a38; line-height:1.6; margin:0.2rem 0;">سندِ فراغت و اعلیٰ کارکردگی</div>
+          <div style="font-family:'Cinzel', serif; font-size:0.98rem; font-weight:800; color:#1e293b; text-transform:uppercase; letter-spacing:0.04em;">Certificate of Professional Mastery</div>
+          
+          <div style="border-bottom:1.5px solid #d97706; width:75%; margin:0.5rem auto 0.4rem;"></div>
+          <div style="font-size:0.75rem; color:#64748b; font-style:italic;">Conferred upon</div>
+          <div style="font-family:'Playfair Display', serif; font-size:1.5rem; font-weight:800; color:#046a38;">Syed Usama</div>
+          <div style="font-size:0.72rem; color:#475569; margin-bottom:0.6rem;">Credential ID: <strong>ILM-2026-000101</strong> &bull; Grade: <strong>A+ Distinction</strong></div>
+
+          <div style="background:linear-gradient(135deg, #046a38, #034b75); color:#ffffff; font-size:0.8rem; font-weight:700; padding:0.35rem 1rem; border-radius:1rem; display:inline-block; margin-bottom:0.85rem;">
+            <i class="fas fa-graduation-cap text-amber-300"></i> Basic AI &amp; Practical Automation
+          </div>
+
+          <div style="display:flex; justify-content:space-between; align-items:flex-end; border-top:1px dashed #cbd5e1; padding-top:0.6rem; font-size:0.68rem;">
             <div style="text-align:left;">
               <span style="font-family:'Alex Brush', cursive; font-size:1.4rem; color:#034b75; display:block; line-height:1;">M. Farooq</span>
-              <strong>Academic Director</strong>
+              <strong style="color:#0f172a; font-size:0.7rem;">Academic Director</strong>
             </div>
             
             <!-- Mini Gold Foil Seal -->
-            <div style="width:48px; height:48px; border-radius:50%; background:radial-gradient(circle, #fef08a 0%, #ca8a04 100%); box-shadow:0 3px 10px rgba(202,138,4,0.4); display:flex; align-items:center; justify-content:center; color:#713f12; font-size:1.1rem; border:1px solid #fef08a;">
-              <i class="fas fa-award"></i>
+            <div style="width:48px; height:48px; border-radius:50%; background:radial-gradient(circle, #fef08a 0%, #ca8a04 100%); box-shadow:0 3px 10px rgba(202,138,4,0.4); display:flex; flex-direction:column; align-items:center; justify-content:center; color:#713f12; border:1px solid #fef08a;">
+              <i class="fas fa-award" style="font-size:0.85rem;"></i>
+              <span style="font-size:0.45rem; font-weight:900; line-height:1;">OFFICIAL</span>
             </div>
 
             <div style="text-align:right;">
               <span style="font-family:'Alex Brush', cursive; font-size:1.5rem; color:#046a38; display:block; line-height:1;">Dr. Shahid Akram</span>
-              <strong style="color:#046a38;">Dr. Shahid Akram Mustafai</strong>
+              <strong style="color:#046a38; font-size:0.7rem;">Dr. Shahid Akram Mustafai</strong>
             </div>
           </div>
         </div>
@@ -871,69 +959,71 @@
     </div>
   </footer>
 
-  <!-- National Talent Scholarship Batch #14 Floating Notification Badge -->
-  <div class="scholarship-float-badge" id="scholarshipFloatBadge" title="Click to view Batch #14 Scholarship Details">
-    <i class="fas fa-graduation-cap text-emerald-400" style="font-size:1.2rem;"></i>
-    <span>🎓 100% Scholarship Batch #14</span>
-    <span style="background:#ef4444; color:#ffffff; font-size:0.65rem; padding:0.15rem 0.45rem; border-radius:1rem; font-weight:800;">LIVE</span>
+  <!-- 100% Free Courses Quick Floating Notification Badge -->
+  <div class="scholarship-float-badge" id="scholarshipFloatBadge" title="100% مفت کورسز میں جوائن کریں">
+    <i class="fas fa-gift text-emerald-400" style="font-size:1.1rem;"></i>
+    <span>🎁 100% فری کورسز - ابھی جوائن کریں</span>
+    <span style="background:#ef4444; color:#ffffff; font-size:0.65rem; padding:0.15rem 0.45rem; border-radius:1rem; font-weight:800;">FREE</span>
   </div>
 
-  <!-- National Talent Scholarship Modal Overlay (10 Steps Ahead of NDA) -->
+  <!-- Simplified Free Courses Lead Popup Modal (Dr. Shahid Akram Mustafai) -->
   <div class="scholarship-modal-overlay" id="scholarshipModalOverlay" role="dialog" aria-modal="true" aria-labelledby="schModalTitle">
-    <div class="scholarship-modal-content">
-      <button type="button" class="scholarship-modal-close" id="schModalCloseBtn" aria-label="Close Scholarship Announcement">
+    <div class="lead-quick-modal-content">
+      <button type="button" class="scholarship-modal-close" id="schModalCloseBtn" aria-label="Close Announcement">
         <i class="fas fa-times"></i>
       </button>
 
       <div style="text-align:center;">
-        <span class="badge" style="background:rgba(16,185,129,0.25); color:#6ee7b7; border:1px solid #10b981; padding:0.35rem 1rem; border-radius:1.5rem; font-size:0.8rem; font-weight:800; display:inline-block; margin-bottom:0.75rem;">
-          <i class="fas fa-bullhorn text-emerald-400"></i> OFFICIAL ADMISSIONS ADVISORY
-        </span>
-        <h2 id="schModalTitle" style="font-size:1.85rem; font-weight:900; color:#ffffff; margin:0 0 0.4rem;">
-          National Talent Scholarship 2026
+        <div class="lead-pill">
+          <i class="fas fa-gift text-emerald-400"></i> 100% FREE ADMISSIONS // مفت داخلے
+        </div>
+        <h2 id="schModalTitle" class="lead-title-urdu">
+          ابھی اپنا ٹیکنالوجی کا سفر شروع کریں اور فری میں جوائن کریں!
         </h2>
-        <div style="font-size:1rem; color:#6ee7b7; font-weight:700; margin-bottom:0.5rem;">
-          Batch #14 &bull; 100% Tuition Fee Subsidy Grant
+        <div class="lead-title-en">
+          Start Your Tech Journey Today &amp; Join Free Courses!
         </div>
-        <p style="color:#cbd5e1; font-size:0.92rem; line-height:1.5; max-width:500px; margin:0 auto;">
-          Sponsored by <strong>ILM E TECH PAKISTAN</strong> &amp; <strong>Dr. Shahid Akram Mustafai</strong>. Secure your seat in high-demand Artificial Intelligence &amp; Technology programs before admissions close.
+        <p class="lead-desc">
+          <strong>علمِ ٹیک پاکستان</strong> کے زیرِ سرپرستی <strong>ڈاکٹر شاہد اکرم مصطفائی</strong> کے تصدیق شدہ بیج میں اپنی مفت سیٹ ابھی بُک کریں۔
         </p>
-
-        <!-- Live Countdown Timer Strip -->
-        <div class="scholarship-countdown-strip">
-          <div class="countdown-box">
-            <div class="countdown-num" id="schDays">02</div>
-            <div class="countdown-lbl">Days</div>
-          </div>
-          <div class="countdown-box">
-            <div class="countdown-num" id="schHours">14</div>
-            <div class="countdown-lbl">Hours</div>
-          </div>
-          <div class="countdown-box">
-            <div class="countdown-num" id="schMins">38</div>
-            <div class="countdown-lbl">Mins</div>
-          </div>
-          <div class="countdown-box">
-            <div class="countdown-num" id="schSecs">45</div>
-            <div class="countdown-lbl">Secs</div>
-          </div>
-        </div>
-
-        <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:0.85rem; padding:1rem; margin-bottom:1.5rem; text-align:left; font-size:0.85rem; color:#e2e8f0;">
-          <div style="margin-bottom:0.3rem;"><i class="fas fa-check-circle text-emerald-400"></i> <strong>Full 100% Tuition Waiver</strong> for first 200 approved applications.</div>
-          <div style="margin-bottom:0.3rem;"><i class="fas fa-check-circle text-emerald-400"></i> Live interactive Google Meet &amp; Zoom classes with recordings.</div>
-          <div><i class="fas fa-check-circle text-emerald-400"></i> Official verifiable certificate signed by Dr. Shahid Akram Mustafai.</div>
-        </div>
-
-        <div style="display:flex; gap:0.75rem; justify-content:center; flex-wrap:wrap;">
-          <a href="admissions.html" class="btn btn-primary btn-lg" style="flex:1; min-width:200px;">
-            <i class="fas fa-paper-plane"></i> Claim Scholarship Seat
-          </a>
-          <a href="https://wa.me/923074958837?text=Assalam%20o%20Alaikum!%20I%20want%20to%20inquire%20about%20the%20National%20Talent%20Scholarship%20Batch%20%2314." target="_blank" rel="noopener noreferrer" class="btn btn-outline-blue btn-lg">
-            <i class="fab fa-whatsapp"></i> WhatsApp Help
-          </a>
-        </div>
       </div>
+
+      <form id="quickLeadForm" onsubmit="event.preventDefault(); handleQuickLeadSubmit();">
+        <div class="form-group" style="margin-bottom: 0.85rem;">
+          <label class="form-label" for="leadName" style="font-size: 0.82rem; font-weight: 700; color: #ffffff;">طالب علم کا نام / Full Name *</label>
+          <input type="text" id="leadName" class="form-control" placeholder="e.g. Muhammad Ali" required style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.25); color: #ffffff; padding:0.6rem 0.85rem;">
+        </div>
+
+        <div class="form-row-2col" style="gap: 0.75rem; margin-bottom: 0.85rem;">
+          <div class="form-group">
+            <label class="form-label" for="leadWhatsapp" style="font-size: 0.82rem; font-weight: 700; color: #ffffff;">واٹس ایپ نمبر / WhatsApp *</label>
+            <input type="tel" id="leadWhatsapp" class="form-control" placeholder="0300-1234567" required style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.25); color: #ffffff; padding:0.6rem 0.85rem;">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="leadCity" style="font-size: 0.82rem; font-weight: 700; color: #ffffff;">شہر / City *</label>
+            <input type="text" id="leadCity" class="form-control" placeholder="e.g. Lahore / Rawalpindi" required style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.25); color: #ffffff; padding:0.6rem 0.85rem;">
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 1.25rem;">
+          <label class="form-label" for="leadCourse" style="font-size: 0.82rem; font-weight: 700; color: #ffffff;">کورس منتخب کریں / Select Course *</label>
+          <select id="leadCourse" class="form-control form-select" required style="background: #002b15; border-color: #10b981; color: #ffffff; padding:0.6rem 0.85rem;">
+            <option value="Basic AI Course (100% FREE)">Basic AI Course (100% FREE - مفت)</option>
+            <option value="AI Tools Mastery (100% FREE)">AI Tools Mastery (100% FREE - مفت)</option>
+            <option value="Basic Computer Course">Basic Computer Course (مفت داخلہ گائیڈنس)</option>
+            <option value="One on One VIP Mentorship">One on One VIP Mentorship (ڈاکٹر شاہد اکرم)</option>
+          </select>
+        </div>
+
+        <div style="display: flex; gap: 0.6rem; flex-direction: column;">
+          <button type="submit" class="btn btn-primary btn-lg" style="width: 100%; justify-content: center; font-size: 1.05rem; background: linear-gradient(135deg, #059669 0%, #10b981 100%);">
+            <i class="fab fa-whatsapp"></i> ابھی فری جوائن کریں / Join Free Now
+          </button>
+          <div style="text-align: center; font-size: 0.78rem; color: #a7f3d0; margin-top: 0.25rem;">
+            <i class="fas fa-shield-alt text-emerald-400"></i> کوئی فیس نہیں &bull; 100% مفت رجسٹریشن برائے نیو بیج
+          </div>
+        </div>
+      </form>
     </div>
   </div>
 
@@ -1201,38 +1291,45 @@
         });
       }
 
-      // Show modal once on first visit after 4 seconds if not dismissed
+      // Show modal politely after 8 seconds on first visit if not previously closed
       setTimeout(() => {
-        const dismissed = sessionStorage.getItem('ilm_sch_modal_dismissed');
+        const dismissed = sessionStorage.getItem('ilm_free_modal_dismissed');
         if (!dismissed && schModal) {
           schModal.classList.add('active');
-          sessionStorage.setItem('ilm_sch_modal_dismissed', 'true');
+          sessionStorage.setItem('ilm_free_modal_dismissed', 'true');
         }
-      }, 4000);
+      }, 8000);
 
-      // Countdown Timer Simulation
-      let countdownSeconds = 2 * 86400 + 14 * 3600 + 38 * 60 + 45;
-      const daysEl = document.getElementById('schDays');
-      const hoursEl = document.getElementById('schHours');
-      const minsEl = document.getElementById('schMins');
-      const secsEl = document.getElementById('schSecs');
+      // Quick Lead Form Handler (Free Courses Instant WhatsApp & DB Registration)
+      window.handleQuickLeadSubmit = function() {
+        const name = document.getElementById('leadName')?.value.trim() || 'Student';
+        const phone = document.getElementById('leadWhatsapp')?.value.trim() || '';
+        const city = document.getElementById('leadCity')?.value.trim() || '';
+        const course = document.getElementById('leadCourse')?.value || 'Basic AI Course (100% FREE)';
 
-      function updateCountdown() {
-        if (countdownSeconds <= 0) return;
-        countdownSeconds--;
+        const refNo = 'FREE-2026-' + Math.floor(1000 + Math.random() * 9000);
+        if (window.ilmDB) {
+          window.ilmDB.addAdmission({
+            appId: refNo,
+            fullName: name,
+            fatherName: 'N/A',
+            phone: phone,
+            whatsapp: phone,
+            city: city,
+            courseName: course,
+            status: '100% Free Enrollment Approved',
+            date: new Date().toISOString().split('T')[0]
+          });
+        }
 
-        const d = Math.floor(countdownSeconds / 86400);
-        const h = Math.floor((countdownSeconds % 86400) / 3600);
-        const m = Math.floor((countdownSeconds % 3600) / 60);
-        const s = countdownSeconds % 60;
+        if (schModal) schModal.classList.remove('active');
+        if (window.showToast) {
+          window.showToast(`مبارک ہو! آپ کی مفت رجسٹریشن منظور ہو گئی ہے! ID: ${refNo}`, 'success');
+        }
 
-        if (daysEl) daysEl.textContent = String(d).padStart(2, '0');
-        if (hoursEl) hoursEl.textContent = String(h).padStart(2, '0');
-        if (minsEl) minsEl.textContent = String(m).padStart(2, '0');
-        if (secsEl) secsEl.textContent = String(s).padStart(2, '0');
-      }
-
-      setInterval(updateCountdown, 1000);
+        const msg = encodeURIComponent(`السلام علیکم ڈاکٹر شاہد اکرم مصطفائی صاحب!\nمیرا نام ${name} ہے اور میں ${city} سے ہوں۔ میں علمِ ٹیک پاکستان کے فری کورس "${course}" میں جوائن کرنا چاہتا ہوں۔\nمیری رجسٹریشن آئی ڈی: ${refNo} ہے۔ برائے مہربانی مجھے بیج کا واٹس ایپ گروپ لنک شیئر فرمائیں۔`);
+        window.open(`https://wa.me/923074958837?text=${msg}`, '_blank');
+      };
 
       // 4. NASA Ticker Pause/Resume Controller
       const tickerWrapper = document.getElementById('homeTicker');
