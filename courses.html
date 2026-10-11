@@ -27,6 +27,7 @@
           <li><a href="index.html" class="nav-link">Home</a></li>
           <li><a href="about.html" class="nav-link">About Us</a></li>
           <li><a href="courses.html" class="nav-link active">Courses</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
           <li><a href="e-services.html" class="nav-link">E-Services</a></li>
           <li><a href="admissions.html" class="nav-link">Admissions</a></li>
           <li><a href="verify-certificate.html" class="nav-link">Certificate Verification</a></li>
@@ -59,6 +60,7 @@
         <div class="nasa-stat-pill"><i class="fas fa-check-circle"></i> 100% Practical &amp; Project-Driven</div>
         <div class="nasa-stat-pill"><i class="fas fa-certificate"></i> Verifiable Official Credentials</div>
         <div class="nasa-stat-pill"><i class="fas fa-gift"></i> 100% Free Launch Tracks Available</div>
+        <div class="nasa-stat-pill"><i class="fas fa-crown text-amber-400"></i> VIP 1-on-1 Sessions (Rs. 20,000)</div>
         <div class="nasa-stat-pill"><i class="fas fa-users"></i> 100,000+ Community Learners</div>
         <button class="nasa-stat-pill" onclick="openCertClaimModal()" style="cursor:pointer; background:rgba(4, 106, 56, 0.4); border-color:#34d399; color:#ffffff;">
           <i class="fas fa-award text-emerald-400"></i> <strong>Claim Verified Certificate</strong> &bull; <span style="color:#a7f3d0;">Rs. 1,500 Fee</span>
@@ -74,8 +76,9 @@
       <!-- Interactive Filter & Search Bar -->
       <div class="nasa-filter-container">
         <div class="nasa-filter-pills" id="courseFilters">
-          <button class="filter-pill-btn active" data-filter="all"><i class="fas fa-th-large"></i> All Tracks (6)</button>
+          <button class="filter-pill-btn active" data-filter="all"><i class="fas fa-th-large"></i> All Tracks (7)</button>
           <button class="filter-pill-btn" data-filter="free"><i class="fas fa-gift text-emerald-500"></i> Free Access (2)</button>
+          <button class="filter-pill-btn" data-filter="vip"><i class="fas fa-crown text-amber-500"></i> 1-on-1 VIP Session</button>
           <button class="filter-pill-btn" data-filter="ai"><i class="fas fa-robot text-sky-500"></i> AI &amp; Productivity</button>
           <button class="filter-pill-btn" data-filter="dev"><i class="fas fa-code text-indigo-500"></i> Software &amp; Media</button>
           <button class="filter-pill-btn" data-filter="trading"><i class="fas fa-chart-line text-amber-500"></i> Trading</button>
@@ -121,6 +124,43 @@
           <button class="btn-cert-claim-launch" onclick="openCertClaimModal()" id="btnLaunchCertBanner">
             <i class="fas fa-certificate"></i> Claim Your Certificate Now
           </button>
+        </div>
+      </div>
+
+      <!-- Dedicated NASA-Grade VIP 1-on-1 Mentorship Spotlight -->
+      <div class="vip-spotlight-card" id="vipSessionSpotlight">
+        <div class="vip-spotlight-badge">
+          <i class="fas fa-crown"></i> EXCLUSIVE 1-ON-1 VIP MENTORSHIP SERVICE
+        </div>
+        <div class="vip-spotlight-grid">
+          <div>
+            <h3 class="vip-spotlight-title">One on One Session Service Available</h3>
+            <div class="vip-spotlight-urdu">براہ راست ون آن ون سیشن سروس (ڈاکٹر شاہد اکرم مصطفائی کے ساتھ)</div>
+            <p class="vip-spotlight-desc">
+              Accelerate your success with personalized, private 1-on-1 mentoring. Get tailored training in Artificial Intelligence, Software Engineering, Prompt Architecture, or Digital Marketing built specifically around your current skills, schedule, and career goals.
+            </p>
+            <ul class="vip-perks-list">
+              <li><i class="fas fa-check-circle"></i> Direct 1-on-1 Live Coaching with Founder</li>
+              <li><i class="fas fa-check-circle"></i> Flexible Personalized Schedule</li>
+              <li><i class="fas fa-check-circle"></i> Hands-on Screen Sharing &amp; Project Troubleshooting</li>
+              <li><i class="fas fa-check-circle"></i> VIP WhatsApp Priority Line</li>
+              <li><i class="fas fa-check-circle"></i> Custom Career &amp; Freelancing Roadmap</li>
+              <li><i class="fas fa-check-circle"></i> Official Signed Verifiable Certificate</li>
+            </ul>
+          </div>
+          <div>
+            <div class="vip-price-box">
+              <div class="vip-price-tag-label">ALL-INCLUSIVE VIP SERVICE FEE</div>
+              <div class="vip-price-amount">Rs. 20,000</div>
+              <div class="vip-price-sub">PKR Only &bull; 50% Subsidized Special Rate</div>
+              <a href="https://wa.me/923074958837?text=Assalam%20o%20Alaikum!%20I%20want%20to%20book%20the%20VIP%20One%20on%20One%20Session%20Service%20(Fees%20Rs.%2020,000%20PKR)%20with%20Dr.%20Shahid%20Akram%20Mustafai." target="_blank" rel="noopener noreferrer" class="btn-vip-book">
+                <i class="fab fa-whatsapp"></i> Book 1-on-1 Session Now
+              </a>
+              <div style="margin-top:0.75rem; font-size:0.8rem; color:#94a3b8;">
+                <i class="fas fa-shield-alt text-emerald-400"></i> Direct Line: <strong style="color:#ffffff;">+92 307 4958837</strong>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -203,6 +243,7 @@
                 <option value="ai-software-dev">AI Software Development (Web &amp; Apps)</option>
                 <option value="ai-content-creation">AI Content Creation (Video &amp; Social)</option>
                 <option value="trading-course">Trading Course (Financial Literacy)</option>
+                <option value="one-on-one-session">One on One Session Service (VIP Mentorship - Rs. 20,000)</option>
               </select>
             </div>
 
@@ -321,6 +362,8 @@
             matchesFilter = c.id === 'ai-software-dev' || c.id === 'ai-content-creation' || c.id === 'basic-computer';
           } else if (activeFilter === 'trading') {
             matchesFilter = c.id === 'trading-course';
+          } else if (activeFilter === 'vip') {
+            matchesFilter = c.id === 'one-on-one-session';
           }
 
           let matchesSearch = true;
@@ -377,13 +420,21 @@
             badgeClass = 'badge-educational';
             badgeIcon = '<i class="fas fa-shield-alt"></i>';
             badgeHtml = `<span class="course-badge ${badgeClass}">${badgeIcon} Educational Only</span>`;
+          } else if (c.id === 'one-on-one-session' || c.badgeType === 'vip') {
+            badgeClass = 'badge-vip';
+            badgeIcon = '<i class="fas fa-crown text-amber-400"></i>';
+            badgeHtml = `<span class="course-badge ${badgeClass}">${badgeIcon} VIP 1-on-1 Mentorship</span>`;
           }
 
           // Action Button Text & Style
           let btnClass = 'btn-nasa-apply';
           let btnIcon = 'fa-paper-plane';
           let btnText = 'Apply Now';
-          if (c.isFree) {
+          if (c.id === 'one-on-one-session') {
+            btnClass = 'btn-nasa-apply';
+            btnIcon = 'fa-user-tie';
+            btnText = 'Book 1-on-1 Session';
+          } else if (c.isFree) {
             btnClass = 'btn-nasa-free';
             btnIcon = 'fa-bolt';
             btnText = 'Enroll Free';

@@ -112,8 +112,10 @@
               <a href="course-detail.html?id=ai-software-dev" class="dropdown-item">AI Software Development</a>
               <a href="course-detail.html?id=ai-content-creation" class="dropdown-item">AI Content Creation</a>
               <a href="course-detail.html?id=trading-course" class="dropdown-item">Trading Course</a>
+              <a href="course-detail.html?id=one-on-one-session" class="dropdown-item" style="color:#059669; font-weight:700; border-top:1px solid #f1f5f9;"><i class="fas fa-crown text-amber-500"></i> One on One Session (VIP)</a>
             </div>
           </li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
           <li><a href="e-services.html" class="nav-link">E-Services</a></li>
           <li><a href="admissions.html" class="nav-link">Admissions</a></li>
           <li><a href="verify-certificate.html" class="nav-link">Verification</a></li>
@@ -151,12 +153,13 @@
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About Us</a></li>
       <li><a href="courses.html">Courses</a></li>
+      <li><a href="services.html">Marketing &amp; Agency Services</a></li>
       <li><a href="e-services.html">E-Services Portal</a></li>
       <li><a href="admissions.html">Online Admission</a></li>
       <li><a href="student-portal.html">Student Portal</a></li>
       <li><a href="verify-certificate.html">Certificate Verification</a></li>
       <li><a href="payments.html">Fee Payment</a></li>
-      <li><a href="blog.html">Blog & Resources</a></li>
+      <li><a href="blog.html">Blog &amp; Resources</a></li>
       <li><a href="contact.html">Contact Us</a></li>
     </ul>
     <div style="margin-top: auto; padding-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem;">
@@ -165,46 +168,94 @@
     </div>
   </div>
 
-  <!-- Top Running Ticker (Urdu Marquee Banner) -->
-  <aside class="ticker-wrapper" id="homeTicker" role="region" aria-label="تازہ ترین اہم اعلانات">
+  <!-- NASA Mission Telemetry Running Ticker (Aerospace Marquee) -->
+  <aside class="ticker-wrapper" id="homeTicker" role="region" aria-label="تازہ ترین اہم اعلانات اور مشن اپ ڈیٹس">
+    <!-- NASA Telemetry Badge -->
     <div class="ticker-badge" aria-hidden="true">
-      <span class="ticker-pulse-dot"></span>
-      <i class="fas fa-bullhorn ticker-badge-icon"></i>
-      <span class="ticker-badge-text">اہم اعلان</span>
+      <span class="nasa-radar-beacon">
+        <span class="radar-ping"></span>
+        <span class="radar-dot"></span>
+      </span>
+      <span class="nasa-ticker-sys">[ MISSION BROADCAST ]</span>
+      <span class="ticker-badge-text">اہم اعلانات</span>
     </div>
+
+    <!-- Scrolling Ticker Content -->
     <div class="ticker-content" dir="rtl">
-      <div class="ticker-track">
+      <div class="ticker-track" id="tickerTrack">
         <!-- Track Content 1 -->
         <div class="ticker-group">
+          <!-- Item 1: Admissions -->
           <div class="ticker-item">
-            <span class="ticker-text">اب اے آئی اور ڈیجیٹل سکلز سیکھنا ہوا بالکل آسان! علم ٹیک پاکستان کے ساتھ آج ہی اپنا</span>
-            <a href="admissions.html" class="ticker-cta-pill"><span class="ticker-sparkle">✨</span> فری اکاؤنٹ بنائیں</a>
-            <span class="ticker-text">اور اپنے کیریئر کا آغاز کریں!</span>
+            <span class="ticker-text">🚀 نیا داخلہ بیچ 2026: داخلے جاری ہیں! AI اور جدید ٹیک سکلز سیکھیں۔</span>
+            <a href="admissions.html" class="nasa-ticker-cta-btn"><i class="fas fa-paper-plane"></i> آن لائن داخلہ لیں</a>
             <span class="ticker-separator"><i class="fas fa-bolt"></i></span>
           </div>
+
+          <!-- Item 2: One on One Session Service (Fee 20,000) -->
           <div class="ticker-item">
-            <span class="ticker-text">اب اے آئی اور ڈیجیٹل سکلز سیکھنا ہوا بالکل آسان! علم ٹیک پاکستان کے ساتھ آج ہی اپنا</span>
-            <a href="admissions.html" class="ticker-cta-pill"><span class="ticker-sparkle">✨</span> فری اکاؤنٹ بنائیں</a>
-            <span class="ticker-text">اور اپنے کیریئر کا آغاز کریں!</span>
-            <span class="ticker-separator"><i class="fas fa-bolt"></i></span>
+            <span class="ticker-text">⭐ <strong class="ticker-text-highlight">ون آن ون سیشن سروس دستیاب ہے!</strong> براہ راست ڈاکٹر شاہد اکرم مصطفائی کے ساتھ پرائیویٹ رہنمائی — فیس صرف 20,000 روپے</span>
+            <a href="course-detail.html?id=one-on-one-session" class="nasa-ticker-cta-btn"><i class="fas fa-user-tie"></i> بکنگ کروائیں (Rs. 20,000)</a>
+            <span class="ticker-separator"><i class="fas fa-crown"></i></span>
+          </div>
+
+          <!-- Item 3: Marketing & Creative Services -->
+          <div class="ticker-item">
+            <span class="ticker-text">✨ <strong class="ticker-text-highlight">نئی مارکیٹنگ سروسز:</strong> سوشل میڈیا مینجمنٹ، ویڈیو ایڈ میکنگ، پوسٹ ڈیزائن اور وزٹ ولاگ سروسز!</span>
+            <a href="services.html" class="nasa-ticker-cta-btn"><i class="fas fa-bullhorn"></i> سروسز ایکسپلور کریں</a>
+            <span class="ticker-separator"><i class="fas fa-rocket"></i></span>
+          </div>
+
+          <!-- Item 4: Free AI Course -->
+          <div class="ticker-item">
+            <span class="ticker-text">🔥 30 روزہ AI ٹولز ماسٹری کورس: 100% مفت بیچ میں آج ہی شمولیت اختیار کریں۔</span>
+            <a href="course-detail.html?id=ai-tools-mastery" class="nasa-ticker-cta-btn"><i class="fas fa-bolt"></i> فری جوائن کریں</a>
+            <span class="ticker-separator"><i class="fas fa-satellite"></i></span>
           </div>
         </div>
-        <!-- Track Content 2 (Duplicate for Seamless Endless Loop) -->
+
+        <!-- Track Content 2 (Duplicate for Seamless Continuous Marquee) -->
         <div class="ticker-group" aria-hidden="true">
+          <!-- Item 1: Admissions -->
           <div class="ticker-item">
-            <span class="ticker-text">اب اے آئی اور ڈیجیٹل سکلز سیکھنا ہوا بالکل آسان! علم ٹیک پاکستان کے ساتھ آج ہی اپنا</span>
-            <a href="admissions.html" class="ticker-cta-pill"><span class="ticker-sparkle">✨</span> فری اکاؤنٹ بنائیں</a>
-            <span class="ticker-text">اور اپنے کیریئر کا آغاز کریں!</span>
+            <span class="ticker-text">🚀 نیا داخلہ بیچ 2026: داخلے جاری ہیں! AI اور جدید ٹیک سکلز سیکھیں۔</span>
+            <a href="admissions.html" class="nasa-ticker-cta-btn"><i class="fas fa-paper-plane"></i> آن لائن داخلہ لیں</a>
             <span class="ticker-separator"><i class="fas fa-bolt"></i></span>
           </div>
+
+          <!-- Item 2: One on One Session Service (Fee 20,000) -->
           <div class="ticker-item">
-            <span class="ticker-text">اب اے آئی اور ڈیجیٹل سکلز سیکھنا ہوا بالکل آسان! علم ٹیک پاکستان کے ساتھ آج ہی اپنا</span>
-            <a href="admissions.html" class="ticker-cta-pill"><span class="ticker-sparkle">✨</span> فری اکاؤنٹ بنائیں</a>
-            <span class="ticker-text">اور اپنے کیریئر کا آغاز کریں!</span>
-            <span class="ticker-separator"><i class="fas fa-bolt"></i></span>
+            <span class="ticker-text">⭐ <strong class="ticker-text-highlight">ون آن ون سیشن سروس دستیاب ہے!</strong> براہ راست ڈاکٹر شاہد اکرم مصطفائی کے ساتھ پرائیویٹ رہنمائی — فیس صرف 20,000 روپے</span>
+            <a href="course-detail.html?id=one-on-one-session" class="nasa-ticker-cta-btn"><i class="fas fa-user-tie"></i> بکنگ کروائیں (Rs. 20,000)</a>
+            <span class="ticker-separator"><i class="fas fa-crown"></i></span>
+          </div>
+
+          <!-- Item 3: Marketing & Creative Services -->
+          <div class="ticker-item">
+            <span class="ticker-text">✨ <strong class="ticker-text-highlight">نئی مارکیٹنگ سروسز:</strong> سوشل میڈیا مینجمنٹ، ویڈیو ایڈ میکنگ، پوسٹ ڈیزائن اور وزٹ ولاگ سروسز!</span>
+            <a href="services.html" class="nasa-ticker-cta-btn"><i class="fas fa-bullhorn"></i> سروسز ایکسپلور کریں</a>
+            <span class="ticker-separator"><i class="fas fa-rocket"></i></span>
+          </div>
+
+          <!-- Item 4: Free AI Course -->
+          <div class="ticker-item">
+            <span class="ticker-text">🔥 30 روزہ AI ٹولز ماسٹری کورس: 100% مفت بیچ میں آج ہی شمولیت اختیار کریں۔</span>
+            <a href="course-detail.html?id=ai-tools-mastery" class="nasa-ticker-cta-btn"><i class="fas fa-bolt"></i> فری جوائن کریں</a>
+            <span class="ticker-separator"><i class="fas fa-satellite"></i></span>
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- NASA HUD Controls Toolbar -->
+    <div class="nasa-ticker-hud-controls" aria-label="Ticker Controls">
+      <button type="button" class="nasa-ticker-hud-btn" id="tickerPauseBtn" aria-label="Pause or Resume Ticker" title="Pause / Play Marquee">
+        <i class="fas fa-pause" id="tickerPauseIcon"></i>
+        <span id="tickerPauseText">PAUSE</span>
+      </button>
+      <span class="nasa-ticker-status-tag" title="Live Telemetry Feed Active">
+        <span class="status-live-dot"></span> LIVE
+      </span>
     </div>
   </aside>
 
@@ -296,6 +347,43 @@
 
       <div class="courses-grid" id="homepageCoursesGrid">
         <!-- Dynamic Courses Cards -->
+      </div>
+
+      <!-- Dedicated NASA-Grade VIP 1-on-1 Mentorship Spotlight -->
+      <div class="vip-spotlight-card" id="vipSessionSpotlight">
+        <div class="vip-spotlight-badge">
+          <i class="fas fa-crown"></i> EXCLUSIVE 1-ON-1 VIP MENTORSHIP SERVICE
+        </div>
+        <div class="vip-spotlight-grid">
+          <div>
+            <h3 class="vip-spotlight-title">One on One Session Service Available</h3>
+            <div class="vip-spotlight-urdu">براہ راست ون آن ون سیشن سروس (ڈاکٹر شاہد اکرم مصطفائی کے ساتھ)</div>
+            <p class="vip-spotlight-desc">
+              Accelerate your success with personalized, private 1-on-1 mentoring. Get tailored training in Artificial Intelligence, Software Engineering, Prompt Architecture, or Digital Marketing built specifically around your current skills, schedule, and career goals.
+            </p>
+            <ul class="vip-perks-list">
+              <li><i class="fas fa-check-circle"></i> Direct 1-on-1 Live Coaching with Founder</li>
+              <li><i class="fas fa-check-circle"></i> Flexible Personalized Schedule</li>
+              <li><i class="fas fa-check-circle"></i> Hands-on Screen Sharing &amp; Project Troubleshooting</li>
+              <li><i class="fas fa-check-circle"></i> VIP WhatsApp Priority Line</li>
+              <li><i class="fas fa-check-circle"></i> Custom Career &amp; Freelancing Roadmap</li>
+              <li><i class="fas fa-check-circle"></i> Official Signed Verifiable Certificate</li>
+            </ul>
+          </div>
+          <div>
+            <div class="vip-price-box">
+              <div class="vip-price-tag-label">ALL-INCLUSIVE VIP SERVICE FEE</div>
+              <div class="vip-price-amount">Rs. 20,000</div>
+              <div class="vip-price-sub">PKR Only &bull; 50% Subsidized Special Rate</div>
+              <a href="https://wa.me/923074958837?text=Assalam%20o%20Alaikum!%20I%20want%20to%20book%20the%20VIP%20One%20on%20One%20Session%20Service%20(Fees%20Rs.%2020,000%20PKR)%20with%20Dr.%20Shahid%20Akram%20Mustafai." target="_blank" rel="noopener noreferrer" class="btn-vip-book">
+                <i class="fab fa-whatsapp"></i> Book 1-on-1 Session Now
+              </a>
+              <div style="margin-top:0.75rem; font-size:0.8rem; color:#94a3b8;">
+                <i class="fas fa-shield-alt text-emerald-400"></i> Direct Line: <strong style="color:#ffffff;">+92 307 4958837</strong>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div style="text-align: center; margin-top: 3rem;">
@@ -575,6 +663,9 @@
             } else if (c.badgeType === 'educational') {
               badgeClass = 'badge-educational';
               badgeIcon = '<i class="fas fa-shield-alt"></i>';
+            } else if (c.badgeType === 'vip' || c.id === 'one-on-one-session') {
+              badgeClass = 'badge-vip';
+              badgeIcon = '<i class="fas fa-crown text-amber-400"></i>';
             }
             badgeHtml = `<span class="course-badge ${badgeClass}">${badgeIcon} ${c.badge}</span>`;
           }
@@ -583,7 +674,11 @@
           let btnClass = 'btn-nasa-apply';
           let btnIcon = 'fa-paper-plane';
           let btnText = isUrdu ? 'آن لائن داخلہ' : 'Apply Now';
-          if (c.isFree) {
+          if (c.id === 'one-on-one-session') {
+            btnClass = 'btn-nasa-apply';
+            btnIcon = 'fa-user-tie';
+            btnText = isUrdu ? 'ون آن ون بک کریں' : 'Book 1-on-1 Session';
+          } else if (c.isFree) {
             btnClass = 'btn-nasa-free';
             btnIcon = 'fa-bolt';
             btnText = isUrdu ? 'مفت داخلہ لیں' : (c.actionBtnText || 'Enroll 100% Free');
@@ -670,6 +765,27 @@
 
       renderCourses();
       window.addEventListener('languageChanged', renderCourses);
+
+      // NASA Ticker Pause/Resume Controller
+      const tickerWrapper = document.getElementById('homeTicker');
+      const tickerPauseBtn = document.getElementById('tickerPauseBtn');
+      const tickerPauseIcon = document.getElementById('tickerPauseIcon');
+      const tickerPauseText = document.getElementById('tickerPauseText');
+
+      if (tickerPauseBtn && tickerWrapper) {
+        tickerPauseBtn.addEventListener('click', () => {
+          const isPaused = tickerWrapper.classList.toggle('is-paused');
+          if (isPaused) {
+            tickerPauseIcon.className = 'fas fa-play';
+            tickerPauseText.textContent = 'RESUME';
+            tickerPauseBtn.style.background = 'rgba(16, 185, 129, 0.4)';
+          } else {
+            tickerPauseIcon.className = 'fas fa-pause';
+            tickerPauseText.textContent = 'PAUSE';
+            tickerPauseBtn.style.background = '';
+          }
+        });
+      }
     });
   </script>
 </body>

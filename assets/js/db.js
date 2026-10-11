@@ -357,6 +357,44 @@ const DEFAULT_COURSES = [
     ],
     tools: ["TradingView", "MetaTrader 5 Demo", "Risk Calculator"],
     certificateInfo: "Includes Educational Completion Certificate."
+  },
+  {
+    id: "one-on-one-session",
+    title: "One on One Session Service",
+    urduTitle: "ون آن ون سیشن سروس (ذاتی رہنمائی)",
+    category: "Personalized VIP Mentorship",
+    slug: "one-on-one-session",
+    shortDesc: "Exclusive 1-on-1 private mentoring session with Dr. Shahid Akram Mustafai. Customized curriculum, flexible timings, live project guidance, and dedicated Q&A.",
+    fullDesc: "Accelerate your tech career with personalized, private 1-on-1 mentorship sessions directly with Dr. Shahid Akram Mustafai and senior lead engineers. Whether you want to master AI tools, build full-stack web & AI applications, launch a digital content agency, or need tailored career roadmapping, this exclusive mentorship program is customized 100% to your individual pace and objectives. Fees only Rs. 20,000 PKR with direct VIP WhatsApp access.",
+    duration: "Flexible (Personalized Schedule)",
+    level: "All Skill Levels (Tailored 1-on-1)",
+    fee: 20000,
+    originalFee: 40000,
+    discountPercent: 50,
+    discountLabel: "VIP Mentorship",
+    badge: "1-on-1 VIP Session",
+    badgeType: "vip",
+    actionBtnText: "Book 1-on-1 Session",
+    mode: "Private 1-on-1 Live Online (Google Meet / Zoom)",
+    startDate: "Immediate Booking Available",
+    instructor: "Dr. Shahid Akram Mustafai (Founder & CEO)",
+    status: "Active",
+    image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80",
+    outcomes: [
+      "Direct 1-on-1 Live Mentorship with Founder Dr. Shahid Akram Mustafai",
+      "Custom Curriculum Built Exclusively for Your Personal Goals & Speed",
+      "Live Screen Sharing & Hands-On Code/Tool Troubleshooting",
+      "Private Portfolio Review, Career Roadmapping & Freelance Strategy",
+      "VIP Dedicated WhatsApp Priority Direct Support & Official Verified Certificate"
+    ],
+    syllabus: [
+      { week: 1, topic: "Personal Assessment & Custom Goal Mapping", detail: "In-depth skill evaluation, setting milestones, personalized tech stack selection." },
+      { week: 2, topic: "Deep Dive Practical Training & Live Implementation", detail: "One-on-one hands-on execution across AI tools, software engineering, or content production." },
+      { week: 3, topic: "Real-World Project Building & Code Review", detail: "Direct mentorship while building your personal capstone project or commercial software/agency assets." },
+      { week: 4, topic: "Career Monetization, Client Acquisition & Certification", detail: "Freelance client pitching, portfolio polish, and official academy certification sign-off." }
+    ],
+    tools: ["Google Meet / Zoom", "ChatGPT & Gemini Pro", "Cursor / Antigravity IDE", "GitHub", "Canva & Video Tools"],
+    certificateInfo: "Includes Official Dr. Shahid Akram Mustafai Signed VIP Certificate with QR Verification."
   }
 ];
 
@@ -533,7 +571,7 @@ class IlmTechDB {
   }
 
   init() {
-    const DB_VERSION = 'v2_courses_pricing_2026_oct';
+    const DB_VERSION = 'v3_one_on_one_session_2026';
     const currentVersion = localStorage.getItem('ilmetech_db_version');
 
     let settings = localStorage.getItem(DB_KEYS.SETTINGS);
@@ -578,11 +616,11 @@ class IlmTechDB {
 
   getCourses() {
     const stored = JSON.parse(localStorage.getItem(DB_KEYS.COURSES));
-    if (stored && Array.isArray(stored) && stored.length >= DEFAULT_COURSES.length && localStorage.getItem('ilmetech_courses_version') === '2026.2') {
+    if (stored && Array.isArray(stored) && stored.length >= DEFAULT_COURSES.length && localStorage.getItem('ilmetech_courses_version') === '2026.3') {
       return stored;
     }
     localStorage.setItem(DB_KEYS.COURSES, JSON.stringify(DEFAULT_COURSES));
-    localStorage.setItem('ilmetech_courses_version', '2026.2');
+    localStorage.setItem('ilmetech_courses_version', '2026.3');
     return DEFAULT_COURSES;
   }
 
