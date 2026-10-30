@@ -10,11 +10,13 @@
   <meta property="og:description" content="Apply online for upcoming batches at علمِ ٹیک پاکستان. Fill the admission form and get your reference voucher instantly.">
   <meta property="og:url" content="https://ilmetechpakistan.com/admissions.html">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://ilmetechpakistan.com/assets/images/logo.jpg">
+  <meta property="og:image" content="https://ilmetechpakistan.com/assets/images/branding/ietp-logo.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Online Admission Form | علمِ ٹیک پاکستان">
   <meta name="twitter:description" content="Apply online for upcoming batches at علمِ ٹیک پاکستان.">
-  <link rel="icon" type="image/jpeg" href="assets/images/logo.jpg">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/branding/favicon-32x32.png">
+  <link rel="icon" type="image/webp" href="assets/images/branding/ietp-logo-sm.webp">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="assets/css/styles.css">
@@ -40,7 +42,7 @@
   <header class="header-nav">
     <div class="container nav-container">
       <a href="index.html" class="brand-logo">
-        <img src="assets/images/logo.jpg" alt="ILM E TECH PAKISTAN Logo" width="52" height="52">
+        <img src="assets/images/branding/ietp-logo-sm.webp" alt="ILM E TECH PAKISTAN (IETP) - Official Academy Logo" width="52" height="52" style="aspect-ratio:1/1; object-fit:contain; border-radius:10px;">
         <div class="brand-text">
           <span class="brand-name">ILM E TECH PAKISTAN</span>
           <span class="brand-subtitle" style="font-size:0.75rem; color:var(--tech-blue-hover); font-weight:700;">Digital Education &amp; AI Academy</span>
@@ -54,13 +56,13 @@
           <li class="dropdown">
             <a href="courses.html" class="nav-link">Courses <i class="fas fa-chevron-down" style="font-size: 0.75rem;"></i></a>
             <div class="dropdown-menu">
-              <a href="course-detail.html?id=basic-ai" class="dropdown-item">Basic AI Course</a>
-              <a href="course-detail.html?id=ai-tools-mastery" class="dropdown-item">AI Tools Mastery</a>
-              <a href="course-detail.html?id=basic-computer" class="dropdown-item">Basic Computer Course</a>
-              <a href="course-detail.html?id=ai-software-dev" class="dropdown-item">AI Software Development</a>
-              <a href="course-detail.html?id=ai-content-creation" class="dropdown-item">AI Content Creation</a>
-              <a href="course-detail.html?id=trading-course" class="dropdown-item">Trading Course</a>
-              <a href="course-detail.html?id=one-on-one-session" class="dropdown-item" style="color:#059669; font-weight:700; border-top:1px solid #f1f5f9;"><i class="fas fa-crown text-amber-500"></i> One on One Session (VIP)</a>
+              <a href="course-detail.html?id=basic-ai" class="dropdown-item"><i class="fas fa-gift text-emerald-500"></i> Basic AI Course <span style="background:#10b981; color:#fff; font-size:0.65rem; padding:0.15rem 0.45rem; border-radius:1rem; font-weight:800; margin-left:auto;">100% FREE</span></a>
+              <a href="course-detail.html?id=ai-website-dev" class="dropdown-item"><i class="fas fa-globe text-sky-500"></i> AI Website Development <span style="background:#0284c7; color:#fff; font-size:0.65rem; padding:0.15rem 0.45rem; border-radius:1rem; font-weight:800; margin-left:auto;">New Track</span></a>
+              <a href="course-detail.html?id=ai-tools-mastery" class="dropdown-item"><i class="fas fa-robot text-indigo-500"></i> AI Tools Mastery (30 Days)</a>
+              <a href="course-detail.html?id=basic-computer" class="dropdown-item"><i class="fas fa-laptop text-slate-500"></i> Basic Computer Course</a>
+              <a href="course-detail.html?id=ai-software-dev" class="dropdown-item"><i class="fas fa-code text-violet-500"></i> AI Software Development</a>
+              <a href="course-detail.html?id=ai-content-creation" class="dropdown-item"><i class="fas fa-video text-rose-500"></i> AI Content Creation</a>
+              <a href="course-detail.html?id=one-on-one-session" class="dropdown-item" style="color:#059669; font-weight:700; border-top:1px solid #f1f5f9;"><i class="fas fa-crown text-amber-500"></i> One on One VIP Mentorship</a>
             </div>
           </li>
           <li><a href="services.html" class="nav-link">Services</a></li>
@@ -89,7 +91,7 @@
   <div class="mobile-drawer" id="mobileDrawer">
     <div class="drawer-header">
       <div class="brand-logo">
-        <img src="assets/images/logo.jpg" alt="ILM E TECH PAKISTAN" style="height: 40px;">
+        <img src="assets/images/branding/ietp-logo-sm.webp" alt="ILM E TECH PAKISTAN (IETP) - Official Academy Logo" style="height: 40px; width: 40px; aspect-ratio:1/1; object-fit:contain; border-radius:8px;">
         <span class="brand-name" style="font-size: 1.1rem;">ILM E TECH PAKISTAN</span>
       </div>
       <button class="drawer-close" id="drawerClose" aria-label="Close Mobile Navigation Menu">
@@ -215,23 +217,14 @@
               </div>
             </div>
             <select name="courseId" id="admissionCourseSelect" class="form-control form-select" required aria-required="true">
-              <!-- Free Courses Group -->
-              <optgroup label="100% FREE Courses (مفت کورسز)">
-                <option value="basic-ai" selected>Basic AI Course (100% FREE - 1 Week Masterclass)</option>
-                <option value="ai-tools-mastery">AI Tools Mastery (100% FREE - Launch Offer)</option>
-              </optgroup>
-              <!-- Technical Programs Group -->
-              <optgroup label="Specialized Technical Programs (رعایتی ٹیکنیکل کورسز)">
-                <option value="basic-computer">Basic Computer Course (Rs. 3,000 PKR - 80% OFF)</option>
-                <option value="ai-software-dev">AI Software Development (Rs. 15,000 PKR - 7 Days Free Demo)</option>
-                <option value="ai-content-creation">AI Content Creation &amp; Video Making (Rs. 20,000 PKR)</option>
-                <option value="trading-course">Financial Markets &amp; Trading Masterclass (Rs. 20,000 PKR)</option>
-              </optgroup>
-              <!-- VIP Direct Mentorship Group -->
-              <optgroup label="VIP Direct Mentorship (ڈاکٹر شاہد اکرم مصطفائی)">
-                <option value="one-on-one-session">One on One Session Service (Rs. 20,000 PKR - VIP Private Coaching)</option>
-              </optgroup>
-            </select>
+                <option value="basic-ai" selected>Basic AI Course (100% FREE - 7 Days Live Launch Cohort)</option>
+                <option value="ai-website-dev">AI Website Development Course (Rs. 5,000 PKR - 58% Subsidized Special)</option>
+                <option value="ai-tools-mastery">AI Tools Mastery (Rs. 3,000 PKR - 70% Subsidized Admission)</option>
+                <option value="basic-computer">Basic Computer Course (Rs. 3,000 PKR - 80% Subsidized)</option>
+                <option value="ai-software-dev">AI Software Development (Rs. 15,000 PKR - 50% Subsidized)</option>
+                <option value="ai-content-creation">AI Content Creation &amp; Video Making (Rs. 20,000 PKR - 43% Subsidized)</option>
+                <option value="one-on-one-session">One on One VIP Mentorship (Rs. 20,000 PKR - Dr. Shahid Akram)</option>
+              </select>
           </div>
 
           <div class="form-group">
@@ -294,7 +287,7 @@
       function updateFeeBadge() {
         if (!select || !feeIndicator) return;
         const val = select.value;
-        if (val === 'basic-ai' || val === 'ai-tools-mastery') {
+        if (val === 'basic-ai') {
           feeIndicator.className = 'adm-fee-badge-highlight';
           feeIndicator.innerHTML = '<i class="fas fa-gift"></i> 100% FREE Tuition Waiver';
         } else if (val === 'basic-computer') {

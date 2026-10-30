@@ -1,3 +1,12 @@
+
+// Enterprise Input Sanitization Utility (Anti-XSS & SQLi Defense)
+window.sanitizeText = function(str) {
+  if (typeof str !== 'string') return str || '';
+  return str
+    .replace(/<[^>]*>?/gm, '') // Strip HTML tags
+    .replace(/[;"'\`]/g, '') // Strip SQL/script injection metacharacters
+    .trim();
+};
 /**
  * Main Application Logic & UI Interactions
  * ILM E TECH PAKISTAN (ilmetechpakistan.com)
@@ -129,20 +138,20 @@ function initAdmissionForm() {
     const courseId = formData.get('courseId');
     const courseOption = form.querySelector(`option[value="${courseId}"]`);
     const courseName = courseOption ? courseOption.textContent : 'Selected Course';
-    const isFree = courseId === 'basic-ai' || courseId === 'ai-tools-mastery' || courseName.includes('FREE') || courseName.includes('مفت');
+    const isFree = courseId === 'basic-ai' || (courseName.toLowerCase().includes('basic ai') && !courseName.toLowerCase().includes('tools'));
 
     const admissionData = {
       appId: refNo,
-      fullName: formData.get('fullName'),
-      fatherName: formData.get('fatherName'),
-      cnic: formData.get('cnic') || 'N/A',
-      phone: formData.get('phone'),
-      whatsapp: formData.get('whatsapp'),
-      email: formData.get('email'),
-      city: formData.get('city'),
-      courseId: courseId,
-      courseName: courseName,
-      preferredMode: formData.get('preferredMode') || 'Online Live',
+      fullName: window.sanitizeText(formData.get('fullName')),
+      fatherName: window.sanitizeText(formData.get('fatherName')),
+      cnic: window.sanitizeText(formData.get('cnic') || 'N/A'),
+      phone: window.sanitizeText(formData.get('phone')),
+      whatsapp: window.sanitizeText(formData.get('whatsapp')),
+      email: window.sanitizeText(formData.get('email')),
+      city: window.sanitizeText(formData.get('city')),
+      courseId: window.sanitizeText(courseId),
+      courseName: window.sanitizeText(courseName),
+      preferredMode: window.sanitizeText(formData.get('preferredMode') || 'Online Live'),
       status: isFree ? '100% Free Enrollment Approved' : 'Pending Fee Verification',
       date: new Date().toISOString().split('T')[0]
     };
@@ -253,12 +262,12 @@ function initPaymentForm() {
     const payId = 'PAY-2026-' + Math.floor(10000 + Math.random() * 90000);
     const paymentData = {
       payId: payId,
-      appId: formData.get('appId') || 'APP-DIRECT',
-      studentName: formData.get('studentName'),
-      courseName: formData.get('courseName'),
-      amount: formData.get('amount'),
-      method: formData.get('paymentMethod'),
-      trxId: formData.get('trxId'),
+      appId: window.sanitizeText(formData.get('appId') || 'APP-DIRECT'),
+      studentName: window.sanitizeText(formData.get('studentName')),
+      courseName: window.sanitizeText(formData.get('courseName')),
+      amount: window.sanitizeText(formData.get('amount')),
+      method: window.sanitizeText(formData.get('paymentMethod')),
+      trxId: window.sanitizeText(formData.get('trxId')),
       status: 'Pending Verification',
       date: new Date().toISOString().split('T')[0]
     };
@@ -326,3 +335,46 @@ function enforceSecurityRel() {
 document.addEventListener('DOMContentLoaded', enforceSecurityRel);
 
 
+
+
+// Smooth Metric Counter Animation (Observer Driven)
+function initMetricCounters() {
+  const statElements = document.querySelectorAll('[data-counter]');
+  if (!statElements.length) return;
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const targetVal = parseInt(el.getAttribute('data-counter'), 10);
+        const prefix = el.getAttribute('data-counter-prefix') || '';
+        const suffix = el.getAttribute('data-counter-suffix') || (prefix ? '' : '+');
+        const duration = 1200;
+        const startTime = performance.now();
+
+        function updateVal(now) {
+          const elapsed = now - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          // Ease-out cubic curve
+          const easeOut = 1 - Math.pow(1 - progress, 3);
+          const current = Math.floor(easeOut * targetVal);
+
+          el.textContent = `${prefix}${current}${suffix}`;
+
+          if (progress < 1) {
+            requestAnimationFrame(updateVal);
+          } else {
+            el.textContent = `${prefix}${targetVal}${suffix}`;
+          }
+        }
+
+        requestAnimationFrame(updateVal);
+        obs.unobserve(el);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  statElements.forEach(el => observer.observe(el));
+}
+
+document.addEventListener('DOMContentLoaded', initMetricCounters);

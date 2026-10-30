@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin-dashboard.html
+Disallow: /student-dashboard.html
+Disallow: /classroom.html
+
+Sitemap: https://ilmetechpakistan.com/sitemap.xml

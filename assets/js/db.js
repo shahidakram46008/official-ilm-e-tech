@@ -32,7 +32,7 @@ const DEFAULT_SETTINGS = {
   domain: "ilmetechpakistan.com",
   tagline: "Learn Technology. Master AI. Build Your Future.",
   urduTagline: "علم حاصل کریں۔ AI پر عبور پائیں، اپنا مستقبل بنائیں۔",
-  logoUrl: "assets/images/logo.jpg",
+  logoUrl: "assets/images/branding/ietp-logo.webp",
   email: "info@ilmetechpakistan.com",
   phone: "+92 307 4958837",
   whatsapp: "+92 307 4958837",
@@ -66,13 +66,13 @@ const DEFAULT_COURSES = [
     slug: "basic-ai-course",
     shortDesc: "A complete beginner-friendly foundation covering prompt engineering, ChatGPT, Claude, and everyday practical productivity tools.",
     fullDesc: "This 1-week intensive foundation course is specially designed to teach essential AI basics and fundamental concepts for Pakistani students, beginners, job seekers, and entrepreneurs with no technical background. You will learn ChatGPT, Claude, Gemini, prompt engineering, AI for writing, research, presentation building, and practical everyday workflows with 100% free access.",
-    duration: "1 Week (7 Days)",
+    duration: "7 Days (1 Week Beginner Live Cohort)",
     level: "Beginner",
     fee: 0,
     originalFee: 4999,
     isFree: true,
-    freeLabel: "100% FREE",
-    badge: "100% Free Launch",
+    freeLabel: "100% FREE (Exclusive Launch Privilege)",
+    badge: "100% Free Entry • Launch Privilege",
     badgeType: "free",
     actionBtnText: "Enroll Free",
     mode: "Online Live & Recorded",
@@ -100,17 +100,17 @@ const DEFAULT_COURSES = [
     category: "AI Productivity & Skills",
     slug: "ai-tools-mastery",
     shortDesc: "Master 25+ cutting-edge AI tools for writing, graphic design, video editing, voice cloning, automation, and marketing.",
-    fullDesc: "Unlock Your Future with AI: 30 Days, 30 Tools, Infinite Possibilities. Join 100,000+ Learners on a Practical AI Journey. Delivered via Google Meet & YouTube Live with daily interactive live Q&A sessions. Every Class: Learn ➔ Create Now ➔ Apply in Life ➔ Earn. 100% FREE for First Batch Launch!",
-    duration: "30 Days (Daily Live + Q&A)",
+    fullDesc: "Unlock Your Future with AI: 30 Days, 30 Tools, Infinite Possibilities. Join 100,000+ Learners on a Practical AI Journey. Delivered via Google Meet & YouTube Live with daily interactive live Q&A sessions. Every Class: Learn ➔ Create Now ➔ Apply in Life ➔ Earn. Subsidized admission now only Rs. 3,000 PKR (70% OFF Special)!",
+    duration: "30 Days (Daily Live Sessions + Q&A)",
     level: "Beginner Friendly",
-    fee: 0,
+    fee: 3000,
     originalFee: 10000,
-    isFree: true,
-    freeLabel: "100% FREE",
-    freeSubLabel: "100% FREE for First Batch",
-    badge: "30-Day Masterclass",
-    badgeType: "free-launch",
-    actionBtnText: "Join Free Batch",
+    discountPercent: 70,
+    discountLabel: "70% OFF Subsidized Admission",
+    isFree: false,
+    badge: "70% Subsidized Special",
+    badgeType: "discount",
+    actionBtnText: "Enroll Now (Rs. 3,000)",
     mode: "Google Meet & YouTube Live (Daily Live + Interactive Q&A)",
     startDate: "Batch Starting Soon",
     instructor: "Dr. Shahid Akram Mustafai & Certified AI Specialists",
@@ -319,44 +319,89 @@ const DEFAULT_COURSES = [
     tools: ["ChatGPT", "Midjourney", "HeyGen", "ElevenLabs", "CapCut", "Canva"],
     certificateInfo: "Includes Digital Content Specialist Verified Certificate."
   },
-  {
-    id: "trading-course",
-    title: "Trading Course",
-    urduTitle: "کریپٹو اور فوریکس ٹریڈنگ",
-    category: "Financial Literacy",
-    slug: "trading-course",
-    shortDesc: "Learn technical analysis, chart reading, risk management, market psychology, position sizing, and scam awareness.",
-    fullDesc: "IMPORTANT: This course is purely educational and designed to teach technical analysis, market terminology, chart reading, and strict capital protection strategies. It DOES NOT promise or guarantee profits, financial returns, or signals.",
-    duration: "6 Weeks (24 Hours)",
-    level: "Beginner to Intermediate",
-    fee: 20000,
-    originalFee: 40000,
-    discountPercent: 50,
-    discountLabel: "50% Subsidized",
-    badge: "Educational Only",
-    badgeType: "educational",
-    actionBtnText: "Apply Now",
-    disclaimer: "Trading involves significant financial risk. This course is for educational purposes only and does not guarantee profits or financial returns.",
-    mode: "Online Live",
-    startDate: "1st November 2026",
-    instructor: "Bilal Hassan (Certified Technical Analyst)",
+    {
+    id: "ai-website-dev",
+    title: "AI Website Development Course",
+    urduTitle: "اے آئی ویب سائٹ ڈویلپمنٹ کورس",
+    category: "Web & AI Engineering",
+    slug: "ai-website-development",
+    shortDesc: "Build, launch, and monetize modern responsive websites using AI code assistants. From wireframing to live production deployment in 15 days.",
+    fullDesc: "A high-intensity, practical 15-day live accelerator designed for beginners to advanced learners with no prior programming background required. Master AI-powered web architecture, rapid full-stack code generation, official live domain and Cloudflare DNS deployment, live production hot-fixing, enterprise performance optimization, and freelancing client acquisition strategies.",
+    duration: "15 Days (Live Practical Accelerator)",
+    level: "Beginner to Advanced (No prior programming background required)",
+    fee: 5000,
+    originalFee: 12000,
+    discountPercent: 58,
+    discountLabel: "58% Subsidized Special",
+    badge: "New High-Income Track",
+    badgeType: "trending",
+    actionBtnText: "Apply Now (Rs. 5,000)",
+    mode: "Online Live Practical Accelerator & Interactive Production Labs",
+    startDate: "New Live Batch Starting Soon",
+    instructor: "Engr. Hamza Khan & Dr. Shahid Akram Mustafai",
     status: "Active",
-    image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80",
     outcomes: [
-      "Understand Financial Market Structure & Key Terminology",
-      "Read Technical Charts, Candlesticks, Support & Resistance",
-      "Apply Strict Risk-to-Reward Ratios & Position Sizing",
-      "Master Market Psychology & Discipline While Trading",
-      "Identify Common Online Scams, Fake Schemes & Capital Risks"
+      "AI-Powered Web Architecture: Prompt Claude, ChatGPT, Gemini & v0 for modern UI/UX wireframes and layouts",
+      "Rapid Full-Stack Development: Generate clean, responsive front-end and back-end code using AI assistants",
+      "Official Live Deployment: Domain registration, DNS record configuration (Cloudflare/cPanel), SSL setup, and live server launch",
+      "Live Production Maintenance: Real-time live code editing, bug hot-fixing, and client updates",
+      "Enterprise Optimization & Freelancing: Security hardening, fast caching, SEO best practices, and winning freelance clients"
+    ],
+    modules: [
+      {
+        part: 1,
+        title: "Module 1: AI-Powered Web Architecture",
+        urduTitle: "ماڈیول ۱: اے آئی ویب آرکیٹیکچر و ڈیزائن",
+        days: "Days 1 - 3",
+        tools: ["Claude 3.7 / 3.5 Sonnet", "ChatGPT Plus", "v0 by Vercel", "Google Gemini"],
+        focus: "جدید ویب پیجز، یو آئی ڈیزائن، وائر فریمز اور سسٹم لاجک بنانے کے لیے اے آئی پرامپٹنگ۔",
+        focusEn: "Prompting AI models (Claude, ChatGPT, Gemini, v0) for modern UI/UX wireframes, layouts, and system logic."
+      },
+      {
+        part: 2,
+        title: "Module 2: Rapid Full-Stack Development",
+        urduTitle: "ماڈیول ۲: فل اسٹیک کوڈنگ و ڈویلپمنٹ",
+        days: "Days 4 - 6",
+        tools: ["VS Code", "Antigravity AI", "HTML5/CSS3", "JavaScript ES6", "Tailwind CSS"],
+        focus: "اے آئی کوڈ اسسٹنٹس کی مدد سے فرنٹ اینڈ اور بیک اینڈ کوڈ، ڈائنامک فارمز اور انٹرفیس جنریشن۔",
+        focusEn: "Generating clean, responsive front-end and back-end code, interactive elements, and forms using AI coding assistants."
+      },
+      {
+        part: 3,
+        title: "Module 3: Official Live Deployment",
+        urduTitle: "ماڈیول ۳: لائیو ڈومین، ہوسٹنگ اور ڈیپلائمنٹ",
+        days: "Days 7 - 9",
+        tools: ["Domain Registrars", "Cloudflare DNS", "cPanel / VPS", "Vercel", "SSL Engine"],
+        focus: "ڈومین رجسٹریشن، کلاؤڈ فلیئر ڈی این ایس سیٹ اپ، ایس ایس ایل انکرپشن اور ویب سائٹس کو لائیو کرنا۔",
+        focusEn: "Domain registration, DNS record configuration (Cloudflare/cPanel), SSL setup, and launching websites live to production servers."
+      },
+      {
+        part: 4,
+        title: "Module 4: Live Production Maintenance & Hot-Fixing",
+        urduTitle: "ماڈیول ۴: لائیو ویب سائٹ کی مرمت اور تبدیلیاں",
+        days: "Days 10 - 12",
+        tools: ["Chrome DevTools", "FTP / SFTP", "Live Code Editor", "Git / GitHub"],
+        focus: "لائیو ویب سائٹ پر براہ راست کوڈ ایڈٹ کرنا، کلائنٹ کی تبدیلیاں اور بگز کو فوری حل کرنا۔",
+        focusEn: "Updating live websites, editing live codebases, fixing bugs, and deploying client changes in real-time."
+      },
+      {
+        part: 5,
+        title: "Module 5: Enterprise Optimization & Client Acquisition",
+        urduTitle: "ماڈیول ۵: سیکیورٹی، سپیڈ اور فری لانسنگ سے کمائی",
+        days: "Days 13 - 15",
+        tools: ["Lighthouse 95+", "SEO Meta Tools", "Fiverr & Upwork", "Cold Email & WhatsApp Pitching"],
+        focus: "ویب سائٹ سیکیورٹی، سپیڈ آپٹیمائزیشن، ایس ای او اور لوکل و انٹرنیشنل کلائنٹس حاصل کرنا۔",
+        focusEn: "Security hardening, mobile responsiveness, fast caching, SEO best practices, and freelancing client acquisition strategies."
+      }
     ],
     syllabus: [
-      { week: 1, topic: "Financial Markets Fundamentals & Terminology", detail: "Market types, terminology, bid/ask, charts introduction." },
-      { week: 2, topic: "Technical Analysis & Candlestick Patterns", detail: "Doji, Engulfing, Support/Resistance, Trendlines." },
-      { week: 3, topic: "Risk Management & Capital Protection", detail: "Stop-loss strategies, position sizing, 1-2% risk rule." },
-      { week: 4, topic: "Scam Awareness & Demo Practice Trading", detail: "Avoiding fraud schemes, paper trading, discipline rules." }
+      { week: 1, topic: "Module 1 & 2: AI Web Architecture & Rapid Full-Stack (Days 1 - 6)", detail: "Prompting AI for responsive UI/UX, wireframing with v0/Claude, generating production HTML, CSS, JavaScript, and dynamic forms." },
+      { week: 2, topic: "Module 3 & 4: Official Live Deployment & Live Maintenance (Days 7 - 12)", detail: "Domain registration, Cloudflare DNS routing, free SSL certificates, production deployment on cPanel/Vercel, real-time live codebase hot-fixing." },
+      { week: 3, topic: "Module 5: Enterprise Hardening, SEO & Freelancing Clients (Days 13 - 15)", detail: "Security hardening, 95+ Lighthouse speed optimization, on-page SEO, Fiverr/Upwork gig launch, pitching business websites for Rs. 25,000 to Rs. 100,000+." }
     ],
-    tools: ["TradingView", "MetaTrader 5 Demo", "Risk Calculator"],
-    certificateInfo: "Includes Educational Completion Certificate."
+    tools: ["Claude AI", "ChatGPT Pro", "v0 by Vercel", "Google Gemini", "Antigravity IDE", "Cloudflare DNS", "GitHub & Vercel", "cPanel"],
+    certificateInfo: "Includes Official Ilm E Tech Verified AI Web Engineer Certificate signed by Founder & CEO Dr. Shahid Akram Mustafai with instant QR validation."
   },
   {
     id: "one-on-one-session",
@@ -530,6 +575,20 @@ const DEFAULT_AUDIT_LOGS = [
 
 const DEFAULT_CERTIFICATES = [
   {
+    id: "ILM-2026-000106",
+    studentName: "Bilal Hassan",
+    fatherName: "Muhammad Hassan",
+    courseId: "ai-website-dev",
+    courseName: "AI Website Development Course",
+    issueDate: "2026-10-15",
+    grade: "A+ Distinction",
+    status: "Verified",
+    cnic: "35202-7788990-1",
+    verificationUrl: "verify-certificate.html?id=ILM-2026-000106",
+    skills: ["AI Web Architecture", "Cloudflare DNS & SSL", "Rapid Full-Stack", "Live Deployment", "Hot-Fixing"]
+  },
+
+  {
     id: "ILM-2026-000101",
     studentName: "Syed Muhammad Usama",
     fatherName: "Syed Tariq Mahmood",
@@ -624,7 +683,7 @@ class IlmTechDB {
   }
 
   init() {
-    const DB_VERSION = 'v4_official_cert_nda_beat_2026';
+    const DB_VERSION = 'v5_enterprise_modernization_2026';
     const currentVersion = localStorage.getItem('ilmetech_db_version');
 
     let settings = localStorage.getItem(DB_KEYS.SETTINGS);
@@ -674,7 +733,7 @@ class IlmTechDB {
       return stored;
     }
     localStorage.setItem(DB_KEYS.COURSES, JSON.stringify(DEFAULT_COURSES));
-    localStorage.setItem('ilmetech_courses_version', '2026.3');
+    localStorage.setItem('ilmetech_courses_version', '2026.4');
     return DEFAULT_COURSES;
   }
 

@@ -12,14 +12,16 @@
   <meta property="og:url" content="https://ilmetechpakistan.com/payments.html">
   <meta property="og:title" content="Fee Payment Portal | ILM E TECH PAKISTAN">
   <meta property="og:description" content="Pay your course fees via JazzCash, Easypaisa, SadaPay or Bank Transfer at ILM E TECH PAKISTAN and submit payment verification online.">
-  <meta property="og:image" content="https://ilmetechpakistan.com/assets/images/logo.jpg">
+  <meta property="og:image" content="https://ilmetechpakistan.com/assets/images/branding/ietp-logo.png">
   <meta name="twitter:card" content="summary_large_image">
 
   <!-- Performance Optimization Preconnects -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
 
-  <link rel="icon" type="image/jpeg" href="assets/images/logo.jpg">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/branding/favicon-32x32.png">
+  <link rel="icon" type="image/webp" href="assets/images/branding/ietp-logo-sm.webp">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="assets/css/styles.css">
   <style>
@@ -95,7 +97,7 @@
   <header class="header-nav">
     <div class="container nav-container">
       <a href="index.html" class="brand-logo">
-        <img src="assets/images/logo.jpg" alt="ILM E TECH PAKISTAN Logo" width="52" height="52">
+        <img src="assets/images/branding/ietp-logo-sm.webp" alt="ILM E TECH PAKISTAN (IETP) - Official Academy Logo" width="52" height="52" style="aspect-ratio:1/1; object-fit:contain; border-radius:10px;">
         <div class="brand-text">
           <span class="brand-name">ILM E TECH PAKISTAN</span>
           <span class="brand-subtitle" style="font-size:0.75rem; color:var(--tech-blue-hover); font-weight:700;">Digital Education &amp; AI Academy</span>
@@ -109,13 +111,13 @@
           <li class="dropdown">
             <a href="courses.html" class="nav-link">Courses <i class="fas fa-chevron-down" style="font-size: 0.75rem;"></i></a>
             <div class="dropdown-menu">
-              <a href="course-detail.html?id=basic-ai" class="dropdown-item">Basic AI Course</a>
-              <a href="course-detail.html?id=ai-tools-mastery" class="dropdown-item">AI Tools Mastery</a>
-              <a href="course-detail.html?id=basic-computer" class="dropdown-item">Basic Computer Course</a>
-              <a href="course-detail.html?id=ai-software-dev" class="dropdown-item">AI Software Development</a>
-              <a href="course-detail.html?id=ai-content-creation" class="dropdown-item">AI Content Creation</a>
-              <a href="course-detail.html?id=trading-course" class="dropdown-item">Trading Course</a>
-              <a href="course-detail.html?id=one-on-one-session" class="dropdown-item" style="color:#059669; font-weight:700; border-top:1px solid #f1f5f9;"><i class="fas fa-crown text-amber-500"></i> One on One Session (VIP)</a>
+              <a href="course-detail.html?id=basic-ai" class="dropdown-item"><i class="fas fa-gift text-emerald-500"></i> Basic AI Course <span style="background:#10b981; color:#fff; font-size:0.65rem; padding:0.15rem 0.45rem; border-radius:1rem; font-weight:800; margin-left:auto;">100% FREE</span></a>
+              <a href="course-detail.html?id=ai-website-dev" class="dropdown-item"><i class="fas fa-globe text-sky-500"></i> AI Website Development <span style="background:#0284c7; color:#fff; font-size:0.65rem; padding:0.15rem 0.45rem; border-radius:1rem; font-weight:800; margin-left:auto;">New Track</span></a>
+              <a href="course-detail.html?id=ai-tools-mastery" class="dropdown-item"><i class="fas fa-robot text-indigo-500"></i> AI Tools Mastery (30 Days)</a>
+              <a href="course-detail.html?id=basic-computer" class="dropdown-item"><i class="fas fa-laptop text-slate-500"></i> Basic Computer Course</a>
+              <a href="course-detail.html?id=ai-software-dev" class="dropdown-item"><i class="fas fa-code text-violet-500"></i> AI Software Development</a>
+              <a href="course-detail.html?id=ai-content-creation" class="dropdown-item"><i class="fas fa-video text-rose-500"></i> AI Content Creation</a>
+              <a href="course-detail.html?id=one-on-one-session" class="dropdown-item" style="color:#059669; font-weight:700; border-top:1px solid #f1f5f9;"><i class="fas fa-crown text-amber-500"></i> One on One VIP Mentorship</a>
             </div>
           </li>
           <li><a href="services.html" class="nav-link">Services</a></li>
@@ -144,7 +146,7 @@
   <div class="mobile-drawer" id="mobileDrawer">
     <div class="drawer-header">
       <div class="brand-logo">
-        <img src="assets/images/logo.jpg" alt="ILM E TECH PAKISTAN" style="height: 40px;">
+        <img src="assets/images/branding/ietp-logo-sm.webp" alt="ILM E TECH PAKISTAN (IETP) - Official Academy Logo" style="height: 40px; width: 40px; aspect-ratio:1/1; object-fit:contain; border-radius:8px;">
         <span class="brand-name" style="font-size: 1.1rem;">ILM E TECH PAKISTAN</span>
       </div>
       <button class="drawer-close" id="drawerClose" aria-label="Close Mobile Navigation Menu">
@@ -394,11 +396,11 @@
             <label for="payCourseSelect" class="form-label">Select Enrolled Course <span class="required">*</span></label>
             <select name="courseName" id="payCourseSelect" class="form-control form-select" aria-label="Select Enrolled Course" required>
               <option value="Basic AI Course" data-fee="0">Basic AI Course (100% FREE - Rs. 0 PKR)</option>
-              <option value="AI Tools Mastery" data-fee="0">AI Tools Mastery (100% FREE - Launch Offer)</option>
-              <option value="Basic Computer Course" data-fee="3000">Basic Computer Course (Rs. 3,000 PKR - 80% OFF)</option>
-              <option value="AI Software Development" data-fee="15000">AI Software Development (Rs. 15,000 PKR - 7 Days Free Demo)</option>
-              <option value="AI Content Creation" data-fee="20000">AI Content Creation (Rs. 20,000 PKR)</option>
-              <option value="Trading Course" data-fee="20000">Trading Course (Rs. 20,000 PKR)</option>
+              <option value="AI Website Development Course" data-fee="5000">AI Website Development Course (Rs. 5,000 PKR - 58% Subsidized)</option>
+              <option value="AI Tools Mastery" data-fee="3000">AI Tools Mastery (Rs. 3,000 PKR - 70% Subsidized Admission)</option>
+              <option value="Basic Computer Course" data-fee="3000">Basic Computer Course (Rs. 3,000 PKR - 80% Subsidized)</option>
+              <option value="AI Software Development" data-fee="15000">AI Software Development (Rs. 15,000 PKR - 50% Subsidized)</option>
+              <option value="AI Content Creation" data-fee="20000">AI Content Creation (Rs. 20,000 PKR - 43% Subsidized)</option>
               <option value="One on One Session Service" data-fee="20000">One on One Session Service (Rs. 20,000 PKR - VIP Mentorship)</option>
             </select>
           </div>

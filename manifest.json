@@ -1,21 +1,26 @@
 {
-  "name": "Ilm E Tech Pakistan",
-  "short_name": "Ilm E Tech",
-  "description": "Official Digital Education & AI Academy Platform of Ilm E Tech Pakistan. Founded by Dr. Shahid Akram Mustafai.",
+  "name": "ILM E TECH PAKISTAN (IETP)",
+  "short_name": "IETP",
+  "description": "Official Platform of ILM E TECH PAKISTAN (IETP). Premier Digital Education & AI Academy founded by Dr. Shahid Akram Mustafai.",
   "start_url": "/index.html",
   "display": "standalone",
-  "background_color": "#0f172a",
+  "background_color": "#064e3b",
   "theme_color": "#046a38",
   "icons": [
     {
-      "src": "assets/images/logo.jpg",
+      "src": "assets/images/branding/favicon-192x192.png",
       "sizes": "192x192",
-      "type": "image/jpeg"
+      "type": "image/png"
     },
     {
-      "src": "assets/images/logo.jpg",
+      "src": "assets/images/branding/favicon-512x512.png",
       "sizes": "512x512",
-      "type": "image/jpeg"
+      "type": "image/png"
+    },
+    {
+      "src": "assets/images/branding/ietp-logo.png",
+      "sizes": "1024x1024",
+      "type": "image/png"
     }
   ]
 }

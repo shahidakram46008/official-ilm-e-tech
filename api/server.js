@@ -39,6 +39,41 @@ app.use(cors({
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '..')));
 
+// Enterprise Input Sanitization & Anti-XSS / SQLi Guard
+function sanitizePayload(data) {
+  if (typeof data === 'string') {
+    return data
+      .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
+      .replace(/javascript:/gi, '')
+      .replace(/onerror\s*=/gi, '')
+      .replace(/onload\s*=/gi, '')
+      .replace(/eval\s*\(/gi, '')
+      .replace(/[;\"'\`]/g, '')
+      .trim();
+  }
+  if (typeof data === 'object' && data !== null) {
+    for (const key of Object.keys(data)) {
+      data[key] = sanitizePayload(data[key]);
+    }
+  }
+  return data;
+}
+
+app.use((req, res, next) => {
+  if (req.body && typeof req.body === 'object') {
+    req.body = sanitizePayload(req.body);
+  }
+  // NASA-Grade Strict Security Headers
+  res.setHeader('X-Content-Type-Options', 'nosniff');
+  res.setHeader('X-Frame-Options', 'SAMEORIGIN');
+  res.setHeader('X-XSS-Protection', '1; mode=block');
+  res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+  res.setHeader('Permissions-Policy', 'camera=(), microphone=(), geolocation=()');
+  next();
+});
+
+app.use(express.static(path.join(__dirname, '..')));
+
 // ============================================================================
 // 1. HEALTH CHECK & PLATFORM METADATA
 // ============================================================================
@@ -107,22 +142,26 @@ app.post('/api/chat', async (req, res) => {
 - رابطہ / واٹس ایپ: ۰۳۰۷-۴۹۵۸۸۳۷ (0307-4958837)
 - فیس کی ادائیگی کا کھاتہ (جاز کیش / ایزی پیسہ / سادہ پے): شاہد اکرم — ۰۳۲۰۶۵۴۶۰۰۸ (0320-6546008)
 - میزان بینک اکاؤنٹ: شاہد اکرم (IBAN: PK36MEZN0001020304050607)
-- ۶ بنیادی نصابات:
-  ۱. اے آئی آلات میں مہارت (۳۰ دن، ۳۰ آلات) — فیس: ۲،۹۹۹ روپے (رعایتی)
-  ۲. بنیادی کمپیوٹر کورس (۶ ہفتے) — فیس: ۳،۹۹۹ روپے
-  ۳. بنیادی مصنوعی ذہانت کورس (۴ ہفتے) — فیس: ۴،۹۹۹ روپے
-  ۴. مواد سازی و ویڈیو پروڈکشن (۵ ہفتے) — فیس: ۵،۹۹۹ روپے
-  ۵. تجارتی و مالیاتی شعور کورس (۶ ہفتے) — فیس: ۷،۹۹۹ روپے
-  ۶. جدید سافٹ ویئر ڈویلپمنٹ (۸ ہفتے) — فیس: ۱۱،۹۹۹ روپے
+
+- نصابات کی آفیشل معلومات (صرف یہ ۷ نصابات فعال ہیں):
+  ۱. بیسک AI کورس (۷ دن / ۱ ہفتہ) — ۱۰۰٪ مفت (100% FREE Launch Privilege)
+  ۲. اے آئی ویب سائٹ ڈویلپمنٹ کورس (۱۵ دن) — باقاعدہ فیس ۱۲،۰۰۰ روپے، رعایتی فیس: ۵،۰۰۰ روپے (۵۸٪ رعایت، پرامپٹ سے ویب سائٹ بنا کر لائیو کرنے تک)
+  ۳. اے آئی ٹولز ماسٹری (۳۰ دن، ۳۰ آلات) — باقاعدہ فیس ۱۰،۰۰۰ روپے، رعایتی فیس: ۳،۰۰۰ روپے (۷۰٪ رعایت)
+  ۴. بنیادی کمپیوٹر کورس (۶ ہفتے) — رعایتی فیس: ۳،۰۰۰ روپے
+  ۵. اے آئی سافٹ ویئر ڈویلپمنٹ (۶ ہفتے) — رعایتی فیس: ۱۵،۰۰۰ روپے
+  ۶. اے آئی مواد سازی و ویڈیو پروڈکشن (۵ ہفتے) — رعایتی فیس: ۲۰،۰۰۰ روپے
+  ۷. ون آن ون پرائیویٹ وی آئی پی رہنمائی (ڈاکٹر شاہد اکرم مصطفائی) — فیس: ۲۰،۰۰۰ روپے
+- خصوصی وضاحت: تجارتی (Trading/Crypto/Forex) کورس مکمل طور پر ختم اور معطل کر دیا گیا ہے۔ ہمارا ادارہ کسی بھی قسم کی ٹریڈنگ یا فنانشل قیاس آرائی نہیں کرواتا۔
+- واحد ۱۰۰٪ مفت کورس صرف اور صرف ۷ روزہ "بیسک AI کورس" ہے۔ بقیہ تمام کورسز رعایتی فیس کے ساتھ ہیں۔
 - داخلہ فارم: admissions.html (آن لائن داخلہ)
 - فیس پورٹل: payments.html (رسید اپلوڈ)
-- اسناد کی تصدیق: verify-certificate.html (سند کی تصدیق)
+- اسناد کی تصدیق: verify-certificate.html (سند کی تصدیق) (سند کی تصدیق)
   `;
 
   const fetchFn = typeof fetch !== 'undefined' ? fetch : (await import('node-fetch')).default;
 
   // 1. Primary Engine: Google Gemini API with cascade fallback across active 2026 models
-  const geminiApiKey = process.env.GEMINI_API_KEY || "AQ.Ab8RN6IqC92Ul7xRRKQjV-Ymtlty7bsgAfOLnfms_mgzbLezQQ";
+  const geminiApiKey = process.env.GEMINI_API_KEY || "";
   if (geminiApiKey) {
     const geminiModels = ['gemini-3.5-flash', 'gemini-3.8-flash', 'gemini-3.7-flash', 'gemini-flash-latest', 'gemini-3.5-flash-lite'];
     for (const model of geminiModels) {
