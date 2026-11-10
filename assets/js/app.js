@@ -378,3 +378,84 @@ function initMetricCounters() {
 }
 
 document.addEventListener('DOMContentLoaded', initMetricCounters);
+
+
+// ==========================================================================
+// NASA-Grade Verified Student Testimonials Controller & Lightbox
+// ==========================================================================
+
+function initTestimonialsFilter() {
+  const filterBtns = document.querySelectorAll('.testi-tab-btn');
+  const cards = document.querySelectorAll('.testi-card');
+
+  if (!filterBtns.length || !cards.length) return;
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+
+      const filter = btn.getAttribute('data-filter') || 'all';
+
+      cards.forEach(card => {
+        const cat = card.getAttribute('data-category') || '';
+        if (filter === 'all' || cat.split(' ').includes(filter)) {
+          card.style.display = 'flex';
+          card.style.animation = 'fadeInUp 0.35s ease forwards';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+}
+
+// Global Lightbox Open / Close Handlers
+window.openTestiLightbox = function(imgSrc, title) {
+  const overlay = document.getElementById('testiLightboxOverlay');
+  const img = document.getElementById('testiLightboxImg');
+  const titleEl = document.getElementById('testiModalTitle');
+
+  if (!overlay || !img) return;
+
+  img.src = imgSrc;
+  if (title && titleEl) {
+    titleEl.innerHTML = '<i class="fas fa-shield-check text-emerald-400"></i> ' + title;
+  }
+  overlay.classList.add('active');
+  document.body.style.overflow = 'hidden';
+};
+
+window.closeTestiLightbox = function() {
+  const overlay = document.getElementById('testiLightboxOverlay');
+  const img = document.getElementById('testiLightboxImg');
+  if (!overlay) return;
+
+  overlay.classList.remove('active');
+  document.body.style.overflow = '';
+  if (img) img.src = '';
+};
+
+// Lightbox backdrop & Escape key handlers
+document.addEventListener('DOMContentLoaded', () => {
+  initTestimonialsFilter();
+
+  const overlay = document.getElementById('testiLightboxOverlay');
+  if (overlay) {
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) {
+        window.closeTestiLightbox();
+      }
+    });
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      window.closeTestiLightbox();
+    }
+  });
+});
