@@ -125,7 +125,7 @@ function initVerificationWidget() {
   });
 }
 
-// Online Admission Form Handler
+// Online Admission Form Handler (Compact & NASA-Grade Verification)
 function initAdmissionForm() {
   const form = document.getElementById('admissionForm');
   if (!form) return;
@@ -140,18 +140,27 @@ function initAdmissionForm() {
     const courseName = courseOption ? courseOption.textContent : 'Selected Course';
     const isFree = courseId === 'basic-ai' || (courseName.toLowerCase().includes('basic ai') && !courseName.toLowerCase().includes('tools'));
 
+    const fullName = window.sanitizeText(formData.get('fullName') || '');
+    const fatherName = window.sanitizeText(formData.get('fatherName') || '');
+    const city = window.sanitizeText(formData.get('city') || '');
+    const profession = window.sanitizeText(formData.get('profession') || 'طالب علم (Student)');
+    const age = window.sanitizeText(formData.get('age') || 'N/A');
+    const whatsapp = window.sanitizeText(formData.get('whatsapp') || '');
+    const preferredMode = window.sanitizeText(formData.get('preferredMode') || 'Online Live Interactive');
+
     const admissionData = {
       appId: refNo,
-      fullName: window.sanitizeText(formData.get('fullName')),
-      fatherName: window.sanitizeText(formData.get('fatherName')),
-      cnic: window.sanitizeText(formData.get('cnic') || 'N/A'),
-      phone: window.sanitizeText(formData.get('phone')),
-      whatsapp: window.sanitizeText(formData.get('whatsapp')),
-      email: window.sanitizeText(formData.get('email')),
-      city: window.sanitizeText(formData.get('city')),
+      fullName: fullName,
+      fatherName: fatherName,
+      city: city,
+      profession: profession,
+      age: age,
+      whatsapp: whatsapp,
+      phone: whatsapp,
+      cnic: 'N/A',
       courseId: window.sanitizeText(courseId),
       courseName: window.sanitizeText(courseName),
-      preferredMode: window.sanitizeText(formData.get('preferredMode') || 'Online Live'),
+      preferredMode: preferredMode,
       status: isFree ? '100% Free Enrollment Approved' : 'Pending Fee Verification',
       date: new Date().toISOString().split('T')[0]
     };
@@ -160,77 +169,63 @@ function initAdmissionForm() {
       window.ilmDB.addAdmission(admissionData);
     }
 
+    // Prepare WhatsApp Message for Dr. Shahid Akram
+    const waText = `السلام علیکم ڈاکٹر شاہد اکرم مصطفائی صاحب!\nعلمِ ٹیک پاکستان آن لائن داخلہ فارم موصول ہوا ہے:\n---------------------------------\nآئی ڈی: ${refNo}\nطالب علم کا نام: ${fullName}\nوالد کا نام: ${fatherName}\nشہر / علاقہ: ${city}\nپیشہ / شعبہ: ${profession}\nعمر: ${age} سال\nواٹس ایپ نمبر: ${whatsapp}\nمنتخب کورس: ${courseName}\nکلاس فارمیٹ: ${preferredMode}\nفیس اسٹیٹس: ${isFree ? '100% مفت داخلہ (Rs. 0)' : 'کورس فیس کا واؤچر جاری'}\n---------------------------------\nبرائے مہربانی سیٹ کنفرمیشن اور کلاس گروپ لنک شیئر فرمائیں۔`;
+
     const resultBox = document.getElementById('admissionResult');
+    const formCard = document.getElementById('formWrapperCard');
+
     if (resultBox) {
       resultBox.style.display = 'block';
 
-      if (isFree) {
-        resultBox.innerHTML = `
-          <div class="card" style="background:#ecfdf5; border:2px solid #10b981; padding:2.5rem 2rem; border-radius:1.25rem; text-align:center; box-shadow:0 10px 30px rgba(4,106,56,0.15);">
-            <div style="font-size:3.5rem; color:#16a34a; margin-bottom:0.75rem;"><i class="fas fa-check-circle"></i></div>
-            <h3 style="color:#046a38; font-size:1.75rem; font-weight:800; margin-bottom:0.3rem;">100% FREE Admission Approved!</h3>
-            <div style="font-family:'Noto Nastaliq Urdu', serif; font-size:1.35rem; color:#065f46; margin-bottom:1rem; line-height:1.7;">
-              مبارک ہو! آپ کا داخلہ 100% مفت منظور ہو چکا ہے (کوئی فیس درکار نہیں)
-            </div>
-            
-            <div style="background:#ffffff; border:1.5px dashed #046a38; padding:1.5rem; border-radius:1rem; margin:1.5rem auto; max-width:600px; text-align:left;">
-              <p style="margin-bottom:0.5rem;"><strong>Application ID:</strong> <span style="color:#0284c7; font-weight:800; font-size:1.25rem;">${refNo}</span></p>
-              <p style="margin-bottom:0.5rem;"><strong>Student Name:</strong> <span style="font-weight:700; color:#0f172a;">${admissionData.fullName}</span></p>
-              <p style="margin-bottom:0.5rem;"><strong>Course:</strong> <span style="font-weight:700; color:#046a38;">${admissionData.courseName}</span></p>
-              <p style="margin-bottom:0.5rem;"><strong>City:</strong> ${admissionData.city} &bull; <strong>Format:</strong> ${admissionData.preferredMode}</p>
-              <p style="margin:0;"><strong>Fee Status:</strong> <span class="badge" style="background:#d1fae5; color:#065f46; padding:0.3rem 0.75rem; border-radius:1rem; font-size:0.85rem; font-weight:800;"><i class="fas fa-gift"></i> 100% FREE Grant (Rs. 0 Fee)</span></p>
-            </div>
+      resultBox.innerHTML = `
+        <div class="card" style="background:#ffffff; border:2px solid ${isFree ? '#10b981' : '#0284c7'}; padding:2rem 1.5rem; border-radius:1.25rem; text-align:center; box-shadow:0 15px 40px rgba(0,0,0,0.08);">
+          <div style="font-size:3rem; color:${isFree ? '#16a34a' : '#0284c7'}; margin-bottom:0.5rem;">
+            <i class="fas fa-${isFree ? 'check-circle' : 'file-invoice'}"></i>
+          </div>
+          <h2 style="color:${isFree ? '#046a38' : '#0369a1'}; font-size:1.6rem; font-weight:900; margin-bottom:0.25rem;">
+            ${isFree ? '100% مفت داخلہ منظور!' : 'داخلہ درخواست کامیابی سے موصول ہو گئی!'}
+          </h2>
+          <div style="font-family:'Noto Nastaliq Urdu', serif; font-size:1.2rem; color:#475569; margin-bottom:1.25rem; line-height:1.8;">
+            مبارک ہو ${fullName}! علم ٹیک پاکستان میں آپ کی رجسٹریشن مکمل ہو گئی ہے۔
+          </div>
 
-            <div style="display:flex; gap:0.85rem; justify-content:center; flex-wrap:wrap; margin-top:1.5rem;">
-              <a href="https://wa.me/923074958837?text=${encodeURIComponent('السلام علیکم ڈاکٹر شاہد اکرم مصطفائی صاحب!\nمیرا نام ' + admissionData.fullName + ' ہے۔ میری فری کورس ایڈمشن ID: ' + refNo + ' منظور ہو گئی ہے۔ برائے مہربانی مجھے ' + admissionData.courseName + ' کے واٹس ایپ گروپ میں ایڈ فرمائیں۔')}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg" style="background:linear-gradient(135deg, #059669 0%, #10b981 100%);">
-                <i class="fab fa-whatsapp"></i> Join Student WhatsApp Batch
-              </a>
-              <a href="student-portal.html" class="btn btn-outline-blue btn-lg">
-                <i class="fas fa-user-graduate"></i> Student Portal
-              </a>
-              <button onclick="window.print()" class="btn btn-outline btn-lg">
-                <i class="fas fa-print"></i> Print Free Slip
-              </button>
+          <div style="background:#f8fafc; border:1.5px dashed ${isFree ? '#10b981' : '#0284c7'}; padding:1.25rem; border-radius:1rem; margin:1rem auto 1.5rem; max-width:620px; text-align:left; font-size:0.92rem;">
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:0.6rem;">
+              <div><strong>Application ID:</strong> <span style="color:#0284c7; font-weight:800;">${refNo}</span></div>
+              <div><strong>Student Name:</strong> <span style="font-weight:700;">${fullName}</span></div>
+              <div><strong>Father's Name:</strong> ${fatherName}</div>
+              <div><strong>City / Area:</strong> ${city}</div>
+              <div><strong>Profession:</strong> ${profession}</div>
+              <div><strong>Age:</strong> ${age} Years</div>
+              <div><strong>WhatsApp:</strong> ${whatsapp}</div>
+              <div><strong>Format:</strong> ${preferredMode}</div>
+            </div>
+            <div style="margin-top:0.75rem; padding-top:0.75rem; border-top:1px solid #e2e8f0;">
+              <strong>Course:</strong> <span style="color:#046a38; font-weight:800;">${courseName}</span>
             </div>
           </div>
-        `;
-      } else {
-        resultBox.innerHTML = `
-          <div class="card" style="background:#ffffff; border:2px solid #034b75; padding:2.5rem 2rem; border-radius:1.25rem; text-align:center; box-shadow:0 10px 30px rgba(3,75,117,0.15);">
-            <div style="font-size:3.5rem; color:#0284c7; margin-bottom:0.75rem;"><i class="fas fa-file-invoice"></i></div>
-            <h3 style="color:#034b75; font-size:1.75rem; font-weight:800; margin-bottom:0.3rem;">Admission Application Registered!</h3>
-            <div style="font-family:'Noto Nastaliq Urdu', serif; font-size:1.2rem; color:#475569; margin-bottom:1rem; line-height:1.6;">
-              آپ کی رجسٹریشن کامیابی سے موصول ہو گئی ہے۔ واؤچر کی ادائیگی کے بعد کلاس رسائی جاری کی جائے گی۔
-            </div>
-            
-            <div style="background:#f8fafc; border:1.5px dashed #0284c7; padding:1.5rem; border-radius:1rem; margin:1.5rem auto; max-width:600px; text-align:left;">
-              <p style="margin-bottom:0.5rem;"><strong>Application Reference ID:</strong> <span style="color:#0284c7; font-weight:800; font-size:1.25rem;">${refNo}</span></p>
-              <p style="margin-bottom:0.5rem;"><strong>Applicant Name:</strong> <span style="font-weight:700; color:#0f172a;">${admissionData.fullName}</span></p>
-              <p style="margin-bottom:0.5rem;"><strong>Selected Course:</strong> <span style="font-weight:700; color:#034b75;">${admissionData.courseName}</span></p>
-              <p style="margin-bottom:0.5rem;"><strong>Date:</strong> ${admissionData.date} &bull; <strong>City:</strong> ${admissionData.city}</p>
-              <p style="margin:0;"><strong>Status:</strong> <span class="badge" style="background:#fef3c7; color:#d97706; padding:0.3rem 0.75rem; border-radius:1rem; font-size:0.85rem; font-weight:800;">Pending Verification</span></p>
-            </div>
 
-            <div style="display:flex; gap:0.85rem; justify-content:center; flex-wrap:wrap; margin-top:1.5rem;">
-              <a href="payments.html?appId=${refNo}&course=${encodeURIComponent(admissionData.courseName)}" class="btn btn-primary btn-lg">
-                <i class="fas fa-receipt"></i> Proceed to Pay Fee
-              </a>
-              <a href="https://wa.me/923074958837?text=${encodeURIComponent('Assalam o Alaikum! I submitted application ' + refNo + ' for ' + admissionData.courseName + '. Please assist with fee verification.')}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-blue btn-lg">
-                <i class="fab fa-whatsapp"></i> WhatsApp Accounts
-              </a>
-              <button onclick="window.print()" class="btn btn-outline btn-lg">
-                <i class="fas fa-print"></i> Print Voucher
-              </button>
-            </div>
+          <div style="display:flex; gap:0.75rem; justify-content:center; flex-wrap:wrap;">
+            <a href="https://wa.me/923074958837?text=${encodeURIComponent(waText)}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg" style="background:linear-gradient(135deg, #059669 0%, #10b981 100%);">
+              <i class="fab fa-whatsapp"></i> ڈاکٹر شاہد اکرم صاحب کو واٹس ایپ پر تفصیلات بھیجیں
+            </a>
+            ${!isFree ? `<a href="payments.html?appId=${refNo}&course=${encodeURIComponent(courseName)}" class="btn btn-primary btn-lg"><i class="fas fa-receipt"></i> آن لائن فیس ادا کریں</a>` : ''}
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeghlY7TLWi-nOkmOmlmCFi9GFXs0dL_vpyz8HcDOefc4ksrw/viewform" target="_blank" rel="noopener noreferrer" class="btn btn-outline-blue btn-lg">
+              <i class="fab fa-google"></i> گوگل فارم پر بھی ریکارڈ رکھیں
+            </a>
+            <button onclick="window.print()" class="btn btn-outline btn-lg">
+              <i class="fas fa-print"></i> سلپ پرنٹ کریں
+            </button>
           </div>
-        `;
+        </div>
+      `;
+
+      if (formCard) {
+        formCard.style.display = 'none';
       }
-
-      form.style.display = 'none';
       resultBox.scrollIntoView({ behavior: 'smooth' });
     }
-
-    window.showToast(`Application ${refNo} registered successfully!`, 'success');
   });
 }
 

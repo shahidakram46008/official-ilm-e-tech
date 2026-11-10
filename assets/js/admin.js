@@ -135,33 +135,108 @@ function renderAdmissionsTable() {
 
   const admissions = window.ilmDB.getAdmissions();
   if (admissions.length === 0) {
-    container.innerHTML = `<tr><td colspan="7" style="text-align:center; padding:2rem; color:#64748b;">No admission applications found.</td></tr>`;
+    container.innerHTML = `<tr><td colspan="10" style="text-align:center; padding:2.5rem; color:#64748b;">کوئی آن لائن داخلہ ریکارڈ موجود نہیں ہے۔</td></tr>`;
     return;
   }
 
-  container.innerHTML = admissions.map(app => `
-    <tr>
-      <td><strong>${app.appId}</strong></td>
-      <td>${app.fullName}<br><small style="color:#64748b;">${app.phone}</small></td>
-      <td>${app.courseName}</td>
-      <td>${app.preferredMode || 'Online Live'}</td>
-      <td>${app.date}</td>
-      <td>
-        <span class="badge" style="background:${app.status === 'APPROVED' ? '#dcfce7' : app.status === 'PAYMENT_ISSUE' ? '#fee2e2' : '#fef3c7'}; color:${app.status === 'APPROVED' ? '#15803d' : app.status === 'PAYMENT_ISSUE' ? '#dc2626' : '#b45309'}; padding:0.25rem 0.6rem; border-radius:0.25rem; font-weight:700; font-size:0.8rem;">
-          ${app.status}
-        </span>
-      </td>
-      <td>
-        <button onclick="approveAdmission('${app.appId}')" class="btn btn-primary btn-sm"><i class="fas fa-check"></i> Approve</button>
-        <button onclick="rejectAdmission('${app.appId}')" class="btn btn-outline btn-sm" style="color:#dc2626; border-color:#dc2626;"><i class="fas fa-times"></i> Reject</button>
-      </td>
-    </tr>
-  `).join('');
+  container.innerHTML = admissions.map(app => {
+    let badgeBg = '#fef3c7';
+    let badgeColor = '#b45309';
+    if (app.status && (app.status.includes('Approved') || app.status === 'APPROVED')) {
+      badgeBg = '#dcfce7';
+      badgeColor = '#15803d';
+    } else if (app.status && (app.status.includes('Rejected') || app.status === 'REJECTED')) {
+      badgeBg = '#fee2e2';
+      badgeColor = '#dc2626';
+    }
+
+    const waLink = `https://wa.me/${(app.whatsapp || app.phone || '923074958837').replace(/[^0-9]/g, '')}`;
+
+    return `
+      <tr>
+        <td><strong>${app.appId}</strong></td>
+        <td><strong style="color:#0f172a;">${app.fullName}</strong></td>
+        <td>${app.fatherName || 'N/A'}</td>
+        <td><span class="badge" style="background:#f1f5f9; color:#334155;"><i class="fas fa-map-marker-alt text-emerald-500"></i> ${app.city || 'N/A'}</span></td>
+        <td>
+          <span style="font-weight:600; color:#0369a1;">${app.profession || 'Student'}</span><br>
+          <small style="color:#64748b;">عمر: ${app.age ? app.age + ' سال' : 'N/A'}</small>
+        </td>
+        <td>
+          <a href="${waLink}" target="_blank" rel="noopener noreferrer" style="color:#047857; font-weight:700; text-decoration:none;">
+            <i class="fab fa-whatsapp"></i> ${app.whatsapp || app.phone || 'N/A'}
+          </a>
+        </td>
+        <td><strong style="color:#046a38; font-size:0.88rem;">${app.courseName}</strong></td>
+        <td>
+          <small>${app.preferredMode || 'Online Live'}</small><br>
+          <small style="color:#64748b;">${app.date}</small>
+        </td>
+        <td>
+          <span class="badge" style="background:${badgeBg}; color:${badgeColor}; padding:0.25rem 0.6rem; border-radius:0.25rem; font-weight:700; font-size:0.78rem;">
+            ${app.status || 'Registered'}
+          </span>
+        </td>
+        <td>
+          <div style="display:flex; gap:0.35rem;">
+            <button onclick="approveAdmission('${app.appId}')" class="btn btn-primary btn-sm" style="padding:0.25rem 0.5rem;" title="Approve"><i class="fas fa-check"></i></button>
+            <button onclick="rejectAdmission('${app.appId}')" class="btn btn-outline btn-sm" style="padding:0.25rem 0.5rem; color:#dc2626; border-color:#dc2626;" title="Reject"><i class="fas fa-times"></i></button>
+          </div>
+        </td>
+      </tr>
+    `;
+  }).join('');
 }
 
+// Export All Admissions to Excel CSV with UTF-8 BOM
+window.exportAdmissionsToCSV = function() {
+  if (!window.ilmDB) return;
+  const admissions = window.ilmDB.getAdmissions();
+  if (!admissions || !admissions.length) {
+    window.showToast('کوئی داخلہ ریکارڈ موجود نہیں ہے۔', 'info');
+    return;
+  }
+
+  const headers = ['Application ID', 'Full Name (پورا نام)', "Father Name (والد کا نام)", 'City / Area (شہر / علاقہ)', 'Profession (پیشہ)', 'Age (عمر)', 'WhatsApp / Contact (رابطہ نمبر)', 'Course (منتخب کورس)', 'Class Format', 'Status', 'Date'];
+
+  const rows = admissions.map(a => [
+    a.appId || '',
+    `"${(a.fullName || '').replace(/"/g, '""')}"`,
+    `"${(a.fatherName || '').replace(/"/g, '""')}"`,
+    `"${(a.city || '').replace(/"/g, '""')}"`,
+    `"${(a.profession || 'طالب علم').replace(/"/g, '""')}"`,
+    `"${a.age || 'N/A'}"`,
+    `"${(a.whatsapp || a.phone || '').replace(/"/g, '""')}"`,
+    `"${(a.courseName || '').replace(/"/g, '""')}"`,
+    `"${(a.preferredMode || 'Online Live').replace(/"/g, '""')}"`,
+    `"${(a.status || 'Pending').replace(/"/g, '""')}"`,
+    `"${a.date || ''}"`
+  ]);
+
+  const csvContent = '\uFEFF' + [headers.join(','), ...rows.map(r => r.join(','))].join('\r\n');
+  const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.setAttribute('href', url);
+  link.setAttribute('download', `ilmetech_admissions_${new Date().toISOString().split('T')[0]}.csv`);
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  if (window.showToast) {
+    window.showToast('تمام طلبہ کا داخلہ ریکارڈ ایکسل CSV فائل میں ڈاؤن لوڈ ہو گیا ہے!', 'success');
+  }
+};
+
 window.approveAdmission = function(appId) {
-  window.ilmDB.updateAdmissionStatus(appId, 'APPROVED');
-  window.showToast(`Admission ${appId} approved!`, 'success');
+  window.ilmDB.updateAdmissionStatus(appId, "APPROVED");
+  window.showToast(`Admission ${appId} approved!`, "success");
+  renderAdmissionsTable();
+  renderAdminStats();
+};
+
+window.rejectAdmission = function(appId) {
+  window.ilmDB.updateAdmissionStatus(appId, "REJECTED");
+  window.showToast(`Admission ${appId} rejected.`, "error");
   renderAdmissionsTable();
   renderAdminStats();
 };
