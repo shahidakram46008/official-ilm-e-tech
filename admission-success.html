@@ -26,8 +26,8 @@
         <img src="assets/images/branding/ietp-logo-112.webp" alt="عِلْمِ ٹیک پاکستان لوگو" width="56" height="56"
              class="w-12 h-12 sm:w-14 sm:h-14 rounded-xl border border-brand-gold/55 shadow-md object-cover bg-black/40 p-0.5 group-hover:border-brand-gold transition-colors">
         <div>
-          <span class="block text-xl sm:text-2xl font-bold gold-gradient-text leading-none">عِلْمِ ٹیک پاکستان</span>
-          <span class="block text-[10px] sm:text-xs font-latin text-emerald-300/90 font-semibold tracking-wider mt-1">
+          <span class="block text-xl sm:text-2xl gold-gradient-text font-nastaleeq leading-[1.9]">عِلْمِ ٹیک پاکستان</span>
+          <span class="block text-[10px] sm:text-xs font-nastaleeq text-emerald-300/90 leading-[1.7] mt-0.5">
             اے آئی اینڈ ڈیجیٹل اسکلز سینٹر
           </span>
         </div>
@@ -231,7 +231,7 @@
   </footer>
 
   <!-- Toast Notice -->
-  <div id="copyToast" class="ietp-toast hidden" role="status" aria-live="polite">نمبر کاپی ہو گیا!</div>
+  <div id="copyToast" class="ietp-toast" role="status" aria-live="polite">نمبر کاپی ہو گیا!</div>
 
   <script>
     function escapeHtml(str) {
@@ -247,10 +247,10 @@
       var toast = document.getElementById('copyToast');
       if (toast) {
         toast.textContent = label + ' نمبر کاپی ہو گیا: ' + num;
-        toast.classList.remove('hidden');
+        toast.classList.add('show');
         clearTimeout(window.__ietpToastTimer);
         window.__ietpToastTimer = setTimeout(function () {
-          toast.classList.add('hidden');
+          toast.classList.remove('show');
         }, 2400);
       }
     }

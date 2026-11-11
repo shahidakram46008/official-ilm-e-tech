@@ -8,6 +8,8 @@
        local('Jameel Noori Nastaleeq Regular'),
        local('JameelNooriNastaliq'),
        local('Nafees Nastaleeq');
+  font-weight: 400;
+  font-style: normal;
   font-display: swap;
 }
 
@@ -20,12 +22,22 @@
     font-family: 'Jameel Noori Nastaleeq', 'Noto Nastaliq Urdu', 'Gulzar', serif;
     background-color: #031c15;
     color: #f1f5f9;
-    line-height: 2.05;
+    line-height: 2.35;
+    word-spacing: 0.14em;
+    letter-spacing: 0;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
     overflow-x: hidden;
   }
 
   h1, h2, h3, h4 {
-    line-height: 1.75;
+    font-family: 'Jameel Noori Nastaleeq', 'Noto Nastaliq Urdu', 'Gulzar', serif;
+    font-weight: 400;
+    line-height: 2.25;
+    word-spacing: 0.16em;
+    letter-spacing: 0;
+    font-synthesis: none;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
   }
 
   input, select, textarea, button {
@@ -35,30 +47,42 @@
 
 .font-nastaleeq {
   font-family: 'Jameel Noori Nastaleeq', 'Noto Nastaliq Urdu', 'Gulzar', serif;
-  line-height: 2.0;
+  font-weight: 400;
+  line-height: 2.2;
+  word-spacing: 0.15em;
+  letter-spacing: 0;
+  font-synthesis: none;
 }
 
 .font-latin {
   font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   line-height: 1.5;
+  word-spacing: normal;
+  font-synthesis: weight;
+  text-shadow: none;
 }
 
+/* =========================================================
+   NASA-Grade Emerald, Gold & Platinum Brand Components
+   ========================================================= */
+
 .gold-gradient-text {
-  background: linear-gradient(135deg, #FFF0B5 0%, #D4AF37 50%, #C59B27 100%);
+  background: linear-gradient(135deg, #FFF3C4 0%, #D4AF37 52%, #C2911C 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  text-shadow: none;
 }
 
 .gold-border-glow {
-  box-shadow: 0 0 28px -6px rgba(212, 175, 55, 0.28);
+  box-shadow: 0 0 32px -6px rgba(212, 175, 55, 0.28), inset 0 1px 0 rgba(243, 229, 171, 0.2);
 }
 
 .emerald-glow {
-  box-shadow: 0 0 32px -5px rgba(16, 185, 129, 0.25);
+  box-shadow: 0 0 32px -5px rgba(16, 185, 129, 0.28);
 }
 
 .portal-bg-glow {
-  background-color: #031D16;
+  background-color: #031c15;
   background-image:
     radial-gradient(circle at 50% 10%, rgba(212, 175, 55, 0.12) 0%, transparent 55%),
     radial-gradient(circle at 10% 80%, rgba(16, 185, 129, 0.08) 0%, transparent 40%),
@@ -67,13 +91,147 @@
 
 .glow-box {
   border: 1px solid rgba(212, 175, 55, 0.35);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(212, 175, 55, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(212, 175, 55, 0.12);
 }
 
+/* Top Reading Laser Progress Bar */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2.5px;
+  z-index: 60;
+  background: linear-gradient(90deg, #AA7C11 0%, #F3E5AB 50%, #10B981 100%);
+  transform-origin: right center;
+  transform: scaleX(0);
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* Continuous Smooth News/Announcement Ticker (RTL-Safe) */
+.ietp-ticker-viewport {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  direction: ltr;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 3%, #000 97%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 3%, #000 97%, transparent 100%);
+}
+
+.ietp-ticker-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: ietp-marquee 38s linear infinite;
+}
+
+.ietp-ticker-viewport:hover .ietp-ticker-track {
+  animation-play-state: paused;
+}
+
+@keyframes ietp-marquee {
+  0% { transform: translate3d(-50%, 0, 0); }
+  100% { transform: translate3d(0%, 0, 0); }
+}
+
+/* Hero Architectural Grid & Ambient Aura Orbs */
+.hero-tech-grid {
+  background-image:
+    linear-gradient(to right, rgba(212, 175, 55, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(16, 185, 129, 0.05) 1px, transparent 1px);
+  background-size: 52px 52px;
+  -webkit-mask-image: radial-gradient(ellipse 85% 75% at 50% 35%, #000 35%, transparent 100%);
+  mask-image: radial-gradient(ellipse 85% 75% at 50% 35%, #000 35%, transparent 100%);
+}
+
+@keyframes orb-float {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(18px, -14px, 0) scale(1.06); }
+  100% { transform: translate3d(-12px, 12px, 0) scale(0.98); }
+}
+
+.aurora-orb {
+  will-change: transform;
+  animation: orb-float 14s ease-in-out infinite alternate;
+}
+
+/* Metallic Brushed Gold Light Sweep */
+.gold-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.gold-shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 65%;
+  height: 100%;
+  background: linear-gradient(110deg, transparent 20%, rgba(243, 229, 171, 0.22) 50%, transparent 80%);
+  transform: skewX(-18deg);
+  animation: gold-sweep 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes gold-sweep {
+  0%, 45% { left: -120%; }
+  75%, 100% { left: 160%; }
+}
+
+/* Orbital Precision Ring Around Founder Portrait */
+@keyframes orbital-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.orbital-ring {
+  border: 1.5px dashed rgba(212, 175, 55, 0.55);
+  animation: orbital-spin 28s linear infinite;
+  will-change: transform;
+}
+
+.orbital-ring-reverse {
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  animation: orbital-spin 20s linear infinite reverse;
+  will-change: transform;
+}
+
+/* NASA Elevation Card Micro-Interaction */
+.card-nasa {
+  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 0.32s ease,
+              box-shadow 0.32s ease;
+  will-change: transform;
+}
+
+.card-nasa:hover {
+  transform: translate3d(0, -5px, 0);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7), 0 0 24px -6px rgba(212, 175, 55, 0.28);
+}
+
+/* Progressive Scroll Reveal */
+.js-anim .reveal-up {
+  opacity: 0;
+  transform: translate3d(0, 22px, 0);
+  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.js-anim .reveal-up.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.reveal-delay-1 { transition-delay: 80ms; }
+.reveal-delay-2 { transition-delay: 160ms; }
+.reveal-delay-3 { transition-delay: 240ms; }
+
+/* Primary Buttons */
 .btn-gold {
   background: linear-gradient(135deg, #ECC94B 0%, #D4AF37 50%, #B78A16 100%);
   color: #062419;
-  font-weight: 700;
   box-shadow: 0 4px 20px rgba(212, 175, 55, 0.35);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
@@ -123,4 +281,19 @@
 .ietp-toast.show {
   opacity: 1;
   transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ietp-ticker-track,
+  .aurora-orb,
+  .gold-shimmer::after,
+  .orbital-ring,
+  .orbital-ring-reverse {
+    animation: none !important;
+  }
+  .js-anim .reveal-up {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }

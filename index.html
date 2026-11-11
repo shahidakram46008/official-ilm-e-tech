@@ -34,6 +34,7 @@
 
   <!-- Compiled, Tree-Shaken Ultra-Light Static CSS -->
   <link rel="stylesheet" href="assets/css/portal.min.css">
+  <script>document.documentElement.classList.add('js-anim');</script>
 
   <!-- Non-blocking Preconnected Google Fonts (Nastaliq Fallback & Latin UI) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -145,33 +146,76 @@
 </head>
 <body class="selection:bg-brand-gold selection:text-brand-dark antialiased min-h-screen flex flex-col">
 
-  <!-- Top Announcement Bar -->
-  <div class="bg-gradient-to-r from-brand-deep via-brand-emerald to-brand-deep border-b border-brand-gold/30 text-brand-gold-light py-2 px-4 text-xs md:text-sm text-center flex flex-wrap items-center justify-center gap-2">
-    <span class="font-latin inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
-      <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse mr-1.5"></span>
-      100% LIVE ZOOM
-    </span>
-    <span class="font-nastaleeq">زوم (Zoom) پر براہِ راست آن لائن لائیو کلاسز — عملی مہارت اور براہِ راست رہنمائی</span>
+  <!-- Top Laser Reading Progress Bar -->
+  <div id="scrollProgress" class="scroll-progress-bar" aria-hidden="true"></div>
+
+  <!-- Continuous Running Announcement Strip (Live Zoom + 7-Day Free AI Course) -->
+  <div class="bg-gradient-to-r from-brand-deep via-brand-emerald to-brand-deep border-b border-brand-gold/40 py-2 relative z-50">
+    <div class="max-w-7xl mx-auto px-3 flex items-center gap-3">
+      <!-- Live Pill Anchor -->
+      <a href="#admission" class="shrink-0 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-gold text-brand-dark font-latin text-[11px] font-extrabold tracking-wide shadow-md hover:bg-brand-gold-light transition-colors">
+        <span class="w-2 h-2 rounded-full bg-emerald-700 animate-ping"></span>
+        <span>LIVE ADMISSIONS</span>
+      </a>
+
+      <!-- Scrolling Marquee Track -->
+      <div class="ietp-ticker-viewport flex-1" role="region" aria-label="تازہ ترین اعلانات">
+        <div class="ietp-ticker-track">
+          <!-- Track Copy A -->
+          <div class="flex items-center gap-10 px-5 shrink-0" dir="rtl">
+            <span class="inline-flex items-center gap-2 text-xs sm:text-sm text-brand-gold-light font-nastaleeq whitespace-nowrap">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0"></span>
+              <span><strong>100% لائیو کلاسز بذریعہ زوم (Zoom)</strong> — کوئی ریکارڈڈ پورٹل نہیں! براہِ راست عملی تربیت</span>
+            </span>
+            <span class="text-brand-gold/60 font-latin">✦</span>
+            <a href="#admission" class="inline-flex items-center gap-2 text-xs sm:text-sm text-brand-gold hover:text-white font-nastaleeq whitespace-nowrap transition-colors">
+              <span class="px-2 py-0.5 rounded bg-emerald-500/20 border border-emerald-400/50 text-emerald-300 font-latin text-[10px] font-bold">FREE COURSE</span>
+              <span><strong>7 روزہ فری AI کورس</strong> میں نئے بیچ کے لیے آن لائن داخلے جاری ہیں — فوراً اپنی سیٹ محفوظ کریں!</span>
+            </a>
+            <span class="text-brand-gold/60 font-latin">✦</span>
+            <span class="inline-flex items-center gap-2 text-xs sm:text-sm text-slate-100 font-nastaleeq whitespace-nowrap">
+              <span>آفیشل واٹس ایپ و ہیلپ لائن: <strong dir="ltr" class="font-latin text-emerald-300">0307-4958837</strong> | ہیڈ آفس: عِلْمِ ٹیک پاکستان، موڑ کھنڈا، ضلع ننکانہ صاحب</span>
+            </span>
+            <span class="text-brand-gold/60 font-latin">✦</span>
+          </div>
+
+          <!-- Track Copy B (Seamless Loop Duplicate) -->
+          <div class="flex items-center gap-10 px-5 shrink-0" dir="rtl" aria-hidden="true">
+            <span class="inline-flex items-center gap-2 text-xs sm:text-sm text-brand-gold-light font-nastaleeq whitespace-nowrap">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0"></span>
+              <span><strong>100% لائیو کلاسز بذریعہ زوم (Zoom)</strong> — کوئی ریکارڈڈ پورٹل نہیں! براہِ راست عملی تربیت</span>
+            </span>
+            <span class="text-brand-gold/60 font-latin">✦</span>
+            <a href="#admission" tabindex="-1" class="inline-flex items-center gap-2 text-xs sm:text-sm text-brand-gold hover:text-white font-nastaleeq whitespace-nowrap transition-colors">
+              <span class="px-2 py-0.5 rounded bg-emerald-500/20 border border-emerald-400/50 text-emerald-300 font-latin text-[10px] font-bold">FREE COURSE</span>
+              <span><strong>7 روزہ فری AI کورس</strong> میں نئے بیچ کے لیے آن لائن داخلے جاری ہیں — فوراً اپنی سیٹ محفوظ کریں!</span>
+            </a>
+            <span class="text-brand-gold/60 font-latin">✦</span>
+            <span class="inline-flex items-center gap-2 text-xs sm:text-sm text-slate-100 font-nastaleeq whitespace-nowrap">
+              <span>آفیشل واٹس ایپ و ہیلپ لائن: <strong dir="ltr" class="font-latin text-emerald-300">0307-4958837</strong> | ہیڈ آفس: عِلْمِ ٹیک پاکستان، موڑ کھنڈا، ضلع ننکانہ صاحب</span>
+            </span>
+            <span class="text-brand-gold/60 font-latin">✦</span>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <!-- Sticky Main Header -->
-  <header class="sticky top-0 z-40 bg-brand-dark/95 backdrop-blur-md border-b border-brand-border">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+  <!-- Sticky Main Header (Flexible Height — Zero Text Overflow) -->
+  <header class="sticky top-0 z-40 bg-brand-dark/95 backdrop-blur-md border-b border-brand-gold/25 shadow-[0_6px_30px_rgba(0,0,0,0.45)]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-[84px] py-2.5 flex items-center justify-between gap-4">
 
       <!-- Logo & Brand Title -->
-      <a href="index.html" class="flex items-center gap-3 group shrink-0">
-        <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br from-brand-emerald to-brand-dark border-2 border-brand-gold/60 p-1 flex items-center justify-center shadow-lg group-hover:border-brand-gold transition-colors">
+      <a href="index.html" class="flex items-center gap-3.5 group shrink-0">
+        <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br from-brand-emerald to-brand-dark border-2 border-brand-gold/65 p-1 flex items-center justify-center shadow-lg group-hover:border-brand-gold transition-colors shrink-0">
           <img src="assets/images/branding/ietp-logo-112.webp" alt="عِلْمِ ٹیک پاکستان آفیشل لوگو" width="56" height="56" class="w-full h-full object-contain rounded-lg" fetchpriority="high">
         </div>
-        <div class="flex flex-col text-right">
-          <span class="text-xl sm:text-2xl lg:text-3xl font-bold text-white group-hover:text-brand-gold transition-colors leading-[1.3]">
+        <div class="flex flex-col justify-center text-right py-0.5">
+          <span class="text-xl sm:text-2xl text-brand-gold-light group-hover:text-brand-gold transition-colors font-nastaleeq leading-[1.85] block">
             عِلْمِ ٹیک پاکستان
           </span>
-          <span class="text-xs font-nastaleeq text-emerald-300 font-bold leading-tight">
-            اے آئی اینڈ ڈیجیٹل اسکلز سینٹر
-          </span>
-          <span class="hidden sm:block text-[10px] font-latin font-medium text-brand-gold tracking-wider uppercase leading-tight">
-            ILM E TECH PAKISTAN
+          <span class="text-[11px] sm:text-xs text-emerald-300 font-nastaleeq leading-[1.7] block">
+            اے آئی اینڈ ڈیجیٹل اسکلز سینٹر <span class="hidden xl:inline font-latin text-brand-gold/90 ms-1.5 text-[10px] tracking-wider uppercase">• ILM E TECH PAKISTAN</span>
           </span>
         </div>
       </a>
@@ -222,13 +266,18 @@
   <main class="flex-1">
 
     <!-- Hero Section -->
-    <section class="relative overflow-hidden py-12 lg:py-20 border-b border-brand-border bg-gradient-to-b from-brand-dark via-brand-deep/50 to-brand-dark">
+    <section class="relative overflow-hidden py-12 lg:py-20 border-b border-brand-border bg-gradient-to-b from-brand-dark via-brand-deep/55 to-brand-dark">
+      <!-- NASA Architectural Tech Grid & Ambient Emerald/Gold Aura Orbs -->
+      <div class="hero-tech-grid absolute inset-0 pointer-events-none" aria-hidden="true"></div>
+      <div class="aurora-orb absolute -top-24 right-1/4 w-80 h-80 rounded-full bg-emerald-500/15 blur-3xl pointer-events-none" aria-hidden="true"></div>
+      <div class="aurora-orb absolute top-1/2 -left-24 w-72 h-72 rounded-full bg-brand-gold/10 blur-3xl pointer-events-none" style="animation-delay:-5s;" aria-hidden="true"></div>
+
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
-        <!-- Poetic Motto Banner -->
-        <div class="text-center max-w-3xl mx-auto mb-10">
-          <div class="inline-block px-6 sm:px-8 py-4 rounded-2xl bg-brand-surface/75 border border-brand-gold/45 shadow-2xl gold-border-glow">
-            <p class="text-xl sm:text-3xl lg:text-4xl font-bold text-brand-gold leading-[1.9]">
+        <!-- Poetic Motto Banner with Brushed Gold Shimmer -->
+        <div class="text-center max-w-3xl mx-auto mb-12 reveal-up">
+          <div class="gold-shimmer inline-block px-6 sm:px-10 py-5 rounded-2xl bg-brand-surface/80 border border-brand-gold/50 shadow-2xl gold-border-glow">
+            <p class="text-xl sm:text-3xl lg:text-[2.15rem] text-brand-gold leading-[2.25] font-nastaleeq">
               آفاق کے ہر ہر گوشے میں پیغام پہنچا کے دم لینا<br>
               اب رُکنا نہیں، اب تھمنا نہیں، منزل کو پا کے دم لینا!
             </p>
@@ -238,28 +287,28 @@
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
 
           <!-- Hero Main Content -->
-          <div class="lg:col-span-7 text-right">
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-surface border border-emerald-500/35 text-emerald-300 text-sm mb-5">
-              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          <div class="lg:col-span-7 text-right reveal-up reveal-delay-1">
+            <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-brand-surface/90 border border-emerald-500/40 text-emerald-300 text-xs sm:text-sm mb-6 font-nastaleeq leading-[1.9]">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping shrink-0"></span>
               <span>100% آن لائن زوم لائیو اکیڈمی — کوئی ریکارڈڈ پورٹل نہیں</span>
             </div>
 
-            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-bold leading-[1.6] text-white mb-5">
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-nastaleeq leading-[2.2] text-white mb-6">
               علم، جدید ٹیکنالوجی اور
-              <span class="gold-gradient-text block mt-1">ڈیجیٹل مہارتوں کا بااعتماد پلیٹ فارم</span>
+              <span class="gold-gradient-text block mt-3 leading-[2.2]">ڈیجیٹل مہارتوں کا بااعتماد پلیٹ فارم</span>
             </h1>
 
-            <p class="text-base sm:text-xl text-slate-200 mb-8 max-w-2xl leading-[2.05]">
+            <p class="text-base sm:text-xl text-slate-200 mb-9 max-w-2xl leading-[2.3] font-nastaleeq">
               ڈاکٹر شاہد اکرم مصطفائی کی براہِ راست نگرانی میں طلبہ، نوجوانوں اور کاروباری حضرات کے لیے زوم (Zoom) پر 100% لائیو پریکٹیکل ٹریننگ — مصنوعی ذہانت (AI)، ویب ڈویلپمنٹ اور جدید ڈیجیٹل مہارتیں عملی پروجیکٹس کے ساتھ سیکھیں۔
             </p>
 
             <!-- Hero CTAs -->
             <div class="flex flex-wrap items-center gap-4 mb-10">
-              <a href="#admission" class="px-7 py-3.5 rounded-xl bg-gradient-to-r from-brand-gold via-yellow-400 to-brand-gold text-brand-dark font-bold text-lg sm:text-xl hover:shadow-xl hover:shadow-brand-gold/25 transition-all hover:scale-[1.02] flex items-center gap-2.5">
+              <a href="#admission" class="gold-shimmer btn-gold px-7 py-3.5 rounded-xl font-nastaleeq text-lg sm:text-xl flex items-center gap-2.5 leading-[1.9]">
                 <span>آن لائن داخلہ فارم پُر کریں</span>
                 <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
               </a>
-              <a href="https://wa.me/923074958837" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 rounded-xl bg-brand-surface hover:bg-brand-emerald border border-emerald-500/40 text-emerald-300 font-bold text-base sm:text-lg transition-all flex items-center gap-2">
+              <a href="https://wa.me/923074958837" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 rounded-xl bg-brand-surface hover:bg-brand-emerald border border-emerald-500/45 text-emerald-300 font-nastaleeq text-base sm:text-lg transition-all flex items-center gap-2 leading-[1.9] card-nasa">
                 <svg class="w-5 h-5 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
                 <span>ڈاکٹر شاہد اکرم سے براہِ راست رابطہ</span>
               </a>
@@ -267,51 +316,54 @@
 
             <!-- Truthful Live Metrics -->
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-3.5 pt-6 border-t border-brand-border/80">
-              <div class="bg-brand-surface/50 p-3.5 rounded-xl border border-brand-border text-center">
+              <div class="bg-brand-surface/55 p-3.5 rounded-xl border border-brand-border text-center card-nasa">
                 <div class="text-2xl sm:text-3xl font-extrabold text-brand-gold font-latin">150+</div>
-                <div class="text-xs sm:text-sm text-slate-200 mt-1">سرٹیفائیڈ طلبہ</div>
+                <div class="text-xs sm:text-sm text-slate-200 mt-1 font-nastaleeq leading-[1.9]">سرٹیفائیڈ طلبہ</div>
               </div>
-              <div class="bg-brand-surface/50 p-3.5 rounded-xl border border-brand-border text-center">
-                <div class="text-2xl sm:text-3xl font-extrabold text-white font-latin">3+ سال</div>
-                <div class="text-xs sm:text-sm text-slate-200 mt-1">عملی فیلڈ تجربہ</div>
+              <div class="bg-brand-surface/55 p-3.5 rounded-xl border border-brand-border text-center card-nasa">
+                <div class="text-2xl sm:text-3xl font-extrabold text-white font-latin">3+ <span class="font-nastaleeq text-lg font-normal">سال</span></div>
+                <div class="text-xs sm:text-sm text-slate-200 mt-1 font-nastaleeq leading-[1.9]">عملی فیلڈ تجربہ</div>
               </div>
-              <div class="bg-brand-surface/50 p-3.5 rounded-xl border border-brand-border text-center">
+              <div class="bg-brand-surface/55 p-3.5 rounded-xl border border-brand-border text-center card-nasa">
                 <div class="text-2xl sm:text-3xl font-extrabold text-emerald-400 font-latin">100%</div>
-                <div class="text-xs sm:text-sm text-slate-200 mt-1">لائیو زوم کلاسز</div>
+                <div class="text-xs sm:text-sm text-slate-200 mt-1 font-nastaleeq leading-[1.9]">لائیو زوم کلاسز</div>
               </div>
-              <div class="bg-brand-surface/50 p-3.5 rounded-xl border border-brand-border text-center">
+              <div class="bg-brand-surface/55 p-3.5 rounded-xl border border-brand-border text-center card-nasa">
                 <div class="text-2xl sm:text-3xl font-extrabold text-brand-gold font-latin">Live Q&amp;A</div>
-                <div class="text-xs sm:text-sm text-slate-200 mt-1">براہِ راست رہنمائی</div>
+                <div class="text-xs sm:text-sm text-slate-200 mt-1 font-nastaleeq leading-[1.9]">براہِ راست رہنمائی</div>
               </div>
             </div>
           </div>
 
-          <!-- Founder Profile Card -->
-          <div class="lg:col-span-5 flex justify-center scroll-mt-24" id="about">
-            <div class="relative w-full max-w-md bg-gradient-to-b from-brand-surface to-brand-dark p-6 sm:p-8 rounded-3xl border-2 border-brand-gold/60 shadow-2xl gold-border-glow">
+          <!-- Founder Profile Card with NASA Orbital Halo -->
+          <div class="lg:col-span-5 flex justify-center scroll-mt-24 reveal-up reveal-delay-2" id="about">
+            <div class="card-nasa relative w-full max-w-md bg-gradient-to-b from-brand-surface to-brand-dark p-6 sm:p-8 rounded-3xl border-2 border-brand-gold/60 shadow-2xl gold-border-glow">
               <div class="absolute -top-3.5 left-6 bg-brand-gold text-brand-dark px-4 py-1 rounded-full font-bold text-xs uppercase tracking-wider shadow-lg font-latin">
                 Official Leadership
               </div>
 
-              <div class="relative w-44 h-44 sm:w-52 sm:h-52 mx-auto mb-5">
-                <div class="absolute inset-0 rounded-full border-4 border-brand-gold"></div>
-                <img src="assets/images/ceo-avatar.webp" alt="ڈاکٹر شاہد اکرم مصطفائی — بانی و چیف ایگزیکٹو علمِ ٹیک پاکستان" width="208" height="208" fetchpriority="high" class="w-full h-full object-cover rounded-full shadow-2xl border-4 border-brand-dark">
+              <div class="relative w-48 h-48 sm:w-56 sm:h-56 mx-auto mb-6 flex items-center justify-center">
+                <div class="orbital-ring absolute inset-0 rounded-full pointer-events-none" aria-hidden="true"></div>
+                <div class="orbital-ring-reverse absolute inset-2.5 rounded-full pointer-events-none" aria-hidden="true"></div>
+                <div class="relative w-40 h-40 sm:w-48 sm:h-48 rounded-full border-4 border-brand-gold shadow-2xl overflow-hidden bg-brand-dark">
+                  <img src="assets/images/ceo-avatar.webp" alt="ڈاکٹر شاہد اکرم مصطفائی — بانی و چیف ایگزیکٹو علمِ ٹیک پاکستان" width="192" height="192" fetchpriority="high" class="w-full h-full object-cover">
+                </div>
               </div>
 
               <div class="text-center">
-                <h2 class="text-2xl sm:text-3xl font-bold text-white mb-1 leading-normal">
+                <h2 class="text-2xl sm:text-3xl font-nastaleeq text-white mb-1 leading-[2.05]">
                   ڈاکٹر شاہد اکرم مصطفائی
                 </h2>
                 <p class="text-brand-gold font-latin text-sm font-semibold mb-4">
                   Dr. Shahid Akram Mustafai | Founder &amp; CEO
                 </p>
 
-                <div class="bg-brand-dark/70 p-4 rounded-xl border border-brand-border/60 text-sm text-slate-200 leading-[1.95] mb-5">
+                <div class="bg-brand-dark/70 p-4 rounded-xl border border-brand-border/60 text-sm text-slate-200 leading-[2.2] font-nastaleeq mb-5">
                   آرٹیفیشل انٹیلیجنس (AI)، کمرشل ویڈیو ایڈ میکنگ، ویب سائٹ ڈویلپمنٹ اور بزنس اسکیلنگ میں پچھلے 3 سال سے عملی فیلڈ سے منسلک تجربہ کار ٹرینر و سرپرست۔
                 </div>
 
-                <div class="bg-emerald-950/60 border border-emerald-500/40 rounded-xl p-3.5 text-xs text-emerald-200 text-right flex items-start gap-2.5 leading-[1.8]">
-                  <svg class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+                <div class="bg-emerald-950/60 border border-emerald-500/40 rounded-xl p-3.5 text-xs text-emerald-200 text-right flex items-start gap-2.5 leading-[2.1] font-nastaleeq">
+                  <svg class="w-5 h-5 text-emerald-400 shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
                   <span>تمام کورسز 100% زوم لائیو انٹرایکٹو کلاسز پر مشتمل ہیں۔ طلبہ دورانِ کلاس براہِ راست سوالات پوچھ کر اپنی کنفیوژن دور کر سکتے ہیں۔</span>
                 </div>
               </div>
@@ -333,7 +385,7 @@
             <h2 class="text-xl sm:text-2xl font-bold text-amber-300 mb-3">
               ادارے کی اہم تدریسی پالیسی و ضوابط (لازمی مطالعہ فرمائیں):
             </h2>
-            <ul class="text-sm sm:text-base text-slate-200 space-y-2 list-disc list-inside leading-[1.95]">
+            <ul class="text-sm sm:text-base text-slate-200 space-y-2.5 list-disc list-inside leading-[2.2] font-nastaleeq">
               <li><strong>100% آن لائن لائیو کلاسز:</strong> تمام کلاسز مقررہ اوقات پر صرف زوم (Zoom) کے ذریعے آن لائن لائیو منعقد ہوتی ہیں تاکہ پاکستان سمیت دنیا بھر سے طلبہ شریک ہو سکیں۔</li>
               <li><strong>پابندیِ وقت اور عملی توجہ:</strong> ہمارا مقصد حقیقی عملی مہارت سکھانا ہے، اس لیے ہر طالب علم کا مقررہ وقت پر لائیو کلاس میں شریک ہونا ضروری ہے (خودکار ریکارڈنگ سسٹم پر انحصار نہیں کیا جاتا)۔</li>
               <li><strong>براہِ راست لائیو پریکٹس:</strong> کسی ریکارڈڈ پورٹل (LMS) کے بجائے تمام لیکچرز، اسائنمنٹس اور پریکٹیکل پروجیکٹس براہِ راست ٹرینر کی نگرانی میں لائیو اسکرین شیئر پر کروائے جاتے ہیں۔</li>
@@ -360,17 +412,17 @@
         <!-- 6 Courses Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
 
-          <!-- Course 1: Basic AI (Free) -->
-          <div class="bg-brand-surface/75 border border-emerald-500/35 rounded-2xl p-6 flex flex-col justify-between hover:border-brand-gold transition-all shadow-lg">
+          <!-- Course 1: Basic AI (7-Day Free) -->
+          <div class="card-nasa reveal-up bg-brand-surface/80 border border-emerald-500/40 rounded-2xl p-6 flex flex-col justify-between hover:border-brand-gold shadow-lg">
             <div>
               <div class="flex items-center justify-between mb-4">
-                <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">100% مفت کورس</span>
+                <span class="px-3 py-1 rounded-full text-xs bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 font-nastaleeq">7 روزہ 100% مفت کورس</span>
                 <span class="text-xs text-slate-300 font-latin" dir="ltr">7 Days • Zoom Live</span>
               </div>
-              <h3 class="text-2xl font-bold text-white mb-2">
-                1. بیسک اے آئی کورس <span class="text-sm font-latin text-emerald-300 block" dir="ltr">(Basic AI Course)</span>
+              <h3 class="text-2xl font-nastaleeq text-white mb-2 leading-[2.1]">
+                1. بیسک اے آئی کورس (7 روزہ فری) <span class="text-sm font-latin text-emerald-300 block mt-1" dir="ltr">(Basic AI Course)</span>
               </h3>
-              <p class="text-slate-200 text-sm mb-6 leading-[1.9]">
+              <p class="text-slate-200 text-sm mb-6 leading-[2.2] font-nastaleeq">
                 چیٹ جی پی ٹی (ChatGPT) اور بنیادی AI ٹولز سے روزمرہ کام، مواد کی تیاری اور ڈیجیٹل مہارتوں کا عملی آغاز کریں۔
               </p>
             </div>
@@ -378,26 +430,26 @@
               <div class="text-2xl font-extrabold text-brand-gold font-latin mb-4" dir="ltr">
                 Rs. 0 <span class="text-sm font-normal text-slate-400 line-through ml-1">Rs. 5,000</span>
               </div>
-              <a href="#admission" data-course="Basic AI - Free" class="course-select-btn w-full block text-center py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold transition-colors">
+              <a href="#admission" data-course="Basic AI - Free" class="course-select-btn w-full block text-center py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-nastaleeq text-base transition-colors">
                 مفت داخلہ حاصل کریں
               </a>
             </div>
           </div>
 
           <!-- Course 2: AI Content & Video Editing -->
-          <div class="bg-brand-surface border-2 border-brand-gold rounded-2xl p-6 flex flex-col justify-between hover:shadow-2xl hover:shadow-brand-gold/15 transition-all relative">
+          <div class="card-nasa reveal-up reveal-delay-1 bg-brand-surface border-2 border-brand-gold rounded-2xl p-6 flex flex-col justify-between relative gold-border-glow">
             <div class="absolute -top-3 left-6 bg-brand-gold text-brand-dark px-3 py-0.5 rounded-full text-xs font-extrabold tracking-wide uppercase font-latin">
               Most Popular
             </div>
             <div>
               <div class="flex items-center justify-between mb-4">
-                <span class="px-3 py-1 rounded-full text-xs font-bold bg-brand-gold/20 text-brand-gold border border-brand-gold/40">سب سے زیادہ مقبول</span>
+                <span class="px-3 py-1 rounded-full text-xs bg-brand-gold/20 text-brand-gold border border-brand-gold/40 font-nastaleeq">سب سے زیادہ مقبول</span>
                 <span class="text-xs text-slate-300 font-latin" dir="ltr">Zoom Live</span>
               </div>
-              <h3 class="text-2xl font-bold text-white mb-2">
-                2. اے آئی کنٹینٹ کریشن و ویڈیو ایڈیٹنگ <span class="text-sm font-latin text-brand-gold block" dir="ltr">(AI Content &amp; Video Editing)</span>
+              <h3 class="text-2xl font-nastaleeq text-white mb-2 leading-[2.1]">
+                2. اے آئی کنٹینٹ کریشن و ویڈیو ایڈیٹنگ <span class="text-sm font-latin text-brand-gold block mt-1" dir="ltr">(AI Content &amp; Video Editing)</span>
               </h3>
-              <p class="text-slate-200 text-sm mb-6 leading-[1.9]">
+              <p class="text-slate-200 text-sm mb-6 leading-[2.2] font-nastaleeq">
                 اسکرپٹ رائٹنگ، اے آئی اوتار، وائس اوور اور کمرشل ویڈیو ایڈیٹنگ برائے سوشل میڈیا و کاروبار۔
               </p>
             </div>
@@ -405,23 +457,23 @@
               <div class="text-2xl font-extrabold text-brand-gold font-latin mb-4" dir="ltr">
                 Rs. 3,500 <span class="text-sm font-normal text-slate-400 line-through ml-1">Rs. 10,000</span>
               </div>
-              <a href="#admission" data-course="AI Content & Video Editing - Rs 3,500" class="course-select-btn w-full block text-center py-3 rounded-xl bg-gradient-to-r from-brand-gold to-yellow-500 hover:from-yellow-400 hover:to-brand-gold text-brand-dark font-extrabold transition-all">
-                داخلہ فارم پُر کریں <span class="font-latin" dir="ltr">(Rs. 3,500)</span>
+              <a href="#admission" data-course="AI Content & Video Editing - Rs 3,500" class="gold-shimmer btn-gold course-select-btn w-full block text-center py-3 rounded-xl font-nastaleeq text-base">
+                داخلہ فارم پُر کریں <span class="font-latin text-xs font-bold" dir="ltr">(Rs. 3,500)</span>
               </a>
             </div>
           </div>
 
           <!-- Course 3: AI Tools Mastery -->
-          <div class="bg-brand-surface/75 border border-emerald-500/35 rounded-2xl p-6 flex flex-col justify-between hover:border-brand-gold transition-all shadow-lg">
+          <div class="card-nasa reveal-up reveal-delay-2 bg-brand-surface/80 border border-emerald-500/35 rounded-2xl p-6 flex flex-col justify-between hover:border-brand-gold shadow-lg">
             <div>
               <div class="flex items-center justify-between mb-4">
-                <span class="px-3 py-1 rounded-full text-xs font-bold bg-blue-500/20 text-blue-300 border border-blue-500/40">اسکلز بوسٹر</span>
+                <span class="px-3 py-1 rounded-full text-xs bg-blue-500/20 text-blue-300 border border-blue-500/40 font-nastaleeq">اسکلز بوسٹر</span>
                 <span class="text-xs text-slate-300 font-latin" dir="ltr">30 Days • Zoom Live</span>
               </div>
-              <h3 class="text-2xl font-bold text-white mb-2">
-                3. اے آئی ٹولز ماسٹری <span class="text-sm font-latin text-blue-300 block" dir="ltr">(AI Tools Mastery)</span>
+              <h3 class="text-2xl font-nastaleeq text-white mb-2 leading-[2.1]">
+                3. اے آئی ٹولز ماسٹری <span class="text-sm font-latin text-blue-300 block mt-1" dir="ltr">(AI Tools Mastery)</span>
               </h3>
-              <p class="text-slate-200 text-sm mb-6 leading-[1.9]">
+              <p class="text-slate-200 text-sm mb-6 leading-[2.2] font-nastaleeq">
                 15 سے زائد جدید اے آئی ٹولز بشمول Midjourney، Leonardo، HeyGen اور Canva AI کی مکمل عملی ٹریننگ۔
               </p>
             </div>
@@ -429,23 +481,23 @@
               <div class="text-2xl font-extrabold text-brand-gold font-latin mb-4" dir="ltr">
                 Rs. 3,000 <span class="text-sm font-normal text-slate-400 line-through ml-1">Rs. 10,000</span>
               </div>
-              <a href="#admission" data-course="AI Tools Mastery - Rs 3,000" class="course-select-btn w-full block text-center py-3 rounded-xl bg-brand-border hover:bg-brand-emerald text-white font-bold transition-colors">
+              <a href="#admission" data-course="AI Tools Mastery - Rs 3,000" class="course-select-btn w-full block text-center py-3 rounded-xl bg-brand-border hover:bg-brand-emerald text-white font-nastaleeq text-base transition-colors">
                 داخلہ فارم پُر کریں
               </a>
             </div>
           </div>
 
           <!-- Course 4: AI Website Development -->
-          <div class="bg-brand-surface/75 border border-emerald-500/35 rounded-2xl p-6 flex flex-col justify-between hover:border-brand-gold transition-all shadow-lg">
+          <div class="card-nasa reveal-up bg-brand-surface/80 border border-emerald-500/35 rounded-2xl p-6 flex flex-col justify-between hover:border-brand-gold shadow-lg">
             <div>
               <div class="flex items-center justify-between mb-4">
-                <span class="px-3 py-1 rounded-full text-xs font-bold bg-purple-500/20 text-purple-300 border border-purple-500/40">ہائی ڈیمانڈ</span>
+                <span class="px-3 py-1 rounded-full text-xs bg-purple-500/20 text-purple-300 border border-purple-500/40 font-nastaleeq">ہائی ڈیمانڈ</span>
                 <span class="text-xs text-slate-300 font-latin" dir="ltr">15 Days • Zoom Live</span>
               </div>
-              <h3 class="text-2xl font-bold text-white mb-2">
-                4. اے آئی ویب سائٹ ڈویلپمنٹ <span class="text-sm font-latin text-purple-300 block" dir="ltr">(AI Website Development)</span>
+              <h3 class="text-2xl font-nastaleeq text-white mb-2 leading-[2.1]">
+                4. اے آئی ویب سائٹ ڈویلپمنٹ <span class="text-sm font-latin text-purple-300 block mt-1" dir="ltr">(AI Website Development)</span>
               </h3>
-              <p class="text-slate-200 text-sm mb-6 leading-[1.9]">
+              <p class="text-slate-200 text-sm mb-6 leading-[2.2] font-nastaleeq">
                 بغیر مشکل کوڈنگ کے ای کامرس ویب سائٹس، لینڈنگ پیجز، سیلز فنلز اور پروفیشنل ویب ڈیزائننگ۔
               </p>
             </div>
@@ -453,23 +505,23 @@
               <div class="text-2xl font-extrabold text-brand-gold font-latin mb-4" dir="ltr">
                 Rs. 5,000 <span class="text-sm font-normal text-slate-400 line-through ml-1">Rs. 15,000</span>
               </div>
-              <a href="#admission" data-course="AI Website Development - Rs 5,000" class="course-select-btn w-full block text-center py-3 rounded-xl bg-brand-border hover:bg-brand-emerald text-white font-bold transition-colors">
+              <a href="#admission" data-course="AI Website Development - Rs 5,000" class="course-select-btn w-full block text-center py-3 rounded-xl bg-brand-border hover:bg-brand-emerald text-white font-nastaleeq text-base transition-colors">
                 داخلہ فارم پُر کریں
               </a>
             </div>
           </div>
 
           <!-- Course 5: AI Software Engineering -->
-          <div class="bg-brand-surface/75 border border-emerald-500/35 rounded-2xl p-6 flex flex-col justify-between hover:border-brand-gold transition-all shadow-lg">
+          <div class="card-nasa reveal-up reveal-delay-1 bg-brand-surface/80 border border-emerald-500/35 rounded-2xl p-6 flex flex-col justify-between hover:border-brand-gold shadow-lg">
             <div>
               <div class="flex items-center justify-between mb-4">
-                <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40">ایڈوانس لیول</span>
+                <span class="px-3 py-1 rounded-full text-xs bg-amber-500/20 text-amber-300 border border-amber-500/40 font-nastaleeq">ایڈوانس لیول</span>
                 <span class="text-xs text-slate-300 font-latin" dir="ltr">Zoom Live</span>
               </div>
-              <h3 class="text-2xl font-bold text-white mb-2">
-                5. اے آئی سافٹ ویئر انجینئرنگ <span class="text-sm font-latin text-amber-300 block" dir="ltr">(AI Software Engineering)</span>
+              <h3 class="text-2xl font-nastaleeq text-white mb-2 leading-[2.1]">
+                5. اے آئی سافٹ ویئر انجینئرنگ <span class="text-sm font-latin text-amber-300 block mt-1" dir="ltr">(AI Software Engineering)</span>
               </h3>
-              <p class="text-slate-200 text-sm mb-6 leading-[1.9]">
+              <p class="text-slate-200 text-sm mb-6 leading-[2.2] font-nastaleeq">
                 اے آئی ایجنٹس، کسٹم چیٹ بوٹس، خودکار ورک فلوز اور جدید APIs کی عملی انٹیگریشن اور ایپ ڈویلپمنٹ۔
               </p>
             </div>
@@ -477,23 +529,23 @@
               <div class="text-2xl font-extrabold text-brand-gold font-latin mb-4" dir="ltr">
                 Rs. 15,000 <span class="text-sm font-normal text-slate-400 line-through ml-1">Rs. 30,000</span>
               </div>
-              <a href="#admission" data-course="AI Software Engineering - Rs 15,000" class="course-select-btn w-full block text-center py-3 rounded-xl bg-brand-border hover:bg-brand-emerald text-white font-bold transition-colors">
+              <a href="#admission" data-course="AI Software Engineering - Rs 15,000" class="course-select-btn w-full block text-center py-3 rounded-xl bg-brand-border hover:bg-brand-emerald text-white font-nastaleeq text-base transition-colors">
                 داخلہ فارم پُر کریں
               </a>
             </div>
           </div>
 
           <!-- Course 6: 1-on-1 VIP Mentorship -->
-          <div class="bg-gradient-to-b from-brand-surface to-brand-deep border-2 border-brand-gold/65 rounded-2xl p-6 flex flex-col justify-between hover:border-brand-gold transition-all shadow-lg">
+          <div class="card-nasa reveal-up reveal-delay-2 bg-gradient-to-b from-brand-surface to-brand-deep border-2 border-brand-gold/65 rounded-2xl p-6 flex flex-col justify-between hover:border-brand-gold shadow-lg">
             <div>
               <div class="flex items-center justify-between mb-4">
                 <span class="px-3 py-1 rounded-full text-xs font-bold bg-brand-gold text-brand-dark font-latin">1-on-1 VIP</span>
                 <span class="text-xs text-slate-300 font-latin" dir="ltr">Personal Zoom Live</span>
               </div>
-              <h3 class="text-2xl font-bold text-brand-gold mb-2">
-                6. ون آن ون پرسنل مینٹورشپ <span class="text-sm font-latin text-amber-200 block" dir="ltr">(VIP Mentorship)</span>
+              <h3 class="text-2xl font-nastaleeq text-brand-gold mb-2 leading-[2.1]">
+                6. ون آن ون پرسنل مینٹورشپ <span class="text-sm font-latin text-amber-200 block mt-1" dir="ltr">(VIP Mentorship)</span>
               </h3>
-              <p class="text-slate-200 text-sm mb-6 leading-[1.9]">
+              <p class="text-slate-200 text-sm mb-6 leading-[2.2] font-nastaleeq">
                 ڈاکٹر شاہد اکرم مصطفائی کے ساتھ براہِ راست ون آن ون گائیڈنس، فری لانسنگ اور کاروباری ترقی کا خصوصی پروگرام۔
               </p>
             </div>
@@ -501,7 +553,7 @@
               <div class="text-2xl font-extrabold text-white font-latin mb-4">
                 <span dir="ltr">Rs. 20,000</span> <span class="text-sm font-nastaleeq font-normal text-slate-300">/ مکمل رہنمائی</span>
               </div>
-              <a href="#admission" data-course="VIP Mentorship - Rs 20,000" class="course-select-btn w-full block text-center py-3 rounded-xl bg-brand-gold hover:bg-amber-400 text-brand-dark font-bold transition-colors">
+              <a href="#admission" data-course="VIP Mentorship - Rs 20,000" class="gold-shimmer btn-gold course-select-btn w-full block text-center py-3 rounded-xl font-nastaleeq text-base">
                 خصوصی سیٹ بُک کریں
               </a>
             </div>
@@ -526,36 +578,36 @@
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div class="bg-brand-surface/65 p-6 rounded-2xl border border-brand-border text-center">
+          <div class="card-nasa reveal-up bg-brand-surface/70 p-6 rounded-2xl border border-brand-border hover:border-brand-gold/70 text-center">
             <div class="w-12 h-12 mx-auto rounded-xl bg-emerald-500/15 text-emerald-400 flex items-center justify-center mb-4">
               <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg>
             </div>
-            <h3 class="text-xl font-bold text-white mb-2">کمرشل و ویڈیو ایڈز</h3>
-            <p class="text-slate-300 text-sm leading-[1.85]">اے آئی پر مبنی کمرشل اشتہارات اور پرکشش پروموشنل ویڈیوز</p>
+            <h3 class="text-xl font-nastaleeq text-white mb-2 leading-[2.05]">کمرشل و ویڈیو ایڈز</h3>
+            <p class="text-slate-300 text-sm leading-[2.2] font-nastaleeq">اے آئی پر مبنی کمرشل اشتہارات اور پرکشش پروموشنل ویڈیوز</p>
           </div>
 
-          <div class="bg-brand-surface/65 p-6 rounded-2xl border border-brand-border text-center">
+          <div class="card-nasa reveal-up reveal-delay-1 bg-brand-surface/70 p-6 rounded-2xl border border-brand-border hover:border-brand-gold/70 text-center">
             <div class="w-12 h-12 mx-auto rounded-xl bg-brand-gold/15 text-brand-gold flex items-center justify-center mb-4">
               <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
             </div>
-            <h3 class="text-xl font-bold text-white mb-2">ٹارگٹڈ سوشل میڈیا ایڈز</h3>
-            <p class="text-slate-300 text-sm leading-[1.85]">فیس بک اور انسٹاگرام پر لیڈ جنریشن اور درست صارفین تک رسائی</p>
+            <h3 class="text-xl font-nastaleeq text-white mb-2 leading-[2.05]">ٹارگٹڈ سوشل میڈیا ایڈز</h3>
+            <p class="text-slate-300 text-sm leading-[2.2] font-nastaleeq">فیس بک اور انسٹاگرام پر لیڈ جنریشن اور درست صارفین تک رسائی</p>
           </div>
 
-          <div class="bg-brand-surface/65 p-6 rounded-2xl border border-brand-border text-center">
+          <div class="card-nasa reveal-up reveal-delay-2 bg-brand-surface/70 p-6 rounded-2xl border border-brand-border hover:border-brand-gold/70 text-center">
             <div class="w-12 h-12 mx-auto rounded-xl bg-blue-500/15 text-blue-400 flex items-center justify-center mb-4">
               <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/></svg>
             </div>
-            <h3 class="text-xl font-bold text-white mb-2">مکمل سوشل میڈیا مینجمنٹ</h3>
-            <p class="text-slate-300 text-sm leading-[1.85]">فیس بک، ٹک ٹاک اور یوٹیوب کی مکمل پیشہ ورانہ دیکھ بھال</p>
+            <h3 class="text-xl font-nastaleeq text-white mb-2 leading-[2.05]">مکمل سوشل میڈیا مینجمنٹ</h3>
+            <p class="text-slate-300 text-sm leading-[2.2] font-nastaleeq">فیس بک، ٹک ٹاک اور یوٹیوب کی مکمل پیشہ ورانہ دیکھ بھال</p>
           </div>
 
-          <div class="bg-brand-surface/65 p-6 rounded-2xl border border-brand-border text-center">
+          <div class="card-nasa reveal-up reveal-delay-3 bg-brand-surface/70 p-6 rounded-2xl border border-brand-border hover:border-brand-gold/70 text-center">
             <div class="w-12 h-12 mx-auto rounded-xl bg-purple-500/15 text-purple-400 flex items-center justify-center mb-4">
               <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
             </div>
-            <h3 class="text-xl font-bold text-white mb-2">بزنس گروتھ و ویب سائٹس</h3>
-            <p class="text-slate-300 text-sm leading-[1.85]">کاروبار کے لیے جدید ویب سائٹس، سیلز فنلز اور ای کامرس حل</p>
+            <h3 class="text-xl font-nastaleeq text-white mb-2 leading-[2.05]">بزنس گروتھ و ویب سائٹس</h3>
+            <p class="text-slate-300 text-sm leading-[2.2] font-nastaleeq">کاروبار کے لیے جدید ویب سائٹس، سیلز فنلز اور ای کامرس حل</p>
           </div>
         </div>
       </div>
@@ -581,28 +633,28 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-7 mb-10">
 
           <!-- Proof 1: Muhammad Waseem Raza -->
-          <article class="bg-brand-surface/85 rounded-2xl border border-brand-border overflow-hidden shadow-xl flex flex-col">
+          <article class="card-nasa reveal-up bg-brand-surface/85 rounded-2xl border border-brand-border hover:border-brand-gold/70 overflow-hidden shadow-xl flex flex-col">
             <div class="p-4 bg-brand-deep/80 border-b border-brand-border flex items-center justify-between">
               <div class="flex items-center gap-2">
                 <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
-                <h3 class="font-bold text-white text-base">محمد وسیم رضا</h3>
+                <h3 class="font-nastaleeq text-white text-base leading-[1.9]">محمد وسیم رضا</h3>
               </div>
               <span class="text-xs text-brand-gold font-latin">Verified Student</span>
             </div>
             <button type="button" onclick="openProofModal('assets/images/testimonials/review-waseem-raza.webp', 'محمد وسیم رضا کا واٹس ایپ پیغام')" class="p-4 flex-1 flex items-center justify-center bg-black/40 hover:bg-black/60 transition-colors cursor-zoom-in group" aria-label="محمد وسیم رضا کا اسکرین شاٹ بڑا کر کے دیکھیں">
               <img src="assets/images/testimonials/review-waseem-raza.webp" alt="محمد وسیم رضا کا واٹس ایپ ریویو" width="320" height="560" loading="lazy" decoding="async" class="rounded-xl max-h-80 w-auto object-contain border border-brand-border group-hover:scale-[1.02] transition-transform">
             </button>
-            <div class="p-4 bg-brand-surface text-sm text-slate-200 border-t border-brand-border text-right leading-[1.85]">
+            <div class="p-4 bg-brand-surface text-sm text-slate-200 border-t border-brand-border text-right leading-[2.15] font-nastaleeq">
               "ڈاکٹر صاحب آپ ایک عظیم انسان ہیں، خدمتِ خلق کر رہے ہیں اور بہترین کام کر رہے ہیں۔ اللہ آپ کو جزائے خیر عطا فرمائے۔"
             </div>
           </article>
 
           <!-- Proof 2: Syed Ahsan Ali Shah -->
-          <article class="bg-brand-surface/85 rounded-2xl border border-brand-border overflow-hidden shadow-xl flex flex-col">
+          <article class="card-nasa reveal-up reveal-delay-1 bg-brand-surface/85 rounded-2xl border border-brand-border hover:border-brand-gold/70 overflow-hidden shadow-xl flex flex-col">
             <div class="p-4 bg-brand-deep/80 border-b border-brand-border flex items-center justify-between">
               <div class="flex items-center gap-2">
                 <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
-                <h3 class="font-bold text-white text-base">سید احسن علی شاہ <span class="text-xs text-emerald-300 font-normal">(لاڑکانہ)</span></h3>
+                <h3 class="font-nastaleeq text-white text-base leading-[1.9]">سید احسن علی شاہ <span class="text-xs text-emerald-300">(لاڑکانہ)</span></h3>
               </div>
               <span class="text-xs text-brand-gold font-latin">Verified Student</span>
             </div>
@@ -615,11 +667,11 @@
           </article>
 
           <!-- Proof 3: Muhammad Sajid (Karachi) -->
-          <article class="bg-brand-surface/85 rounded-2xl border border-brand-border overflow-hidden shadow-xl flex flex-col">
+          <article class="card-nasa reveal-up reveal-delay-2 bg-brand-surface/85 rounded-2xl border border-brand-border hover:border-brand-gold/70 overflow-hidden shadow-xl flex flex-col">
             <div class="p-4 bg-brand-deep/80 border-b border-brand-border flex items-center justify-between">
               <div class="flex items-center gap-2">
                 <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
-                <h3 class="font-bold text-white text-base">محمد ساجد <span class="text-xs text-emerald-300 font-normal">(کراچی)</span></h3>
+                <h3 class="font-nastaleeq text-white text-base leading-[1.9]">محمد ساجد <span class="text-xs text-emerald-300">(کراچی)</span></h3>
               </div>
               <span class="text-xs text-brand-gold font-latin">Verified Student</span>
             </div>
@@ -637,57 +689,57 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
 
           <!-- Zarish (Founder Royal Tach) -->
-          <div class="bg-brand-surface/65 border border-brand-gold/40 rounded-2xl p-5 flex flex-col justify-between">
+          <div class="card-nasa reveal-up bg-brand-surface/65 border border-brand-gold/40 hover:border-brand-gold rounded-2xl p-5 flex flex-col justify-between">
             <div>
-              <div class="font-bold text-brand-gold text-lg">زرش (فیصل آباد)</div>
+              <div class="font-nastaleeq text-brand-gold text-lg leading-[1.9]">زرش (فیصل آباد)</div>
               <div class="text-xs text-emerald-300 font-latin mb-2" dir="ltr">Founder &amp; CEO — Royal Tach</div>
-              <p class="text-sm text-slate-200 leading-[1.85] mb-3">
+              <p class="text-sm text-slate-200 leading-[2.15] font-nastaleeq mb-3">
                 "میرے نزدیک بہترین استاد وہ ہے جو شاگرد کو اس قابل بنا دے کہ وہ خود سافٹ ویئرز اور ویب سائٹس تخلیق کر سکے۔"
               </p>
             </div>
-            <button type="button" onclick="openProofModal('assets/images/testimonials/review-zarish-royal-tach.webp', 'زرش (Founder & CEO — Royal Tach) کا تصدیق شدہ پیغام')" class="text-xs font-bold text-brand-gold hover:underline text-right flex items-center gap-1.5">
+            <button type="button" onclick="openProofModal('assets/images/testimonials/review-zarish-royal-tach.webp', 'زرش (Founder & CEO — Royal Tach) کا تصدیق شدہ پیغام')" class="text-xs font-nastaleeq text-brand-gold hover:underline text-right flex items-center gap-1.5">
               <span>اصل اسکرین شاٹ دیکھیں ←</span>
             </button>
           </div>
 
           <!-- Mian Muhammad Hassan Jan -->
-          <div class="bg-brand-surface/65 border border-brand-border rounded-2xl p-5 flex flex-col justify-between">
+          <div class="card-nasa reveal-up reveal-delay-1 bg-brand-surface/65 border border-brand-border hover:border-brand-gold/70 rounded-2xl p-5 flex flex-col justify-between">
             <div>
-              <div class="font-bold text-white text-lg">میاں محمد حسن جان</div>
-              <div class="text-xs text-emerald-300 mb-2">چارسدہ، خیبرپختونخوا</div>
-              <p class="text-sm text-slate-200 leading-[1.85] mb-3">
+              <div class="font-nastaleeq text-white text-lg leading-[1.9]">میاں محمد حسن جان</div>
+              <div class="text-xs text-emerald-300 font-nastaleeq mb-2">چارسدہ، خیبرپختونخوا</div>
+              <p class="text-sm text-slate-200 leading-[2.15] font-nastaleeq mb-3">
                 "لگا ہی نہیں کہ پہلی کلاس ہے۔ سر نے ہر بات اتنے پیار اور آسانی سے سمجھائی کہ AI اب مشکل نہیں بلکہ دلچسپ لگنے لگی۔"
               </p>
             </div>
-            <button type="button" onclick="openProofModal('assets/images/testimonials/review-hassan-charsadda.webp', 'میاں محمد حسن جان (چارسدہ، کے پی کے) کا پیغام')" class="text-xs font-bold text-brand-gold hover:underline text-right flex items-center gap-1.5">
+            <button type="button" onclick="openProofModal('assets/images/testimonials/review-hassan-charsadda.webp', 'میاں محمد حسن جان (چارسدہ، کے پی کے) کا پیغام')" class="text-xs font-nastaleeq text-brand-gold hover:underline text-right flex items-center gap-1.5">
               <span>اصل اسکرین شاٹ دیکھیں ←</span>
             </button>
           </div>
 
           <!-- M. Dawood Liaqat Ali -->
-          <div class="bg-brand-surface/65 border border-brand-border rounded-2xl p-5 flex flex-col justify-between">
+          <div class="card-nasa reveal-up reveal-delay-2 bg-brand-surface/65 border border-brand-border hover:border-brand-gold/70 rounded-2xl p-5 flex flex-col justify-between">
             <div>
-              <div class="font-bold text-white text-lg">محمد داؤد الحسن</div>
-              <div class="text-xs text-emerald-300 mb-2">لالا ٹریولز اینڈ ٹورز (ننکانہ صاحب)</div>
-              <p class="text-sm text-slate-200 leading-[1.85] mb-3">
+              <div class="font-nastaleeq text-white text-lg leading-[1.9]">محمد داؤد الحسن</div>
+              <div class="text-xs text-emerald-300 font-nastaleeq mb-2">لالا ٹریولز اینڈ ٹورز (ننکانہ صاحب)</div>
+              <p class="text-sm text-slate-200 leading-[2.15] font-nastaleeq mb-3">
                 "محض دو دن میں سر شاہد اکرم صاحب سے سیکھ کر اپنے بزنس کے لیے بہترین کمرشل پوسٹر ڈیزائن کرنا سیکھ گیا ہوں۔"
               </p>
             </div>
-            <button type="button" onclick="openProofModal('assets/images/testimonials/review-dawood-nankana.webp', 'محمد داؤد (ننکانہ صاحب) کا 2 روزہ ڈیزائننگ پراجیکٹ')" class="text-xs font-bold text-brand-gold hover:underline text-right flex items-center gap-1.5">
+            <button type="button" onclick="openProofModal('assets/images/testimonials/review-dawood-nankana.webp', 'محمد داؤد (ننکانہ صاحب) کا 2 روزہ ڈیزائننگ پراجیکٹ')" class="text-xs font-nastaleeq text-brand-gold hover:underline text-right flex items-center gap-1.5">
               <span>پراجیکٹ پوسٹ دیکھیں ←</span>
             </button>
           </div>
 
           <!-- Namal Noor -->
-          <div class="bg-brand-surface/65 border border-brand-border rounded-2xl p-5 flex flex-col justify-between">
+          <div class="card-nasa reveal-up reveal-delay-3 bg-brand-surface/65 border border-brand-border hover:border-brand-gold/70 rounded-2xl p-5 flex flex-col justify-between">
             <div>
-              <div class="font-bold text-white text-lg">نمل نور (Namal Noor)</div>
-              <div class="text-xs text-emerald-300 mb-2">3D اینیمیشن و ویب پراجیکٹ</div>
-              <p class="text-sm text-slate-200 leading-[1.85] mb-3">
+              <div class="font-nastaleeq text-white text-lg leading-[1.9]">نمل نور (Namal Noor)</div>
+              <div class="text-xs text-emerald-300 font-nastaleeq mb-2">3D اینیمیشن و ویب پراجیکٹ</div>
+              <p class="text-sm text-slate-200 leading-[2.15] font-nastaleeq mb-3">
                 "دو ماہ میں اینیمیشن، ویب سائٹ اور مختلف ایڈز بنانا سیکھ چکی ہوں۔ سب کو ریکمنڈ کروں گی کہ ان سے اپنی اسکلز نکھاریں۔"
               </p>
             </div>
-            <button type="button" onclick="openProofModal('assets/images/testimonials/review-namal-noor.webp', 'نمل نور کا پہلا عملی پراجیکٹ')" class="text-xs font-bold text-brand-gold hover:underline text-right flex items-center gap-1.5">
+            <button type="button" onclick="openProofModal('assets/images/testimonials/review-namal-noor.webp', 'نمل نور کا پہلا عملی پراجیکٹ')" class="text-xs font-nastaleeq text-brand-gold hover:underline text-right flex items-center gap-1.5">
               <span>پراجیکٹ ثبوت دیکھیں ←</span>
             </button>
           </div>
@@ -861,51 +913,51 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8 items-stretch">
 
           <!-- EasyPaisa -->
-          <div class="bg-brand-surface/75 border border-brand-border p-5 rounded-2xl text-center flex flex-col justify-between">
+          <div class="card-nasa reveal-up bg-brand-surface/75 border border-brand-border hover:border-emerald-400/70 p-5 rounded-2xl text-center flex flex-col justify-between">
             <div>
               <div class="text-emerald-400 font-latin font-bold text-lg mb-1">EasyPaisa</div>
-              <div class="text-xs text-slate-300">اکاؤنٹ ٹائٹل:</div>
+              <div class="text-xs text-slate-300 font-nastaleeq">اکاؤنٹ ٹائٹل:</div>
               <div class="text-sm font-bold text-white font-latin">Dr. Shahid Akram</div>
               <div class="text-brand-gold font-latin font-extrabold text-lg mt-2 tracking-wider" dir="ltr">0320-6546008</div>
             </div>
-            <button type="button" onclick="copyText('03206546008')" class="mt-3 py-1.5 px-3 rounded-lg bg-brand-dark border border-brand-border hover:border-brand-gold text-xs text-slate-200 transition-colors">
+            <button type="button" onclick="copyText('03206546008')" class="mt-3 py-1.5 px-3 rounded-lg bg-brand-dark border border-brand-border hover:border-brand-gold text-xs text-slate-200 transition-colors cursor-pointer">
               نمبر کاپی کریں
             </button>
           </div>
 
           <!-- JazzCash -->
-          <div class="bg-brand-surface/75 border border-brand-border p-5 rounded-2xl text-center flex flex-col justify-between">
+          <div class="card-nasa reveal-up reveal-delay-1 bg-brand-surface/75 border border-brand-border hover:border-red-400/70 p-5 rounded-2xl text-center flex flex-col justify-between">
             <div>
               <div class="text-red-400 font-latin font-bold text-lg mb-1">JazzCash</div>
-              <div class="text-xs text-slate-300">اکاؤنٹ ٹائٹل:</div>
+              <div class="text-xs text-slate-300 font-nastaleeq">اکاؤنٹ ٹائٹل:</div>
               <div class="text-sm font-bold text-white font-latin">Shahid Akram</div>
               <div class="text-brand-gold font-latin font-extrabold text-lg mt-2 tracking-wider" dir="ltr">0320-6546008</div>
             </div>
-            <button type="button" onclick="copyText('03206546008')" class="mt-3 py-1.5 px-3 rounded-lg bg-brand-dark border border-brand-border hover:border-brand-gold text-xs text-slate-200 transition-colors">
+            <button type="button" onclick="copyText('03206546008')" class="mt-3 py-1.5 px-3 rounded-lg bg-brand-dark border border-brand-border hover:border-brand-gold text-xs text-slate-200 transition-colors cursor-pointer">
               نمبر کاپی کریں
             </button>
           </div>
 
           <!-- SadaPay / NayaPay -->
-          <div class="bg-brand-surface/75 border border-brand-border p-5 rounded-2xl text-center flex flex-col justify-between">
+          <div class="card-nasa reveal-up reveal-delay-2 bg-brand-surface/75 border border-brand-border hover:border-cyan-400/70 p-5 rounded-2xl text-center flex flex-col justify-between">
             <div>
               <div class="text-cyan-400 font-latin font-bold text-lg mb-1">SadaPay / NayaPay</div>
-              <div class="text-xs text-slate-300">اکاؤنٹ ٹائٹل:</div>
+              <div class="text-xs text-slate-300 font-nastaleeq">اکاؤنٹ ٹائٹل:</div>
               <div class="text-sm font-bold text-white font-latin">Shahid Akram Mustafai</div>
               <div class="text-brand-gold font-latin font-extrabold text-lg mt-2 tracking-wider" dir="ltr">0320-6546008</div>
             </div>
-            <button type="button" onclick="copyText('03206546008')" class="mt-3 py-1.5 px-3 rounded-lg bg-brand-dark border border-brand-border hover:border-brand-gold text-xs text-slate-200 transition-colors">
+            <button type="button" onclick="copyText('03206546008')" class="mt-3 py-1.5 px-3 rounded-lg bg-brand-dark border border-brand-border hover:border-brand-gold text-xs text-slate-200 transition-colors cursor-pointer">
               نمبر کاپی کریں
             </button>
           </div>
 
           <!-- Meezan Bank -->
-          <div class="bg-brand-surface/75 border border-brand-border p-5 rounded-2xl text-center flex flex-col justify-between">
+          <div class="card-nasa reveal-up reveal-delay-3 bg-brand-surface/75 border border-brand-border hover:border-brand-gold p-5 rounded-2xl text-center flex flex-col justify-between">
             <div>
               <div class="text-amber-400 font-latin font-bold text-lg mb-1">Meezan Bank</div>
-              <div class="text-xs text-slate-300">اکاؤنٹ ٹائٹل:</div>
+              <div class="text-xs text-slate-300 font-nastaleeq">اکاؤنٹ ٹائٹل:</div>
               <div class="text-sm font-bold text-white font-latin">Dr. Shahid Akram</div>
-              <div class="text-xs text-brand-gold mt-2">رابطہ پر فوری IBAN جاری کیا جائے گا</div>
+              <div class="text-xs text-brand-gold mt-2 font-nastaleeq">رابطہ پر فوری IBAN جاری کیا جائے گا</div>
             </div>
             <a href="https://wa.me/923074958837?text=%D8%A7%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%DB%8C%DA%A9%D9%85!%20%D9%85%DB%8C%D8%B2%D8%A7%D9%86%20%D8%A8%DB%8C%D9%86%DA%A9%20IBAN%20%D8%AF%D8%B1%DA%A9%D8%A7%D8%B1%20%DB%81%DB%92%DB%94" target="_blank" rel="noopener noreferrer" class="mt-3 py-1.5 px-3 rounded-lg bg-brand-dark border border-brand-border hover:border-brand-gold text-xs text-slate-200 transition-colors">
               IBAN طلب کریں
@@ -987,12 +1039,12 @@
     </section>
 
     <!-- Signature Poetic Motto Banner -->
-    <div class="bg-brand-dark py-8 border-b border-brand-border text-center px-4">
+    <div class="bg-brand-dark py-10 border-b border-brand-border text-center px-4">
       <div class="max-w-4xl mx-auto">
-        <p class="text-xl sm:text-2xl font-bold text-brand-gold leading-[1.9]">
+        <p class="text-xl sm:text-2xl font-nastaleeq text-brand-gold leading-[2.2]">
           آفاق کے ہر ہر گوشے میں پیغام پہنچا کے دم لینا — اب رُکنا نہیں، اب تھمنا نہیں، منزل کو پا کے دم لینا!
         </p>
-        <p class="text-xs sm:text-sm text-slate-300 mt-2 font-latin">
+        <p class="text-xs sm:text-sm text-slate-300 mt-3 font-latin">
           Dr. Shahid Akram Mustafai — Founder &amp; CEO | عِلْمِ ٹیک پاکستان (ILM E TECH PAKISTAN)
         </p>
       </div>
@@ -1007,13 +1059,13 @@
       <!-- Col 1: Brand Info -->
       <div>
         <div class="flex items-center gap-3 mb-4">
-          <img src="assets/images/branding/ietp-logo-112.webp" alt="عِلْمِ ٹیک پاکستان لوگو" width="44" height="44" loading="lazy" class="w-11 h-11 rounded-lg border border-brand-gold/50 object-contain">
+          <img src="assets/images/branding/ietp-logo-112.webp" alt="عِلْمِ ٹیک پاکستان لوگو" width="44" height="44" loading="lazy" class="w-11 h-11 rounded-lg border border-brand-gold/50 object-contain shrink-0">
           <div>
-            <span class="text-xl font-bold text-white block leading-tight">عِلْمِ ٹیک پاکستان</span>
-            <span class="text-xs text-brand-gold block font-nastaleeq">اے آئی اینڈ ڈیجیٹل اسکلز سینٹر</span>
+            <span class="text-xl font-nastaleeq text-white block leading-[1.95]">عِلْمِ ٹیک پاکستان</span>
+            <span class="text-xs text-brand-gold block font-nastaleeq leading-[1.8]">اے آئی اینڈ ڈیجیٹل اسکلز سینٹر</span>
           </div>
         </div>
-        <p class="text-xs text-slate-400 leading-[1.9]">
+        <p class="text-xs text-slate-400 leading-[2.15] font-nastaleeq">
           100% آن لائن لائیو اکیڈمی و ڈیجیٹل اسکلز سینٹر۔ جدید ٹیکنالوجی، اے آئی اسکلز اور ڈیجیٹل تربیت کا معتبر ادارہ۔
         </p>
       </div>
@@ -1099,6 +1151,47 @@
   <!-- Minimal, Zero-Dependency Inline Application Script -->
   <script>
     (function () {
+      // NASA Reading Progress Laser + Progressive Scroll Reveals
+      const progressBar = document.getElementById('scrollProgress');
+      if (progressBar) {
+        let ticking = false;
+        window.addEventListener('scroll', function () {
+          if (!ticking) {
+            window.requestAnimationFrame(function () {
+              const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+              const ratio = docHeight > 0 ? Math.min(1, Math.max(0, window.scrollY / docHeight)) : 0;
+              progressBar.style.transform = 'scaleX(' + ratio + ')';
+              ticking = false;
+            });
+            ticking = true;
+          }
+        }, { passive: true });
+      }
+
+      const revealEls = document.querySelectorAll('.reveal-up');
+      if (revealEls.length) {
+        if ('IntersectionObserver' in window) {
+          const io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                io.unobserve(entry.target);
+              }
+            });
+          }, { rootMargin: '0px 0px -30px 0px', threshold: 0.06 });
+          revealEls.forEach(function (el) { io.observe(el); });
+          // Failsafe reveal for viewport-visible elements
+          setTimeout(function () {
+            revealEls.forEach(function (el) {
+              const r = el.getBoundingClientRect();
+              if (r.top < window.innerHeight + 60) el.classList.add('is-visible');
+            });
+          }, 350);
+        } else {
+          revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+        }
+      }
+
       // Mobile Navigation Toggle
       const menuBtn = document.getElementById('mobileMenuBtn');
       const mobileMenu = document.getElementById('mobileMenu');
