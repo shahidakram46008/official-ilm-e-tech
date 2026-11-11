@@ -1,1660 +1,992 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ur" dir="rtl" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ILM E TECH PAKISTAN | Digital Education & AI Academy</title>
-  <meta name="description" content="Official platform of ILM E TECH PAKISTAN, founded by Dr. Shahid Akram Mustafai. Learn Artificial Intelligence, Software Engineering, and Tech Skills.">
-  <meta name="theme-color" content="#046a38">
-  <link rel="canonical" href="https://ilmetechpakistan.com/">
+  <title>عِلْمِ ٹیک پاکستان | 100% آن لائن لائیو اکیڈمی و ڈیجیٹل ایجنسی</title>
   
-  <!-- Complete Open Graph / Facebook / WhatsApp -->
-  <meta property="og:site_name" content="ILM E TECH PAKISTAN">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://ilmetechpakistan.com/">
-  <meta property="og:title" content="ILM E TECH PAKISTAN | Digital Education & AI Academy">
-  <meta property="og:description" content="Official platform of ILM E TECH PAKISTAN, founded by Dr. Shahid Akram Mustafai. Learn Artificial Intelligence, Software Engineering, and Tech Skills.">
-  <meta property="og:image" content="https://ilmetechpakistan.com/assets/images/branding/ietp-logo.png">
-  <meta property="og:image:secure_url" content="https://ilmetechpakistan.com/assets/images/branding/ietp-logo.png">
-  <meta property="og:image:type" content="image/jpeg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="ILM E TECH PAKISTAN - Premier Digital Education & AI Academy">
-  <meta property="og:locale" content="en_PK">
+  <!-- Favicon / Brand Logo -->
+  <link rel="icon" type="image/jpeg" href="assets/ietp-logo.jpg">
 
-  <!-- Complete Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@ilmetechpakistan">
-  <meta name="twitter:creator" content="@ilmetechpakistan">
-  <meta name="twitter:url" content="https://ilmetechpakistan.com/">
-  <meta name="twitter:title" content="ILM E TECH PAKISTAN | Digital Education & AI Academy">
-  <meta name="twitter:description" content="Official platform of ILM E TECH PAKISTAN, founded by Dr. Shahid Akram Mustafai. Learn Artificial Intelligence, Software Engineering, and Tech Skills.">
-  <meta name="twitter:image" content="https://ilmetechpakistan.com/assets/images/branding/ietp-logo.png">
-  <meta name="twitter:image:alt" content="ILM E TECH PAKISTAN Logo">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Performance Optimization Preconnect & Favicon -->
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Google Fonts & Jameel Noori Nastaleeq Fallbacks -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gulzar&family=Noto+Nastaliq+Urdu:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="manifest" href="manifest.json">
-  <link rel="apple-touch-icon" href="assets/images/branding/favicon-192x192.png">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/branding/favicon-32x32.png">
-  <link rel="icon" type="image/webp" href="assets/images/branding/ietp-logo-sm.webp">
-  
-  <!-- FontAwesome & Google Fonts -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;600;700;800&display=swap">
-  <link rel="stylesheet" href="assets/css/styles.css">
-  
-  <!-- Structured Data JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "EducationalOrganization",
-    "name": "ILM E TECH PAKISTAN",
-    "alternateName": "Ilm E Tech",
-    "founder": {
-      "@type": "Person",
-      "name": "Dr. Shahid Akram Mustafai",
-      "jobTitle": "Founder & CEO"
-    },
-    "url": "https://ilmetechpakistan.com",
-    "logo": "https://ilmetechpakistan.com/assets/images/branding/ietp-logo.png",
-    "telephone": "+923074958837",
-    "description": "Pakistan's Premier Digital Education & Technology Academy Platform for AI, Software Development, Digital Skills, and Freelancing.",
-    "sameAs": [
-      "https://facebook.com/ilmetechpakistan",
-      "https://youtube.com/ilmetechpakistan",
-      "https://instagram.com/ilmetechpakistan"
-    ]
-  }
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#031c15',
+              deep: '#063D2E',
+              emerald: '#0B4635',
+              surface: '#0f4436',
+              border: '#1a5c4a',
+              gold: '#D4AF37',
+              'gold-light': '#F3E5AB',
+              'gold-hover': '#b59228',
+              accent: '#10B981'
+            }
+          },
+          fontFamily: {
+            nastaleeq: ['"Jameel Noori Nastaleeq"', '"Noto Nastaliq Urdu"', 'Gulzar', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
   </script>
+
+  <style>
+    @font-face {
+      font-family: 'Jameel Noori Nastaleeq';
+      src: local('Jameel Noori Nastaleeq'),
+           url('https://cdn.jsdelivr.net/gh/urdutext/fonts/JameelNooriNastaleeq.woff2') format('woff2');
+      font-display: swap;
+    }
+
+    body {
+      font-family: 'Jameel Noori Nastaleeq', 'Noto Nastaliq Urdu', 'Gulzar', serif;
+      background-color: #031c15;
+      color: #f1f5f9;
+      line-height: 2.1;
+    }
+
+    .font-latin {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      line-height: 1.5;
+    }
+
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #F9E79F 0%, #D4AF37 50%, #AA7C11 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .gold-border-glow {
+      box-shadow: 0 0 25px -5px rgba(212, 175, 55, 0.25);
+    }
+
+    .emerald-glow {
+      box-shadow: 0 0 35px -5px rgba(16, 185, 129, 0.2);
+    }
+
+    input, select, textarea {
+      font-family: inherit;
+    }
+  </style>
 </head>
-<body>
+<body class="selection:bg-brand-gold selection:text-brand-dark antialiased min-h-screen flex flex-col">
 
   <!-- Top Announcement Bar -->
-  <div class="top-bar">
-    <div class="container top-bar-inner">
-      <div class="top-info">
-        <span class="top-announcement-text"><i class="fas fa-bullhorn text-emerald-400"></i> New Batch Admissions Open for October 2026!</span>
-        <a href="tel:+923074958837" title="Direct Phone Helpline"><i class="fas fa-phone"></i> <span class="site-phone">+92 307 4958837</span></a>
-        <a href="https://wa.me/923074958837" target="_blank" rel="noopener noreferrer" title="Direct WhatsApp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-      </div>
-      <div class="top-quick-actions">
-        <a href="verify-certificate.html" class="top-quick-link" style="color: #6ee7b7;"><i class="fas fa-award"></i> Verification</a>
-        <a href="student-portal.html" class="top-quick-link" style="color: #ffffff;"><i class="fas fa-user-graduate"></i> Login</a>
-      </div>
-    </div>
+  <div class="bg-gradient-to-r from-brand-deep via-brand-emerald to-brand-deep border-b border-brand-gold/30 text-brand-gold-light py-2 px-4 text-xs md:text-sm text-center font-latin flex items-center justify-center gap-2">
+    <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 animate-pulse">
+      ● 100% LIVE INTERACTIVE
+    </span>
+    <span>آن لائن لائیو کلاسز بذریعہ زوم (ZOOM) — کوئی ریکارڈڈ پورٹل نہیں! حقیقی و عملی اسکلز</span>
   </div>
 
-  <!-- Header & Navigation -->
-  <header class="header-nav">
-    <div class="container nav-container">
-      <a href="index.html" class="brand-logo">
-        <img src="assets/images/branding/ietp-logo-sm.webp" alt="ILM E TECH PAKISTAN (IETP) - Official Academy Logo" width="52" height="52" style="aspect-ratio:1/1; object-fit:contain; border-radius:10px;">
-        <div class="brand-text">
-          <span class="brand-name">ILM E TECH PAKISTAN</span>
-          <span class="brand-subtitle" style="font-size:0.75rem; color:var(--tech-blue-hover); font-weight:700;">Digital Education & AI Academy</span>
+  <!-- Main Navigation Header -->
+  <header class="sticky top-0 z-40 bg-brand-dark/95 backdrop-blur-md border-b border-brand-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Logo & Brand Name -->
+      <a href="index.html" class="flex items-center gap-3.5 group">
+        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-brand-emerald to-brand-dark border-2 border-brand-gold/60 p-1 flex items-center justify-center shadow-lg group-hover:border-brand-gold transition-colors">
+          <img src="assets/ietp-logo.jpg" alt="IETP Logo" class="w-full h-full object-contain rounded-lg">
+        </div>
+        <div class="flex flex-col text-right">
+          <span class="text-2xl sm:text-3xl font-bold text-white tracking-wide group-hover:text-brand-gold transition-colors leading-none">
+            عِلْمِ ٹیک پاکستان
+          </span>
+          <span class="text-[11px] font-latin font-medium text-brand-gold tracking-widest uppercase mt-1">
+            ILM E TECH PAKISTAN (AI & Digital Agency)
+          </span>
         </div>
       </a>
 
-      <nav>
-        <ul class="nav-menu">
-          <li><a href="index.html" class="nav-link active">Home</a></li>
-          <li><a href="about.html" class="nav-link">About Us</a></li>
-          <li class="dropdown">
-            <a href="courses.html" class="nav-link">Courses <i class="fas fa-chevron-down" style="font-size: 0.75rem;"></i></a>
-            <div class="dropdown-menu">
-              <a href="course-detail.html?id=basic-ai" class="dropdown-item"><i class="fas fa-gift text-emerald-500"></i> Basic AI Course <span style="background:#10b981; color:#fff; font-size:0.65rem; padding:0.15rem 0.45rem; border-radius:1rem; font-weight:800; margin-left:auto;">100% FREE</span></a>
-              <a href="course-detail.html?id=ai-website-dev" class="dropdown-item"><i class="fas fa-globe text-sky-500"></i> AI Website Development <span style="background:#0284c7; color:#fff; font-size:0.65rem; padding:0.15rem 0.45rem; border-radius:1rem; font-weight:800; margin-left:auto;">New Track</span></a>
-              <a href="course-detail.html?id=ai-tools-mastery" class="dropdown-item"><i class="fas fa-robot text-indigo-500"></i> AI Tools Mastery (30 Days)</a>
-              <a href="course-detail.html?id=basic-computer" class="dropdown-item"><i class="fas fa-laptop text-slate-500"></i> Basic Computer Course</a>
-              <a href="course-detail.html?id=ai-software-dev" class="dropdown-item"><i class="fas fa-code text-violet-500"></i> AI Software Development</a>
-              <a href="course-detail.html?id=ai-content-creation" class="dropdown-item"><i class="fas fa-video text-rose-500"></i> AI Content Creation</a>
-              <a href="course-detail.html?id=one-on-one-session" class="dropdown-item" style="color:#059669; font-weight:700; border-top:1px solid #f1f5f9;"><i class="fas fa-crown text-amber-500"></i> One on One VIP Mentorship</a>
-            </div>
-          </li>
-          <li><a href="services.html" class="nav-link">Services</a></li>
-          <li><a href="e-services.html" class="nav-link">E-Services</a></li>
-          <li><a href="admissions.html" class="nav-link">Admissions</a></li>
-          <li><a href="verify-certificate.html" class="nav-link">Verification</a></li>
-          <li><a href="payments.html" class="nav-link">Payments</a></li>
-          <li><a href="blog.html" class="nav-link">Blog</a></li>
-          <li><a href="contact.html" class="nav-link">Contact</a></li>
-        </ul>
+      <!-- Desktop Nav Items -->
+      <nav class="hidden lg:flex items-center gap-8 text-base text-slate-200">
+        <a href="#about" class="hover:text-brand-gold transition-colors">تعارف و فاؤنڈر</a>
+        <a href="#courses" class="hover:text-brand-gold transition-colors">مقبول کورسز</a>
+        <a href="#agency" class="hover:text-brand-gold transition-colors">ایجنسی سروسز</a>
+        <a href="#reviews" class="hover:text-brand-gold transition-colors">طلبہ کے تاثرات</a>
+        <a href="#payment" class="hover:text-brand-gold transition-colors">فیس ادائیگی</a>
+        <a href="#social" class="hover:text-brand-gold transition-colors">سوشل نیٹ ورک</a>
       </nav>
 
-      <div class="nav-actions">
-        <a href="student-portal.html" class="btn btn-outline-blue btn-sm"><i class="fas fa-user-graduate"></i> Portal</a>
-        <a href="admissions.html" class="btn btn-primary btn-sm"><i class="fas fa-paper-plane"></i> Apply Now</a>
-        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Mobile Navigation Menu">
-          <i class="fas fa-bars" aria-hidden="true"></i>
-          <span class="visually-hidden">Toggle Mobile Navigation Menu</span>
-        </button>
+      <!-- Right Contact Action -->
+      <div class="flex items-center gap-3">
+        <a href="https://wa.me/923074958837" target="_blank" rel="noopener noreferrer" 
+           class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-xl text-sm font-semibold transition-all shadow-lg hover:shadow-emerald-500/20">
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          <span class="font-latin">0307-4958837</span>
+        </a>
+        <a href="#admission" 
+           class="hidden sm:inline-flex items-center gap-2 bg-gradient-to-r from-brand-gold via-amber-400 to-brand-gold hover:from-amber-400 hover:to-brand-gold text-brand-dark px-5 py-2.5 rounded-xl font-bold text-base transition-all shadow-lg hover:scale-105">
+          آن لائن داخلہ فارم
+        </a>
       </div>
+
     </div>
   </header>
 
-  <!-- Mobile Drawer -->
-  <div class="overlay" id="navOverlay"></div>
-  <div class="mobile-drawer" id="mobileDrawer">
-    <div class="drawer-header">
-      <div class="brand-logo">
-        <img src="assets/images/branding/ietp-logo-sm.webp" alt="ILM E TECH PAKISTAN (IETP) - Official Academy Logo" style="height: 40px; width: 40px; aspect-ratio:1/1; object-fit:contain; border-radius:8px;">
-        <span class="brand-name" style="font-size: 1.1rem;">ILM E TECH PAKISTAN</span>
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden py-16 lg:py-24 border-b border-brand-border bg-gradient-to-b from-brand-dark via-brand-deep/50 to-brand-dark">
+    <div class="absolute -top-32 right-1/4 w-96 h-96 bg-brand-emerald/30 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute top-1/2 -left-32 w-96 h-96 bg-brand-gold/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <!-- Poetic Motto Badge Banner -->
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <div class="inline-block px-8 py-4 rounded-2xl bg-brand-surface/70 border border-brand-gold/40 shadow-2xl backdrop-blur-sm gold-border-glow">
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-brand-gold leading-relaxed">
+            آفاق کے ہر ہر گوشے میں پیغام پہنچا کے دم لینا<br>
+            اب رکنا نہیں، اب تھمنا نہیں، منزل کو پا کے دم لینا
+          </h2>
+        </div>
       </div>
-      <button class="drawer-close" id="drawerClose" aria-label="Close Mobile Navigation Menu">
-        <i class="fas fa-times" aria-hidden="true"></i>
-        <span class="visually-hidden">Close Mobile Navigation Menu</span>
-      </button>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left / Content Column (RTL Right side) -->
+        <div class="lg:col-span-7 text-right">
+          
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-surface border border-emerald-500/30 text-emerald-300 text-sm mb-6">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+            <span>100% آن لائن زوم لائیو اکیڈمی (کوئی ریکارڈڈ پورٹل نہیں)</span>
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-white mb-6">
+            عِلْمِ، جدید ٹیکنالوجی اور 
+            <span class="gold-gradient-text block mt-2">ڈیجیٹل مارکیٹنگ کا بااعتماد پلیٹ فارم</span>
+          </h1>
+
+          <p class="text-lg sm:text-xl text-slate-300 mb-8 max-w-2xl leading-loose">
+            ڈاکٹر شاہد اکرم مصطفائی کے زیرِ نگرانی پاکستان کے نوجوانوں، طلبہ اور فری لانسرز کے لیے زوم (Zoom) پر براہِ راست لائیو جدید پریکٹیکل اسکلز، مصنوعی ذہانت (AI) اور ہائی پےئنگ ڈیجیٹل اسکلز کی مکمل تربیت۔
+          </p>
+
+          <!-- CTA Buttons -->
+          <div class="flex flex-wrap items-center gap-4 mb-10">
+            <a href="#admission" class="px-8 py-4 rounded-xl bg-gradient-to-r from-brand-gold via-yellow-400 to-brand-gold text-brand-dark font-bold text-xl hover:shadow-xl hover:shadow-brand-gold/20 transition-all hover:scale-105 flex items-center gap-3">
+              <span>آن لائن داخلہ فارم پر کریں</span>
+              <i data-lucide="arrow-left" class="w-5 h-5"></i>
+            </a>
+            <a href="https://wa.me/923074958837" target="_blank" rel="noopener noreferrer" class="px-7 py-4 rounded-xl bg-brand-surface hover:bg-brand-emerald border border-emerald-500/40 text-emerald-300 font-bold text-lg transition-all flex items-center gap-2">
+              <i data-lucide="message-square" class="w-5 h-5 text-emerald-400"></i>
+              <span>ڈاکٹر شاہد اکرم سے براہِ راست رابطہ</span>
+            </a>
+          </div>
+
+          <!-- Dynamic Live Counters Grid -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 border-t border-brand-border/80">
+            <div class="bg-brand-surface/40 p-4 rounded-xl border border-brand-border text-center">
+              <div class="text-3xl font-extrabold text-brand-gold font-latin" id="studentCounter">1,000+</div>
+              <div class="text-xs sm:text-sm text-slate-300 mt-1">تربیت یافتہ طلبہ</div>
+            </div>
+            <div class="bg-brand-surface/40 p-4 rounded-xl border border-brand-border text-center">
+              <div class="text-3xl font-extrabold text-white font-latin">3+ سال</div>
+              <div class="text-xs sm:text-sm text-slate-300 mt-1">عملی فیلڈ تجربہ</div>
+            </div>
+            <div class="bg-brand-surface/40 p-4 rounded-xl border border-brand-border text-center">
+              <div class="text-3xl font-extrabold text-emerald-400 font-latin">100%</div>
+              <div class="text-xs sm:text-sm text-slate-300 mt-1">لائیو زوم کلاسز</div>
+            </div>
+            <div class="bg-brand-surface/40 p-4 rounded-xl border border-brand-border text-center">
+              <div class="text-3xl font-extrabold text-brand-gold font-latin">No LMS</div>
+              <div class="text-xs sm:text-sm text-slate-300 mt-1">ریکارڈنگ نو پورٹل</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right / Visual Founder Card -->
+        <div class="lg:col-span-5 flex justify-center" id="about">
+          <div class="relative w-full max-w-md bg-gradient-to-b from-brand-surface to-brand-dark p-6 sm:p-8 rounded-3xl border-2 border-brand-gold/60 shadow-2xl gold-border-glow">
+            
+            <div class="absolute -top-4 -left-4 bg-brand-gold text-brand-dark px-4 py-1 rounded-full font-bold text-xs uppercase tracking-wider shadow-lg">
+              Official Leadership
+            </div>
+
+            <div class="relative w-48 h-48 sm:w-56 sm:h-56 mx-auto mb-6">
+              <div class="absolute inset-0 rounded-full border-4 border-brand-gold"></div>
+              <img src="assets/shahid-akram.jpg" alt="Dr. Shahid Akram Mustafai" class="w-full h-full object-cover rounded-full shadow-2xl border-4 border-brand-dark">
+            </div>
+
+            <div class="text-center">
+              <h3 class="text-2xl sm:text-3xl font-bold text-white mb-1">
+                ڈاکٹر شاہد اکرم مصطفائی
+              </h3>
+              <p class="text-brand-gold font-latin text-sm font-semibold mb-4">
+                Dr. Shahid Akram Mustafai | Founder & CEO
+              </p>
+              
+              <div class="bg-brand-dark/70 p-4 rounded-xl border border-brand-border/60 text-sm text-slate-300 leading-relaxed mb-6">
+                آرٹیفیشل انٹیلیجنس (AI)، کمرشل ویڈیو ایڈ میکنگ، ویب سائٹ ڈویلپمنٹ، اور بزنس اسکیلنگ میں پچھلے 3 سال سے باقاعدہ فیلڈ سے منسلک تجربہ کار ٹرینر۔
+              </div>
+
+              <div class="bg-emerald-950/60 border border-emerald-500/40 rounded-xl p-3 text-xs text-emerald-200 text-right flex items-start gap-2">
+                <i data-lucide="shield-check" class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5"></i>
+                <span>تمام کورسز 100% زوم لائیو انٹرایکٹو کلاسز پر مشتمل ہیں۔ طلبہ دورانِ کلاس براہِ راست سوالات پوچھ سکتے ہیں۔</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
     </div>
-    <ul class="drawer-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About Us</a></li>
-      <li><a href="courses.html">Courses</a></li>
-      <li><a href="services.html">Marketing &amp; Agency Services</a></li>
-      <li><a href="e-services.html">E-Services Portal</a></li>
-      <li><a href="admissions.html">Online Admission</a></li>
-      <li><a href="student-portal.html">Student Portal</a></li>
-      <li><a href="verify-certificate.html">Certificate Verification</a></li>
-      <li><a href="payments.html">Fee Payment</a></li>
-      <li><a href="blog.html">Blog &amp; Resources</a></li>
-      <li><a href="contact.html">Contact Us</a></li>
-    </ul>
-    <div style="margin-top: auto; padding-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem;">
-      <a href="admissions.html" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Apply Now</a>
-      <a href="student-portal.html" class="btn btn-secondary"><i class="fas fa-user"></i> Student Login</a>
+  </section>
+
+  <!-- Critical Academy Policy Alert Banner -->
+  <section class="bg-brand-deep/80 border-b border-brand-border py-8">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="bg-brand-surface/90 border-2 border-amber-500/50 rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center gap-6 shadow-xl">
+        <div class="w-16 h-16 rounded-2xl bg-amber-500/10 border border-amber-500/40 flex items-center justify-center text-amber-400 shrink-0">
+          <i data-lucide="alert-triangle" class="w-8 h-8"></i>
+        </div>
+        <div class="text-right flex-1">
+          <h3 class="text-xl sm:text-2xl font-bold text-amber-300 mb-2">
+            ادارے کی اہم ترین تدریسی پالیسی و ضوابط (لازمی مطالعہ فرمائیں):
+          </h3>
+          <ul class="text-sm sm:text-base text-slate-200 space-y-1.5 list-disc list-inside">
+            <li><strong>100% آن لائن لائیو کلاسز:</strong> تمام کلاسز مقررہ اوقات پر صرف زوم (ZOOM) پر لائیو منعقد ہوں گی۔ ادارے کا کوئی فزیکل کیمپس یا بیٹھک موجود نہیں ہے۔</li>
+            <li><strong>ریکارڈنگ فراہم نہیں کی جاتی:</strong> ہمارا مقصد حقیقی عملی مہارت سکھانا ہے، لہٰذا ریکارڈنگ پر انحصار نہ کیا جائے۔ ہر طالب علم کا بروقت کلاس میں حاضر ہونا ضروری ہے۔</li>
+            <li><strong>کوئی LMS پورٹل نہیں:</strong> کسی قسم کے ریکارڈڈ پورٹل کی بجائے سارا مواد اور اسائنمنٹس براہِ راست ٹرینر (ڈاکٹر شاہد اکرم مصطفائی) کے سامنے لائیو اسکرین شیئر پر کروائی جاتی ہیں۔</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Popular Courses Section -->
+  <section id="courses" class="py-20 border-b border-brand-border bg-brand-dark relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-brand-gold text-sm font-semibold tracking-wider uppercase font-latin">Career Making Curriculum</span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mt-2 mb-4">
+          تمام تصدیق شدہ آن لائن لائیو کورسز
+        </h2>
+        <p class="text-slate-300 text-lg">
+          مارکیٹ کی بھاری فیسوں کے مقابلے میں خصوصی رعایتی فیس پر جدید لائیو پریکٹیکل اسکلز حاصل کریں۔
+        </p>
+      </div>
+
+      <!-- 6 Courses Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Course 1 -->
+        <div class="bg-brand-surface/70 border border-emerald-500/30 rounded-2xl p-6 flex flex-col justify-between hover:border-brand-gold transition-all hover:-translate-y-1 shadow-lg">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/40">100% مفت کورس</span>
+              <span class="text-xs text-slate-400 font-latin">Zoom Live</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-2">1. بیسک اے آئی کورس (Basic AI)</h3>
+            <p class="text-slate-300 text-sm mb-6 leading-relaxed">
+              ChatGPT اور بنیادی اے آئی ٹولز سے روزمرہ کام، مواد کی تیاری اور فری لانسنگ کا آغاز کریں۔
+            </p>
+          </div>
+          <div>
+            <div class="text-2xl font-extrabold text-brand-gold font-latin mb-4">
+              Rs. 0 <span class="text-sm font-normal text-slate-400 line-through">Rs. 5,000</span>
+            </div>
+            <a href="#admission" onclick="selectCourse('Basic AI - Free')" class="w-full block text-center py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold transition-colors">
+              مفت داخلہ حاصل کریں
+            </a>
+          </div>
+        </div>
+
+        <!-- Course 2 (Most Popular) -->
+        <div class="bg-brand-surface border-2 border-brand-gold rounded-2xl p-6 flex flex-col justify-between hover:shadow-2xl hover:shadow-brand-gold/15 transition-all hover:-translate-y-1 relative">
+          <div class="absolute -top-3 left-6 bg-brand-gold text-brand-dark px-3 py-0.5 rounded-full text-xs font-extrabold tracking-wide uppercase font-latin">
+            Most Popular
+          </div>
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 rounded-full text-xs font-bold bg-brand-gold/20 text-brand-gold border border-brand-gold/40">سب سے زیادہ ڈیمانڈ</span>
+              <span class="text-xs text-slate-400 font-latin">Zoom Live</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-2">2. اے آئی کنٹینٹ کریشن و ویڈیو ایڈیٹنگ</h3>
+            <p class="text-slate-300 text-sm mb-6 leading-relaxed">
+              اسکرپٹ رائٹنگ، اے آئی اوتار، وائس اوور اور پروفیشنل ویڈیو ایڈیٹنگ برائے سوشل میڈیا۔
+            </p>
+          </div>
+          <div>
+            <div class="text-2xl font-extrabold text-brand-gold font-latin mb-4">
+              Rs. 3,500 <span class="text-sm font-normal text-slate-400 line-through">Rs. 10,000</span>
+            </div>
+            <a href="#admission" onclick="selectCourse('AI Content & Video Editing - Rs 3,500')" class="w-full block text-center py-3 rounded-xl bg-gradient-to-r from-brand-gold to-yellow-500 hover:from-yellow-400 hover:to-brand-gold text-brand-dark font-extrabold transition-all">
+              داخلہ لیں (Rs. 3,500)
+            </a>
+          </div>
+        </div>
+
+        <!-- Course 3 -->
+        <div class="bg-brand-surface/70 border border-emerald-500/30 rounded-2xl p-6 flex flex-col justify-between hover:border-brand-gold transition-all hover:-translate-y-1 shadow-lg">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 rounded-full text-xs font-bold bg-blue-500/20 text-blue-400 border border-blue-500/40">اسکلز بوسٹر</span>
+              <span class="text-xs text-slate-400 font-latin">Zoom Live</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-2">3. اے آئی ٹولز ماسٹری (AI Tools Mastery)</h3>
+            <p class="text-slate-300 text-sm mb-6 leading-relaxed">
+              15 سے زائد جدید پیڈ ٹولز جیسے Midjourney, Leonardo, HeyGen اور Canva AI کی مکمل ٹریننگ۔
+            </p>
+          </div>
+          <div>
+            <div class="text-2xl font-extrabold text-brand-gold font-latin mb-4">
+              Rs. 3,000 <span class="text-sm font-normal text-slate-400 line-through">Rs. 8,000</span>
+            </div>
+            <a href="#admission" onclick="selectCourse('AI Tools Mastery - Rs 3,000')" class="w-full block text-center py-3 rounded-xl bg-brand-border hover:bg-brand-emerald text-white font-bold transition-colors">
+              داخلہ فارم پر جائیں
+            </a>
+          </div>
+        </div>
+
+        <!-- Course 4 -->
+        <div class="bg-brand-surface/70 border border-emerald-500/30 rounded-2xl p-6 flex flex-col justify-between hover:border-brand-gold transition-all hover:-translate-y-1 shadow-lg">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 rounded-full text-xs font-bold bg-purple-500/20 text-purple-400 border border-purple-500/40">ہائی ڈیمانڈ</span>
+              <span class="text-xs text-slate-400 font-latin">Zoom Live</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-2">4. اے آئی ویب سائٹ ڈویلپمنٹ</h3>
+            <p class="text-slate-300 text-sm mb-6 leading-relaxed">
+              بغیر کوڈنگ کے ای کامرس اور لینڈنگ پیجز بنانا، سیلز فنل اور جدید ویب ڈیزائننگ۔
+            </p>
+          </div>
+          <div>
+            <div class="text-2xl font-extrabold text-brand-gold font-latin mb-4">
+              Rs. 5,000 <span class="text-sm font-normal text-slate-400 line-through">Rs. 15,000</span>
+            </div>
+            <a href="#admission" onclick="selectCourse('AI Website Development - Rs 5,000')" class="w-full block text-center py-3 rounded-xl bg-brand-border hover:bg-brand-emerald text-white font-bold transition-colors">
+              داخلہ فارم پر جائیں
+            </a>
+          </div>
+        </div>
+
+        <!-- Course 5 -->
+        <div class="bg-brand-surface/70 border border-emerald-500/30 rounded-2xl p-6 flex flex-col justify-between hover:border-brand-gold transition-all hover:-translate-y-1 shadow-lg">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-500/20 text-amber-400 border border-amber-500/40">ایڈوانس لیول</span>
+              <span class="text-xs text-slate-400 font-latin">Zoom Live</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-2">5. اے آئی سافٹ ویئر انجینئرنگ</h3>
+            <p class="text-slate-300 text-sm mb-6 leading-relaxed">
+              اے آئی ایجنٹس، کسٹم چیٹ بوٹس، خودکار ورک فلوز، اور جدید APIs کی عملی انٹیگریشن۔
+            </p>
+          </div>
+          <div>
+            <div class="text-2xl font-extrabold text-brand-gold font-latin mb-4">
+              Rs. 15,000 <span class="text-sm font-normal text-slate-400 line-through">Rs. 30,000</span>
+            </div>
+            <a href="#admission" onclick="selectCourse('AI Software Engineering - Rs 15,000')" class="w-full block text-center py-3 rounded-xl bg-brand-border hover:bg-brand-emerald text-white font-bold transition-colors">
+              داخلہ فارم پر جائیں
+            </a>
+          </div>
+        </div>
+
+        <!-- Course 6 (VIP Mentorship) -->
+        <div class="bg-gradient-to-b from-brand-surface to-brand-deep border-2 border-brand-gold/60 rounded-2xl p-6 flex flex-col justify-between hover:border-brand-gold transition-all hover:-translate-y-1 shadow-lg">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 rounded-full text-xs font-bold bg-brand-gold text-brand-dark">1-on-1 VIP</span>
+              <span class="text-xs text-slate-400 font-latin">Zoom Live</span>
+            </div>
+            <h3 class="text-2xl font-bold text-brand-gold mb-2">6. ون آن ون پرسنل مینٹورشپ</h3>
+            <p class="text-slate-200 text-sm mb-6 leading-relaxed">
+              ڈاکٹر شاہد اکرم مصطفائی کے ساتھ براہِ راست پرسنل ون آن ون گائیڈنس، فری لانسنگ اور بزنس ڈویلپمنٹ۔
+            </p>
+          </div>
+          <div>
+            <div class="text-2xl font-extrabold text-white font-latin mb-4">
+              Rs. 20,000 <span class="text-sm font-normal text-slate-400">/ مکمل رہنمائی</span>
+            </div>
+            <a href="https://wa.me/923074958837" target="_blank" rel="noopener noreferrer" class="w-full block text-center py-3 rounded-xl bg-brand-gold hover:bg-amber-400 text-brand-dark font-bold transition-colors">
+              براہِ راست سیٹ بک کریں
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Digital Agency Services for Businesses -->
+  <section id="agency" class="py-16 bg-brand-deep/60 border-b border-brand-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-brand-gold text-sm font-semibold uppercase font-latin">Agency Services for Businesses</span>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mt-2">
+          اپنے بزنس کی سیلز اور کسٹمرز میں 10 گنا اضافہ کریں
+        </h2>
+        <p class="text-slate-300 mt-2">
+          علم ٹیک پاکستان نہ صرف لائیو اکیڈمی ہے بلکہ ایک مکمل ڈیجیٹل ایجنسی کے طور پر کاروباروں کو جدید حل فراہم کرتی ہے۔
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-brand-surface/60 p-6 rounded-2xl border border-brand-border text-center">
+          <div class="w-12 h-12 mx-auto rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-4">
+            <i data-lucide="video" class="w-6 h-6"></i>
+          </div>
+          <h4 class="text-xl font-bold text-white mb-2">کمرشل و ویڈیو ایڈز</h4>
+          <p class="text-slate-300 text-sm">اے آئی بیسڈ اشتہارات اور ہائی کنورٹنگ پروموشنل ویڈیوز</p>
+        </div>
+
+        <div class="bg-brand-surface/60 p-6 rounded-2xl border border-brand-border text-center">
+          <div class="w-12 h-12 mx-auto rounded-xl bg-brand-gold/10 text-brand-gold flex items-center justify-center mb-4">
+            <i data-lucide="target" class="w-6 h-6"></i>
+          </div>
+          <h4 class="text-xl font-bold text-white mb-2">ٹارگٹڈ فیس بک و انسٹاگرام اشتہارات</h4>
+          <p class="text-slate-300 text-sm">لیڈ جنریشن اور درست آڈینس تک مصنوعات کی بااثر رسائی</p>
+        </div>
+
+        <div class="bg-brand-surface/60 p-6 rounded-2xl border border-brand-border text-center">
+          <div class="w-12 h-12 mx-auto rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center mb-4">
+            <i data-lucide="share-2" class="w-6 h-6"></i>
+          </div>
+          <h4 class="text-xl font-bold text-white mb-2">مکمل سوشل میڈیا مینجمنٹ</h4>
+          <p class="text-slate-300 text-sm">فیس بک، ٹک ٹاک، اور یوٹیوب کی مکمل پیشہ ورانہ ہینڈلنگ</p>
+        </div>
+
+        <div class="bg-brand-surface/60 p-6 rounded-2xl border border-brand-border text-center">
+          <div class="w-12 h-12 mx-auto rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center mb-4">
+            <i data-lucide="trending-up" class="w-6 h-6"></i>
+          </div>
+          <h4 class="text-xl font-bold text-white mb-2">بزنس گروتھ اور ویب سائٹس</h4>
+          <p class="text-slate-300 text-sm">کاروبار کے لیے سیلز فنلز اور جدید ای کامرس پورٹلز</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Real WhatsApp Student Reviews (Using Verified Screenshots) -->
+  <section id="reviews" class="py-20 bg-brand-dark border-b border-brand-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="px-4 py-1.5 rounded-full bg-brand-surface border border-brand-gold/30 text-brand-gold text-xs font-semibold">
+          Genuine Student WhatsApp Reviews & Live Feedback
+        </span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mt-4 mb-3">
+          طلبہ اور برانڈز کے شاندار تاثرات
+        </h2>
+        <p class="text-slate-300 text-lg">
+          ہمارے کورسز میں شامل ہونے والے مختلف شہروں کے طلبہ کے اصل واٹس ایپ پیغامات اور اطمینان:
+        </p>
+      </div>
+
+      <!-- Reviews 3 Column Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Review 1: Muhammad Waseem Raza -->
+        <div class="bg-brand-surface/80 rounded-2xl border border-brand-border overflow-hidden shadow-2xl flex flex-col">
+          <div class="p-4 bg-brand-deep/80 border-b border-brand-border flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-emerald-400"></span>
+              <span class="font-bold text-white text-base">محمد وسیم رضاج...</span>
+            </div>
+            <span class="text-xs text-brand-gold font-latin">Verified Student</span>
+          </div>
+          <div class="p-4 flex-1 flex flex-col items-center justify-center bg-black/40">
+            <img src="assets/review-2.jpg" alt="Muhammad Waseem WhatsApp Review" class="rounded-xl max-h-96 w-auto object-contain border border-brand-border">
+          </div>
+          <div class="p-4 bg-brand-surface text-sm text-slate-200 border-t border-brand-border text-right">
+            "ڈاکٹر صاحب آپ ایک عظیم انسان ہیں خدمت خلق کر رہے ہیں اور بہترین کام کررہے ہیں اللہ آپ کو جزائے خیر عطا فرمائے۔"
+          </div>
+        </div>
+
+        <!-- Review 2: Syed Ahsan Ali Shah -->
+        <div class="bg-brand-surface/80 rounded-2xl border border-brand-border overflow-hidden shadow-2xl flex flex-col">
+          <div class="p-4 bg-brand-deep/80 border-b border-brand-border flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-emerald-400"></span>
+              <span class="font-bold text-white text-base">Syed Ahsan Ali Shah</span>
+            </div>
+            <span class="text-xs text-brand-gold font-latin">Verified Student</span>
+          </div>
+          <div class="p-4 flex-1 flex flex-col items-center justify-center bg-black/40">
+            <img src="assets/review-3.jpg" alt="Syed Ahsan Ali Shah WhatsApp Review" class="rounded-xl max-h-96 w-auto object-contain border border-brand-border">
+          </div>
+          <div class="p-4 bg-brand-surface text-sm text-slate-200 border-t border-brand-border text-right">
+            "Masha Allah bohat Acha kaam Kar rahy hein ap... Stay blessed always. Best regards, Syed Ahsan Ali Shah From Larkana"
+          </div>
+        </div>
+
+        <!-- Review 3: Muhammad Sajid Karachi -->
+        <div class="bg-brand-surface/80 rounded-2xl border border-brand-border overflow-hidden shadow-2xl flex flex-col">
+          <div class="p-4 bg-brand-deep/80 border-b border-brand-border flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-emerald-400"></span>
+              <span class="font-bold text-white text-base">Muhammad Sajid (Karachi)</span>
+            </div>
+            <span class="text-xs text-brand-gold font-latin">Verified Student</span>
+          </div>
+          <div class="p-4 flex-1 flex flex-col items-center justify-center bg-black/40">
+            <img src="assets/review-1.jpg" alt="Muhammad Sajid WhatsApp Review" class="rounded-xl max-h-96 w-auto object-contain border border-brand-border">
+          </div>
+          <div class="p-4 bg-brand-surface text-sm text-slate-200 border-t border-brand-border text-right">
+            "You explain everything so clearly. Your teaching style is excellent. Thank you for making learning easy and enjoyable!"
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Complete Admission Form Section -->
+  <section id="admission" class="py-20 bg-gradient-to-b from-brand-deep/40 to-brand-dark border-b border-brand-border">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center mb-12">
+        <span class="px-4 py-1 rounded-full bg-brand-gold/20 text-brand-gold font-semibold text-xs uppercase tracking-wider font-latin">
+          Official Enrollment 2026
+        </span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mt-3 mb-4">
+          آن لائن داخلہ فارم
+        </h2>
+        <p class="text-slate-300 text-lg">
+          اپنی مطلوبہ نشست محفوظ کرنے کے لیے ابھی یہ باضابطہ فارم پُر کریں۔ فارم جمع کرنے کے بعد آپ کو فوری اگلے تصدیقی مرحلے پر لے جایا جائے گا۔
+        </p>
+      </div>
+
+      <!-- Admission Form Card -->
+      <div class="bg-brand-surface/90 border-2 border-brand-gold/40 rounded-3xl p-6 sm:p-10 shadow-2xl gold-border-glow">
+        <form id="admissionForm" class="space-y-6 text-right">
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            
+            <!-- Full Name -->
+            <div>
+              <label for="fullName" class="block text-slate-200 text-base font-bold mb-2">
+                پورا نام (Full Name) <span class="text-red-400">*</span>
+              </label>
+              <input type="text" id="fullName" name="fullName" required 
+                     placeholder="مثال: محمد احمد"
+                     class="w-full bg-brand-dark/80 border border-brand-border rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-brand-gold transition-colors">
+            </div>
+
+            <!-- Father Name -->
+            <div>
+              <label for="fatherName" class="block text-slate-200 text-base font-bold mb-2">
+                والد کا نام (Father Name) <span class="text-red-400">*</span>
+              </label>
+              <input type="text" id="fatherName" name="fatherName" required 
+                     placeholder="مثال: عبداللہ خان"
+                     class="w-full bg-brand-dark/80 border border-brand-border rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-brand-gold transition-colors">
+            </div>
+
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            
+            <!-- WhatsApp Number -->
+            <div>
+              <label for="whatsapp" class="block text-slate-200 text-base font-bold mb-2">
+                واٹس ایپ نمبر (WhatsApp Number) <span class="text-red-400">*</span>
+              </label>
+              <input type="tel" id="whatsapp" name="whatsapp" required dir="ltr"
+                     placeholder="03001234567"
+                     class="w-full bg-brand-dark/80 border border-brand-border rounded-xl px-4 py-3 text-white text-right placeholder-slate-500 focus:outline-none focus:border-brand-gold transition-colors font-latin">
+            </div>
+
+            <!-- City / District -->
+            <div>
+              <label for="city" class="block text-slate-200 text-base font-bold mb-2">
+                شہر / ضلع (City / District) <span class="text-red-400">*</span>
+              </label>
+              <input type="text" id="city" name="city" required 
+                     placeholder="مثال: لاہور، کراچی، ملتان"
+                     class="w-full bg-brand-dark/80 border border-brand-border rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-brand-gold transition-colors">
+            </div>
+
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            
+            <!-- Education -->
+            <div>
+              <label for="education" class="block text-slate-200 text-base font-bold mb-2">
+                تعلیم (Highest Education) <span class="text-red-400">*</span>
+              </label>
+              <select id="education" name="education" required
+                      class="w-full bg-brand-dark/80 border border-brand-border rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-gold transition-colors">
+                <option value="" disabled selected>تعلیم منتخب کریں</option>
+                <option value="Metric / Inter">میٹرک / انٹرمیڈیٹ</option>
+                <option value="Graduation (BA/BSc/BS)">گریجویشن (BS / BA / BSc / BCom)</option>
+                <option value="Masters / MPhil">ماسٹرز / ایم فل</option>
+                <option value="Other">دیگر</option>
+              </select>
+            </div>
+
+            <!-- Course Selection -->
+            <div>
+              <label for="course" class="block text-slate-200 text-base font-bold mb-2">
+                مطلوبہ کورس کا انتخاب کریں (Select Course) <span class="text-red-400">*</span>
+              </label>
+              <select id="course" name="course" required
+                      class="w-full bg-brand-dark/80 border border-brand-border rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-gold transition-colors">
+                <option value="" disabled selected>کورس منتخب کریں</option>
+                <option value="Basic AI - Free">1. بیسک اے آئی کورس — مفت (Free)</option>
+                <option value="AI Content & Video Editing - Rs 3,500">2. اے آئی کنٹینٹ کریشن و ویڈیو — Rs. 3,500</option>
+                <option value="AI Tools Mastery - Rs 3,000">3. اے آئی ٹولز ماسٹری — Rs. 3,000</option>
+                <option value="AI Website Development - Rs 5,000">4. اے آئی ویب سائٹ ڈویلپمنٹ — Rs. 5,000</option>
+                <option value="AI Software Engineering - Rs 15,000">5. اے آئی سافٹ ویئر انجینئرنگ — Rs. 15,000</option>
+                <option value="VIP Mentorship - Rs 20,000">6. ون آن ون پرسنل مینٹورشپ — Rs. 20,000</option>
+              </select>
+            </div>
+
+          </div>
+
+          <!-- Live Academy Confirmation Checkbox -->
+          <div class="bg-brand-dark/60 p-4 rounded-xl border border-brand-border flex items-start gap-3">
+            <input type="checkbox" id="policyCheck" required class="mt-1.5 w-4 h-4 rounded text-brand-gold focus:ring-brand-gold bg-brand-dark border-brand-border">
+            <label for="policyCheck" class="text-xs sm:text-sm text-slate-300 cursor-pointer">
+              میں تصدیق کرتا ہوں کہ میں نے پڑھ لیا ہے کہ تمام کلاسز 100% زوم پر لائیو ہوں گی، اور کوئی ریکارڈڈ پورٹل فراہم نہیں کیا جائے گا۔
+            </label>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" id="submitBtn"
+                  class="w-full py-4 rounded-xl bg-gradient-to-r from-brand-gold via-yellow-400 to-brand-gold hover:from-yellow-400 hover:to-brand-gold text-brand-dark font-extrabold text-xl shadow-xl hover:shadow-brand-gold/20 transition-all hover:scale-[1.01] flex items-center justify-center gap-3">
+            <span>فارم جمع کروائیں اور داخلہ یقینی بنائیں</span>
+            <i data-lucide="send" class="w-5 h-5"></i>
+          </button>
+
+          <p class="text-center text-xs text-slate-400 mt-2">
+            فارم جمع ہوتے ہی آپ کو داخلہ تصدیقی پیج اور فیس وصولی اکاؤنٹ تفاصیل پر بھیج دیا جائے گا۔
+          </p>
+
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Official Payment Accounts Section -->
+  <section id="payment" class="py-16 bg-brand-dark border-b border-brand-border">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center mb-12">
+        <span class="text-brand-gold text-xs font-bold uppercase tracking-wider font-latin">Official Payment Gateways</span>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mt-2 mb-2">
+          آفیشل فیس ادائیگی کا طریقہ کار
+        </h2>
+        <p class="text-slate-300 text-sm">
+          کسی بھی کورس کی فیس درج ذیل آفیشل اکاؤنٹس میں جمع کروا کر اسکرین شاٹ واٹس ایپ پر ارسال کریں:
+        </p>
+      </div>
+
+      <!-- 4 Accounts Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+        
+        <!-- EasyPaisa -->
+        <div class="bg-brand-surface/70 border border-brand-border p-5 rounded-2xl text-center">
+          <div class="text-emerald-400 font-latin font-bold text-lg mb-1">EasyPaisa</div>
+          <div class="text-xs text-slate-400">اکاؤنٹ ٹائٹل:</div>
+          <div class="text-sm font-bold text-white">Dr. Shahid Akram</div>
+          <div class="text-brand-gold font-latin font-extrabold text-lg mt-2 tracking-wider">0320-6546008</div>
+        </div>
+
+        <!-- JazzCash -->
+        <div class="bg-brand-surface/70 border border-brand-border p-5 rounded-2xl text-center">
+          <div class="text-red-400 font-latin font-bold text-lg mb-1">JazzCash</div>
+          <div class="text-xs text-slate-400">اکاؤنٹ ٹائٹل:</div>
+          <div class="text-sm font-bold text-white">Shahid Akram</div>
+          <div class="text-brand-gold font-latin font-extrabold text-lg mt-2 tracking-wider">0320-6546008</div>
+        </div>
+
+        <!-- SadaPay / NayaPay -->
+        <div class="bg-brand-surface/70 border border-brand-border p-5 rounded-2xl text-center">
+          <div class="text-cyan-400 font-latin font-bold text-lg mb-1">SadaPay / NayaPay</div>
+          <div class="text-xs text-slate-400">اکاؤنٹ ٹائٹل:</div>
+          <div class="text-sm font-bold text-white">Shahid Akram Mustafai</div>
+          <div class="text-brand-gold font-latin font-extrabold text-lg mt-2 tracking-wider">0320-6546008</div>
+        </div>
+
+        <!-- Meezan Bank -->
+        <div class="bg-brand-surface/70 border border-brand-border p-5 rounded-2xl text-center">
+          <div class="text-amber-400 font-latin font-bold text-lg mb-1">Meezan Bank</div>
+          <div class="text-xs text-slate-400">اکاؤنٹ ٹائٹل:</div>
+          <div class="text-sm font-bold text-white">Dr. Shahid Akram</div>
+          <div class="text-xs text-slate-300 mt-2">رابطہ پر فوری IBAN جاری کیا جائے گا</div>
+        </div>
+
+      </div>
+
+      <!-- WhatsApp Receipt Share Button -->
+      <div class="text-center">
+        <a href="https://wa.me/923074958837?text=Assalam-o-Alaikum%20Dr.%20Shahid%20Akram,%20Maine%20Admission%20Fee%20Jama%20Karwa%20Di%20Hai.%20Yeh%20Raha%20Screenshot." 
+           target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center gap-3 px-8 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-lg transition-all shadow-lg hover:shadow-emerald-500/20">
+          <i data-lucide="file-check-2" class="w-5 h-5"></i>
+          <span>فیس ادائیگی کے بعد اسکرین شاٹ واٹس ایپ پر ارسال کریں (0307-4958837)</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Official Social Media & Community Channels -->
+  <section id="social" class="py-16 bg-brand-deep/50 border-b border-brand-border">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center mb-12">
+        <span class="text-brand-gold text-xs font-bold uppercase tracking-wider font-latin">Official Verified Networks</span>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mt-2">
+          عِلْمِ ٹیک پاکستان کے آفیشل سوشل نیٹ ورکس سے جڑیں
+        </h2>
+        <p class="text-slate-300 text-sm mt-1">
+          تمام نئی اپڈیٹس، ویڈیوز اور لائیو ویبینار کے لنکس کے لیے ابھی ہمارے سوشل میڈیا اکاؤنٹس فالو کریں:
+        </p>
+      </div>
+
+      <!-- 6 Social Buttons Grid -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+        
+        <!-- TikTok -->
+        <a href="https://www.tiktok.com/@ilmetechpakistan" target="_blank" rel="noopener noreferrer"
+           class="bg-brand-surface/70 hover:bg-black border border-brand-border hover:border-brand-gold p-4 rounded-xl text-center transition-all group flex flex-col items-center justify-center">
+          <i data-lucide="video" class="w-6 h-6 text-slate-300 group-hover:text-white mb-2"></i>
+          <span class="font-bold text-white text-sm">ٹک ٹاک</span>
+          <span class="text-[10px] text-slate-400 font-latin">@ilmetechpakistan</span>
+        </a>
+
+        <!-- YouTube -->
+        <a href="https://www.youtube.com/@ilmetechpakistan" target="_blank" rel="noopener noreferrer"
+           class="bg-brand-surface/70 hover:bg-red-950 border border-brand-border hover:border-red-500 p-4 rounded-xl text-center transition-all group flex flex-col items-center justify-center">
+          <i data-lucide="youtube" class="w-6 h-6 text-red-400 group-hover:text-red-300 mb-2"></i>
+          <span class="font-bold text-white text-sm">یوٹیوب چینل</span>
+          <span class="text-[10px] text-slate-400 font-latin">سبسکرائب کریں</span>
+        </a>
+
+        <!-- Facebook Page -->
+        <a href="https://www.facebook.com/ilmetechpakistan" target="_blank" rel="noopener noreferrer"
+           class="bg-brand-surface/70 hover:bg-blue-950 border border-brand-border hover:border-blue-500 p-4 rounded-xl text-center transition-all group flex flex-col items-center justify-center">
+          <i data-lucide="facebook" class="w-6 h-6 text-blue-400 group-hover:text-blue-300 mb-2"></i>
+          <span class="font-bold text-white text-sm">فیس بک پیج</span>
+          <span class="text-[10px] text-slate-400 font-latin">فالو کریں</span>
+        </a>
+
+        <!-- Facebook Group -->
+        <a href="https://www.facebook.com/groups/ilmetechpakistan" target="_blank" rel="noopener noreferrer"
+           class="bg-brand-surface/70 hover:bg-blue-900/60 border border-brand-border hover:border-brand-gold p-4 rounded-xl text-center transition-all group flex flex-col items-center justify-center">
+          <i data-lucide="users" class="w-6 h-6 text-brand-gold group-hover:text-yellow-300 mb-2"></i>
+          <span class="font-bold text-white text-sm">لرننگ گروپ</span>
+          <span class="text-[10px] text-slate-400 font-latin">طلبہ کا گروپ جوائن کریں</span>
+        </a>
+
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/ilmetechpakistan/" target="_blank" rel="noopener noreferrer"
+           class="bg-brand-surface/70 hover:bg-pink-950 border border-brand-border hover:border-pink-500 p-4 rounded-xl text-center transition-all group flex flex-col items-center justify-center">
+          <i data-lucide="instagram" class="w-6 h-6 text-pink-400 group-hover:text-pink-300 mb-2"></i>
+          <span class="font-bold text-white text-sm">انسٹاگرام</span>
+          <span class="text-[10px] text-slate-400 font-latin">فالو کریں</span>
+        </a>
+
+        <!-- WhatsApp Channel -->
+        <a href="https://whatsapp.com/channel/0029Vb7zRZ3AInPqJwCmHn1x" target="_blank" rel="noopener noreferrer"
+           class="bg-brand-surface/70 hover:bg-emerald-950 border border-brand-border hover:border-emerald-500 p-4 rounded-xl text-center transition-all group flex flex-col items-center justify-center">
+          <i data-lucide="message-circle" class="w-6 h-6 text-emerald-400 group-hover:text-emerald-300 mb-2"></i>
+          <span class="font-bold text-white text-sm">واٹس ایپ چینل</span>
+          <span class="text-[10px] text-slate-400 font-latin">چینل جوائن کریں</span>
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Signature Poetic Motto Banner -->
+  <div class="bg-brand-dark py-10 border-b border-brand-border text-center">
+    <div class="max-w-4xl mx-auto px-4">
+      <p class="text-xl sm:text-2xl font-bold text-brand-gold">
+        آفاق کے ہر ہر گوشے میں پیغام پہنچا کے دم لینا ، اب رکنا نہیں، اب تھمنا نہیں، منزل کو پا کے دم لینا
+      </p>
+      <p class="text-xs sm:text-sm text-slate-400 mt-2 font-latin">
+        Dr. Shahid Akram Mustafai — Founder & CEO | عِلْمِ ٹیک پاکستان (ILM E TECH PAKISTAN)
+      </p>
     </div>
   </div>
 
-  <!-- Official Academy Running Marquee Ticker -->
-  <aside class="ticker-wrapper" id="homeTicker" role="region" aria-label="تازہ ترین اہم اعلانات">
-    <!-- Clean Announcement Badge -->
-    <div class="ticker-badge" aria-hidden="true">
-      <i class="fas fa-bullhorn" style="color:#6ee7b7; font-size:0.95rem; margin-right:0.35rem;"></i>
-      <span class="ticker-badge-text">اہم اعلانات</span>
-    </div>
-
-    <!-- Scrolling Ticker Content -->
-    <div class="ticker-content" dir="rtl">
-            <div class="ticker-track" id="tickerTrack">
-        <!-- Track Content 1 -->
-        <div class="ticker-group">
-          <!-- Item 1: Free Basic AI Course -->
-          <div class="ticker-item">
-            <span class="ticker-text">🚀 نیا داخلہ بیچ 2026: 7 روزہ بیسک AI کورس 100% مفت! آن لائن سیٹ بُک کریں۔</span>
-            <a href="course-detail.html?id=basic-ai-course" class="nasa-ticker-cta-btn"><i class="fas fa-ticket-alt"></i> مفت سیٹ بُک کریں</a>
-            <span class="ticker-separator"><i class="fas fa-bolt"></i></span>
-          </div>
-
-          <!-- Item 2: New AI Website Development Course -->
-          <div class="ticker-item">
-            <span class="ticker-text">💻 نیا کورس لانچ: 15 روزہ AI ویب سائٹ ڈویلپمنٹ کورس — ویب سائٹ بنانے سے لائیو کرنے تک مکمل ٹریننگ! (فیس 5,000 روپے)</span>
-            <a href="course-detail.html?id=ai-website-development" class="nasa-ticker-cta-btn"><i class="fas fa-laptop-code"></i> تفصیلات و داخلہ</a>
-            <span class="ticker-separator"><i class="fas fa-rocket"></i></span>
-          </div>
-
-          <!-- Item 3: Subsidized AI Tools Mastery -->
-          <div class="ticker-item">
-            <span class="ticker-text">⭐ 30 روزہ AI ٹولز ماسٹری ماسٹر کلاس — اب صرف 3,000 روپے میں لائیو داخلہ حاصل کریں۔</span>
-            <a href="course-detail.html?id=ai-tools-mastery" class="nasa-ticker-cta-btn"><i class="fas fa-bolt"></i> داخلہ لیں (Rs. 3,000)</a>
-            <span class="ticker-separator"><i class="fas fa-crown"></i></span>
-          </div>
-
-          <!-- Item 4: One-on-One VIP Mentorship -->
-          <div class="ticker-item">
-            <span class="ticker-text">💎 ون آن ون پرائیویٹ رہنمائی براہِ راست ڈاکٹر شاہد اکرم مصطفائی کے ساتھ دستیاب ہے۔</span>
-            <a href="course-detail.html?id=one-on-one-session" class="nasa-ticker-cta-btn"><i class="fas fa-user-tie"></i> رہنمائی حاصل کریں</a>
-            <span class="ticker-separator"><i class="fas fa-satellite"></i></span>
-          </div>
-        </div>
-
-        <!-- Track Content 2 (Duplicate for Seamless Continuous Marquee) -->
-        <div class="ticker-group" aria-hidden="true">
-          <!-- Item 1: Free Basic AI Course -->
-          <div class="ticker-item">
-            <span class="ticker-text">🚀 نیا داخلہ بیچ 2026: 7 روزہ بیسک AI کورس 100% مفت! آن لائن سیٹ بُک کریں۔</span>
-            <a href="course-detail.html?id=basic-ai-course" class="nasa-ticker-cta-btn"><i class="fas fa-ticket-alt"></i> مفت سیٹ بُک کریں</a>
-            <span class="ticker-separator"><i class="fas fa-bolt"></i></span>
-          </div>
-
-          <!-- Item 2: New AI Website Development Course -->
-          <div class="ticker-item">
-            <span class="ticker-text">💻 نیا کورس لانچ: 15 روزہ AI ویب سائٹ ڈویلپمنٹ کورس — ویب سائٹ بنانے سے لائیو کرنے تک مکمل ٹریننگ! (فیس 5,000 روپے)</span>
-            <a href="course-detail.html?id=ai-website-development" class="nasa-ticker-cta-btn"><i class="fas fa-laptop-code"></i> تفصیلات و داخلہ</a>
-            <span class="ticker-separator"><i class="fas fa-rocket"></i></span>
-          </div>
-
-          <!-- Item 3: Subsidized AI Tools Mastery -->
-          <div class="ticker-item">
-            <span class="ticker-text">⭐ 30 روزہ AI ٹولز ماسٹری ماسٹر کلاس — اب صرف 3,000 روپے میں لائیو داخلہ حاصل کریں۔</span>
-            <a href="course-detail.html?id=ai-tools-mastery" class="nasa-ticker-cta-btn"><i class="fas fa-bolt"></i> داخلہ لیں (Rs. 3,000)</a>
-            <span class="ticker-separator"><i class="fas fa-crown"></i></span>
-          </div>
-
-          <!-- Item 4: One-on-One VIP Mentorship -->
-          <div class="ticker-item">
-            <span class="ticker-text">💎 ون آن ون پرائیویٹ رہنمائی براہِ راست ڈاکٹر شاہد اکرم مصطفائی کے ساتھ دستیاب ہے۔</span>
-            <a href="course-detail.html?id=one-on-one-session" class="nasa-ticker-cta-btn"><i class="fas fa-user-tie"></i> رہنمائی حاصل کریں</a>
-            <span class="ticker-separator"><i class="fas fa-satellite"></i></span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- NASA HUD Controls Toolbar -->
-    <div class="nasa-ticker-hud-controls" aria-label="Ticker Controls">
-      <button type="button" class="nasa-ticker-hud-btn" id="tickerPauseBtn" aria-label="Pause or Resume Ticker" title="Pause / Play Marquee">
-        <i class="fas fa-pause" id="tickerPauseIcon"></i>
-        <span id="tickerPauseText">PAUSE</span>
-      </button>
-      <span class="nasa-ticker-status-tag" title="Live Telemetry Feed Active">
-        <span class="status-live-dot"></span> LIVE
-      </span>
-    </div>
-  </aside>
-
-  <!-- Hero Section -->
-  <section class="hero-section">
-    <div class="container hero-grid">
-      <div>
-                <div class="nasa-badge">
-          <i class="fas fa-graduation-cap"></i> بانی و سرپرستِ اعلیٰ: <strong>ڈاکٹر شاہد اکرم مصطفائی</strong> (Founder &amp; CEO)
-        </div>
-        <h1 class="hero-title" style="margin-bottom: 0.5rem;">
-          Learn Practical AI. <span class="nasa-gradient-text">Build Your Digital Future.</span>
-        </h1>
-        <div style="font-family:'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', serif; font-size:1.35rem; color:#6ee7b7; line-height:2; margin-bottom:0.75rem; font-weight:700;">
-          علمِ ٹیک پاکستان: 7 روزہ بیسک AI کورس 100% مفت، اور لائیو پریکٹیکل ٹیک کورسز
-        </div>
-        <p class="hero-description" style="max-width: 600px; font-size: 0.98rem; line-height: 1.6; color: #cbd5e1; margin-bottom: 1.5rem;">
-          ڈاکٹر شاہد اکرم مصطفائی صاحب کی ذاتی نگرانی میں آسان فہم، سچی اور عملی تربیت — بغیر کسی جھوٹے دعوے کے اصل اسکلز اور تصدیق شدہ اسناد حاصل کریں۔
-        </p>
-        <div class="hero-ctas">
-          <a href="admissions.html?course=basic-ai" class="btn btn-primary btn-lg" style="background:linear-gradient(135deg, #059669 0%, #10b981 100%); box-shadow:0 8px 25px rgba(16, 185, 129, 0.4);">
-            <i class="fas fa-ticket-alt"></i> مفت سیٹ بُک کریں (Free Entry)
-          </a>
-          <a href="courses.html" class="btn btn-nasa btn-lg">
-            <i class="fas fa-laptop-code"></i> تمام کورسز دیکھیں
-          </a>
-          <a href="#studentTestimonialsSection" class="btn btn-outline" style="color: #ffffff; border-color: rgba(255,255,255,0.4);">
-            <i class="fas fa-star" style="color:#f59e0b;"></i> کامیاب طلبہ کے ثبوت
-          </a>
-        </div>
-        <div class="hero-stats">
-          <div class="stat-item">
-            <span class="stat-number">6+</span>
-            <p>Official Courses</p>
-          </div>
-          <div class="stat-item">
-            <span class="stat-number">100%</span>
-            <p>Practical Projects</p>
-          </div>
-          <div class="stat-item">
-            <span class="stat-number">Verified</span>
-            <p>Certificates Issued</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="hero-visual nasa-float">
-        <div class="hero-logo-frame">
-          <img src="assets/images/branding/ietp-logo.webp" alt="ILM E TECH PAKISTAN (IETP) - Official Academy Logo" class="hero-logo-img" width="340" height="340" style="aspect-ratio:1/1; object-fit:contain; border-radius:24px; box-shadow:0 20px 40px rgba(0,0,0,0.3);">
-        </div>
-        <div class="hero-badges-wrapper">
-          <div class="floating-badge fb-1">
-            <div class="fb-icon"><i class="fas fa-robot"></i></div>
-            <div class="fb-text">
-              <strong>AI &amp; Tech Focused</strong>
-              <span>Next-Gen Education</span>
-            </div>
-          </div>
-          <div class="floating-badge fb-2">
-            <div class="fb-icon" style="background: var(--tech-blue);"><i class="fas fa-certificate"></i></div>
-            <div class="fb-text">
-              <strong>Official Verification</strong>
-              <span>Secure Student Records</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  
-  <!-- ==========================================================================
-       NATIONAL MISSION & EDUCATIONAL ANTHEM (ILM E TECH PAKISTAN)
-       Breathtaking Urdu Poetry & Institutional Commitment
-       ========================================================================== -->
-  <section style="background: radial-gradient(circle at 50% 50%, rgba(6, 78, 59, 0.2) 0%, #030712 100%); padding: 2.5rem 0; border-top: 1px solid rgba(16, 185, 129, 0.2); border-bottom: 1px solid rgba(250, 204, 21, 0.25);">
-    <div class="container">
-      <div class="mission-anthem-banner" style="margin-bottom: 0;">
-        <div class="mission-anthem-tag">
-          <i class="fas fa-flag"></i> ہمارا قومی و تعلیمی مشن — علمِ ٹیک پاکستان
-        </div>
-        <div class="mission-anthem-verse">
-          "آفاق کے ہر ہر گوشے میں پیغام پہنچا کے دم لینا<br>
-          <span class="verse-highlight">اب رُکنا نہیں، اب تھمنا نہیں، منزل کو پا کے دم لینا!</span>"
-        </div>
-        <div class="mission-anthem-strip">
-          <span><i class="fas fa-user-tie text-emerald-400"></i> سرپرستِ اعلیٰ: <strong>ڈاکٹر شاہد اکرم مصطفائی</strong> (Founder &amp; CEO)</span>
-          <span><i class="fas fa-bullseye text-emerald-400"></i> مقصد: <strong>سچائی، شفافیت اور عملی مہارت کی فراہمی</strong></span>
-          <span><i class="fas fa-ticket-alt text-emerald-400"></i> 7 روزہ بیسک AI کورس: <strong>100% مفت</strong></span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Founder Spotlight Banner -->
-  <section style="background: #ffffff; padding: 3rem 0; border-bottom: 1px solid var(--border-light);">
-    <div class="container">
-      <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:2rem; background:var(--bg-slate-50); border:1px solid var(--border-light); padding:2rem; border-radius:1rem;">
-        <div style="display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap;">
-          <img src="assets/images/ceo.webp" alt="Dr. Shahid Akram Mustafai" loading="lazy" decoding="async" style="width:100px; height:100px; object-fit:cover; border-radius:50%; border:4px solid var(--primary-green);">
-          <div>
-            <span class="badge" style="background:var(--emerald-light); color:var(--primary-green); padding:0.25rem 0.6rem; border-radius:0.25rem; font-weight:700; font-size:0.75rem;">FOUNDER & CEO LEADERSHIP</span>
-            <h2 style="font-size:1.4rem; font-weight:800; color:var(--text-dark); margin:0.2rem 0;">Dr. Shahid Akram Mustafai</h2>
-            
-            <p style="font-size:0.9rem; color:var(--text-muted); margin-top:0.25rem;">Building Pakistan's Premier AI & Digital Skills Education Platform.</p>
-          </div>
-        </div>
-        <div>
-          <a href="about.html" class="btn btn-outline-blue"><i class="fas fa-user-tie"></i> Read Founder Message</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Brands & Enterprise Partners We Have Worked With Showcase -->
-  <section class="brands-showcase-section" id="brandPartnersSection">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag" style="background:#ecfdf5; color:#047857; border:1px solid #a7f3d0;">
-          <i class="fas fa-handshake"></i> TRUSTED CLIENTS &amp; MARKETING SUCCESS
-        </span>
-        <h2 class="section-title">Our Trusted Marketing Clients &amp; Brand Collaborations</h2>
-        <div style="font-family:'Noto Nastaliq Urdu', serif; font-size:1.3rem; color:var(--primary-green); margin-top:0.4rem; line-height:1.6;">
-          ہمارے قابلِ فخر سوشل میڈیا مارکیٹنگ کلائنٹس اور برانڈز
-        </div>
-        <p class="section-subtitle" style="max-width:780px; margin:0.5rem auto 0;">
-          Under the visionary leadership of <strong>Dr. Shahid Akram Mustafai</strong>, ILM E TECH manages social media growth, viral video ads, and digital branding for prestigious education networks, popular food chains, and commercial brands across Pakistan.
-        </p>
-      </div>
-
-      <!-- Compact Authentic Client Logos Row (Neat, Small, Uniform Strip) -->
-      <div class="compact-client-logos-row">
-        
-        <!-- Authentic Client Brand 1: The Smart School -->
-        <a href="services.html#service-smm" class="compact-logo-card" title="The Smart School - Education Network">
-          <img src="assets/images/brands/the-smart-school.webp" alt="The Smart School Logo" class="compact-logo-img">
-          <div class="compact-logo-text">
-            <span class="compact-logo-name">The Smart School</span>
-            <span class="compact-logo-tag">Leading School Network</span>
-          </div>
-        </a>
-
-        <!-- Authentic Client Brand 2: Cheezious Bite Pizza -->
-        <a href="services.html#service-video-ads" class="compact-logo-card" title="Cheezious Bite Pizza - Fast Food & Dining">
-          <img src="assets/images/brands/cheezious-bite.webp" alt="Cheezious Bite Pizza Logo" class="compact-logo-img">
-          <div class="compact-logo-text">
-            <span class="compact-logo-name">Cheezious Bite Pizza</span>
-            <span class="compact-logo-tag">Fast Food &amp; Dining (More Khunda)</span>
-          </div>
-        </a>
-
-        <!-- Authentic Client Brand 3: Pizza Venue -->
-        <a href="services.html#service-visit-vlog" class="compact-logo-card" title="Pizza Venue - Live Kitchen">
-          <img src="assets/images/brands/pizza-venue.webp" alt="Pizza Venue Logo" class="compact-logo-img">
-          <div class="compact-logo-text">
-            <span class="compact-logo-name">Pizza Venue</span>
-            <span class="compact-logo-tag">Live Kitchen &amp; Restaurant</span>
-          </div>
-        </a>
-
-        <!-- Authentic Client Brand 4: Slice Up -->
-        <a href="services.html#service-post-design" class="compact-logo-card" title="Slice Up - Artisanal Pizza">
-          <img src="assets/images/brands/slice-up.webp" alt="Slice Up Logo" class="compact-logo-img">
-          <div class="compact-logo-text">
-            <span class="compact-logo-name">Slice Up</span>
-            <span class="compact-logo-tag">Artisanal Pizza &amp; QSR</span>
-          </div>
-        </a>
-
-        <!-- Authentic Client Brand 5: Pizza Pop -->
-        <a href="services.html#service-smm" class="compact-logo-card" title="Pizza Pop - Freshly Baked">
-          <img src="assets/images/brands/pizza-pop.webp" alt="Pizza Pop Logo" class="compact-logo-img">
-          <div class="compact-logo-text">
-            <span class="compact-logo-name">Pizza Pop</span>
-            <span class="compact-logo-tag">Freshly Baked &amp; Locally Loved</span>
-          </div>
-        </a>
-
-      </div>
-
-      <!-- Real Impact Numbers Grid (10 Steps Ahead of NDA) -->
-            <!-- Real Impact Numbers Grid -->
-      <div class="brand-impact-stats-row">
-        <div class="brand-stat-box">
-          <div class="brand-stat-num" data-counter="10">10+</div>
-          <div class="brand-stat-lbl">10+ Trusted Brands &amp; Partners</div>
-          <div style="font-family:'Noto Nastaliq Urdu', serif; font-size:0.85rem; color:#047857; margin-top:0.25rem;">ہمارے 10 قابلِ اعتماد پارٹنرز</div>
-        </div>
-        <div class="brand-stat-box">
-          <div class="brand-stat-num" data-counter="50">50+</div>
-          <div class="brand-stat-lbl">Commercial Campaigns &amp; Ads</div>
-          <div style="font-family:'Noto Nastaliq Urdu', serif; font-size:0.85rem; color:#047857; margin-top:0.25rem;">کمرشل مہمات و ویڈیو ایڈز</div>
-        </div>
-        <div class="brand-stat-box">
-          <div class="brand-stat-num" data-counter="150">150+</div>
-          <div class="brand-stat-lbl">150+ Certified Students &amp; Trainees</div>
-          <div style="font-family:'Noto Nastaliq Urdu', serif; font-size:0.85rem; color:#047857; margin-top:0.25rem;">150+ کامیاب اور تربیت یافتہ طلبہ</div>
-        </div>
-        <div class="brand-stat-box">
-          <div class="brand-stat-num" data-counter-prefix="₨ " data-counter="3" data-counter-suffix="M+ / Month">₨ 3M+ / Month</div>
-          <div class="brand-stat-lbl">₨ 3M+ / Month Client Revenue Impact</div>
-          <div style="font-family:'Noto Nastaliq Urdu', serif; font-size:0.85rem; color:#047857; margin-top:0.25rem;">30 لاکھ+ روپے ماہانہ کلائنٹ ریونیو گروتھ</div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Featured Courses Section -->
-  <section style="padding: 5rem 0;">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">OUR OFFICIAL COURSES</span>
-        <h2 class="section-title">Master In-Demand Technology Skills</h2>
-        <p class="section-subtitle">Choose from our industry-aligned training programs built for Pakistani beginners &amp; professionals.</p>
-      </div>
-
-      <!-- Interactive AI Career & Course Matcher Wizard (10 Steps Ahead of Competitor) -->
-      <div class="career-matcher-card" id="careerMatcherBox">
-        <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
-          <div>
-            <span class="badge" style="background:rgba(16,185,129,0.25); color:#6ee7b7; border:1px solid #10b981; padding:0.3rem 0.8rem; border-radius:1rem; font-size:0.8rem; font-weight:800;">
-              <i class="fas fa-wand-magic-sparkles"></i> AI CAREER MATCHER
-            </span>
-            <h3 style="font-size:1.6rem; font-weight:800; margin-top:0.4rem; color:#ffffff;">
-              Discover Your Ideal Tech Career in 30 Seconds
-            </h3>
-            <p style="color:#cbd5e1; font-size:0.92rem; margin:0;">
-              Select your primary goal to see the exact recommended program, syllabus, and earnings potential:
-            </p>
-          </div>
-          <a href="admissions.html" class="btn btn-secondary btn-sm"><i class="fas fa-file-signature"></i> Direct Admission</a>
-        </div>
-
-        <div class="matcher-grid-options" role="radiogroup" aria-label="Select Your Goal">
-          <button type="button" class="matcher-option-btn active" data-match="freelance" role="radio" aria-checked="true">
-            <i class="fas fa-tools matcher-opt-icon text-emerald-400"></i>
-            <div>
-              <div class="matcher-opt-title">AI Tools Mastery (30 Days)</div>
-              <div class="matcher-opt-desc">25+ AI tools, video editing, voice cloning &amp; productivity.</div>
-            </div>
-          </button>
-
-          <button type="button" class="matcher-option-btn" data-match="webdev" role="radio" aria-checked="false">
-            <i class="fas fa-globe matcher-opt-icon text-sky-400"></i>
-            <div>
-              <div class="matcher-opt-title">AI Website Development</div>
-              <div class="matcher-opt-desc">Build, deploy live &amp; monetize sites in 15 days without coding.</div>
-            </div>
-          </button>
-
-          <button type="button" class="matcher-option-btn" data-match="coding" role="radio" aria-checked="false">
-            <i class="fas fa-code matcher-opt-icon text-indigo-400"></i>
-            <div>
-              <div class="matcher-opt-title">AI Software Engineering</div>
-              <div class="matcher-opt-desc">Build web apps, Python AI scripts, APIs &amp; SaaS tools.</div>
-            </div>
-          </button>
-
-          <button type="button" class="matcher-option-btn" data-match="vip" role="radio" aria-checked="false">
-            <i class="fas fa-crown matcher-opt-icon text-amber-400"></i>
-            <div>
-              <div class="matcher-opt-title">VIP 1-on-1 Mentorship</div>
-              <div class="matcher-opt-desc">Direct private coaching with Founder Dr. Shahid Akram Mustafai.</div>
-            </div>
-          </button>
-        </div>
-
-        <!-- Dynamic Match Result Display -->
-        <div class="matcher-result-display" id="matcherResultDisplay">
-          <!-- Injected via JavaScript -->
-        </div>
-      </div>
-
-      <div class="courses-grid" id="homepageCoursesGrid">
-        <!-- Dynamic Courses Cards -->
-      </div>
-
-      <!-- Dedicated NASA-Grade VIP 1-on-1 Mentorship Spotlight -->
-      <div class="vip-spotlight-card" id="vipSessionSpotlight">
-        <div class="vip-spotlight-badge">
-          <i class="fas fa-crown"></i> EXCLUSIVE 1-ON-1 VIP MENTORSHIP SERVICE
-        </div>
-        <div class="vip-spotlight-grid">
-          <div>
-            <h3 class="vip-spotlight-title">One on One Session Service Available</h3>
-            <div class="vip-spotlight-urdu">براہ راست ون آن ون سیشن سروس (ڈاکٹر شاہد اکرم مصطفائی کے ساتھ)</div>
-            <p class="vip-spotlight-desc">
-              Accelerate your success with personalized, private 1-on-1 mentoring. Get tailored training in Artificial Intelligence, Software Engineering, Prompt Architecture, or Digital Marketing built specifically around your current skills, schedule, and career goals.
-            </p>
-            <ul class="vip-perks-list">
-              <li><i class="fas fa-check-circle"></i> Direct 1-on-1 Live Coaching with Founder</li>
-              <li><i class="fas fa-check-circle"></i> Flexible Personalized Schedule</li>
-              <li><i class="fas fa-check-circle"></i> Hands-on Screen Sharing &amp; Project Troubleshooting</li>
-              <li><i class="fas fa-check-circle"></i> VIP WhatsApp Priority Line</li>
-              <li><i class="fas fa-check-circle"></i> Custom Career &amp; Freelancing Roadmap</li>
-              <li><i class="fas fa-check-circle"></i> Official Signed Verifiable Certificate</li>
-            </ul>
-          </div>
-          <div>
-            <div class="vip-price-box">
-              <div class="vip-price-tag-label">ALL-INCLUSIVE VIP SERVICE FEE</div>
-              <div class="vip-price-amount">Rs. 20,000</div>
-              <div class="vip-price-sub">PKR Only &bull; 50% Subsidized Special Rate</div>
-              <a href="https://wa.me/923074958837?text=Assalam%20o%20Alaikum!%20I%20want%20to%20book%20the%20VIP%20One%20on%20One%20Session%20Service%20(Fees%20Rs.%2020,000%20PKR)%20with%20Dr.%20Shahid%20Akram%20Mustafai." target="_blank" rel="noopener noreferrer" class="btn-vip-book">
-                <i class="fab fa-whatsapp"></i> Book 1-on-1 Session Now
-              </a>
-              <div style="margin-top:0.75rem; font-size:0.8rem; color:#94a3b8;">
-                <i class="fas fa-shield-alt text-emerald-400"></i> Direct Line: <strong style="color:#ffffff;">+92 307 4958837</strong>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div style="text-align: center; margin-top: 3rem;">
-        <a href="courses.html" class="btn btn-outline-blue btn-lg"><i class="fas fa-th-list"></i> View All Official Courses</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Why Choose ILM E TECH PAKISTAN? -->
-  <section style="background: var(--bg-slate-100); padding: 5rem 0;">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">WHY CHOOSE US?</span>
-        <h2 class="section-title">Why ILM E TECH PAKISTAN?</h2>
-        <p class="section-subtitle">We combine modern AI technology, practical execution, and affordable Pakistani education.</p>
-      </div>
-
-      <div class="features-grid">
-        <div class="feature-card nasa-card">
-          <div class="feature-icon"><i class="fas fa-tools"></i></div>
-          <h3 class="feature-title">Practical Hands-on Learning</h3>
-          <p class="feature-desc">No dry theory. Work directly on real projects, software tools, and portfolio pieces from Day 1.</p>
-        </div>
-
-        <div class="feature-card nasa-card">
-          <div class="feature-icon"><i class="fas fa-brain"></i></div>
-          <h3 class="feature-title">AI-Powered Education</h3>
-          <p class="feature-desc">Learn how to use modern Artificial Intelligence to automate work, code faster, and boost productivity.</p>
-        </div>
-
-        <div class="feature-card nasa-card">
-          <div class="feature-icon"><i class="fas fa-briefcase"></i></div>
-          <h3 class="feature-title">Industry-Relevant Skills</h3>
-          <p class="feature-desc">Curriculum designed around real-world market demands, freelancing needs, and employer requirements.</p>
-        </div>
-
-        <div class="feature-card nasa-card">
-          <div class="feature-icon"><i class="fas fa-user-shield"></i></div>
-          <h3 class="feature-title">Beginner-Friendly Training</h3>
-          <p class="feature-desc">Step-by-step guidance in easy English. No prior coding or computer background required.</p>
-        </div>
-
-        <div class="feature-card nasa-card">
-          <div class="feature-icon"><i class="fas fa-certificate"></i></div>
-          <h3 class="feature-title">Verifiable Certificates</h3>
-          <p class="feature-desc">Receive an authentic certificate with a unique Verification Code downloadable as PDF.</p>
-        </div>
-
-        <div class="feature-card nasa-card">
-          <div class="feature-icon"><i class="fas fa-tag"></i></div>
-          <h3 class="feature-title">Affordable Pricing</h3>
-          <p class="feature-desc">Quality international standard education at accessible fees supporting JazzCash, Easypaisa, SadaPay and bank transfer.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  
-  <!-- ==========================================================================
-       ENTERPRISE VERIFIED STUDENT TESTIMONIALS & REAL SOCIAL PROOF
-       NASA-Grade Verified Student Review Showcase with Filter & Lightbox
-       ========================================================================== -->
-  <section class="testimonials-showcase-section" id="studentTestimonialsSection">
-    <div class="container">
-      <div class="testi-header-center">
-        <span class="testi-tag-pill">
-          <i class="fas fa-badge-check"></i> 100% VERIFIED STUDENT REVIEWS &amp; SUCCESS STORIES
-        </span>
-        <h2 class="testi-main-title">Real Feedback from Real Learners Across Pakistan</h2>
-        <div class="testi-urdu-title">طلبہ، پروفیشنلز اور ٹیک فاؤنڈرز کے تصدیق شدہ تاثرات و کامیابی کے سفر</div>
-        <p class="testi-sub-desc">
-          شاہد اکرم مصطفائی صاحب کی ذاتی نگرانی اور علمِ ٹیک پاکستان کے پلیٹ فارم سے مستفید ہونے والے بااعتماد طلبہ کے اصل واٹس ایپ و سوشل میڈیا پیغامات ملاحظہ فرمائیں۔
-        </p>
-      </div>
-
-      <!-- Category Filter Tabs -->
-      <div class="testi-filter-tabs" role="tablist" aria-label="Review Categories">
-        <button type="button" class="testi-tab-btn active" data-filter="all" role="tab" aria-selected="true">
-          <i class="fas fa-th-large"></i> تمام ریویوز (All 7)
-        </button>
-        <button type="button" class="testi-tab-btn" data-filter="software" role="tab" aria-selected="false">
-          <i class="fas fa-laptop-code"></i> سافٹ ویئر و ویب ڈیولپمنٹ
-        </button>
-        <button type="button" class="testi-tab-btn" data-filter="graphics" role="tab" aria-selected="false">
-          <i class="fas fa-palette"></i> گرافکس و اینیمیشن
-        </button>
-        <button type="button" class="testi-tab-btn" data-filter="beginner" role="tab" aria-selected="false">
-          <i class="fas fa-user-graduate"></i> کالج و بنیادی طلبہ
-        </button>
-        <button type="button" class="testi-tab-btn" data-filter="remote" role="tab" aria-selected="false">
-          <i class="fas fa-briefcase"></i> جاب ہولڈرز و ریکارڈنگ سپورٹ
-        </button>
-      </div>
-
-      <!-- Testimonials Cards Grid -->
-      <div class="testimonials-grid" id="testimonialsGrid">
-
-        <!-- Card 1: Zarish (Royal Tach) -->
-        <div class="testi-card testi-card-featured" data-category="software">
-          <div>
-            <div class="testi-student-profile">
-              <div class="testi-avatar-circle" style="background: linear-gradient(135deg, #059669, #10b981);">ZT</div>
-              <div class="testi-meta-info">
-                <h3 class="testi-student-name">
-                  Zarish (زرش) <i class="fas fa-check-circle testi-badge-verified" title="Verified Tech Founder"></i>
-                </h3>
-                <span class="testi-student-role">Founder &amp; CEO — Royal Tach</span>
-                <span class="testi-student-loc"><i class="fas fa-map-marker-alt"></i> Faisalabad • <a href="https://royaltach.com" target="_blank" rel="noopener noreferrer" style="color:#38bdf8; text-decoration:underline;">royaltach.com</a></span>
-              </div>
-            </div>
-
-            <div class="testi-stars-row">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-              <span class="testi-rating-pill">5.0 / 5.0 (Tech Founder)</span>
-            </div>
-
-            <div class="testi-highlight-banner">
-              <i class="fas fa-award"></i> ویب سائٹس، سافٹ ویئرز اور براؤزر ایکسٹینشنز ڈیولپمنٹ
-            </div>
-
-            <div class="testi-quote-urdu">
-              "زندگی میں کچھ اساتذہ صرف علم نہیں دیتے بلکہ انسان کو اپنی صلاحیتوں پر یقین کرنا بھی سکھاتے ہیں۔ میرے استادِ محترم <strong>ڈاکٹر شاہد اکرم مصطفائی صاحب</strong> میرے لیے ایسی ہی ایک قابلِ احترام شخصیت ہیں۔ الحمدللہ، آج میں جس اعتماد اور مہارت کے ساتھ سافٹ ویئرز، ویب سائٹس، ایپلیکیشنز اور براؤزر ایکسٹینشنز بنا سکتی ہوں، اس میں میرے استادِ محترم کی بہترین تعلیم اور رہنمائی کا بہت بڑا کردار ہے۔<br><br>
-              <strong>*میرے نزدیک ایک بہترین استاد وہ ہے جو اپنے شاگرد کو صرف سکھاتا نہیں بلکہ اسے اس قابل بنا دیتا ہے کہ وہ خود کچھ نیا تخلیق کر سکے۔*</strong>"
-            </div>
-          </div>
-
-          <div class="testi-card-footer">
-            <span class="testi-channel-tag">
-              <i class="fab fa-whatsapp" style="color:#10b981;"></i> آفیشل واٹس ایپ فیڈبیک
-            </span>
-            <button type="button" class="testi-proof-view-btn" onclick="openTestiLightbox('assets/images/testimonials/review-zarish-royal-tach.webp', 'زرش (Founder &amp; CEO — Royal Tach) کا تصدیق شدہ تاثر')">
-              <i class="fas fa-expand-alt"></i> اصل اسکرین شاٹ دیکھیں
-            </button>
-          </div>
-        </div>
-
-        <!-- Card 2: Muhammad Dawood Liaqat Ali -->
-        <div class="testi-card" data-category="graphics">
-          <div>
-            <div class="testi-student-profile">
-              <div class="testi-avatar-circle" style="background: linear-gradient(135deg, #0284c7, #38bdf8);">MD</div>
-              <div class="testi-meta-info">
-                <h3 class="testi-student-name">
-                  M. Dawood Liaqat Ali (محمد داؤد) <i class="fas fa-check-circle testi-badge-verified"></i>
-                </h3>
-                <span class="testi-student-role">Proprietor — لالا ٹریولز اینڈ ٹورز</span>
-                <span class="testi-student-loc"><i class="fas fa-map-marker-alt"></i> ضلع ننکانہ صاحب (Nankana Sahib)</span>
-              </div>
-            </div>
-
-            <div class="testi-stars-row">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-              <span class="testi-rating-pill">2-Day Breakthrough</span>
-            </div>
-
-            <div class="testi-highlight-banner">
-              <i class="fas fa-bolt"></i> محض 2 دن میں بزنس مارکیٹنگ پوسٹ ڈیزائننگ کی مہارت
-            </div>
-
-            <div class="testi-quote-urdu">
-              "میں سر شاہد اکرم سے AI سیکھ رہا ہوں اور میں بے حد خوش ہوں کہ <strong>محض 2 دن میں</strong> میں نے اپنے ٹریول بزنس کے لیے بہترین پوسٹ خود ڈیزائن کرنا سیکھ لیا ہے۔ آپ بھی فیوچر کی سوچیں اور نیٹیزین بنیں، کونسلر شاہد اکرم مصطفائی کے سنگ!"
-            </div>
-          </div>
-
-          <div class="testi-card-footer">
-            <span class="testi-channel-tag">
-              <i class="fab fa-facebook" style="color:#38bdf8;"></i> فیس بک پبلک پراجیکٹ
-            </span>
-            <button type="button" class="testi-proof-view-btn" onclick="openTestiLightbox('assets/images/testimonials/review-dawood-nankana.webp', 'محمد داؤد (لالا ٹریولز) - 2 روزہ ڈیزائننگ پراجیکٹ')">
-              <i class="fas fa-expand-alt"></i> لائیو ڈیزائن پوسٹ دیکھیں
-            </button>
-          </div>
-        </div>
-
-        <!-- Card 3: Namal Noor -->
-        <div class="testi-card" data-category="software graphics">
-          <div>
-            <div class="testi-student-profile">
-              <div class="testi-avatar-circle" style="background: linear-gradient(135deg, #7c3aed, #a855f7);">NN</div>
-              <div class="testi-meta-info">
-                <h3 class="testi-student-name">
-                  Namal Noor (نمل نور) <i class="fas fa-check-circle testi-badge-verified"></i>
-                </h3>
-                <span class="testi-student-role">AI 3D Animation &amp; Web Developer</span>
-                <span class="testi-student-loc"><i class="fas fa-laptop-code"></i> آن لائن لائیو بیج اسٹوڈنٹ</span>
-              </div>
-            </div>
-
-            <div class="testi-stars-row">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-              <span class="testi-rating-pill">2 Months Track Record</span>
-            </div>
-
-            <div class="testi-highlight-banner">
-              <i class="fas fa-film"></i> 3D اینیمیشن، گیم ڈویلپمنٹ، سافٹ ویئر و ویب سائٹس
-            </div>
-
-            <div class="testi-quote-urdu">
-              "میں سر شاہد سے تقریباً <strong>دو ماہ سے کورس کر رہی ہوں</strong> اور مختلف اینیمیشن بنانا، گیم بنانا، سافٹ ویئر بنانا اور ویب سائٹ بنانا یہ سب سیکھ رہی ہوں۔ اس کے علاوہ اب مختلف طریقے سے کمرشل ایڈز بنانا سیکھ رہی ہوں۔ ان دو مہینوں میں میں نے بہت ساری جدید چیزیں سیکھی ہیں اور میں سب کو ریکمنڈ کروں گی کہ اپنی سکلز پالش کرنے کے لیے سر سے لازمی سیکھیں۔"
-            </div>
-          </div>
-
-          <div class="testi-card-footer">
-            <span class="testi-channel-tag">
-              <i class="fab fa-facebook" style="color:#38bdf8;"></i> سوشل میڈیا پراجیکٹ شوکیس
-            </span>
-            <button type="button" class="testi-proof-view-btn" onclick="openTestiLightbox('assets/images/testimonials/review-namal-noor.webp', 'نمل نور - فرسٹ 3D اینیمیشن و ویب پراجیکٹ')">
-              <i class="fas fa-expand-alt"></i> اوریجنل پراجیکٹ ثبوت
-            </button>
-          </div>
-        </div>
-
-        <!-- Card 4: Mian Muhammad Hassan Jan (Charsadda, KPK) -->
-        <div class="testi-card" data-category="beginner">
-          <div>
-            <div class="testi-student-profile">
-              <div class="testi-avatar-circle" style="background: linear-gradient(135deg, #0d9488, #14b8a6);">HJ</div>
-              <div class="testi-meta-info">
-                <h3 class="testi-student-name">
-                  Mian Muhammad Hassan Jan (محمد حسن جان) <i class="fas fa-check-circle testi-badge-verified"></i>
-                </h3>
-                <span class="testi-student-role">1st Year College Student</span>
-                <span class="testi-student-loc"><i class="fas fa-map-marker-alt"></i> چارسدہ، خیبرپختونخوا (Charsadda, KPK)</span>
-              </div>
-            </div>
-
-            <div class="testi-stars-row">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-              <span class="testi-rating-pill">Day-1 Transformation</span>
-            </div>
-
-            <div class="testi-highlight-banner">
-              <i class="fas fa-graduation-cap"></i> کالج طلبہ کے لیے آسان، شفیق اور دلنشین تدریس
-            </div>
-
-            <div class="testi-quote-urdu">
-              "میرا تعلق چارسدہ خیبرپختونخوا سے ہے اور میں فرسٹ ایئر کا سٹوڈنٹ ہوں۔ آج ہماری AI کی پہلی کلاس ڈاکٹر شاہد اکرم مصطفائی صاحب کے ساتھ ہوئی۔ لگا ہی نہیں کہ پہلی کلاس ہے! سر نے ہر بات بنیاد سے، اتنے پیار، شفقت اور آسانی سے سمجھائی کہ AI اب مشکل نہیں بلکہ دلچسپ لگنے لگی ہے۔ ایسے استاد نصیب سے ملتے ہیں جو علم کے ساتھ ساتھ سیکھنے کا شوق بھی دے جائیں۔"
-            </div>
-          </div>
-
-          <div class="testi-card-footer">
-            <span class="testi-channel-tag">
-              <i class="fab fa-whatsapp" style="color:#10b981;"></i> واٹس ایپ لائیو فیڈبیک
-            </span>
-            <button type="button" class="testi-proof-view-btn" onclick="openTestiLightbox('assets/images/testimonials/review-hassan-charsadda.webp', 'میاں محمد حسن جان (چارسدہ، کے پی کے) کی تحریر')">
-              <i class="fas fa-expand-alt"></i> اصل میسج دیکھیں
-            </button>
-          </div>
-        </div>
-
-        <!-- Card 5: Muhammad Sajid (Karachi) -->
-        <div class="testi-card" data-category="remote">
-          <div>
-            <div class="testi-student-profile">
-              <div class="testi-avatar-circle" style="background: linear-gradient(135deg, #ea580c, #f97316);">MS</div>
-              <div class="testi-meta-info">
-                <h3 class="testi-student-name">
-                  Muhammad Sajid (محمد ساجد) <i class="fas fa-check-circle testi-badge-verified"></i>
-                </h3>
-                <span class="testi-student-role">Private Job Professional</span>
-                <span class="testi-student-loc"><i class="fas fa-map-marker-alt"></i> کراچی، سندھ (Karachi, Sindh)</span>
-              </div>
-            </div>
-
-            <div class="testi-stars-row">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-              <span class="testi-rating-pill">Career Upskilling</span>
-            </div>
-
-            <div class="testi-highlight-banner">
-              <i class="fas fa-briefcase"></i> جاب ہولڈرز کے لیے آسان فہم اور پریکٹیکل کورس
-            </div>
-
-            <div class="testi-quote-en">
-              "You explain everything so clearly. Your teaching style is excellent. Thank you for making learning easy and enjoyable! Sir free me course karwaye... Thanks for your kindness."
-            </div>
-
-            <div class="testi-quote-urdu" style="font-size:0.95rem; line-height:1.9;">
-              کراچی کے پرائیویٹ جاب ہولڈر سٹوڈنٹ کا ڈاکٹر شاہد اکرم مصطفائی صاحب کی تدریسی آسانی، نرمی اور رہنمائی پر دلی شکریہ۔
-            </div>
-          </div>
-
-          <div class="testi-card-footer">
-            <span class="testi-channel-tag">
-              <i class="fab fa-whatsapp" style="color:#10b981;"></i> کراچی واٹس ایپ چیٹ
-            </span>
-            <button type="button" class="testi-proof-view-btn" onclick="openTestiLightbox('assets/images/testimonials/review-sajid-karachi.webp', 'محمد ساجد (کراچی) کا تصدیق شدہ فیڈبیک')">
-              <i class="fas fa-expand-alt"></i> چیٹ اسکرین شاٹ
-            </button>
-          </div>
-        </div>
-
-        <!-- Card 6: Syed Ahsan Ali Shah (Larkana) -->
-        <div class="testi-card" data-category="remote">
-          <div>
-            <div class="testi-student-profile">
-              <div class="testi-avatar-circle" style="background: linear-gradient(135deg, #4f46e5, #6366f1);">AS</div>
-              <div class="testi-meta-info">
-                <h3 class="testi-student-name">
-                  Syed Ahsan Ali Shah (سید احسن علی شاہ) <i class="fas fa-check-circle testi-badge-verified"></i>
-                </h3>
-                <span class="testi-student-role">LMS Remote Learner</span>
-                <span class="testi-student-loc"><i class="fas fa-map-marker-alt"></i> لاڑکانہ، سندھ (Larkana, Sindh)</span>
-              </div>
-            </div>
-
-            <div class="testi-stars-row">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-              <span class="testi-rating-pill">LMS &amp; Recording Support</span>
-            </div>
-
-            <div class="testi-highlight-banner">
-              <i class="fas fa-video"></i> لائیو کلاس مس ہونے پر معیاری ویڈیو ریکارڈنگز کی ہمہ وقت سہولت
-            </div>
-
-            <div class="testi-quote-urdu">
-              "ماشاء اللہ بہت اچھا کام کر رہے ہیں آپ۔ میں جاب اور دیگر مصروفیات کی وجہ سے لائیو کلاسز نہیں لے سکتا تو <strong>کلاس ریکارڈنگ سے بے حد مدد ہو جاتی ہے۔</strong> جزاک اللہ، ہمیشہ سلامت رہیں۔"
-            </div>
-          </div>
-
-          <div class="testi-card-footer">
-            <span class="testi-channel-tag">
-              <i class="fab fa-whatsapp" style="color:#10b981;"></i> لاڑکانہ واٹس ایپ گروپ
-            </span>
-            <button type="button" class="testi-proof-view-btn" onclick="openTestiLightbox('assets/images/testimonials/review-ahsan-larkana.webp', 'سید احسن علی شاہ (لاڑکانہ) کا فیڈبیک')">
-              <i class="fas fa-expand-alt"></i> اصل چیٹ دیکھیں
-            </button>
-          </div>
-        </div>
-
-        <!-- Card 7: Muhammad Waseem Raza -->
-        <div class="testi-card" data-category="beginner">
-          <div>
-            <div class="testi-student-profile">
-              <div class="testi-avatar-circle" style="background: linear-gradient(135deg, #b45309, #d97706);">WR</div>
-              <div class="testi-meta-info">
-                <h3 class="testi-student-name">
-                  M. Waseem Raza (محمد وسیم رضا) <i class="fas fa-check-circle testi-badge-verified"></i>
-                </h3>
-                <span class="testi-student-role">Community Member &amp; Advocate</span>
-                <span class="testi-student-loc"><i class="fas fa-globe-asia"></i> پاکستان (Nationwide Impact)</span>
-              </div>
-            </div>
-
-            <div class="testi-stars-row">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-              <span class="testi-rating-pill">Community Blessing</span>
-            </div>
-
-            <div class="testi-highlight-banner">
-              <i class="fas fa-hand-holding-heart"></i> خدمتِ خلق اور مفت و سستی ڈیجیٹل تعلیم کی فراہمی
-            </div>
-
-            <div class="testi-quote-urdu">
-              "ڈاکٹر صاحب آپ ایک عظیم انسان ہیں، خدمتِ خلق کر رہے ہیں اور پاکستان کے نوجوانوں کے لیے بہترین کام کر رہے ہیں۔ اللہ آپ کو جزائے خیر عطا فرمائے۔ آمین۔"
-            </div>
-          </div>
-
-          <div class="testi-card-footer">
-            <span class="testi-channel-tag">
-              <i class="fab fa-whatsapp" style="color:#10b981;"></i> واٹس ایپ میسج
-            </span>
-            <button type="button" class="testi-proof-view-btn" onclick="openTestiLightbox('assets/images/testimonials/review-waseem-raza.webp', 'محمد وسیم رضا کا تعریفی پیغام')">
-              <i class="fas fa-expand-alt"></i> اصل پیغام دیکھیں
-            </button>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Testimonial Callout Strip -->
-      <div style="margin-top: 3.5rem; background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: 1rem; padding: 1.75rem 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.25rem;">
-        <div>
-          <div style="font-size: 1.25rem; font-weight: 800; color: #ffffff; margin-bottom: 0.25rem;">
-            آپ بھی پاکستان کے کامیاب ڈیجیٹل طلبہ میں شامل ہوں!
-          </div>
-          <div style="font-size: 0.95rem; color: #94a3b8;">
-            7 روزہ بیسک AI کورس میں 100% مفت سیٹ ریزرو کریں یا جدید AI ویب سائٹ ڈیولپمنٹ میں لائیو داخلہ لیں۔
-          </div>
-        </div>
-        <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
-          <a href="#quickLeadModal" onclick="document.getElementById('scholarshipModalOverlay').classList.add('active');" class="btn btn-primary" style="padding:0.75rem 1.5rem;">
-            <i class="fas fa-ticket-alt"></i> مفت سیٹ بُک کریں (Free Entry)
-          </a>
-          <a href="https://wa.me/923074958837?text=Assalam%20o%20Alaikum%20Dr.%20Shahid!%20I%20saw%20the%20student%20success%20stories%20on%20the%20website%20and%20want%20to%20enroll." target="_blank" rel="noopener noreferrer" class="btn btn-outline-white" style="padding:0.75rem 1.25rem;">
-            <i class="fab fa-whatsapp"></i> ایڈمیشن ہیلپ لائن
-          </a>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- E-Services Portal Teaser -->
-  <section class="services-section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag" style="background:#e0f2fe; color:#0369a1; font-weight:700;">DIGITAL SERVICES</span>
-        <h2 class="section-title">E-Services Portal</h2>
-        <p class="section-subtitle">Access all digital services for admissions, payments, certificates, and student tools in one place.</p>
-      </div>
-
-      <div class="services-grid">
-        <a href="admissions.html" class="service-card nasa-card">
-          <div class="service-icon"><i class="fas fa-file-alt"></i></div>
-          <h3 class="service-title">Online Admission</h3>
-          <p class="service-desc">Apply online for any batch and generate your application voucher.</p>
-        </a>
-
-        <a href="payments.html" class="service-card nasa-card">
-          <div class="service-icon"><i class="fas fa-credit-card"></i></div>
-          <h3 class="service-title">Fee Payment</h3>
-          <p class="service-desc">Pay via JazzCash, Easypaisa, SadaPay or Bank and submit receipt.</p>
-        </a>
-
-        <a href="verify-certificate.html" class="service-card nasa-card">
-          <div class="service-icon"><i class="fas fa-search-location"></i></div>
-          <h3 class="service-title">Certificate Verification</h3>
-          <p class="service-desc">Instantly verify authenticity using student Certificate Verification Code.</p>
-        </a>
-
-        <a href="student-portal.html" class="service-card nasa-card">
-          <div class="service-icon"><i class="fas fa-user-graduate"></i></div>
-          <h3 class="service-title">Student Portal</h3>
-          <p class="service-desc">Login to view enrolled courses, payment status, and study materials.</p>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Official Academic Certification & Specimen Showroom Section -->
-  <section style="padding: 5rem 0; background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%); border-top: 1px solid var(--border-light);">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag" style="background:#ecfdf5; color:#047857; border:1px solid #a7f3d0;">
-          <i class="fas fa-award"></i> OFFICIAL ACCREDITATION PROTOCOL
-        </span>
-        <h2 class="section-title">Government &amp; Industry-Recognized Certification</h2>
-        <p class="section-subtitle" style="max-width:700px; margin:0.5rem auto 0;">
-          Every ILM E TECH graduate receives an authentic, verifiable certificate bearing the official seal and personal signature of Founder &amp; CEO <strong>Dr. Shahid Akram Mustafai</strong>.
-        </p>
-      </div>
-
-      <!-- Certificate Preview Showcase Spotlight Card -->
-      <div style="background:#ffffff; border:2px solid #e2e8f0; border-radius:1.5rem; padding:3rem 2rem; box-shadow:var(--shadow-xl); max-width:960px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:2.5rem; align-items:center;">
-        
-        <!-- Left: Certificate Visual Mockup Teaser (Screenshot 5 Match) -->
-        <div style="position:relative; background:radial-gradient(circle at center, #ffffff 0%, #fefdf9 60%, #fbf6ec 100%); border:4px solid #c59b27; outline:2px solid #1e3a5f; outline-offset:-8px; border-radius:6px; padding:2rem 1.5rem 1.5rem; box-shadow:0 15px 35px rgba(0,0,0,0.12); text-align:center; overflow:hidden;">
-          
-          <!-- Hanging Navy Ribbon Medal Badge (Top-Left) -->
-          <div style="position:absolute; top:0; left:20px; width:44px; display:flex; flex-direction:column; align-items:center; z-index:3;">
-            <div style="width:36px; height:60px; background:#1e3a5f; clip-path:polygon(0 0, 100% 0, 100% 100%, 50% 80%, 0 100%);"></div>
-            <div style="position:absolute; top:10px; width:38px; height:38px; border-radius:50%; background:radial-gradient(circle, #fef08a 0%, #ca8a04 100%); border:1.5px solid #fef08a; box-shadow:0 2px 6px rgba(0,0,0,0.25); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;">
-              <i class="fas fa-star" style="font-size:0.5rem; color:#713f12;"></i>
-              <span style="font-size:0.35rem; font-weight:900; color:#422006; text-transform:uppercase; line-height:1;">SUCCESS</span>
-            </div>
-          </div>
-
-          <!-- Top Institution Header & QR -->
-          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.75rem; padding-left:45px;">
-            <div style="display:flex; align-items:center; gap:0.5rem; text-align:left;">
-              <img src="assets/images/branding/ietp-logo-sm.webp" alt="ILM E TECH PAKISTAN (IETP) - Official Academy Logo" alt="ILM E TECH Logo" style="width:34px; height:34px; border-radius:50%; border:1.5px solid #c59b27; object-fit:cover;">
-              <div>
-                <div style="font-family:'Cinzel', serif; font-size:0.88rem; font-weight:800; color:#1e3a5f; line-height:1.1;">ILM E TECH PAKISTAN</div>
-                <div style="font-size:0.55rem; color:#b45309; font-weight:700; letter-spacing:0.06em; text-transform:uppercase;">Digital Education &amp; AI Academy</div>
-              </div>
-            </div>
-            <div style="text-align:right;">
-              <div style="display:inline-block; border:1px solid #cbd5e1; padding:2px; border-radius:4px; background:#ffffff;">
-                <i class="fas fa-qrcode" style="font-size:1.1rem; color:#0f172a;"></i>
-              </div>
-              <div style="font-size:0.5rem; color:#64748b; font-weight:700;">Scan to Verify</div>
-            </div>
-          </div>
-
-          <!-- Titles -->
-          <div style="margin:0.4rem 0;">
-            <div style="font-family:'Cinzel', serif; font-size:1.1rem; font-weight:900; color:#1e3a5f; letter-spacing:0.08em; text-transform:uppercase;">CERTIFICATE</div>
-            <div style="display:flex; align-items:center; justify-content:center; gap:0.5rem; margin-top:0.15rem;">
-              <span style="height:1px; width:30px; background:#c59b27;"></span>
-              <span style="font-size:0.68rem; font-weight:800; color:#b45309; letter-spacing:0.1em; text-transform:uppercase;">✦ OF PARTICIPATION &amp; MASTERY ✦</span>
-              <span style="height:1px; width:30px; background:#c59b27;"></span>
-            </div>
-          </div>
-
-          <!-- Conferral & Student Name -->
-          <div style="font-size:0.68rem; color:#64748b; font-style:italic; margin-top:0.35rem;">THIS IS TO CERTIFY THAT</div>
-          <div style="font-family:'Alex Brush', cursive; font-size:2.2rem; color:#1e3a5f; line-height:1.1; margin:0.1rem 0;">Syed Usama</div>
-          <div style="width:120px; height:2px; background:linear-gradient(90deg, transparent, #c59b27, transparent); margin:0 auto 0.4rem;"></div>
-          
-          <div style="font-size:0.72rem; color:#475569; line-height:1.4; max-width:320px; margin:0 auto 0.5rem;">
-            has successfully demonstrated professional mastery in the specialized program
-          </div>
-
-          <div style="background:#1e3a5f; color:#ffffff; font-size:0.78rem; font-weight:700; padding:0.3rem 0.9rem; border-radius:1rem; display:inline-block; margin-bottom:0.75rem;">
-            <i class="fas fa-graduation-cap text-amber-300"></i> Basic AI &amp; Practical Automation
-          </div>
-
-          <!-- Bottom: Date, Medallion Seal & Sole Founder/CEO Signature -->
-          <div style="display:flex; justify-content:space-between; align-items:flex-end; border-top:1px dashed #cbd5e1; padding-top:0.6rem; font-size:0.68rem;">
-            <div style="text-align:left;">
-              <div style="font-weight:700; color:#0f172a;">Date: October 2026</div>
-              <div style="font-size:0.6rem; color:#64748b;">ID: <strong>ILM-2026-000101</strong></div>
-            </div>
-            
-            <!-- 3D Gold Foil Medallion Seal -->
-            <div style="width:52px; height:52px; border-radius:50%; background:radial-gradient(circle at 35% 35%, #fef08a 0%, #ca8a04 70%, #854d0e 100%); box-shadow:0 3px 10px rgba(202,138,4,0.35); display:flex; flex-direction:column; align-items:center; justify-content:center; color:#422006; border:1.5px solid #fef08a; text-align:center;">
-              <i class="fas fa-award" style="font-size:0.85rem; color:#713f12;"></i>
-              <span style="font-size:0.4rem; font-weight:900; line-height:1;">EXCELLENCE<br>SEAL</span>
-            </div>
-
-            <!-- Sole Founder & CEO Signature: Dr. Shahid Akram Mustafai -->
-            <div style="text-align:right;">
-              <span style="font-family:'Alex Brush', cursive; font-size:1.6rem; color:#046a38; display:block; line-height:1;">Dr. Shahid Akram</span>
-              <div style="border-top:1px solid #1e3a5f; width:120px; margin:2px 0 2px auto;"></div>
-              <strong style="color:#046a38; font-size:0.68rem; display:block;">Dr. Shahid Akram Mustafai</strong>
-              <span style="font-size:0.58rem; color:#475569; font-weight:700;">Founder &amp; Chief Executive Officer</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right: Verification Box & Sandbox Actions -->
-        <div>
-          <div style="display:inline-flex; align-items:center; gap:0.4rem; background:#ecfdf5; color:#059669; padding:0.3rem 0.8rem; border-radius:1rem; font-size:0.8rem; font-weight:800; margin-bottom:0.75rem;">
-            <i class="fas fa-shield-halved"></i> 100% VERIFIABLE DIGITAL CREDENTIALS
-          </div>
-          <h3 style="font-size:1.6rem; font-weight:800; color:var(--text-dark); margin-bottom:0.5rem;">
-            Verify or Generate Your Certificate Specimen
-          </h3>
-          <p style="color:var(--text-muted); font-size:0.92rem; line-height:1.6; margin-bottom:1.5rem;">
-            Instantly lookup existing student records, or test our live certificate generator sandbox to preview what your official credentials will look like upon graduation.
-          </p>
-
-          <!-- Quick ID Search Input -->
-          <form action="verify-certificate.html" method="GET" style="display:flex; gap:0.5rem; margin-bottom:1.25rem;">
-            <input type="text" name="id" class="form-control" placeholder="Enter ID e.g. ILM-2026-000101" required style="padding:0.65rem 1rem;">
-            <button type="submit" class="btn btn-primary" style="white-space:nowrap;"><i class="fas fa-search"></i> Verify</button>
-          </form>
-
-          <!-- Direct Showcase Action Buttons -->
-          <div style="display:flex; flex-direction:column; gap:0.75rem;">
-            <a href="verify-certificate.html?id=ILM-2026-000101" class="btn btn-outline-blue" style="justify-content:center;">
-              <i class="fas fa-eye"></i> View Full Authentic Certificate Specimen
-            </a>
-            <a href="verify-certificate.html" class="btn btn-outline" style="justify-content:center; border-color:#d97706; color:#b45309; background:#fffbeb;">
-              <i class="fas fa-wand-magic-sparkles"></i> Try Live Certificate Generator Sandbox
-            </a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ Accordion -->
-  <section style="padding: 5rem 0; background: var(--bg-slate-50);">
-    <div class="container" style="max-width: 800px;">
-      <div class="section-header">
-        <span class="section-tag">FREQUENTLY ASKED QUESTIONS</span>
-        <h2 class="section-title">Got Questions? We Have Answers</h2>
-      </div>
-
-      <div style="display: flex; flex-direction: column; gap: 1rem;">
-        <div class="card nasa-card" style="background:#ffffff; padding:1.25rem; border-radius:0.75rem; border:1px solid var(--border-light);">
-          <h3 style="font-size:1.1rem; font-weight:700; color:var(--text-dark); margin-bottom:0.4rem;"><i class="fas fa-question-circle text-emerald-600"></i> Are classes online or physical?</h3>
-          <p style="color:var(--text-muted); font-size:0.95rem;">Classes are conducted through high-definition online live interactive sessions with lifetime recorded access provided in the Student Portal. Select campus programs also offer physical sessions.</p>
-        </div>
-
-        <div class="card nasa-card" style="background:#ffffff; padding:1.25rem; border-radius:0.75rem; border:1px solid var(--border-light);">
-          <h3 style="font-size:1.1rem; font-weight:700; color:var(--text-dark); margin-bottom:0.4rem;"><i class="fas fa-question-circle text-emerald-600"></i> How do I pay my course fee via JazzCash, Easypaisa, or SadaPay?</h3>
-          <p style="color:var(--text-muted); font-size:0.95rem;">Select your desired course, navigate to the Payments section, send fee to Account Holder <strong>Shahid Akram (03206546008)</strong>, and upload your payment transaction reference ID.</p>
-        </div>
-
-        <div class="card nasa-card" style="background:#ffffff; padding:1.25rem; border-radius:0.75rem; border:1px solid var(--border-light);">
-          <h3 style="font-size:1.1rem; font-weight:700; color:var(--text-dark); margin-bottom:0.4rem;"><i class="fas fa-question-circle text-emerald-600"></i> Will I get a verified certificate?</h3>
-          <p style="color:var(--text-muted); font-size:0.95rem;">Yes! Every student who successfully completes course assignments receives an official ILM E TECH PAKISTAN Certificate containing a unique online Verification Code downloadable as a high-res PDF.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Banner -->
-  <section style="background: linear-gradient(135deg, var(--dark-green) 0%, var(--primary-green) 100%); color: #ffffff; padding: 4.5rem 0; text-align: center;">
-    <div class="container">
-      <h2 style="font-size: 2.2rem; font-weight: 800; margin-bottom: 0.75rem;">Ready to Master AI and Modern Technology?</h2>
-      <p style="max-width: 650px; margin: 0 auto 2rem; color: #e2e8f0; font-size: 1.05rem;">Take the first step toward high-paying tech skills and career growth with ILM E TECH PAKISTAN.</p>
-      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-        <a href="admissions.html" class="btn btn-secondary btn-lg"><i class="fas fa-file-signature"></i> Apply Online Now</a>
-        <a href="contact.html" class="btn btn-outline btn-lg" style="color: #ffffff; border-color: #ffffff;"><i class="fas fa-comments"></i> Contact Support</a>
-      </div>
-    </div>
-  </section>
-
   <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container">
-      <h2 class="visually-hidden">Footer Navigation & Information</h2>
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <div class="brand-logo" style="margin-bottom: 1rem;">
-            <img src="assets/images/branding/ietp-logo-sm.webp" alt="ILM E TECH PAKISTAN (IETP) - Official Academy Logo" alt="ILM E TECH PAKISTAN" style="height: 48px;" loading="lazy">
-            <div class="brand-text">
-              <span class="brand-name" style="color: #ffffff;">ILM E TECH PAKISTAN</span>
-              <span style="color: #6ee7b7; font-size: 0.75rem; font-weight: 700;">Digital Education & AI Academy</span>
-            </div>
-          </div>
-          <p>Official Digital Education & Technology Academy Platform founded by <strong>Dr. Shahid Akram Mustafai</strong>.</p>
-          <div class="social-links">
-            <a href="https://facebook.com/ilmetechpakistan" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://youtube.com/ilmetechpakistan" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-            <a href="https://instagram.com/ilmetechpakistan" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://wa.me/923074958837" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-          </div>
+  <footer class="bg-brand-dark text-slate-400 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8 text-right">
+      
+      <!-- Col 1: Brand Info -->
+      <div class="md:col-span-1">
+        <div class="flex items-center gap-3 mb-4">
+          <img src="assets/ietp-logo.jpg" alt="IETP Logo" class="w-10 h-10 rounded-lg border border-brand-gold/50">
+          <span class="text-xl font-bold text-white">عِلْمِ ٹیک پاکستان</span>
         </div>
+        <p class="text-xs text-slate-400 leading-relaxed">
+          100% آن لائن لائیو اکیڈمی و ڈیجیٹل ایجنسی۔ جدید ٹیکنالوجی، اے آئی اسکلز اور مارکیٹنگ کا معتبر ادارہ۔
+        </p>
+      </div>
 
-        <div>
-          <h3 class="footer-title">Quick Links</h3>
-          <ul class="footer-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="courses.html">Courses</a></li>
-            <li><a href="e-services.html">E-Services</a></li>
-            <li><a href="admissions.html">Admissions</a></li>
-            <li><a href="index.html#studentTestimonialsSection"><i class="fas fa-star" style="color:#f59e0b;"></i> Student Reviews</a></li>
-          </ul>
-        </div>
+      <!-- Col 2: Quick Links -->
+      <div>
+        <h4 class="text-white font-bold text-sm mb-4">اہم لنکس</h4>
+        <ul class="text-xs space-y-2">
+          <li><a href="#about" class="hover:text-brand-gold transition-colors">فاؤنڈر تعارف</a></li>
+          <li><a href="#courses" class="hover:text-brand-gold transition-colors">مقبول کورسز</a></li>
+          <li><a href="#admission" class="hover:text-brand-gold transition-colors">آن لائن داخلہ فارم</a></li>
+          <li><a href="thank-you.html" class="hover:text-brand-gold transition-colors">داخلہ تصدیق (Thank You)</a></li>
+          <li><a href="admin-dashboard.html" class="hover:text-brand-gold transition-colors">ایڈمن پورٹل (Admissions)</a></li>
+        </ul>
+      </div>
 
-        <div>
-          <h3 class="footer-title">Official Courses</h3>
-          <ul class="footer-links">
-            <li><a href="course-detail.html?id=basic-ai">Basic AI Course</a></li>
-            <li><a href="course-detail.html?id=ai-tools-mastery">AI Tools Mastery</a></li>
-            <li><a href="course-detail.html?id=basic-computer">Basic Computer Course</a></li>
-            <li><a href="course-detail.html?id=ai-software-dev">AI Software Dev</a></li>
-            <li><a href="course-detail.html?id=ai-content-creation">AI Content Creation</a></li>
-            <li><a href="course-detail.html?id=ai-website-dev">AI Website Development</a></li>
-          </ul>
-        </div>
+      <!-- Col 3: Popular Courses -->
+      <div>
+        <h4 class="text-white font-bold text-sm mb-4">مقبول ترین کورسز</h4>
+        <ul class="text-xs space-y-2">
+          <li>بیسک اے آئی کورس (مفت)</li>
+          <li>اے آئی کنٹینٹ کریشن و ویڈیو ایڈیٹنگ</li>
+          <li>اے آئی ٹولز ماسٹری</li>
+          <li>اے آئی ویب سائٹ ڈویلپمنٹ</li>
+          <li>ون آن ون پرسنل مینٹورشپ</li>
+        </ul>
+      </div>
 
-        <div>
-          <h3 class="footer-title">Student Portal</h3>
-          <ul class="footer-links">
-            <li><a href="student-portal.html">Student Login</a></li>
-            <li><a href="verify-certificate.html">Verify Certificate</a></li>
-            <li><a href="payments.html">Fee Payments</a></li>
-            <li><a href="downloads.html">Download Center</a></li>
-            <li><a href="admin-dashboard.html">Admin Dashboard</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h3 class="footer-title">Contact Us</h3>
-          <ul class="footer-links">
-            <li><i class="fas fa-user-tie text-emerald-400"></i> Dr. Shahid Akram Mustafai</li>
-            <li><i class="fas fa-phone text-emerald-400"></i> <span class="site-phone">+92 307 4958837</span></li>
-            <li><i class="fas fa-envelope text-emerald-400"></i> <span class="site-email">info@ilmetechpakistan.com</span></li>
-            <li><i class="fas fa-location-dot text-emerald-400"></i> Lahore / Islamabad, Pakistan</li>
-          </ul>
+      <!-- Col 4: Contact & Office -->
+      <div>
+        <h4 class="text-white font-bold text-sm mb-4">رابطہ و ایڈریس</h4>
+        <div class="text-xs space-y-2 leading-relaxed">
+          <p><span class="text-brand-gold">آفیشل ہیلپ لائن:</span> <span class="font-latin">0307-4958837</span></p>
+          <p><span class="text-brand-gold">طریقہ تدریس:</span> 100% آن لائن لائیو بذریعہ Zoom</p>
+          <p><span class="text-brand-gold">اسٹوڈیو:</span> ساہیوال، پنجاب، پاکستان</p>
         </div>
       </div>
 
-      <div class="footer-bottom">
-        <div>
-          © 2026 <strong>ILM E TECH PAKISTAN</strong>. Founder &amp; CEO: <strong>Dr. Shahid Akram Mustafai</strong>. Official Domain: <code>ilmetechpakistan.com</code>
-        </div>
-        <div style="display: flex; gap: 1rem;">
-          <a href="privacy-policy.html">Privacy Policy</a>
-          <a href="terms.html">Terms &amp; Conditions</a>
-          </div>
-      </div>
+    </div>
+
+    <!-- Copyright Bar -->
+    <div class="max-w-7xl mx-auto px-4 mt-8 pt-8 border-t border-brand-border/60 text-center text-xs text-slate-500 font-latin">
+      © 2026 عِلْمِ ٹیک پاکستان (ILM E TECH PAKISTAN). All Rights Reserved. Founder & CEO: Dr. Shahid Akram Mustafai.
     </div>
   </footer>
 
-  <!-- 100% Free Courses Quick Floating Notification Badge -->
-  <div class="scholarship-float-badge" id="scholarshipFloatBadge" title="100% مفت کورسز میں جوائن کریں">
-    <i class="fas fa-gift text-emerald-400" style="font-size:1.1rem;"></i>
-    <span>🎁 100% فری کورسز - ابھی جوائن کریں</span>
-    <span style="background:#ef4444; color:#ffffff; font-size:0.65rem; padding:0.15rem 0.45rem; border-radius:1rem; font-weight:800;">FREE</span>
+  <!-- Floating Direct Contact Action Buttons -->
+  <div class="fixed bottom-6 left-6 z-50 flex flex-col gap-3">
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/923074958837" target="_blank" rel="noopener noreferrer" 
+       class="w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-400 text-white flex items-center justify-center shadow-2xl hover:scale-110 transition-all emerald-glow"
+       title="واٹس ایپ پر رابطہ کریں">
+      <i data-lucide="message-circle" class="w-7 h-7"></i>
+    </a>
+    <!-- Phone Call Floating Button -->
+    <a href="tel:03074958837" 
+       class="w-12 h-12 rounded-full bg-brand-gold hover:bg-yellow-400 text-brand-dark flex items-center justify-center shadow-xl hover:scale-110 transition-all"
+       title="براہِ راست کال کریں">
+      <i data-lucide="phone-call" class="w-5 h-5"></i>
+    </a>
   </div>
 
-  <!-- Simplified Free Courses Lead Popup Modal (Dr. Shahid Akram Mustafai) -->
-  <div class="scholarship-modal-overlay" id="scholarshipModalOverlay" role="dialog" aria-modal="true" aria-labelledby="schModalTitle">
-    <div class="lead-quick-modal-content">
-      <button type="button" class="scholarship-modal-close" id="schModalCloseBtn" aria-label="Close Announcement">
-        <i class="fas fa-times"></i>
-      </button>
-
-      <div style="text-align:center;">
-        <div class="lead-pill">
-          <i class="fas fa-gift text-emerald-400"></i> 100% FREE LAUNCH COHORT // مفت داخلہ
-        </div>
-        <h2 id="schModalTitle" class="lead-title-urdu">
-          7 روزہ بیسک AI کورس 100% مفت میں جوائن کریں!
-        </h2>
-        <div class="lead-title-en">
-          Join 7-Day Basic AI Free Launch Cohort or Subsidized Professional Tracks
-        </div>
-        <p class="lead-desc">
-          <strong>علمِ ٹیک پاکستان</strong> کے زیرِ سرپرستی <strong>ڈاکٹر شاہد اکرم مصطفائی</strong> کے تصدیق شدہ بیج میں اپنی مفت سیٹ فوری بُک کریں۔
-        </p>
-      </div>
-
-      <form id="quickLeadForm" onsubmit="event.preventDefault(); handleQuickLeadSubmit();">
-        <div class="form-group" style="margin-bottom: 0.85rem;">
-          <label class="form-label" for="leadName" style="font-size: 0.84rem; font-weight: 700; color: #1e293b;">طالب علم کا نام / Full Name *</label>
-          <input type="text" id="leadName" class="form-control" placeholder="e.g. Muhammad Ali" required style="background: #ffffff; border: 1.5px solid #cbd5e1; color: #0f172a; padding:0.65rem 0.85rem; border-radius:0.5rem; font-size:0.95rem;">
-        </div>
-
-        <div class="form-row-2col" style="gap: 0.75rem; margin-bottom: 0.85rem;">
-          <div class="form-group">
-            <label class="form-label" for="leadWhatsapp" style="font-size: 0.84rem; font-weight: 700; color: #1e293b;">واٹس ایپ نمبر / WhatsApp *</label>
-            <input type="tel" id="leadWhatsapp" class="form-control" placeholder="0300-1234567" required style="background: #ffffff; border: 1.5px solid #cbd5e1; color: #0f172a; padding:0.65rem 0.85rem; border-radius:0.5rem; font-size:0.95rem;">
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="leadCity" style="font-size: 0.84rem; font-weight: 700; color: #1e293b;">شہر / City *</label>
-            <input type="text" id="leadCity" class="form-control" placeholder="e.g. Lahore / Rawalpindi" required style="background: #ffffff; border: 1.5px solid #cbd5e1; color: #0f172a; padding:0.65rem 0.85rem; border-radius:0.5rem; font-size:0.95rem;">
-          </div>
-        </div>
-
-        <div class="form-group" style="margin-bottom: 1.25rem;">
-          <label class="form-label" for="leadCourse" style="font-size: 0.84rem; font-weight: 700; color: #1e293b;">کورس منتخب کریں / Select Course *</label>
-          <select id="leadCourse" class="form-control form-select" required style="background: #ffffff; border: 1.5px solid #10b981; color: #0f172a; padding:0.65rem 0.85rem; border-radius:0.5rem; font-size:0.95rem; font-weight:600;">
-            <option value="Basic AI Course (7 Days - 100% FREE Launch)">Basic AI Course (7 Days - 100% FREE Launch • واحد مفت کورس)</option>
-            <option value="AI Website Development (15 Days - Rs. 5,000)">AI Website Development (15 Days - Rs. 5,000 PKR • نیا فلیگ شپ)</option>
-            <option value="AI Tools Mastery (30 Days - Rs. 3,000)">AI Tools Mastery (30 Days - Rs. 3,000 PKR • 70% رعایت)</option>
-            <option value="Basic Computer Course (6 Weeks - Rs. 3,000)">Basic Computer Course (6 Weeks - Rs. 3,000 PKR)</option>
-            <option value="AI Software Development (6 Weeks - Rs. 15,000)">AI Software Development (6 Weeks - Rs. 15,000 PKR)</option>
-            <option value="AI Content Creation (5 Weeks - Rs. 20,000)">AI Content Creation (5 Weeks - Rs. 20,000 PKR)</option>
-            <option value="One on One VIP Mentorship (Rs. 20,000)">One on One VIP Mentorship (ڈاکٹر شاہد اکرم مصطفائی - Rs. 20,000)</option>
-          </select>
-        </div>
-
-        <div style="display: flex; gap: 0.6rem; flex-direction: column;">
-          <button type="submit" class="btn btn-primary btn-lg" style="width: 100%; justify-content: center; font-size: 1.05rem; background: linear-gradient(135deg, #059669 0%, #10b981 100%); color:#ffffff; font-weight:800; border-radius:0.65rem; border:none; padding:0.85rem;">
-            <i class="fab fa-whatsapp"></i> ابھی فری جوائن کریں / Join Free Now
-          </button>
-          <div style="text-align: center; font-size: 0.82rem; color: #047857; font-weight: 700; margin-top: 0.25rem;">
-            <i class="fas fa-shield-alt text-emerald-600"></i> کوئی فیس نہیں &bull; 100% مفت رجسٹریشن برائے نیو بیچ
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- App Core JS Scripts -->
-  <script src="assets/js/db.js"></script>
-  <script src="assets/js/app.js"></script>
-  <script src="assets/js/chatbot.js"></script>
+  <!-- Lucide Icons Rendering & Live Counter Animation & Admission Storage Script -->
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // 1. Render Homepage Courses
-      const grid = document.getElementById('homepageCoursesGrid');
+    lucide.createIcons();
 
-      function renderCourses() {
-        if (!grid || !window.ilmDB) return;
-        const courses = window.ilmDB.getCourses();
-        const currentLang = document.documentElement.getAttribute('lang') || 'en';
-        const isUrdu = currentLang === 'ur';
-
-        grid.innerHTML = courses.map(c => {
-          const title = isUrdu ? c.urduTitle : c.title;
-          const detailsBtn = isUrdu ? 'تفصیلات دیکھیں' : 'Details';
-
-          // Badge
-          let badgeHtml = '';
-          if (c.badge) {
-            let badgeClass = 'badge-default';
-            let badgeIcon = '';
-            if (c.badgeType === 'free' || c.isFree && !c.badgeType) {
-              badgeClass = 'badge-free';
-              badgeIcon = '<span class="beacon-dot"></span>';
-            } else if (c.badgeType === 'free-launch') {
-              badgeClass = 'badge-free-launch';
-              badgeIcon = '<i class="fas fa-rocket"></i>';
-            } else if (c.badgeType === 'discount') {
-              badgeClass = 'badge-discount';
-              badgeIcon = '<i class="fas fa-bolt"></i>';
-            } else if (c.badgeType === 'demo') {
-              badgeClass = 'badge-demo';
-              badgeIcon = '<i class="fas fa-play-circle"></i>';
-            } else if (c.badgeType === 'trending') {
-              badgeClass = 'badge-trending';
-              badgeIcon = '<i class="fas fa-fire"></i>';
-            } else if (c.badgeType === 'educational') {
-              badgeClass = 'badge-educational';
-              badgeIcon = '<i class="fas fa-shield-alt"></i>';
-            } else if (c.badgeType === 'vip' || c.id === 'one-on-one-session') {
-              badgeClass = 'badge-vip';
-              badgeIcon = '<i class="fas fa-crown text-amber-400"></i>';
-            }
-            badgeHtml = `<span class="course-badge ${badgeClass}">${badgeIcon} ${c.badge}</span>`;
-          }
-
-          // Action button
-          let btnClass = 'btn-nasa-apply';
-          let btnIcon = 'fa-paper-plane';
-          let btnText = isUrdu ? 'آن لائن داخلہ' : 'Apply Now';
-          if (c.id === 'one-on-one-session') {
-            btnClass = 'btn-nasa-apply';
-            btnIcon = 'fa-user-tie';
-            btnText = isUrdu ? 'ون آن ون بک کریں' : 'Book 1-on-1 Session';
-          } else if (c.isFree) {
-            btnClass = 'btn-nasa-free';
-            btnIcon = 'fa-bolt';
-            btnText = isUrdu ? 'مفت داخلہ لیں' : (c.actionBtnText || 'Enroll 100% Free');
-          } else if (c.demoOffer) {
-            btnClass = 'btn-nasa-demo';
-            btnIcon = 'fa-play-circle';
-            btnText = isUrdu ? 'مفت ڈیمو کلاس' : (c.actionBtnText || 'Claim Free Demo');
-          } else if (c.actionBtnText) {
-            btnText = c.actionBtnText;
-          }
-
-          // Pricing block with laser alignment
-          let tierLabel = c.isFree ? (isUrdu ? 'خصوصی آفر' : 'LAUNCH PRIVILEGE') : (c.discountPercent ? (isUrdu ? 'خصوصی رعایت' : 'SUBSIDIZED TUITION') : (isUrdu ? 'کورس فیس' : 'OFFICIAL TUITION'));
-          let regularPrice = c.originalFee ? c.originalFee.toLocaleString() : (c.fee ? Math.round(c.fee * 2).toLocaleString() : '4,999');
-          
-          let priceMainHtml = '';
-          if (c.isFree) {
-            priceMainHtml = `
-              <div class="price-val-hero-free">
-                <i class="fas fa-gift"></i>
-                <span>${isUrdu ? '100% مفت' : '100% FREE'}</span>
-              </div>
-            `;
-          } else {
-            let discountPill = c.discountPercent ? `<span class="discount-glow-badge">${c.discountPercent}% OFF</span>` : `<span class="discount-glow-badge" style="background:#ecfdf5; color:#047857; border-color:#a7f3d0;">Verified</span>`;
-            priceMainHtml = `
-              <div class="price-val-hero-discounted">
-                <span class="price-number-big">Rs. ${c.fee.toLocaleString()}</span>
-                <span class="price-curr-label">PKR</span>
-                ${discountPill}
-              </div>
-            `;
-          }
-
-          return `
-            <div class="course-card nasa-card">
-              <div class="course-header-banner" style="background-image: url('${c.image}');">
-                ${badgeHtml}
-                <div class="course-icon-badge"><i class="fas fa-graduation-cap"></i></div>
-                <div class="course-header-content">
-                  <h3 class="course-title ${isUrdu ? 'bombay-font' : ''}" title="${title}">${title}</h3>
-                  ${!isUrdu ? `<div class="course-urdu-title">${c.urduTitle}</div>` : ''}
-                </div>
-              </div>
-              <div class="course-body">
-                <div class="nasa-telemetry-bar">
-                  <span class="nasa-meta-pill"><i class="fas fa-calendar-alt text-emerald-500"></i> ${c.duration}</span>
-                  <span class="nasa-meta-pill"><i class="fas fa-layer-group text-sky-500"></i> ${c.level}</span>
-                  <span class="nasa-meta-pill pill-live"><span class="pulse-live"></span> Live Cohort</span>
-                </div>
-                
-                <p class="course-desc" title="${c.shortDesc}">${c.shortDesc}</p>
-                
-                <ul class="course-features-list">
-                  ${c.outcomes.slice(0, 3).map(o => `<li><i class="fas fa-circle-check"></i> <span title="${o}">${o}</span></li>`).join('')}
-                </ul>
-                
-                <div class="course-footer">
-                  <div class="course-price-zone">
-                    <div class="price-meta-block">
-                      <span class="price-dim-label">${tierLabel}</span>
-                      <div class="price-was-row">
-                        <span class="price-was-tag">${isUrdu ? 'ریگولر:' : 'REGULAR:'}</span>
-                        <span class="price-was-val">Rs. ${regularPrice} PKR</span>
-                      </div>
-                    </div>
-                    <div class="price-main-block">
-                      ${priceMainHtml}
-                    </div>
-                  </div>
-                  <div class="course-actions-zone">
-                    <a href="course-detail.html?id=${c.id}" class="btn-nasa-details"><i class="fas fa-info-circle"></i> ${detailsBtn}</a>
-                    <a href="admissions.html?course=${c.id}" class="${btnClass}"><i class="fas ${btnIcon}"></i> ${btnText}</a>
-                  </div>
-                  <a href="verify-certificate.html?id=ILM-2026-000101" class="card-cert-cue" style="text-decoration:none;" title="Official Certificate Available">
-                    <i class="fas fa-certificate text-emerald-500"></i> ${isUrdu ? 'آفیشل سند دستیاب ہے • نمونہ دیکھیں' : 'Official Certificate Available • Preview Specimen'}
-                  </a>
-                </div>
-              </div>
-            </div>
-          `;
-        }).join('');
+    // Select course helper
+    function selectCourse(val) {
+      const select = document.getElementById('course');
+      if (select) {
+        select.value = val;
       }
+    }
 
-      renderCourses();
-      window.addEventListener('languageChanged', renderCourses);
+    // Counter animation
+    const counterElement = document.getElementById('studentCounter');
+    if (counterElement) {
+      let count = 0;
+      const target = 1000;
+      const duration = 2000;
+      const stepTime = 20;
+      const steps = duration / stepTime;
+      const increment = target / steps;
 
-      // 2. Interactive AI Career Matcher Logic
-      const matcherBtns = document.querySelectorAll('.matcher-option-btn');
-      const matcherResultDisplay = document.getElementById('matcherResultDisplay');
-
-      const MATCH_DATA = {
-        freelance: {
-          badge: "RECOMMENDED FOR DIGITAL CREATORS & PRODUCTIVITY",
-          title: "AI Tools Mastery (30-Day Masterclass)",
-          urduTitle: "اے آئی ٹولز ماسٹری کورس",
-          price: "Rs. 3,000 PKR (70% Subsidized Special)",
-          duration: "30 Days Live + Daily Interactive Q&A",
-          desc: "Master 25+ cutting-edge AI tools (ChatGPT, Midjourney, ElevenLabs, CapCut AI, Runway, NotebookLM). Build immediate client deliverables and workflows.",
-          link: "course-detail.html?id=ai-tools-mastery",
-          actionText: "Enroll in AI Tools (Rs. 3,000)"
-        },
-        webdev: {
-          badge: "NEW HIGH-INCOME FLAGSHIP TRACK",
-          title: "AI Website Development Accelerator (15 Days)",
-          urduTitle: "اے آئی ویب سائٹ ڈویلپمنٹ کورس",
-          price: "Rs. 5,000 PKR (58% Subsidized Special)",
-          duration: "15 Days Live Practical Accelerator",
-          desc: "Master AI-powered web architecture, prompt Claude/ChatGPT/v0 for full-stack code, configure Cloudflare DNS & SSL, deploy live websites, and win freelance web clients.",
-          link: "course-detail.html?id=ai-website-dev",
-          actionText: "Join Web Accelerator (Rs. 5,000)"
-        },
-        coding: {
-          badge: "RECOMMENDED FOR SOFTWARE & DEVELOPER CAREERS",
-          title: "AI Software Development Track",
-          urduTitle: "اے آئی سافٹ ویئر ڈویلپمنٹ",
-          price: "Rs. 15,000 PKR (50% Subsidized)",
-          duration: "6 Weeks Intensive Practical Training",
-          desc: "Learn prompt-assisted full-stack coding, OpenAI/Gemini API integration, Chrome extensions, and modern web application development.",
-          link: "course-detail.html?id=ai-software-dev",
-          actionText: "View Syllabus & Apply"
-        },
-        vip: {
-          badge: "EXCLUSIVE PRIVATE 1-ON-1 VIP SERVICE",
-          title: "One on One Session (VIP Direct Mentorship)",
-          urduTitle: "براہ راست ون آن ون سیشن سروس",
-          price: "Rs. 20,000 PKR (All-Inclusive VIP Fee)",
-          duration: "Flexible Personalized Schedule",
-          desc: "Direct private mentorship with Founder & CEO Dr. Shahid Akram Mustafai. Customized curriculum, priority WhatsApp access, and private screen-share consulting.",
-          link: "course-detail.html?id=one-on-one-session",
-          actionText: "Book 1-on-1 Session Now"
+      const timer = setInterval(() => {
+        count += increment;
+        if (count >= target) {
+          counterElement.innerText = "1,000+";
+          clearInterval(timer);
+        } else {
+          counterElement.innerText = Math.floor(count).toLocaleString() + "+";
         }
-      };
+      }, stepTime);
+    }
 
-      function updateMatcher(key) {
-        const data = MATCH_DATA[key];
-        if (!data || !matcherResultDisplay) return;
+    // Admission Form Handler (Saves to DB and forwards to thank-you.html & WhatsApp)
+    const admForm = document.getElementById('admissionForm');
+    if (admForm) {
+      admForm.addEventListener('submit', function(e) {
+        e.preventDefault();
 
-        matcherResultDisplay.innerHTML = `
-          <div style="flex:1; min-width:280px;">
-            <span style="font-size:0.75rem; font-weight:800; color:#6ee7b7; letter-spacing:0.06em; text-transform:uppercase;">
-              ${data.badge}
-            </span>
-            <h4 style="font-size:1.35rem; font-weight:800; color:#ffffff; margin:0.3rem 0 0.4rem;">
-              ${data.title}
-            </h4>
-            <p style="color:#cbd5e1; font-size:0.88rem; line-height:1.5; margin-bottom:0.75rem;">
-              ${data.desc}
-            </p>
-            <div style="display:flex; gap:1rem; flex-wrap:wrap; font-size:0.82rem; color:#94a3b8;">
-              <span><i class="fas fa-clock text-emerald-400"></i> ${data.duration}</span>
-              <span><i class="fas fa-tag text-emerald-400"></i> <strong style="color:#ffffff;">${data.price}</strong></span>
-            </div>
-          </div>
-          <div style="display:flex; flex-direction:column; gap:0.5rem;">
-            <a href="${data.link}" class="btn btn-primary" style="white-space:nowrap; padding:0.75rem 1.5rem;">
-              <i class="fas fa-bolt"></i> ${data.actionText}
-            </a>
-            <a href="https://wa.me/923074958837?text=Assalam%20o%20Alaikum!%20I%20am%20interested%20in%20the%20${encodeURIComponent(data.title)}%20recommended%20by%20the%20Career%20Matcher." target="_blank" rel="noopener noreferrer" class="btn btn-outline-blue btn-sm" style="justify-content:center;">
-              <i class="fab fa-whatsapp"></i> Chat on WhatsApp
-            </a>
-          </div>
-        `;
-      }
+        const refNo = 'APP-2026-' + Math.floor(10000 + Math.random() * 90000);
+        const fullName = (document.getElementById('fullName')?.value || '').trim();
+        const fatherName = (document.getElementById('fatherName')?.value || '').trim();
+        const whatsapp = (document.getElementById('whatsapp')?.value || '').trim();
+        const city = (document.getElementById('city')?.value || '').trim();
+        const education = document.getElementById('education')?.value || '';
+        const course = document.getElementById('course')?.value || '';
+        const isFree = course.toLowerCase().includes('free') || course.toLowerCase().includes('مفت');
 
-      matcherBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-          matcherBtns.forEach(b => {
-            b.classList.remove('active');
-            b.setAttribute('aria-checked', 'false');
-          });
-          btn.classList.add('active');
-          btn.setAttribute('aria-checked', 'true');
-          const matchKey = btn.getAttribute('data-match');
-          updateMatcher(matchKey);
-        });
+        const record = {
+          appId: refNo,
+          fullName: fullName,
+          fatherName: fatherName,
+          whatsapp: whatsapp,
+          phone: whatsapp,
+          city: city,
+          education: education,
+          profession: education,
+          courseName: course,
+          preferredMode: 'Online Live Zoom',
+          status: isFree ? '100% Free Enrollment Approved' : 'Pending Fee Verification',
+          date: new Date().toISOString().split('T')[0]
+        };
+
+        // Save to localStorage for Admin Dashboard
+        try {
+          const stored = JSON.parse(localStorage.getItem('ilm_admissions') || '[]');
+          stored.unshift(record);
+          localStorage.setItem('ilm_admissions', JSON.stringify(stored));
+        } catch (err) {
+          console.warn('Storage warning:', err);
+        }
+
+        // Prepare WhatsApp message for Dr. Shahid Akram
+        const waText = `السلام علیکم ڈاکٹر شاہد اکرم صاحب!\nعلمِ ٹیک پاکستان آن لائن داخلہ فارم موصول ہوا ہے:\n---------------------------------\nدرخواست آئی ڈی: ${refNo}\nنام: ${fullName}\nوالد کا نام: ${fatherName}\nواٹس ایپ: ${whatsapp}\nشہر / ضلع: ${city}\nتعلیم: ${education}\nمنتخب کورس: ${course}\nطریقہ تدریس: 100% آن لائن زوم لائیو\n---------------------------------\nبرائے مہربانی سیٹ تصدیق اور لائیو کلاس لنک شیئر فرمائیں۔`;
+
+        // Redirect to thank-you.html with query parameters
+        const redirectUrl = `thank-you.html?appId=${encodeURIComponent(refNo)}&name=${encodeURIComponent(fullName)}&course=${encodeURIComponent(course)}&free=${isFree}`;
+
+        // Also trigger WhatsApp message window in background/new tab
+        try {
+          window.open(`https://wa.me/923074958837?text=${encodeURIComponent(waText)}`, '_blank');
+        } catch(e) {}
+
+        window.location.href = redirectUrl;
       });
-
-      // Default matcher state
-      updateMatcher('freelance');
-
-      // 3. Scholarship Floating Badge & Modal Controller
-      const schBadge = document.getElementById('scholarshipFloatBadge');
-      const schModal = document.getElementById('scholarshipModalOverlay');
-      const schCloseBtn = document.getElementById('schModalCloseBtn');
-
-      if (schBadge && schModal) {
-        schBadge.addEventListener('click', () => {
-          schModal.classList.add('active');
-        });
-      }
-
-      if (schCloseBtn && schModal) {
-        schCloseBtn.addEventListener('click', () => {
-          schModal.classList.remove('active');
-        });
-      }
-
-      if (schModal) {
-        schModal.addEventListener('click', (e) => {
-          if (e.target === schModal) {
-            schModal.classList.remove('active');
-          }
-        });
-      }
-
-      // Show modal politely after 8 seconds on first visit if not previously closed
-      setTimeout(() => {
-        const dismissed = sessionStorage.getItem('ilm_free_modal_dismissed');
-        if (!dismissed && schModal) {
-          schModal.classList.add('active');
-          sessionStorage.setItem('ilm_free_modal_dismissed', 'true');
-        }
-      }, 8000);
-
-      // Quick Lead Form Handler (Free Courses Instant WhatsApp & DB Registration)
-      window.handleQuickLeadSubmit = function() {
-        const name = document.getElementById('leadName')?.value.trim() || 'Student';
-        const phone = document.getElementById('leadWhatsapp')?.value.trim() || '';
-        const city = document.getElementById('leadCity')?.value.trim() || '';
-        const course = document.getElementById('leadCourse')?.value || 'Basic AI Course (100% FREE)';
-
-        const refNo = 'FREE-2026-' + Math.floor(1000 + Math.random() * 9000);
-        if (window.ilmDB) {
-          window.ilmDB.addAdmission({
-            appId: refNo,
-            fullName: name,
-            fatherName: 'N/A',
-            phone: phone,
-            whatsapp: phone,
-            city: city,
-            courseName: course,
-            status: '100% Free Enrollment Approved',
-            date: new Date().toISOString().split('T')[0]
-          });
-        }
-
-        if (schModal) schModal.classList.remove('active');
-        if (window.showToast) {
-          window.showToast(`مبارک ہو! آپ کی مفت رجسٹریشن منظور ہو گئی ہے! ID: ${refNo}`, 'success');
-        }
-
-        const msg = encodeURIComponent(`السلام علیکم ڈاکٹر شاہد اکرم مصطفائی صاحب!\nمیرا نام ${name} ہے اور میں ${city} سے ہوں۔ میں علمِ ٹیک پاکستان کے فری کورس "${course}" میں جوائن کرنا چاہتا ہوں۔\nمیری رجسٹریشن آئی ڈی: ${refNo} ہے۔ برائے مہربانی مجھے بیج کا واٹس ایپ گروپ لنک شیئر فرمائیں۔`);
-        window.open(`https://wa.me/923074958837?text=${msg}`, '_blank');
-      };
-
-      // 4. NASA Ticker Pause/Resume Controller
-      const tickerWrapper = document.getElementById('homeTicker');
-      const tickerPauseBtn = document.getElementById('tickerPauseBtn');
-      const tickerPauseIcon = document.getElementById('tickerPauseIcon');
-      const tickerPauseText = document.getElementById('tickerPauseText');
-
-      if (tickerPauseBtn && tickerWrapper) {
-        tickerPauseBtn.addEventListener('click', () => {
-          const isPaused = tickerWrapper.classList.toggle('is-paused');
-          if (isPaused) {
-            tickerPauseIcon.className = 'fas fa-play';
-            tickerPauseText.textContent = 'RESUME';
-            tickerPauseBtn.style.background = 'rgba(16, 185, 129, 0.4)';
-          } else {
-            tickerPauseIcon.className = 'fas fa-pause';
-            tickerPauseText.textContent = 'PAUSE';
-            tickerPauseBtn.style.background = '';
-          }
-        });
-      }
-    });
+    }
   </script>
-
-  <!-- Testimonial Screenshot Proof Lightbox Modal -->
-  <div class="testi-lightbox-overlay" id="testiLightboxOverlay" role="dialog" aria-modal="true" aria-labelledby="testiModalTitle">
-    <div class="testi-lightbox-box">
-      <div class="testi-lightbox-header">
-        <h4 class="testi-lightbox-title" id="testiModalTitle">
-          <i class="fas fa-shield-check text-emerald-400"></i> تصدیق شدہ اصل سٹوڈنٹ فیڈبیک
-        </h4>
-        <button type="button" class="testi-lightbox-close" id="testiLightboxCloseBtn" aria-label="Close Lightbox" onclick="closeTestiLightbox()">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-      <div class="testi-lightbox-body">
-        <img src="" alt="Student Review Proof Screenshot" id="testiLightboxImg" class="testi-lightbox-img" loading="lazy">
-      </div>
-    </div>
-  </div>
 
 </body>
 </html>
-
