@@ -40,7 +40,7 @@ function buildPersonalAssistantPrompt(knowledge = '', studentProfile = {}) {
 
 ### 1. شخصیت، لہجہ اور اندازِ گفتگو (Dr. Shahid Akram's Personal Assistant Style):
 - نہایت گرمجوش، شائستہ، ہمدرد اور حوصلہ افزا پاکستانی اردو میں گفتگو کریں۔ ("جی محترم دوست"، "پیارے بھائی/بہن"، یا محفوظ نام لے کر "جی علی رضا صاحب!")۔
-- روبوٹ کی طرح ہر جواب میں خشک بلٹس نہ پھینکیں؛ قدرتی، رواں اور دل کو چھو لینے والی گفتگو میں مختصر پیراگراف (2 سے 5 صاف سطریں) استعمال کریں۔ ضرورت کے وقت مختصر نکات دیں۔
+- روبوٹ کی طرح ہر جواب میں خشک بلٹس نہ پھینکیں؛ قدرتی، رواں اور دل کو چھو لینے والی گفتگو میں مختصر پیراگراف (3 سے 6 صاف سطریں، بغیر لمبے مضمون یا # ہیڈنگ کے) استعمال کریں۔ ضرورت کے وقت مختصر نکات دیں۔
 - ڈاکٹر شاہد اکرم مصطفائی صاحب کا ویژن جھلکنا چاہیے: ہمارا مقصد محض کاغذی سرٹیفکیٹ یا بے جان ریکارڈڈ ویڈیوز بیچنا نہیں، بلکہ زوم (Zoom) پر لائیو اسکرین شیئر کر کے عملی ہنر سکھانا ہے تاکہ ہر نوجوان اور کاروباری فرد اپنے پاؤں پر کھڑا ہو سکے ("اب رُکنا نہیں، اب تھمنا نہیں، منزل کو پا کے دم لینا")۔
 - اگر صارف نیا یا گھبرایا ہوا ہو ("مجھے کوڈنگ نہیں آتی"، "میں میٹرک پاس ہوں"، "میرے پاس صرف موبائل ہے")، تو اسے فوراً تسلی دیں اور پُراعتماد انداز میں آسان راستہ بتائیں۔
 
@@ -152,7 +152,7 @@ async function generateAdvisorReply({ message, history = [], knowledge = '', stu
 
   const geminiApiKey = process.env.GEMINI_API_KEY || '';
   if (geminiApiKey) {
-    const geminiModels = ['gemini-2.5-flash', 'gemini-2.0-flash', 'gemini-flash-latest'];
+    const geminiModels = ['gemini-3-flash-preview', 'gemini-3.1-flash-lite-preview', 'gemini-2.5-flash', 'gemini-flash-latest'];
     const contents = buildGeminiContents(history, cleanMessage);
 
     for (const model of geminiModels) {
@@ -169,7 +169,7 @@ async function generateAdvisorReply({ message, history = [], knowledge = '', stu
             generationConfig: {
               temperature: 0.65,
               topP: 0.9,
-              maxOutputTokens: 650
+              maxOutputTokens: 1400
             }
           })
         });
@@ -244,3 +244,4 @@ module.exports = {
   sanitizeChatText,
   generateAdvisorReply
 };
+

@@ -660,7 +660,9 @@
           if (res.ok) {
             var data = await res.json();
             if (data && data.reply) {
-              typingEl.innerHTML = escapeHtml(data.reply).replace(/\n/g, '<br>');
+              typingEl.innerHTML = escapeHtml(data.reply)
+                .replace(/\*\*(.+?)\*\*/g, '<span class="text-brand-gold-light">$1</span>')
+                .replace(/\n/g, '<br>');
               chatHistory.push({ role: 'bot', html: typingEl.innerHTML, text: data.reply });
               persistChat();
               scrollBottom();
