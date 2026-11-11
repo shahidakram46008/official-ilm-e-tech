@@ -1,0 +1,422 @@
+<!DOCTYPE html><html lang="ur" dir="rtl"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>شکریہ! داخلہ فارم کامیابی سے جمع ہو گیا - علم ٹیک پاکستان</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Jameel Noori Nastaleeq alternative / Urdu font (Noto Nastaliq Urdu & Gulzar & Inter) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Gulzar&amp;family=Noto+Nastaliq+Urdu:wght@400;600;700&amp;family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    @font-face {
+      font-family: 'Jameel Noori Nastaleeq';
+      src: local('Jameel Noori Nastaleeq'), local('Nafees Nastaleeq'), url('https://fonts.gstatic.com/ea/notonastaliqurdu/v4/NotoNastaliqUrdu-Regular.woff2') format('woff2');
+      font-display: swap;
+    }
+    
+    .font-nastaleeq {
+      font-family: 'Jameel Noori Nastaleeq', 'Noto Nastaliq Urdu', 'Gulzar', serif;
+      line-height: 1.9;
+    }
+    
+    .font-latin {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    /* Custom Theme Colors */
+    :root {
+      --bg-dark: #04251C;
+      --bg-card: #063528;
+      --gold-primary: #D4AF37;
+      --gold-light: #F7E08A;
+      --gold-glow: rgba(212, 175, 55, 0.25);
+      --emerald-accent: #10B981;
+    }
+
+    body {
+      background-color: #031D16;
+      background-image: 
+        radial-gradient(circle at 50% 10%, rgba(212, 175, 55, 0.12) 0%, transparent 55%),
+        radial-gradient(circle at 10% 80%, rgba(16, 185, 129, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 90% 90%, rgba(212, 175, 55, 0.08) 0%, transparent 45%);
+      color: #E2E8F0;
+      min-height: 100vh;
+    }
+
+    /* Glowing Badge & Pulse */
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 25px rgba(212, 175, 55, 0.4), inset 0 0 15px rgba(212, 175, 55, 0.2); }
+      50% { box-shadow: 0 0 45px rgba(212, 175, 55, 0.7), inset 0 0 25px rgba(212, 175, 55, 0.35); }
+    }
+
+    @keyframes success-pop {
+      0% { transform: scale(0.6); opacity: 0; }
+      70% { transform: scale(1.1); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .success-checkmark {
+      animation: success-pop 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+
+    .glow-box {
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(212, 175, 55, 0.1);
+    }
+    
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #FFF0B5 0%, #D4AF37 50%, #AA8010 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, #ECC94B 0%, #D4AF37 50%, #B78A16 100%);
+      color: #062419;
+      font-weight: 700;
+      box-shadow: 0 4px 20px rgba(212, 175, 55, 0.35);
+      transition: all 0.25s ease;
+    }
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(212, 175, 55, 0.55);
+    }
+
+    .btn-whatsapp {
+      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+      box-shadow: 0 6px 25px rgba(37, 211, 102, 0.35);
+      transition: all 0.25s ease;
+    }
+    .btn-whatsapp:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 35px rgba(37, 211, 102, 0.55);
+    }
+  </style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+  <!-- Top Announcement Bar -->
+  <div class="bg-[#02140F] border-b border-[#D4AF37]/25 text-center py-2 px-4 text-xs md:text-sm text-[#D4AF37] font-medium tracking-wide">
+    <div class="max-w-6xl mx-auto flex items-center justify-center gap-2">
+      <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+      <span class="font-latin font-bold">ZOOM LIVE INTERACTIVE TRAINING</span>
+      <span class="text-gray-400">|</span>
+      <span class="font-nastaleeq text-sm">100% آن لائن لائیو کلاسز — کوئی فزیکل لیب یا ریکارڈنگ نہیں</span>
+    </div>
+  </div>
+
+  <!-- Header with Official Logo -->
+  <header class="py-4 px-6 md:px-12 border-b border-emerald-900/40 bg-[#04251C]/90 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-5xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-3 md:gap-4">
+        <img src="assets/images/branding/ietp-logo-sm.webp" alt="عِلْمِ ٹیک پاکستان - ILM E TECH PAKISTAN" class="w-14 h-14 md:w-16 md:h-16 rounded-xl border border-[#D4AF37]/50 shadow-md object-cover bg-black/40 p-1">
+        <div>
+          <h1 class="text-xl md:text-2xl font-bold font-nastaleeq gold-gradient-text tracking-tight">عِلْمِ ٹیک پاکستان</h1>
+          <p class="text-xs md:text-sm font-latin font-semibold text-emerald-300 tracking-wider">ILM E TECH PAKISTAN</p>
+          <span class="text-[10px] text-gray-400">AI &amp; Digital Media Agency</span>
+        </div>
+      </div>
+      <a href="https://wa.me/923074958837" target="_blank" class="hidden sm:inline-flex items-center gap-2 text-xs md:text-sm bg-emerald-900/60 hover:bg-emerald-800/80 text-emerald-300 border border-emerald-600/40 py-2 px-4 rounded-full transition font-latin">
+        <i class="fab fa-whatsapp text-emerald-400 text-base"></i>
+        <span dir="ltr">0307-4958837</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Main Hero Card: Admission Success -->
+  <main class="flex-1 max-w-4xl mx-auto w-full px-4 py-8 md:py-12">
+    
+    <!-- Success Celebration Banner -->
+    <div class="bg-gradient-to-b from-[#06392B] to-[#04281E] rounded-3xl p-6 md:p-10 text-center glow-box relative overflow-hidden mb-8">
+      
+      <!-- Subtle Decorative Top Floral Motif Effect -->
+      <div class="absolute -top-12 -left-12 w-40 h-40 bg-[#D4AF37]/10 rounded-full blur-2xl pointer-events-none"></div>
+      <div class="absolute -bottom-12 -right-12 w-40 h-40 bg-emerald-500/10 rounded-full blur-2xl pointer-events-none"></div>
+
+      <!-- Animated Green/Gold Checkmark Icon -->
+      <div class="w-20 h-20 md:w-24 md:h-24 mx-auto rounded-full bg-gradient-to-tr from-emerald-600 to-[#D4AF37] p-[3px] shadow-2xl success-checkmark mb-5">
+        <div class="w-full h-full bg-[#04231A] rounded-full flex items-center justify-center">
+          <i class="fas fa-check text-4xl md:text-5xl text-[#D4AF37]"></i>
+        </div>
+      </div>
+
+      <!-- Urdu Congratulations Heading in Jameel Noori Nastaleeq style -->
+      <span class="inline-block py-1 px-4 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/40 text-[#D4AF37] font-nastaleeq text-sm md:text-base font-semibold mb-3">
+        داخلہ فارم موصول ہو گیا ہے ✓
+      </span>
+
+      <h2 class="text-3xl md:text-5xl font-extrabold font-nastaleeq gold-gradient-text mb-4 leading-tight">
+        مبارک ہو! آپ کی درخواست کامیابی سے جمع ہو چکی ہے
+      </h2>
+
+      <p class="font-nastaleeq text-base md:text-xl text-emerald-100/90 max-w-2xl mx-auto leading-relaxed mb-6">
+        محترم طالب علم! <span class="font-bold text-[#F7E08A]">عِلْمِ ٹیک پاکستان</span> میں داخلے کی درخواست جمع کروانے کا بے حد شکریہ۔ آپ کے محفوظ مستقبل اور جدید ڈیجیٹل اسکلز کے سفر کا آغاز ہو چکا ہے۔
+      </p>
+
+      <!-- Reference Application ID Box -->
+      <div class="inline-flex flex-wrap items-center justify-center gap-2 sm:gap-4 bg-[#021811]/90 border border-[#D4AF37]/30 rounded-2xl py-3 px-6 text-sm md:text-base">
+        <span class="text-gray-300 font-nastaleeq">درخواست کی کیفیت:</span>
+        <span class="text-emerald-400 font-bold font-latin flex items-center gap-1">
+          <i class="fas fa-circle-check"></i> RECEIVED &amp; VERIFIED
+        </span>
+        <span class="text-gray-400 hidden sm:inline">|</span>
+        <span class="text-[#D4AF37] font-latin font-semibold">TOKEN: #IETP-2026-LIVE</span>
+      </div>
+
+    </div>
+
+    <!-- 3 Simple Next Steps (Action Blueprint) -->
+    <div class="mb-8">
+      <div class="text-center mb-6">
+        <h3 class="text-xl md:text-2xl font-bold font-nastaleeq text-[#D4AF37]">
+          داخلہ کنفرم کرنے کے لیے اگلے ۳ آسان اقدامات (Next Steps)
+        </h3>
+        <p class="text-xs md:text-sm text-gray-300 font-nastaleeq">براہ کرم ان ہدایات پر فوری عمل کریں تاکہ آپ کی سیٹ ریزرو ہو سکے</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        
+        <!-- Step 1 -->
+        <div class="bg-[#052F23] rounded-2xl p-5 border border-emerald-800/60 shadow-lg relative flex flex-col justify-between">
+          <div class="absolute -top-3 right-4 bg-[#D4AF37] text-[#062419] font-latin font-bold text-xs px-3 py-0.5 rounded-full shadow">
+            STEP 01
+          </div>
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-[#D4AF37]/15 flex items-center justify-center text-[#D4AF37] text-lg mb-3">
+              <i class="fas fa-money-bill-wave"></i>
+            </div>
+            <h4 class="font-nastaleeq font-bold text-lg text-emerald-200 mb-2">فیس کی ادائیگی</h4>
+            <p class="font-nastaleeq text-sm text-gray-300 leading-relaxed">
+              اپنے منتخب کردہ کورس کی فیس دیے گئے آفیشل بینک یا ایزی پیسہ / جاز کیش اکاؤنٹ میں جمع کروائیں۔
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-emerald-800/40 text-xs text-[#D4AF37] font-latin font-semibold">
+            JazzCash / EasyPaisa / Bank
+          </div>
+        </div>
+
+        <!-- Step 2 (Highlighted) -->
+        <div class="bg-[#063B2C] rounded-2xl p-5 border-2 border-[#D4AF37] shadow-xl relative flex flex-col justify-between">
+          <div class="absolute -top-3 right-4 bg-emerald-400 text-black font-latin font-bold text-xs px-3 py-0.5 rounded-full shadow">
+            STEP 02 (سب سے اہم)
+          </div>
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-emerald-500/20 flex items-center justify-center text-emerald-400 text-lg mb-3">
+              <i class="fab fa-whatsapp"></i>
+            </div>
+            <h4 class="font-nastaleeq font-bold text-lg text-[#F7E08A] mb-2">اسکرین شاٹ واٹس ایپ کریں</h4>
+            <p class="font-nastaleeq text-sm text-gray-200 leading-relaxed">
+              فیس ادائیگی کے بعد ٹرانزیکشن کا اسکرین شاٹ اپنے نام کے ہمراہ آفیشل واٹس ایپ نمبر پر ارسال فرمائیں۔
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-[#D4AF37]/30 text-xs text-emerald-300 font-latin font-bold">
+            WhatsApp: 0307-4958837
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="bg-[#052F23] rounded-2xl p-5 border border-emerald-800/60 shadow-lg relative flex flex-col justify-between">
+          <div class="absolute -top-3 right-4 bg-[#D4AF37] text-[#062419] font-latin font-bold text-xs px-3 py-0.5 rounded-full shadow">
+            STEP 03
+          </div>
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-blue-500/15 flex items-center justify-center text-blue-400 text-lg mb-3">
+              <i class="fas fa-video"></i>
+            </div>
+            <h4 class="font-nastaleeq font-bold text-lg text-emerald-200 mb-2">زوم لنک اور تصدیق</h4>
+            <p class="font-nastaleeq text-sm text-gray-300 leading-relaxed">
+              فیس کی تصدیق کے فوراً بعد آپ کا باضابطہ داخلہ رول نمبر اور لائیو زوم کلاس کا پرائیویٹ لنک واٹس ایپ پر مل جائے گا۔
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-emerald-800/40 text-xs text-blue-300 font-latin font-semibold">
+            100% ZOOM LIVE ACCESS
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Official Payment Accounts Detail Card -->
+    <div class="bg-[#04281E] rounded-3xl p-6 md:p-8 border border-[#D4AF37]/40 shadow-xl mb-8">
+      <div class="flex items-center justify-between flex-wrap gap-4 border-b border-[#D4AF37]/25 pb-4 mb-6">
+        <div>
+          <h3 class="text-xl md:text-2xl font-bold font-nastaleeq text-[#D4AF37]">
+            آفیشل فیس ادائیگی کا مستند طریقہ کار (Fee Payment Details)
+          </h3>
+          <p class="text-xs md:text-sm text-gray-300 font-nastaleeq">براہ کرم فیس صرف ڈاکٹر شاہد اکرم مصطفائی کے آفیشل اکاؤنٹس میں ہی جمع کروائیں</p>
+        </div>
+        <span class="bg-[#D4AF37]/20 border border-[#D4AF37] text-[#D4AF37] font-latin text-xs font-bold py-1 px-3 rounded-full">
+          OFFICIAL VERIFIED ACCOUNTS
+        </span>
+      </div>
+
+      <!-- Account Info Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6 text-center">
+        
+        <!-- EasyPaisa -->
+        <div class="bg-[#021A12] p-4 rounded-2xl border border-emerald-700/50">
+          <div class="text-emerald-400 font-latin font-bold text-xs uppercase mb-1">EasyPaisa</div>
+          <div class="font-nastaleeq text-xs text-gray-300">اکاؤنٹ ٹائٹل:</div>
+          <div class="font-latin font-bold text-white text-sm">Dr. Shahid Akram</div>
+          <div class="font-latin text-base md:text-lg font-extrabold text-[#D4AF37] tracking-wider mt-2 select-all cursor-pointer" title="کاپی کریں">
+            0320-6546008
+          </div>
+        </div>
+
+        <!-- JazzCash -->
+        <div class="bg-[#021A12] p-4 rounded-2xl border border-emerald-700/50">
+          <div class="text-red-400 font-latin font-bold text-xs uppercase mb-1">JazzCash</div>
+          <div class="font-nastaleeq text-xs text-gray-300">اکاؤنٹ ٹائٹل:</div>
+          <div class="font-latin font-bold text-white text-sm">Shahid Akram</div>
+          <div class="font-latin text-base md:text-lg font-extrabold text-[#D4AF37] tracking-wider mt-2 select-all cursor-pointer" title="کاپی کریں">
+            0320-6546008
+          </div>
+        </div>
+
+        <!-- SadaPay / NayaPay -->
+        <div class="bg-[#021A12] p-4 rounded-2xl border border-emerald-700/50">
+          <div class="text-amber-400 font-latin font-bold text-xs uppercase mb-1">SadaPay / NayaPay</div>
+          <div class="font-nastaleeq text-xs text-gray-300">اکاؤنٹ ٹائٹل:</div>
+          <div class="font-latin font-bold text-white text-sm">Shahid Akram Mustafai</div>
+          <div class="font-latin text-base md:text-lg font-extrabold text-[#D4AF37] tracking-wider mt-2 select-all cursor-pointer" title="کاپی کریں">
+            0320-6546008
+          </div>
+        </div>
+
+        <!-- Meezan Bank -->
+        <div class="bg-[#021A12] p-4 rounded-2xl border border-emerald-700/50">
+          <div class="text-blue-400 font-latin font-bold text-xs uppercase mb-1">Meezan Bank</div>
+          <div class="font-nastaleeq text-xs text-gray-300">اکاؤنٹ ٹائٹل:</div>
+          <div class="font-latin font-bold text-white text-sm">Dr Shahid Akram</div>
+          <div class="font-latin text-xs font-semibold text-[#D4AF37] mt-2">
+            رابطہ پر اکاؤنٹ نمبر جاری کیا جائے گا
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Primary Action CTA Button: WhatsApp Direct Click -->
+      <div class="text-center pt-2">
+        <a href="https://wa.me/923074958837?text=%D8%A7%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%DB%8C%DA%A9%D9%85%20%DA%88%D8%A7%DA%A9%D9%85%D8%B1%20%D8%B5%D8%A7%D8%AD%D8%A8!%20%D9%85%DB%8C%DA%BA%20%D9%86%DB%92%20%D8%B9%D9%90%D9%84%D9%92%D9%85%D9%90%20%D9%B9%DB%8C%DA%A9%20%D9%BE%D8%A7%DA%A9%D8%B3%D8%AA%D8%A7%D9%86%20%DA%A9%DB%92%20%D8%AF%D8%A7%D8%AE%D9%84%DB%88%20%DA%A9%D8%A7%D8%B1%DA%88%20%D9%BE%D8%B1%20%D9%81%D8%A7%D8%B1%D9%85%20%D8%AC%D9%85%D8%B9%20%DA%A9%D8%B1%D9%88%D8%A7%20%D8%AF%DB%8C%D8%A7%20%DB%81%DB%92%D8%8C%20%DB%8C%DB%81%20%D9%85%DB%8C%D8%B1%DB%8C%20%D9%81%DB%8C%D8%B3%20%DA%A9%DB%8C%20%D8%B1%D8%B3%DB%8C%D8%AF%20%DB%81%DB%92%D8%8C%20%D8%A8%D8%B1%D8%A7%DB%81%20%DA%A9%D8%B1%D9%85%20%D9%85%DB%8C%D8%B1%D8%A7%20%D8%AF%D8%A7%D8%AE%D9%84%DB%88%20%DA%A9%D9%86%D9%81%D8%B1%D9%85%20%DA%A9%D8%B1%DB%8C%DA%BA%DB%94" target="_blank" class="btn-whatsapp inline-flex items-center justify-center gap-3 text-white text-base md:text-lg font-bold py-4 px-8 rounded-2xl w-full sm:w-auto shadow-2xl">
+          <i class="fab fa-whatsapp text-2xl"></i>
+          <span class="font-nastaleeq">فیس اسکرین شاٹ واٹس ایپ پر ارسال کریں (0307-4958837)</span>
+        </a>
+        <p class="text-xs text-gray-400 mt-2 font-nastaleeq">اس بٹن پر کلک کرنے سے براہِ راست آفیشل واٹس ایپ چیٹ کھل جائے گی</p>
+      </div>
+
+    </div>
+
+    <!-- Mandatory Policy & Live Zoom Notice (Zero Physical / Zero LMS) -->
+    <div class="bg-[#021A12] rounded-2xl p-5 md:p-6 border-r-4 border-yellow-500 border-t border-b border-l border-emerald-900 shadow-md mb-8">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 rounded-full bg-yellow-500/20 text-yellow-400 flex items-center justify-center flex-shrink-0 text-xl">
+          <i class="fas fa-triangle-exclamation"></i>
+        </div>
+        <div>
+          <h4 class="font-nastaleeq font-bold text-lg text-yellow-400 mb-2">
+            ادارے کی اہم ترین تدریسی پالیسی و ضوابط (لازمی مطالعہ فرمائیں):
+          </h4>
+          <ul class="font-nastaleeq text-sm text-gray-300 space-y-2 leading-relaxed">
+            <li class="flex items-start gap-2">
+              <span class="text-[#D4AF37] font-bold">●</span>
+              <span><strong>100% آن لائن لائیو کلاسز:</strong> تمام کلاسز مقررہ اوقات پر صرف زوم (ZOOM) پر لائیو منعقد ہوں گی۔ ادارے کا کوئی فزیکل کیمپس یا لیب موجود نہیں ہے۔</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-[#D4AF37] font-bold">●</span>
+              <span><strong>ریکارڈنگ فراہم نہیں کی جاتی:</strong> ہمارا مقصد حقیقی عملی مہارت سکھانا ہے، لہٰذا کلاسز کی ریکارڈنگ نہیں دی جاتی۔ ہر طالب علم کا وقت پر لائیو حاضر ہونا ضروری ہے۔</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-[#D4AF37] font-bold">●</span>
+              <span><strong>کوئی LMS یا پورٹل نہیں:</strong> کسی قسم کے ریکارڈڈ لرننگ پورٹل کی بجائے براہ راست استاد (ڈاکٹر شاہد اکرم مصطفائی) کے سامنے لائیو پریکٹس کروائی جاتی ہے۔</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dr. Shahid Akram's Inspiring Couplet & Signature -->
+    <div class="bg-[#04281E] rounded-3xl p-6 md:p-8 border border-[#D4AF37]/30 shadow-xl mb-8 text-center"><div class="mb-6"><span class="inline-block py-1 px-3 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/30 text-[#D4AF37] font-nastaleeq text-xs font-semibold mb-2">سرکاری روابط و کمیونٹی</span><h3 class="text-xl md:text-2xl font-bold font-nastaleeq text-[#D4AF37] mb-1">ادارے کے آفیشل سوشل میڈیا اور کمیونٹی چینلز سے جڑیں</h3><p class="text-xs md:text-sm text-gray-300 font-nastaleeq">کلاس شروع ہونے تک ہمارے آفیشل پلیٹ فارمز کو فالو اور جوائن کریں تاکہ کوئی اپڈیٹ مس نہ ہو</p></div><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6"><a href="https://whatsapp.com/channel/0029Vb7zRZ3AInPqJwCmHn1x" target="_blank" class="bg-[#021A12] hover:bg-emerald-900/40 p-4 rounded-2xl border border-emerald-700/50 transition flex items-center gap-3 text-right"><div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xl flex-shrink-0"><i class="fab fa-whatsapp"></i></div><div><div class="font-nastaleeq font-bold text-white text-sm">واٹس ایپ چینل (WhatsApp Channel)</div><div class="font-nastaleeq text-xs text-gray-400">فوری کلاس نوٹیفکیشنز اور اعلانات</div></div></a><a href="https://www.facebook.com/groups/ilmetechpakistan" target="_blank" class="bg-[#021A12] hover:bg-emerald-900/40 p-4 rounded-2xl border border-emerald-700/50 transition flex items-center gap-3 text-right" rel="noopener noreferrer"><div class="w-10 h-10 rounded-xl bg-blue-500/15 text-blue-400 flex items-center justify-center text-xl flex-shrink-0"><i class="fab fa-facebook"></i></div><div><div class="font-nastaleeq font-bold text-white text-sm">فیس بک گروپ (Facebook Group)</div><div class="font-nastaleeq text-xs text-gray-400">طلبہ کی کمیونٹی اور ڈسکشن فورم</div></div></a><a href="https://www.youtube.com/@ilmetechpakistan" target="_blank" class="bg-[#021A12] hover:bg-emerald-900/40 p-4 rounded-2xl border border-emerald-700/50 transition flex items-center gap-3 text-right"><div class="w-10 h-10 rounded-xl bg-red-500/20 text-red-400 flex items-center justify-center text-xl flex-shrink-0"><i class="fab fa-youtube"></i></div><div><div class="font-nastaleeq font-bold text-white text-sm">یوٹیوب چینل (YouTube)</div><div class="font-nastaleeq text-xs text-gray-400">فری اے آئی ٹپس اور گائیڈنس ویڈیوز</div></div></a></div><div class="flex flex-wrap items-center justify-center gap-3 pt-3 border-t border-emerald-800/40"><span class="text-xs text-gray-300 font-nastaleeq">دیگر سوشل میڈیا ہینڈلز:</span><a href="https://www.facebook.com/ilmetechpakistan" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#021811] border border-emerald-700/40 text-xs text-gray-300 hover:text-white transition"><i class="fab fa-facebook text-blue-400"></i><span>Facebook Page</span></a><a href="https://www.instagram.com/ilmetechpakistan/" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#021811] border border-emerald-700/40 text-xs text-gray-300 hover:text-white transition"><i class="fab fa-instagram text-amber-400"></i><span>Instagram</span></a><a href="https://www.tiktok.com/@ilmetechpakistan" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#021811] border border-emerald-700/40 text-xs text-gray-300 hover:text-white transition"><i class="fab fa-tiktok text-emerald-300"></i><span>TikTok</span></a></div></div><div class="text-center py-6 px-4 bg-gradient-to-r from-transparent via-[#063528]/40 to-transparent rounded-2xl border-y border-[#D4AF37]/20">
+      <div class="w-20 h-20 md:w-24 md:h-24 mx-auto rounded-full p-1 border-2 border-[#D4AF37] bg-[#021A12] mb-3 shadow-xl relative"><img src="assets/images/ceo.webp" alt="Dr. Shahid Akram Mustafai" class="w-full h-full object-cover rounded-full shadow-md"></div>
+      <p class="font-nastaleeq text-lg md:text-2xl text-[#F7E08A] font-semibold leading-relaxed mb-1">
+        آفاق کے ہر ہر گوشے میں پیغام پہنچا کے دم لینا
+      </p>
+      <p class="font-nastaleeq text-lg md:text-2xl text-[#F7E08A] font-semibold leading-relaxed mb-3">
+        اب رکنا نہیں، اب تھمنا نہیں، منزل کو پا کے دم لینا
+      </p>
+      <p class="font-nastaleeq text-sm text-emerald-300">
+        <strong>ڈاکٹر شاہد اکرم مصطفائی</strong> | بانی و چیف ایگزیکٹو (ILM E TECH PAKISTAN)
+      </p>
+    </div>
+
+    <!-- Quick Return / Home Button -->
+    <div class="text-center mt-8">
+      <a href="javascript:window.history.back();" class="inline-flex items-center gap-2 text-gray-400 hover:text-white font-nastaleeq text-sm transition">
+        <i class="fas fa-arrow-right"></i>
+        <span>مرکزی ویب سائٹ پر واپس جائیں</span>
+      </a>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-[#02140F] border-t border-emerald-950 py-6 text-center text-xs text-gray-500 font-latin">
+    <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div class="font-nastaleeq text-emerald-400 text-sm">عِلْمِ ٹیک پاکستان (ILM E TECH PAKISTAN) — 100% آن لائن لائیو اکیڈمی و ڈیجیٹل ایجنسی</div>
+      <div>
+        © 2026 ILM E TECH PAKISTAN. All Rights Reserved. Founder &amp; CEO: Dr. Shahid Akram Mustafai.
+      </div>
+    </div>
+  </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const appId = urlParams.get('appId') || urlParams.get('id') || 'IETP-2026-LIVE';
+      const studentName = urlParams.get('name') || urlParams.get('fullName') || '';
+      const courseName = urlParams.get('course') || urlParams.get('courseName') || '';
+      const isFree = urlParams.get('free') === 'true' || (courseName.toLowerCase().includes('basic ai') && !courseName.toLowerCase().includes('tools'));
+
+      // Update Token / ID display
+      const tokenEl = document.querySelector('.font-latin.font-semibold:last-child');
+      if (tokenEl && appId) {
+        tokenEl.textContent = 'TOKEN: #' + appId;
+      }
+
+      // Update student personalized greeting if name provided
+      if (studentName) {
+        const studentGreetingEl = document.querySelector('p.font-nastaleeq.text-base');
+        if (studentGreetingEl) {
+          studentGreetingEl.innerHTML = 'محترم <strong class="text-[#F7E08A]">' + studentName + '</strong> صاحب! <span class="font-bold text-[#F7E08A]">عِلْمِ ٹیک پاکستان</span> میں داخلے کی درخواست جمع کروانے کا بے حد شکریہ۔ ' + (courseName ? 'آپ کے کورس <strong>(' + courseName + ')</strong> کی رجسٹریشن مکمل ہو چکی ہے۔' : 'آپ کے محفوظ مستقبل اور جدید ڈیجیٹل اسکلز کے سفر کا آغاز ہو چکا ہے۔');
+        }
+      }
+
+      // Update WhatsApp URL with customized student details
+      const waBtn = document.querySelector('a.btn-whatsapp');
+      if (waBtn) {
+        let msg = 'السلام علیکم ڈاکٹر شاہد اکرم مصطفائی صاحب!\nمیں نے علمِ ٹیک پاکستان کے پورٹل پر داخلہ فارم جمع کروا دیا ہے۔\n---------------------------------\nایپلیکیشن آئی ڈی: ' + appId;
+        if (studentName) msg += '\nطالب علم کا نام: ' + studentName;
+        if (courseName) msg += '\nمنتخب کورس: ' + courseName;
+        msg += isFree ? '\nفیس: 100% مفت داخلہ (Rs. 0)\n---------------------------------\nبرائے مہربانی مجھے لائیو زوم کلاس کے واٹس ایپ گروپ میں ایڈ فرمائیں۔' : '\n---------------------------------\nیہ میری فیس کی رسید ہے، برائے کرم میرا داخلہ رول نمبر اور زوم کلاس لنک کنفرم فرمائیں۔';
+
+        waBtn.href = 'https://wa.me/923074958837?text=' + encodeURIComponent(msg);
+      }
+    });
+  </script>
+
+</body></html>

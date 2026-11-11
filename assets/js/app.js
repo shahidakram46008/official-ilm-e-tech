@@ -214,6 +214,9 @@ function initAdmissionForm() {
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSeghlY7TLWi-nOkmOmlmCFi9GFXs0dL_vpyz8HcDOefc4ksrw/viewform" target="_blank" rel="noopener noreferrer" class="btn btn-outline-blue btn-lg">
               <i class="fab fa-google"></i> گوگل فارم پر بھی ریکارڈ رکھیں
             </a>
+            <a href="admission-success.html?appId=${refNo}&name=${encodeURIComponent(fullName)}&course=${encodeURIComponent(courseName)}&free=${isFree}" class="btn btn-lg" style="background:linear-gradient(135deg, #d4af37 0%, #aa8010 100%); color:#04231a; font-weight:800; box-shadow:0 6px 20px rgba(212,175,55,0.4);">
+              <i class="fas fa-award"></i> داخلہ تصدیق و آفیشل فیس پورٹل کھولیں
+            </a>
             <button onclick="window.print()" class="btn btn-outline btn-lg">
               <i class="fas fa-print"></i> سلپ پرنٹ کریں
             </button>
