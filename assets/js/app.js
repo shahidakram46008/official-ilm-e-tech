@@ -187,7 +187,7 @@ function initAdmissionForm() {
             ${isFree ? '100% مفت داخلہ منظور!' : 'داخلہ درخواست کامیابی سے موصول ہو گئی!'}
           </h2>
           <div style="font-family:'Noto Nastaliq Urdu', serif; font-size:1.2rem; color:#475569; margin-bottom:1.25rem; line-height:1.8;">
-            مبارک ہو ${fullName}! علم ٹیک پاکستان میں آپ کی رجسٹریشن مکمل ہو گئی ہے۔
+            مبارک ہو ${fullName}! علمِ ٹیک پاکستان میں آپ کی رجسٹریشن مکمل ہو گئی ہے۔
           </div>
 
           <div style="background:#f8fafc; border:1.5px dashed ${isFree ? '#10b981' : '#0284c7'}; padding:1.25rem; border-radius:1rem; margin:1rem auto 1.5rem; max-width:620px; text-align:left; font-size:0.92rem;">

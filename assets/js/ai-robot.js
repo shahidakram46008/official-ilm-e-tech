@@ -36,14 +36,14 @@
   // 1. Collect & persist ALL live information from the webpage DOM
   function collectWebsiteKnowledge() {
     var knowledge = {
-      brand: 'عِلْمِ ٹیک پاکستان (ILM E TECH PAKISTAN)',
+      brand: 'علمِ ٹیک پاکستان (ILM E TECH PAKISTAN)',
       tagline: 'اے آئی اینڈ ڈیجیٹل اسکلز سینٹر',
       ceo: {
         name: 'ڈاکٹر شاہد اکرم مصطفائی (Dr. Shahid Akram Mustafai)',
         bio: '',
         policy: ''
       },
-      headOffice: 'عِلْمِ ٹیک پاکستان، موڑ کھنڈا، ضلع ننکانہ صاحب، پنجاب، پاکستان',
+      headOffice: 'علمِ ٹیک پاکستان، موڑ کھنڈا، ضلع ننکانہ صاحب، پنجاب، پاکستان',
       helpline: '0307-4958837',
       teachingMode: '100% آن لائن لائیو کلاسز بذریعہ زوم (Zoom) — کوئی ریکارڈڈ پورٹل نہیں',
       courses: [],
@@ -273,7 +273,7 @@
             '<svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="3"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>' +
           '</div>' +
           '<div class="text-right">' +
-            '<h3 id="ietpRobotHeading" class="text-base font-nastaleeq text-brand-gold-light leading-[1.8] m-0">عِلْمِ ٹیک AI مشیر روبوٹ</h3>' +
+            '<h3 id="ietpRobotHeading" class="text-base font-nastaleeq text-brand-gold-light leading-[1.8] m-0">علمِ ٹیک AI مشیر روبوٹ</h3>' +
             '<p id="ietpRobotMemoryBadge" class="text-[11px] font-nastaleeq text-emerald-300 leading-[1.6] m-0">ویب سائٹ علم محفوظ (' + knowledge.courses.length + ' کورسز و CEO پروفائل)</p>' +
           '</div>' +
         '</div>' +
@@ -527,7 +527,7 @@
 
       // 2. CEO / Founder / Head Office queries
       if (q.includes('شاہد') || q.includes('سی ای او') || q.includes('فاؤنڈر') || q.includes('بانی') || q.includes('ceo') || q.includes('ہیڈ آفس') || q.includes('پتہ') || q.includes('کہاں')) {
-        return greet + '<strong>' + escapeHtml(knowledge.ceo.name) + '</strong> عِلْمِ ٹیک پاکستان کے بانی اور چیف ایگزیکٹو ہیں۔<br>' +
+        return greet + '<strong>' + escapeHtml(knowledge.ceo.name) + '</strong> علمِ ٹیک پاکستان کے بانی اور چیف ایگزیکٹو ہیں۔<br>' +
           '• <strong>تجربہ:</strong> ' + escapeHtml(knowledge.ceo.bio || 'AI، کمرشل ویڈیو ایڈ میکنگ، ویب ڈویلپمنٹ اور بزنس اسکیلنگ میں 3 سال کا عملی تجربہ اور 10 مختلف برانڈز کے ساتھ کامیاب کام') + '<br>' +
           '• <strong>ہیڈ آفس:</strong> ' + escapeHtml(knowledge.headOffice) + '<br>' +
           '• <strong>ہیلپ لائن:</strong> <span dir="ltr" class="font-latin text-emerald-300">' + escapeHtml(knowledge.helpline) + '</span>';
@@ -565,7 +565,7 @@
           return '• <strong>' + escapeHtml(s.title) + ':</strong> ' + escapeHtml(s.description);
         }).join('<br>');
         if (srvList) {
-          return greet + 'عِلْمِ ٹیک پاکستان ڈیجیٹل ایجنسی کی اہم سروسز:<br>' + srvList + '<br>بزنس آفرز کے لیے واٹس ایپ <span dir="ltr" class="font-latin text-emerald-300">' + escapeHtml(knowledge.helpline) + '</span> پر رابطہ کریں۔';
+          return greet + 'علمِ ٹیک پاکستان ڈیجیٹل ایجنسی کی اہم سروسز:<br>' + srvList + '<br>بزنس آفرز کے لیے واٹس ایپ <span dir="ltr" class="font-latin text-emerald-300">' + escapeHtml(knowledge.helpline) + '</span> پر رابطہ کریں۔';
         }
       }
 
@@ -575,7 +575,7 @@
 
       if (/^(سلام|السلام|hi|hello|assalam|helo)/.test(q)) {
         return 'وعلیکم السلام ورحمۃ اللہ ' + (profile.fullName ? '<strong>' + escapeHtml(profile.fullName) + '</strong> صاحب! ' : 'دوست! ') +
-          'میں عِلْمِ ٹیک پاکستان کا AI مشیر روبوٹ ہوں۔ آپ مجھ سے کورسز، فیس، ڈاکٹر شاہد اکرم مصطفائی یا اپنے لیے بہترین کورس کے انتخاب کے بارے میں پوچھ سکتے ہیں۔';
+          'میں علمِ ٹیک پاکستان کا AI مشیر روبوٹ ہوں۔ آپ مجھ سے کورسز، فیس، ڈاکٹر شاہد اکرم مصطفائی یا اپنے لیے بہترین کورس کے انتخاب کے بارے میں پوچھ سکتے ہیں۔';
       }
 
       // 7. Selected course context if student filled form
@@ -684,7 +684,7 @@
         }
         var fallbackHtml =
           (profile.fullName ? 'محترم <strong>' + escapeHtml(profile.fullName) + '</strong> صاحب! ' : '') +
-          'میں عِلْمِ ٹیک پاکستان کا AI مشیر ہوں۔ آپ مجھ سے کسی بھی کورس، فیس، ڈاکٹر شاہد اکرم مصطفائی یا 7 روزہ مفت AI کورس کے بارے میں پوچھ سکتے ہیں — یا <strong>"نیا ہوں — بہترین کورس تجویز کریں"</strong> بٹن دبا کر ذاتی رہنمائی حاصل کریں!';
+          'میں علمِ ٹیک پاکستان کا AI مشیر ہوں۔ آپ مجھ سے کسی بھی کورس، فیس، ڈاکٹر شاہد اکرم مصطفائی یا 7 روزہ مفت AI کورس کے بارے میں پوچھ سکتے ہیں — یا <strong>"نیا ہوں — بہترین کورس تجویز کریں"</strong> بٹن دبا کر ذاتی رہنمائی حاصل کریں!';
         typingEl.innerHTML = fallbackHtml;
         chatHistory.push({ role: 'bot', html: fallbackHtml, text: typingEl.textContent });
         persistChat();
@@ -695,7 +695,7 @@
 
       var instantHtml =
         (profile.fullName ? 'محترم <strong>' + escapeHtml(profile.fullName) + '</strong> صاحب! ' : '') +
-        'میں عِلْمِ ٹیک پاکستان کا AI مشیر ہوں۔ آپ مجھ سے کسی بھی کورس، فیس، زوم لائیو کلاسز، ڈاکٹر شاہد اکرم مصطفائی یا 7 روزہ مفت AI کورس کے بارے میں پوچھ سکتے ہیں — یا <strong>"نیا ہوں — بہترین کورس تجویز کریں"</strong> بٹن دبا کر ذاتی مشورہ حاصل کریں!';
+        'میں علمِ ٹیک پاکستان کا AI مشیر ہوں۔ آپ مجھ سے کسی بھی کورس، فیس، زوم لائیو کلاسز، ڈاکٹر شاہد اکرم مصطفائی یا 7 روزہ مفت AI کورس کے بارے میں پوچھ سکتے ہیں — یا <strong>"نیا ہوں — بہترین کورس تجویز کریں"</strong> بٹن دبا کر ذاتی مشورہ حاصل کریں!';
       appendMessage('bot', instantHtml);
       defaultChips();
     }
@@ -715,7 +715,7 @@
         } else {
           var welcome =
             'السلام علیکم' + (profile.fullName ? ' <strong>' + escapeHtml(profile.fullName) + '</strong> صاحب' : '') + '! 🤖✨<br>' +
-            'میں <strong>عِلْمِ ٹیک پاکستان</strong> کا اسمارٹ <strong>AI مشیر روبوٹ</strong> ہوں۔ میں نے اس ویب سائٹ پر موجود تمام <strong>' + knowledge.courses.length + ' کورسز، فیسیں اور ڈاکٹر شاہد اکرم مصطفائی</strong> کی مکمل معلومات محفوظ کر لی ہیں۔<br>' +
+            'میں <strong>علمِ ٹیک پاکستان</strong> کا اسمارٹ <strong>AI مشیر روبوٹ</strong> ہوں۔ میں نے اس ویب سائٹ پر موجود تمام <strong>' + knowledge.courses.length + ' کورسز، فیسیں اور ڈاکٹر شاہد اکرم مصطفائی</strong> کی مکمل معلومات محفوظ کر لی ہیں۔<br>' +
             (profile.courseName
               ? '<div class="mt-2 p-2 rounded-lg bg-emerald-950/60 border border-emerald-500/40 text-xs text-emerald-200">آپ کے فارم کی تفصیلات (کورس: <strong>' + escapeHtml(profile.courseName) + '</strong>) میرے ذہن میں محفوظ ہیں۔ کوئی بھی سوال پوچھیں!</div>'
               : 'اگر آپ نئے ہیں اور جاننا چاہتے ہیں کہ آپ کے لیے کون سا کورس بہترین رہے گا، تو نیچے دیے گئے بٹن پر کلک کریں — میں آپ کے بیک گراؤنڈ کے مطابق بہترین مشورہ دوں گا!');

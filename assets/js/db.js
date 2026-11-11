@@ -36,7 +36,7 @@ const DEFAULT_SETTINGS = {
   email: "info@ilmetechpakistan.com",
   phone: "+92 307 4958837",
   whatsapp: "+92 307 4958837",
-  address: "عِلْمِ ٹیک پاکستان، موڑ کھنڈا، ضلع ننکانہ صاحب، پنجاب، پاکستان (More Khunda, District Nankana Sahib, Punjab, Pakistan)",
+  address: "علمِ ٹیک پاکستان، موڑ کھنڈا، ضلع ننکانہ صاحب، پنجاب، پاکستان (More Khunda, District Nankana Sahib, Punjab, Pakistan)",
   paymentAccounts: {
     jazzcash: { title: "Shahid Akram", number: "03206546008", enabled: true },
     easypaisa: { title: "Shahid Akram", number: "03206546008", enabled: true },
@@ -319,7 +319,7 @@ const DEFAULT_COURSES = [
     tools: ["ChatGPT", "Midjourney", "HeyGen", "ElevenLabs", "CapCut", "Canva"],
     certificateInfo: "Includes Digital Content Specialist Verified Certificate."
   },
-    {
+  {
     id: "ai-website-dev",
     title: "AI Website Development Course",
     urduTitle: "اے آئی ویب سائٹ ڈویلپمنٹ کورس",
@@ -972,7 +972,7 @@ class IlmTechDB {
     pay.trxId = newTrxId;
     if (newReceiptUrl) pay.receiptUrl = newReceiptUrl;
     pay.submissionDate = new Date().toISOString().split('T')[0] + " " + new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }) + " PKT";
-    
+
     localStorage.setItem(DB_KEYS.PAYMENTS, JSON.stringify(payments));
 
     this.addAuditLog({

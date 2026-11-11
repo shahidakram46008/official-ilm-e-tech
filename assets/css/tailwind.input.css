@@ -7,10 +7,12 @@
   src: local('Jameel Noori Nastaleeq'),
        local('Jameel Noori Nastaleeq Regular'),
        local('JameelNooriNastaliq'),
-       local('Nafees Nastaleeq');
+       local('Nafees Nastaleeq'),
+       url('https://cdn.jsdelivr.net/npm/jameel-noori@1.1.2/fonts/jameel-noori-nastaleeq4.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
+  unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF;
 }
 
 @layer base {
@@ -37,12 +39,12 @@
 
   h1, h2, h3, h4 {
     font-family: 'Jameel Noori Nastaleeq', 'Noto Nastaliq Urdu', 'Gulzar', serif;
-    font-weight: 400;
+    font-weight: 400 !important;
     line-height: 2.25;
     word-spacing: 0.16em;
     letter-spacing: 0;
     font-synthesis: none;
-    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
   }
 
   input, select, textarea, button {
@@ -50,11 +52,15 @@
   }
 }
 
-.font-nastaleeq {
+.font-nastaleeq,
+.font-nastaleeq strong,
+label.font-nastaleeq,
+a.font-nastaleeq,
+button.font-nastaleeq {
   font-family: 'Jameel Noori Nastaleeq', 'Noto Nastaliq Urdu', 'Gulzar', serif;
-  font-weight: 400;
-  line-height: 2.2;
-  word-spacing: 0.15em;
+  font-weight: 400 !important;
+  line-height: 2.25;
+  word-spacing: 0.16em;
   letter-spacing: 0;
   font-synthesis: none;
 }
@@ -63,8 +69,16 @@
   font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   line-height: 1.5;
   word-spacing: normal;
+  letter-spacing: normal;
   font-synthesis: weight;
   text-shadow: none;
+}
+
+@media (max-width: 639px) {
+  body {
+    line-height: 2.25;
+    word-spacing: 0.14em;
+  }
 }
 
 /* =========================================================
@@ -431,8 +445,8 @@
   justify-content: space-between;
   gap: 0.5rem;
   padding: 0.75rem 1rem;
-  background: rgba(3, 28, 21, 0.92);
-  border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+  background: rgba(1, 20, 12, 0.96);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.32);
 }
 
 .ietp-robot-messages {
@@ -449,17 +463,18 @@
   padding: 0.65rem 0.9rem;
   border-radius: 1rem;
   font-family: 'Jameel Noori Nastaleeq', 'Noto Nastaliq Urdu', 'Gulzar', serif;
-  font-size: 0.92rem;
-  line-height: 2.15;
-  word-spacing: 0.14em;
+  font-weight: 400;
+  font-size: 0.94rem;
+  line-height: 2.2;
+  word-spacing: 0.15em;
   font-synthesis: none;
   word-wrap: break-word;
   animation: msg-in 0.22s ease-out;
 }
 .ietp-msg-bot {
   align-self: flex-start;
-  background: rgba(15, 68, 54, 0.9);
-  border: 1px solid rgba(26, 92, 74, 0.95);
+  background: rgba(5, 51, 33, 0.94);
+  border: 1px solid rgba(17, 84, 58, 0.95);
   color: #f1f5f9;
   border-top-right-radius: 0.25rem;
 }
@@ -476,20 +491,24 @@
   flex-wrap: wrap;
   gap: 0.4rem;
   padding: 0.45rem 0.75rem;
-  background: rgba(3, 28, 21, 0.75);
-  border-top: 1px solid rgba(26, 92, 74, 0.6);
+  background: rgba(1, 20, 12, 0.85);
+  border-top: 1px solid rgba(17, 84, 58, 0.65);
   max-height: 7.5rem;
   overflow-y: auto;
 }
 
 .ietp-chip {
-  background: rgba(15, 68, 54, 0.95);
+  background: rgba(5, 51, 33, 0.95);
   color: #e2e8f0;
-  border: 1px solid rgba(26, 92, 74, 0.95);
+  border: 1px solid rgba(17, 84, 58, 0.95);
   border-radius: 9999px;
-  padding: 0.25rem 0.7rem;
-  font-size: 0.78rem;
-  line-height: 1.8;
+  padding: 0.25rem 0.75rem;
+  font-family: 'Jameel Noori Nastaleeq', 'Noto Nastaliq Urdu', 'Gulzar', serif;
+  font-weight: 400;
+  font-size: 0.82rem;
+  line-height: 1.9;
+  word-spacing: 0.12em;
+  font-synthesis: none;
   cursor: pointer;
   transition: border-color 0.2s, background-color 0.2s, color 0.2s;
 }
@@ -499,13 +518,12 @@
 }
 .ietp-chip-gold {
   background: linear-gradient(135deg, #D4AF37, #b59228);
-  color: #031c15;
+  color: #01140c;
   border-color: #F3E5AB;
-  font-weight: 700;
 }
 .ietp-chip-gold:hover {
   background: #F3E5AB;
-  color: #031c15;
+  color: #01140c;
 }
 
 .ietp-robot-form {
@@ -513,7 +531,7 @@
   align-items: center;
   gap: 0.45rem;
   padding: 0.6rem 0.75rem;
-  background: #031c15;
+  background: #01140c;
   border-top: 1px solid rgba(212, 175, 55, 0.28);
 }
 
@@ -540,7 +558,7 @@
   height: 2.5rem;
   border-radius: 0.75rem;
   background: linear-gradient(135deg, #ECC94B, #D4AF37);
-  color: #031c15;
+  color: #01140c;
   display: inline-flex;
   align-items: center;
   justify-content: center;
