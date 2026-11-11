@@ -96,7 +96,13 @@ function bindPaymentSearchFilter() {
 
 function renderAdminStats() {
   if (!window.ilmDB) return;
-  const admissions = window.ilmDB.getAdmissions();
+  let admissions = window.ilmDB.getAdmissions() || [];
+  if (currentAdmissionsFilter === 'LAST_30_DAYS') {
+    const thirtyDaysAgo = new Date();
+    thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+    const thirtyDaysStr = thirtyDaysAgo.toISOString().split('T')[0];
+    admissions = admissions.filter(app => !app.date || app.date >= thirtyDaysStr);
+  }
   const payments = window.ilmDB.getPayments();
   const certs = window.ilmDB.getCertificates();
   const courses = window.ilmDB.getCourses();
@@ -129,13 +135,42 @@ function renderAdminStats() {
   setEl('statPendingAmount', 'Rs. ' + pendingAmount.toLocaleString() + ' PKR');
 }
 
+let currentAdmissionsFilter = 'ALL';
+
+window.setAdmissionsDateFilter = function(filterType) {
+  currentAdmissionsFilter = filterType;
+  const allBtn = document.getElementById('admFilterAllBtn');
+  const monthBtn = document.getElementById('admFilterMonthBtn');
+  if (allBtn && monthBtn) {
+    allBtn.classList.toggle('active', filterType === 'ALL');
+    monthBtn.classList.toggle('active', filterType === 'LAST_30_DAYS');
+  }
+  renderAdmissionsTable();
+};
+
 function renderAdmissionsTable() {
   const container = document.getElementById('admissionsTableBody');
+  const countEl = document.getElementById('admCountNumber');
   if (!container || !window.ilmDB) return;
 
-  const admissions = window.ilmDB.getAdmissions();
+  let admissions = window.ilmDB.getAdmissions() || [];
+
+  if (currentAdmissionsFilter === 'LAST_30_DAYS') {
+    const thirtyDaysAgo = new Date();
+    thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+    const thirtyDaysStr = thirtyDaysAgo.toISOString().split('T')[0];
+    admissions = admissions.filter(app => {
+      if (!app.date) return true;
+      return app.date >= thirtyDaysStr;
+    });
+  }
+
+  if (countEl) {
+    countEl.textContent = admissions.length + (currentAdmissionsFilter === 'LAST_30_DAYS' ? ' (پچھلے 30 دن)' : ' (ٹوٹل)');
+  }
+
   if (admissions.length === 0) {
-    container.innerHTML = `<tr><td colspan="10" style="text-align:center; padding:2.5rem; color:#64748b;">کوئی آن لائن داخلہ ریکارڈ موجود نہیں ہے۔</td></tr>`;
+    container.innerHTML = `<tr><td colspan="10" style="text-align:center; padding:2.5rem; color:#64748b;">${currentAdmissionsFilter === 'LAST_30_DAYS' ? 'پچھلے 1 ماہ میں کوئی داخلہ فارم موصول نہیں ہوا۔' : 'کوئی آن لائن داخلہ ریکارڈ موجود نہیں ہے۔'}</td></tr>`;
     return;
   }
 
@@ -218,7 +253,7 @@ window.exportAdmissionsToCSV = function() {
   const url = URL.createObjectURL(blob);
   const link = document.createElement('a');
   link.setAttribute('href', url);
-  link.setAttribute('download', `ilmetech_admissions_${new Date().toISOString().split('T')[0]}.csv`);
+  link.setAttribute('download', `ilmetech_admissions_${currentAdmissionsFilter === "LAST_30_DAYS" ? "last_30_days_" : "all_"}${new Date().toISOString().split('T')[0]}.csv`);
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
@@ -690,3 +725,22 @@ window.handleSaveSettings = function(event) {
   window.showToast('Payment Credentials & Site Settings Successfully Updated!', 'success');
 };
 
+
+
+// Auto open tab from URL parameter (?tab=admissions or ?filter=month)
+document.addEventListener('DOMContentLoaded', () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const tabParam = urlParams.get('tab') || window.location.hash.replace('#', '');
+  const filterParam = urlParams.get('filter');
+
+  if (tabParam === 'admissions' || tabParam === 'panelAdmissions') {
+    const targetTab = document.querySelector('[data-target="panelAdmissions"]');
+    if (targetTab) {
+      targetTab.click();
+    }
+  }
+
+  if (filterParam === 'month' || filterParam === '30days' || filterParam === 'last_month') {
+    window.setAdmissionsDateFilter('LAST_30_DAYS');
+  }
+});

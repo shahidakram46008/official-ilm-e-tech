@@ -214,7 +214,24 @@
 
           <!-- Payments Main Table -->
           <div style="overflow-x:auto;">
-            <table class="admin-table">
+            
+          <!-- Admissions Date Range Filter & Stats Bar -->
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.75rem; margin-bottom:1.25rem; background:var(--bg-slate-50); padding:0.75rem 1rem; border-radius:0.75rem; border:1px solid var(--border-light);">
+            <div style="display:flex; gap:0.4rem; flex-wrap:wrap;">
+              <button type="button" class="payment-subtab-btn active" id="admFilterAllBtn" onclick="setAdmissionsDateFilter('ALL')">
+                <i class="fas fa-list"></i> تمام داخلے (All Time)
+              </button>
+              <button type="button" class="payment-subtab-btn" id="admFilterMonthBtn" onclick="setAdmissionsDateFilter('LAST_30_DAYS')">
+                <i class="fas fa-calendar-check text-emerald-600"></i> پچھلے 1 ماہ کے داخلے (Last 1 Month / 30 Days)
+              </button>
+            </div>
+            
+            <div id="admCountBadge" style="font-weight:700; font-size:0.88rem; color:#047857; background:#ecfdf5; border:1px solid #a7f3d0; padding:0.35rem 0.85rem; border-radius:2rem;">
+              <i class="fas fa-user-graduate"></i> کل منتخب داخلے: <span id="admCountNumber">0</span>
+            </div>
+          </div>
+
+          <table class="admin-table">
               <thead>
                 <tr>
                   <th>Pay ID</th>
