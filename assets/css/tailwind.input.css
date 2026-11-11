@@ -297,3 +297,172 @@
     transition: none !important;
   }
 }
+
+/* =========================================================
+   AI Course Advisor Robot Widget (Emerald & Gold Theme)
+   ========================================================= */
+.ietp-robot-btn {
+  box-shadow: 0 8px 28px rgba(212, 175, 55, 0.45), 0 0 0 4px rgba(16, 185, 129, 0.22);
+}
+.ietp-robot-badge {
+  position: absolute;
+  top: -0.65rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #063D2E;
+  color: #F3E5AB;
+  border: 1px solid #D4AF37;
+  font-size: 0.65rem;
+  line-height: 1.5;
+  padding: 0.05rem 0.45rem;
+  border-radius: 9999px;
+  white-space: nowrap;
+  pointer-events: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.ietp-robot-drawer {
+  position: fixed;
+  bottom: 5.5rem;
+  left: 1.25rem;
+  z-index: 60;
+  width: min(410px, calc(100vw - 1.5rem));
+  height: min(560px, calc(100vh - 7rem));
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, #063D2E 0%, #031c15 100%);
+  border: 1.5px solid rgba(212, 175, 55, 0.6);
+  border-radius: 1.35rem;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.75), 0 0 32px rgba(212, 175, 55, 0.22);
+  direction: rtl;
+}
+.ietp-robot-drawer.hidden {
+  display: none;
+}
+
+.ietp-robot-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: rgba(3, 28, 21, 0.92);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.ietp-robot-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.ietp-msg {
+  max-width: 90%;
+  padding: 0.65rem 0.9rem;
+  border-radius: 1rem;
+  font-family: 'Jameel Noori Nastaleeq', 'Noto Nastaliq Urdu', 'Gulzar', serif;
+  font-size: 0.92rem;
+  line-height: 2.1;
+  word-spacing: 0.14em;
+  font-synthesis: none;
+  word-wrap: break-word;
+}
+.ietp-msg-bot {
+  align-self: flex-start;
+  background: rgba(15, 68, 54, 0.9);
+  border: 1px solid rgba(26, 92, 74, 0.95);
+  color: #f1f5f9;
+  border-top-right-radius: 0.25rem;
+}
+.ietp-msg-user {
+  align-self: flex-end;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.24), rgba(16, 185, 129, 0.2));
+  border: 1px solid rgba(212, 175, 55, 0.55);
+  color: #fff8db;
+  border-top-left-radius: 0.25rem;
+}
+
+.ietp-robot-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding: 0.45rem 0.75rem;
+  background: rgba(3, 28, 21, 0.75);
+  border-top: 1px solid rgba(26, 92, 74, 0.6);
+  max-height: 7.5rem;
+  overflow-y: auto;
+}
+
+.ietp-chip {
+  background: rgba(15, 68, 54, 0.95);
+  color: #e2e8f0;
+  border: 1px solid rgba(26, 92, 74, 0.95);
+  border-radius: 9999px;
+  padding: 0.25rem 0.7rem;
+  font-size: 0.78rem;
+  line-height: 1.8;
+  cursor: pointer;
+  transition: border-color 0.2s, background-color 0.2s, color 0.2s;
+}
+.ietp-chip:hover {
+  border-color: #D4AF37;
+  color: #F3E5AB;
+}
+.ietp-chip-gold {
+  background: linear-gradient(135deg, #D4AF37, #b59228);
+  color: #031c15;
+  border-color: #F3E5AB;
+  font-weight: 700;
+}
+.ietp-chip-gold:hover {
+  background: #F3E5AB;
+  color: #031c15;
+}
+
+.ietp-robot-form {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.6rem 0.75rem;
+  background: #031c15;
+  border-top: 1px solid rgba(212, 175, 55, 0.28);
+}
+
+.ietp-robot-input {
+  flex: 1;
+  background: #0B4635;
+  color: #ffffff;
+  border: 1px solid #1a5c4a;
+  border-radius: 0.75rem;
+  padding: 0.45rem 0.75rem;
+  font-size: 0.88rem;
+  line-height: 1.9;
+  outline: none;
+}
+.ietp-robot-input::placeholder {
+  color: #94a3b8;
+}
+.ietp-robot-input:focus {
+  border-color: #D4AF37;
+}
+
+.ietp-robot-send {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.75rem;
+  background: linear-gradient(135deg, #ECC94B, #D4AF37);
+  color: #031c15;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.ietp-robot-send:hover {
+  transform: scale(1.05);
+}

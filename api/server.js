@@ -112,58 +112,66 @@ app.post('/api/auth/login', (req, res) => {
 });
 
 // ============================================================================
-// 3. MODULE 2: AI-POWERED STUDENT ASSISTANT (/api/chat via Google Gemini)
+// 3. MODULE 2: AI-POWERED STUDENT ADVISOR (/api/chat)
 // ============================================================================
 app.post('/api/chat', async (req, res) => {
-  const { message, history } = req.body;
+  const body = req.body || {};
+  const message = typeof body.message === 'string' ? body.message.trim().slice(0, 1500) : '';
+  const history = Array.isArray(body.history) ? body.history.slice(-8) : [];
+  const knowledge = typeof body.knowledge === 'string' ? body.knowledge.slice(0, 3500) : '';
+  const studentProfile = body.studentProfile && typeof body.studentProfile === 'object' ? body.studentProfile : {};
+
   if (!message) {
     return res.status(400).json({ success: false, message: 'Message payload is required' });
   }
 
+  const profileSummary = [
+    studentProfile.fullName ? `نام: ${String(studentProfile.fullName).slice(0, 80)}` : '',
+    studentProfile.fatherName ? `والد کا نام: ${String(studentProfile.fatherName).slice(0, 80)}` : '',
+    studentProfile.city ? `شہر/علاقہ: ${String(studentProfile.city).slice(0, 80)}` : '',
+    studentProfile.profession ? `پیشہ: ${String(studentProfile.profession).slice(0, 80)}` : '',
+    studentProfile.age ? `عمر: ${String(studentProfile.age).slice(0, 10)}` : '',
+    studentProfile.education ? `تعلیم: ${String(studentProfile.education).slice(0, 80)}` : '',
+    studentProfile.experience ? `سابقہ تجربہ: ${String(studentProfile.experience).slice(0, 120)}` : '',
+    studentProfile.interest ? `دلچسپی: ${String(studentProfile.interest).slice(0, 120)}` : '',
+    studentProfile.courseName ? `منتخب کورس: ${String(studentProfile.courseName).slice(0, 100)}` : '',
+    studentProfile.appId ? `ٹوکن نمبر: ${String(studentProfile.appId).slice(0, 40)}` : ''
+  ].filter(Boolean).join(' | ');
+
   const systemPrompt = `
-آپ علمِ ٹیک پاکستان (ilmetechpakistan.com) کے بانی و سربراہ "ڈاکٹر شاہد اکرم مصطفائی" کے آفیشل اور باوقار تعلیمی مشیر و ترجمان ہیں۔
+آپ "عِلْمِ ٹیک پاکستان (ILM E TECH PAKISTAN — اے آئی اینڈ ڈیجیٹل اسکلز سینٹر)" کے آفیشل AI تعلیمی مشیر (AI Course Advisor Robot) ہیں۔
+بانی و سی ای او: ڈاکٹر شاہد اکرم مصطفائی (3+ سال عملی تجربہ، 150+ سرٹیفائیڈ طلبہ)۔
+ہیڈ آفس: عِلْمِ ٹیک پاکستان، موڑ کھنڈا، ضلع ننکانہ صاحب، پنجاب، پاکستان۔
+طریقہ تدریس: 100% آن لائن لائیو کلاسز بذریعہ زوم (Zoom) — کوئی بے جان ریکارڈڈ پورٹل (LMS) نہیں۔
 
-طرزِ بیان اور اسلوب (Tone & Oratory Style):
-آپ کا طرزِ گفتگو ایک فصیح، دانا، مخلص اور پُراثر خطیب و مقرر (Orator/Speaker) جیسا ہونا چاہیے۔ آپ کا جواب سادہ، سلیس، خوبصورت، پُروقار، مگر انتہائی مختصر، جامع اور مکمل (Concise & Complete) ہونا چاہیے—جیسے ایک مشفق استاد اور بہترین راہنما گفتگو کرتا ہے۔ طویل بے مقصد تفصیلات کے بجائے مدعا سیدھے، دلکش اور پُراثر جملوں میں بیان کریں۔
+مستند کورسز اور فیس:
+1. بیسک اے آئی کورس (Basic AI Course) — 7 روزہ 100% مفت (Rs. 0 — واحد مفت کورس)
+2. اے آئی کنٹینٹ کریشن و ویڈیو ایڈیٹنگ — Rs. 3,500
+3. اے آئی ٹولز ماسٹری (30 دن) — Rs. 3,000
+4. اے آئی ویب سائٹ ڈویلپمنٹ (15 دن) — Rs. 5,000
+5. اے آئی سافٹ ویئر انجینئرنگ — Rs. 15,000
+6. ون آن ون پرسنل مینٹورشپ (VIP) — Rs. 20,000
 
-انتہائی اہم اور لازمی ہدایات (Strict Rules):
-۱. تمام تر جوابات صرف اور صرف ۱۰۰٪ خالص، سلیس اور باوقار اردو زبان میں تحریر کریں۔
-۲. کسی بھی صورت میں انگریزی زبان کا کوئی لفظ، حرف یا انگریزی رسم الخط (ABCD) استعمال نہ کریں۔
-   - مثلاً: کورس کی جگہ "نصاب" یا "کورس"، AI کی جگہ "مصنوعی ذہانت" یا "اے آئی"، ٹولز کی جگہ "آلات"، فیس کی جگہ "فیس"، ایڈمیشن کی جگہ "داخلہ"، سرٹیفکیٹ کی جگہ "سند"، آن لائن کی جگہ "آن لائن"، کمپیوٹر کی جگہ "کمپیوٹر"، موبائل کی جگہ "موبائل فون"۔
-۳. اعداد کو بھی صاف اور واضح اردو / عربی ہندسوں یا الفاظ میں لکھیں (مثلاً: ۲،۹۹۹ روپے یا ۳،۹۹۹ روپے)۔
-۴. جب بھی کوئی سائل کسی نصاب، رہنمائی یا مشورے کے بارے میں دریافت کرے:
-   - ایک بہترین خطیب کی طرح چند دلکش جملوں میں اس کے لیے بہترین نصاب تجویز کریں۔
-   - اس نصاب کو سیکھنے کے بڑے فوائد اور روزگار کے مواقع واضح کریں۔
-   - جدید دور میں اس مہارت سے محروم رہنے کا نقصان اور پیچھے رہ جانے کا خطرہ تسلی سے سمجھائیں۔
-   - فیس اور داخلے کی ضروری تفصیل فراہم کریں۔
+فیس اکاؤنٹس: EasyPaisa / JazzCash / SadaPay & NayaPay: 0320-6546008 (ڈاکٹر شاہد اکرم مصطفائی)۔ میزان بینک IBAN کے لیے واٹس ایپ 0307-4958837 پر رابطہ کریں۔
 
-ادارے کی مستند معلومات:
-- ادارہ: علمِ ٹیک پاکستان (بانی و چیف ایگزیکٹو: ڈاکٹر شاہد اکرم مصطفائی)
-- رابطہ / واٹس ایپ: ۰۳۰۷-۴۹۵۸۸۳۷ (0307-4958837)
-- فیس کی ادائیگی کا کھاتہ (جاز کیش / ایزی پیسہ / سادہ پے): شاہد اکرم — ۰۳۲۰۶۵۴۶۰۰۸ (0320-6546008)
-- میزان بینک اکاؤنٹ: شاہد اکرم (IBAN: PK36MEZN0001020304050607)
+${knowledge ? `ویب سائٹ سے جمع کردہ تازہ معلومات:\n${knowledge}\n` : ''}
+${profileSummary ? `طالبِ علم کی محفوظ شدہ معلومات (اسے ہمیشہ مدِنظر رکھیں اور نام لے کر مخاطب کریں):\n${profileSummary}\n` : ''}
 
-- نصابات کی آفیشل معلومات (صرف یہ ۷ نصابات فعال ہیں):
-  ۱. بیسک AI کورس (۷ دن / ۱ ہفتہ) — ۱۰۰٪ مفت (100% FREE Launch Privilege)
-  ۲. اے آئی ویب سائٹ ڈویلپمنٹ کورس (۱۵ دن) — باقاعدہ فیس ۱۲،۰۰۰ روپے، رعایتی فیس: ۵،۰۰۰ روپے (۵۸٪ رعایت، پرامپٹ سے ویب سائٹ بنا کر لائیو کرنے تک)
-  ۳. اے آئی ٹولز ماسٹری (۳۰ دن، ۳۰ آلات) — باقاعدہ فیس ۱۰،۰۰۰ روپے، رعایتی فیس: ۳،۰۰۰ روپے (۷۰٪ رعایت)
-  ۴. بنیادی کمپیوٹر کورس (۶ ہفتے) — رعایتی فیس: ۳،۰۰۰ روپے
-  ۵. اے آئی سافٹ ویئر ڈویلپمنٹ (۶ ہفتے) — رعایتی فیس: ۱۵،۰۰۰ روپے
-  ۶. اے آئی مواد سازی و ویڈیو پروڈکشن (۵ ہفتے) — رعایتی فیس: ۲۰،۰۰۰ روپے
-  ۷. ون آن ون پرائیویٹ وی آئی پی رہنمائی (ڈاکٹر شاہد اکرم مصطفائی) — فیس: ۲۰،۰۰۰ روپے
-- خصوصی وضاحت: تجارتی (Trading/Crypto/Forex) کورس مکمل طور پر ختم اور معطل کر دیا گیا ہے۔ ہمارا ادارہ کسی بھی قسم کی ٹریڈنگ یا فنانشل قیاس آرائی نہیں کرواتا۔
-- واحد ۱۰۰٪ مفت کورس صرف اور صرف ۷ روزہ "بیسک AI کورس" ہے۔ بقیہ تمام کورسز رعایتی فیس کے ساتھ ہیں۔
-- داخلہ فارم: admissions.html (آن لائن داخلہ)
-- فیس پورٹل: payments.html (رسید اپلوڈ)
-- اسناد کی تصدیق: verify-certificate.html (سند کی تصدیق) (سند کی تصدیق)
-  `;
+ہدایات:
+- سادہ، شائستہ اور باوقار اردو میں مختصر مگر جامع جواب دیں۔
+- اگر کوئی نیا صارف پوچھے کہ "میرے لیے کون سا کورس بہتر ہے" اور اس کا بیک گراؤنڈ (نام، شہر، پیشہ، سابقہ تجربہ، دلچسپی) ابھی نامکمل ہو تو ایک مخلص ایڈوائزر کی طرح پہلے اس سے مختصر سوالات پوچھ کر پورا پسِ منظر جانیں، پھر بہترین کورس مع وجہ تجویز کریں۔
+- کبھی غلط یا متروک معلومات (جیسے ٹریڈنگ کورس یا جعلی بینک نمبر) نہ بتائیں۔
+  `.trim();
 
   const fetchFn = typeof fetch !== 'undefined' ? fetch : (await import('node-fetch')).default;
+  const recentHistoryText = history
+    .map(h => `${h.role === 'user' ? 'صارف' : 'مشیر'}: ${String(h.text || '').slice(0, 300)}`)
+    .join('\n');
 
-  // 1. Primary Engine: Google Gemini API with cascade fallback across active 2026 models
+  // 1. Primary Engine: Google Gemini API (when key is configured in Vercel env)
   const geminiApiKey = process.env.GEMINI_API_KEY || "";
   if (geminiApiKey) {
-    const geminiModels = ['gemini-3.5-flash', 'gemini-3.8-flash', 'gemini-3.7-flash', 'gemini-flash-latest', 'gemini-3.5-flash-lite'];
+    const geminiModels = ['gemini-2.5-flash', 'gemini-2.0-flash', 'gemini-flash-latest'];
     for (const model of geminiModels) {
       try {
         const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${geminiApiKey}`;
@@ -174,12 +182,12 @@ app.post('/api/chat', async (req, res) => {
             contents: [
               {
                 role: 'user',
-                parts: [{ text: `${systemPrompt}\n\nصارف کا سوال:\n${message}` }]
+                parts: [{ text: `${systemPrompt}\n\n${recentHistoryText ? `حالیہ گفتگو:\n${recentHistoryText}\n\n` : ''}صارف کا موجودہ پیغام:\n${message}` }]
               }
             ],
             generationConfig: {
-              temperature: 0.6,
-              maxOutputTokens: 600
+              temperature: 0.55,
+              maxOutputTokens: 550
             }
           })
         });
@@ -213,6 +221,7 @@ app.post('/api/chat', async (req, res) => {
             max_tokens: 500,
             messages: [
               { role: 'system', content: systemPrompt },
+              ...history.map(h => ({ role: h.role === 'user' ? 'user' : 'assistant', content: String(h.text || '').slice(0, 400) })),
               { role: 'user', content: message }
             ],
             temperature: 0.5
@@ -229,61 +238,20 @@ app.post('/api/chat', async (req, res) => {
     }
   }
 
-  // 3. OpenRouter Fallback
-  if (process.env.OPENROUTER_API_KEY) {
-    try {
-      const openRouterRes = await fetchFn('https://openrouter.ai/api/v1/chat/completions', {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${process.env.OPENROUTER_API_KEY}`,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          model: 'meta-llama/llama-3.2-3b-instruct:free',
-          messages: [
-            { role: 'system', content: systemPrompt },
-            { role: 'user', content: message }
-          ]
-        })
-      });
-      const openRouterData = await openRouterRes.json();
-      const reply = openRouterData.choices?.[0]?.message?.content;
-      if (reply) {
-        return res.json({ success: true, reply, source: 'openrouter-free' });
-      }
-    } catch (err) {
-      console.warn('[OpenRouter API Warning]:', err.message);
-    }
-  }
-
-  // 4. Session Memory Fallback Response Engine
+  // 3. Truthful Knowledge Advisor Fallback
+  const greetingName = studentProfile.fullName ? `محترم ${String(studentProfile.fullName).trim()} صاحب` : 'محترم دوست';
   const q = message.toLowerCase();
-  let reply = `السلام علیکم! 🌸<br>علمِ ٹیک پاکستان میں خوش آمدید! میں <strong>ڈاکٹر شاہد اکرم مصطفائی</strong> بات کر رہا ہوں۔ آپ ہمارے AI کورسز، فیس، آن لائن داخلہ، یا سرٹیفکیٹ تصدیق کے بارے میں کچھ بھی دریافت کر سکتے ہیں۔`;
+  let reply = `السلام علیکم ${greetingName}! عِلْمِ ٹیک پاکستان کے AI مشاورتی روبوٹ میں خوش آمدید۔ میں آپ کی ویب سائٹ، کورسز (بشمول 7 روزہ مفت Basic AI کورس)، ڈاکٹر شاہد اکرم مصطفائی اور فیس/داخلے کے حوالے سے مکمل رہنمائی کر سکتا ہوں۔`;
 
-  if (q.includes('fee') || q.includes('cost') || q.includes('price') || q.includes('فیس') || q.includes('کتنی')) {
-    reply = `علمِ ٹیک پاکستان کے آفیشل کورسز کی فیس اور آفرز درج ذیل ہیں:<br>
-• <strong>بیسک AI کورس (1 ہفتہ - 7 دن):</strong> 100% مفت (100% FREE - ریگولر <s>Rs. 4,999 PKR</s>)<br>
-• <strong>AI ٹولز ماسٹری (30 دن، 30 ٹولز):</strong> 100% مفت (اکتوبر لانچ آفر - ریگولر <s>Rs. 10,000 PKR</s>)<br>
-• <strong>بیسک کمپیوٹر کورس (6 ہفتے):</strong> 3,000 PKR (80% رعایت - ریگولر <s>Rs. 15,000 PKR</s>)<br>
-• <strong>AI سافٹ ویئر ڈویلپمنٹ (6 ہفتے):</strong> 15,000 PKR (پہلے 7 دن فری ڈیمو کلاس)<br>
-• <strong>AI کنٹینٹ کریایشن (5 ہفتے):</strong> 20,000 PKR<br>
-• <strong>ٹریڈنگ ایجوکیشن (6 ہفتے):</strong> 20,000 PKR<br><br>
-مزید معلومات کے لیے <a href="courses.html" style="color:var(--primary-green); font-weight:700;">کورسز کا صفحہ</a> دیکھیں۔`;
-  } else if (q.includes('pay') || q.includes('jazzcash') || q.includes('easypaisa') || q.includes('sadapay') || q.includes('bank') || q.includes('ادائیگی') || q.includes('پیسے') || q.includes('اکاؤنٹ')) {
-    reply = `آفیشل فیس جمع کروانے کی تفصیلات:<br>
-• <strong>اکاؤنٹ ہولڈر:</strong> شاہد اکرم (Shahid Akram)<br>
-• <strong>JazzCash / Easypaisa / SadaPay:</strong> <code>03206546008</code><br>
-• <strong>میزان بینک IBAN:</strong> <code>PK36MEZN0001020304050607</code><br><br>
-فیس بھیجنے کے بعد اپنی رسید <a href="payments.html" style="color:var(--primary-green); font-weight:700;">فیس ادائیگی پورٹل</a> پر اپلوڈ کریں۔`;
-  } else if (q.includes('admission') || q.includes('apply') || q.includes('داخلہ')) {
-    reply = `اکتوبر 2026 کے نئے بیچ کے آن لائن داخلے کھلے ہیں! آپ <a href="admissions.html" style="color:var(--primary-green); font-weight:700;">آن لائن داخلہ فارم</a> پُر کر کے فوری ریفرنس واؤچر حاصل کر سکتے ہیں۔`;
-  } else if (q.includes('verify') || q.includes('certificate') || q.includes('سرٹیفکیٹ') || q.includes('تصدیق')) {
-    reply = `اپنا آفیشل سرٹیفکیٹ تصدیق کرنے کے لیے ہمارے <a href="verify-certificate.html" style="color:var(--primary-green); font-weight:700;">سرٹیفکیٹ ویریفیکیشن پورٹل</a> پر جائیں اور اپنا ویریفیکیشن کوڈ (مثلاً <code>ILM-2026-000101</code>) درج کریں۔`;
-  } else if (q.includes('contact') || q.includes('phone') || q.includes('whatsapp') || q.includes('نمبر') || q.includes('رابطہ')) {
-    reply = `آپ ہمارے آفیشل ہیلپ لائن اور واٹس ایپ نمبر <strong>+92 307 4958837</strong> (0307-4958837) پر رابطہ کر سکتے ہیں یا ای میل <strong>info@ilmetechpakistan.com</strong> بھیج سکتے ہیں۔`;
+  if (q.includes('fee') || q.includes('فیس') || q.includes('کتنی') || q.includes('پیسے')) {
+    reply = `${greetingName}! عِلْمِ ٹیک پاکستان کے فعال کورسز کی فیسیں درج ذیل ہیں:\n• بیسک AI کورس (7 روزہ): 100% مفت (Rs. 0)\n• AI ٹولز ماسٹری (30 دن): Rs. 3,000\n• AI کنٹینٹ کریشن و ویڈیو ایڈیٹنگ: Rs. 3,500\n• AI ویب سائٹ ڈویلپمنٹ (15 دن): Rs. 5,000\n• AI سافٹ ویئر انجینئرنگ: Rs. 15,000\n• ون آن ون VIP مینٹورشپ: Rs. 20,000`;
+  } else if (q.includes('pay') || q.includes('jazzcash') || q.includes('easypaisa') || q.includes('sadapay') || q.includes('اکاؤنٹ')) {
+    reply = `آفیشل فیس ادائیگی صرف 0320-6546008 (EasyPaisa / JazzCash / SadaPay & NayaPay — ڈاکٹر شاہد اکرم مصطفائی) پر کریں، اور رسید کا اسکرین شاٹ واٹس ایپ 0307-4958837 پر ارسال فرمائیں۔`;
+  } else if (q.includes('ceo') || q.includes('shahid') || q.includes('ڈاکٹر') || q.includes('بانی')) {
+    reply = `عِلْمِ ٹیک پاکستان کے بانی و سی ای او ڈاکٹر شاہد اکرم مصطفائی ہیں (3+ سال عملی تجربہ، 150+ سرٹیفائیڈ طلبہ)۔ ہیڈ آفس: موڑ کھنڈا، ضلع ننکانہ صاحب، پنجاب، پاکستان۔ تمام کلاسز زوم (Zoom) پر 100% لائیو ہوتی ہیں۔`;
   }
 
-  return res.json({ success: true, reply, source: 'knowledge-assistant-engine' });
+  return res.json({ success: true, reply, source: 'truthful-local-advisor' });
 });
 
 // ============================================================================

@@ -3,7 +3,8 @@ module.exports = {
   content: [
     "./index.html",
     "./thank-you.html",
-    "./admission-success.html"
+    "./admission-success.html",
+    "./assets/js/ai-robot.js"
   ],
   theme: {
     extend: {
@@ -29,3 +30,4 @@ module.exports = {
   },
   plugins: []
 };
+
