@@ -267,8 +267,9 @@
 
     <!-- Hero Section -->
     <section class="relative overflow-hidden py-12 lg:py-20 border-b border-brand-border bg-gradient-to-b from-brand-dark via-brand-deep/55 to-brand-dark">
-      <!-- NASA Architectural Tech Grid & Ambient Emerald/Gold Aura Orbs -->
+      <!-- NASA Architectural Tech Grid, Constellation Coordinates & Ambient Aura Orbs -->
       <div class="hero-tech-grid absolute inset-0 pointer-events-none" aria-hidden="true"></div>
+      <div class="hero-constellation absolute inset-0 pointer-events-none" aria-hidden="true"></div>
       <div class="aurora-orb absolute -top-24 right-1/4 w-80 h-80 rounded-full bg-emerald-500/15 blur-3xl pointer-events-none" aria-hidden="true"></div>
       <div class="aurora-orb absolute top-1/2 -left-24 w-72 h-72 rounded-full bg-brand-gold/10 blur-3xl pointer-events-none" style="animation-delay:-5s;" aria-hidden="true"></div>
 
@@ -314,18 +315,18 @@
               </a>
             </div>
 
-            <!-- Truthful Live Metrics -->
+            <!-- Truthful Live Metrics with Telemetry Count-Up -->
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-3.5 pt-6 border-t border-brand-border/80">
               <div class="bg-brand-surface/55 p-3.5 rounded-xl border border-brand-border text-center card-nasa">
-                <div class="text-2xl sm:text-3xl font-extrabold text-brand-gold font-latin">150+</div>
+                <div class="text-2xl sm:text-3xl font-extrabold text-brand-gold font-latin"><span class="telemetry-count" data-target="150" data-suffix="+">150+</span></div>
                 <div class="text-xs sm:text-sm text-slate-200 mt-1 font-nastaleeq leading-[1.9]">سرٹیفائیڈ طلبہ</div>
               </div>
               <div class="bg-brand-surface/55 p-3.5 rounded-xl border border-brand-border text-center card-nasa">
-                <div class="text-2xl sm:text-3xl font-extrabold text-white font-latin">3+ <span class="font-nastaleeq text-lg font-normal">سال</span></div>
+                <div class="text-2xl sm:text-3xl font-extrabold text-white font-latin"><span class="telemetry-count" data-target="3" data-suffix="+">3+</span> <span class="font-nastaleeq text-lg font-normal">سال</span></div>
                 <div class="text-xs sm:text-sm text-slate-200 mt-1 font-nastaleeq leading-[1.9]">عملی فیلڈ تجربہ</div>
               </div>
               <div class="bg-brand-surface/55 p-3.5 rounded-xl border border-brand-border text-center card-nasa">
-                <div class="text-2xl sm:text-3xl font-extrabold text-emerald-400 font-latin">100%</div>
+                <div class="text-2xl sm:text-3xl font-extrabold text-emerald-400 font-latin"><span class="telemetry-count" data-target="100" data-suffix="%">100%</span></div>
                 <div class="text-xs sm:text-sm text-slate-200 mt-1 font-nastaleeq leading-[1.9]">لائیو زوم کلاسز</div>
               </div>
               <div class="bg-brand-surface/55 p-3.5 rounded-xl border border-brand-border text-center card-nasa">
@@ -1116,17 +1117,15 @@
     </div>
   </footer>
 
-  <!-- Floating Quick Actions -->
+  <!-- Floating Quick Actions (Only AI Robot Advisor + Official WhatsApp) -->
   <div id="floatingActions" class="fixed bottom-5 left-5 z-40 flex flex-col gap-3 items-center">
     <a href="https://wa.me/923074958837" target="_blank" rel="noopener noreferrer"
        aria-label="واٹس ایپ پر فوری رابطہ"
-       class="w-12 h-12 rounded-full bg-emerald-500 hover:bg-emerald-400 text-white flex items-center justify-center shadow-2xl hover:scale-110 transition-transform emerald-glow">
-      <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
-    </a>
-    <a href="tel:03074958837"
-       aria-label="فون کال 0307-4958837"
-       class="w-11 h-11 rounded-full bg-brand-gold hover:bg-yellow-400 text-brand-dark flex items-center justify-center shadow-xl hover:scale-110 transition-transform">
-      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+       title="واٹس ایپ: 0307-4958837"
+       class="ietp-wa-float w-14 h-14 p-3 rounded-full bg-gradient-to-br from-emerald-500 to-emerald-700 hover:from-emerald-400 hover:to-emerald-600 text-white border border-emerald-300/60 flex items-center justify-center shadow-2xl hover:scale-110 transition-transform emerald-glow">
+      <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12.031 2C6.508 2 2.029 6.479 2.029 12c0 1.771.463 3.501 1.344 5.021L2 22l5.106-1.339A9.94 9.94 0 0 0 12.031 22c5.522 0 10-4.478 10-10S17.553 2 12.031 2zm5.825 14.129c-.245.691-1.434 1.321-1.99 1.404-.508.076-1.168.108-1.883-.119-.432-.137-.988-.321-1.698-.628-2.987-1.29-4.938-4.294-5.087-4.492-.149-.199-1.215-1.617-1.215-3.084s.769-2.189 1.042-2.488c.273-.299.596-.373.794-.373.199 0 .397.002.571.01.183.009.429-.07.671.511.248.597.845 2.062.919 2.212.075.149.124.323.025.522-.099.199-.149.323-.298.497-.149.174-.314.389-.447.522-.149.149-.304.311-.131.609.174.299.772 1.273 1.658 2.063 1.14 1.016 2.101 1.331 2.399 1.48.298.149.472.124.646-.075.174-.199.746-.87.945-1.169.199-.299.397-.249.671-.149.273.099 1.737.819 2.035.968.298.149.497.224.571.348.075.125.075.722-.171 1.413z"/>
+      </svg>
     </a>
   </div>
 
@@ -1190,6 +1189,24 @@
         } else {
           revealEls.forEach(function (el) { el.classList.add('is-visible'); });
         }
+      }
+
+      // Telemetry Metric Count-Up (150+, 3+, 100%)
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.querySelectorAll('.telemetry-count').forEach(function (el) {
+          const target = parseInt(el.getAttribute('data-target') || '0', 10);
+          const suffix = el.getAttribute('data-suffix') || '';
+          if (!target) return;
+          const start = performance.now();
+          const duration = 1100;
+          function step(now) {
+            const p = Math.min(1, (now - start) / duration);
+            const eased = 1 - Math.pow(1 - p, 3);
+            el.textContent = Math.round(target * eased) + suffix;
+            if (p < 1) requestAnimationFrame(step);
+          }
+          requestAnimationFrame(step);
+        });
       }
 
       // Mobile Navigation Toggle
