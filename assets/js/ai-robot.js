@@ -631,9 +631,10 @@
         }
       }
 
-      // Detect new user asking for course recommendation / advisor help
+      // Trigger structured 4-step interview when user taps the quick recommendation chip or writes a brief vague prompt
       var qLower = text.toLowerCase();
-      var asksRecommendation = /نیا ہوں|کون سا کورس|کورس بہتر|مشورہ|تجویز|سجیسٹ|کونسا|best course|recommend|advisor|شروع کروں/.test(qLower);
+      var isRecChip = text.indexOf('نیا ہوں — بہترین کورس تجویز کریں') !== -1;
+      var asksRecommendation = isRecChip || (text.length <= 35 && /نیا ہوں|کون سا کورس|کورس بہتر|مشورہ|تجویز|سجیسٹ|کونسا|best course|recommend|advisor/.test(qLower));
       if (asksRecommendation) {
         askNextInterviewQuestion();
         return;
@@ -644,7 +645,7 @@
         var typingEl = appendMessage('bot', '<span class="text-emerald-300 text-xs">ڈاکٹر شاہد اکرم کا اسسٹنٹ جواب تیار کر رہا ہے...</span>', true);
         try {
           var controller = new AbortController();
-          var timer = setTimeout(function () { controller.abort(); }, 10000);
+          var timer = setTimeout(function () { controller.abort(); }, 12000);
           var res = await fetch('/api/chat', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },

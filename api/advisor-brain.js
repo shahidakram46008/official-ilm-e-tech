@@ -152,15 +152,19 @@ async function generateAdvisorReply({ message, history = [], knowledge = '', stu
 
   const geminiApiKey = process.env.GEMINI_API_KEY || '';
   if (geminiApiKey) {
-    const geminiModels = ['gemini-3-flash-preview', 'gemini-3.1-flash-lite-preview', 'gemini-2.5-flash', 'gemini-flash-latest'];
+    // Prioritize low-latency Flash Lite first so Vercel serverless responds in ~1.5-3s without hitting invocation timeout
+    const geminiModels = ['gemini-3.1-flash-lite-preview', 'gemini-3-flash-preview', 'gemini-flash-latest'];
     const contents = buildGeminiContents(history, cleanMessage);
 
     for (const model of geminiModels) {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 6500);
       try {
         const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${geminiApiKey}`;
         const geminiRes = await fetchFn(geminiUrl, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
+          signal: controller.signal,
           body: JSON.stringify({
             systemInstruction: {
               parts: [{ text: systemPrompt }]
@@ -169,7 +173,7 @@ async function generateAdvisorReply({ message, history = [], knowledge = '', stu
             generationConfig: {
               temperature: 0.65,
               topP: 0.9,
-              maxOutputTokens: 1400
+              maxOutputTokens: 1200
             }
           })
         });
@@ -188,6 +192,8 @@ async function generateAdvisorReply({ message, history = [], knowledge = '', stu
         }
       } catch (err) {
         console.warn(`[Gemini API ${model} Error]:`, err.message);
+      } finally {
+        clearTimeout(timeoutId);
       }
     }
   }
