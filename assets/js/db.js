@@ -36,7 +36,7 @@ const DEFAULT_SETTINGS = {
   email: "info@ilmetechpakistan.com",
   phone: "+92 307 4958837",
   whatsapp: "+92 307 4958837",
-  address: "ILM E TECH PAKISTAN Head Office, Technology Campus, Lahore / Islamabad, Pakistan",
+  address: "عِلْمِ ٹیک پاکستان، موڑ کھنڈا، ضلع ننکانہ صاحب، پنجاب، پاکستان (More Khunda, District Nankana Sahib, Punjab, Pakistan)",
   paymentAccounts: {
     jazzcash: { title: "Shahid Akram", number: "03206546008", enabled: true },
     easypaisa: { title: "Shahid Akram", number: "03206546008", enabled: true },

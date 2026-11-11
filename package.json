@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node api/server.js",
     "dev": "nodemon api/server.js",
+    "build:css": "tailwindcss -i ./assets/css/tailwind.input.css -o ./assets/css/portal.min.css --minify",
     "test": "echo \"All tests passed successfully\" && exit 0"
   },
   "keywords": [
@@ -26,6 +27,7 @@
   },
   "devDependencies": {
     "nodemon": "^3.1.0",
-    "sharp": "^0.35.5"
+    "sharp": "^0.35.5",
+    "tailwindcss": "^3.4.19"
   }
 }
