@@ -10,11 +10,12 @@ module.exports = {
     extend: {
       colors: {
         brand: {
-          dark: '#031c15',
-          deep: '#063D2E',
-          emerald: '#0B4635',
-          surface: '#0f4436',
-          border: '#1a5c4a',
+          dark: '#01140c',
+          deep: '#032819',
+          emerald: '#06492F',
+          surface: '#053321',
+          border: '#11543a',
+          silver: '#E2E8F0',
           gold: '#D4AF37',
           'gold-light': '#F3E5AB',
           'gold-hover': '#b59228',

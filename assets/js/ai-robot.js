@@ -242,7 +242,7 @@
     if (!floatingContainer) {
       floatingContainer = document.createElement('div');
       floatingContainer.id = 'floatingActions';
-      floatingContainer.className = 'fixed bottom-5 left-5 z-40 flex flex-col gap-2.5 items-center';
+      floatingContainer.className = 'fixed bottom-3.5 left-3.5 sm:bottom-5 sm:left-5 z-40 flex flex-col gap-2.5 sm:gap-3 items-center';
       document.body.appendChild(floatingContainer);
     }
 
@@ -250,10 +250,10 @@
     robotBtn.type = 'button';
     robotBtn.id = 'ietpRobotToggle';
     robotBtn.setAttribute('aria-label', 'اے آئی کورس ایڈوائزر روبوٹ کھولیں');
-    robotBtn.className = 'ietp-robot-btn relative w-14 h-14 rounded-full bg-gradient-to-br from-brand-gold via-amber-400 to-brand-gold-hover text-brand-dark flex items-center justify-center shadow-2xl border-2 border-brand-gold-light hover:scale-105 transition-transform cursor-pointer group';
+    robotBtn.className = 'ietp-robot-btn relative w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-brand-gold via-amber-400 to-brand-gold-hover text-brand-dark flex items-center justify-center shadow-2xl border-2 border-brand-gold-light hover:scale-105 transition-transform cursor-pointer group';
     robotBtn.innerHTML =
       '<span class="ietp-robot-badge">AI مشیر</span>' +
-      '<svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+      '<svg class="w-6 h-6 sm:w-7 sm:h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
       '<path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="3"/>' +
       '<path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>';
 
