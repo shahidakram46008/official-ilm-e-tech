@@ -552,17 +552,41 @@
 
       // 5. Free 7-day course query
       if (q.includes('مفت') || q.includes('فری') || q.includes('7 روز') || q.includes('free') || q.includes('بیسک')) {
-        return greet + 'ہمارا <strong>7 روزہ بیسک اے آئی کورس (Basic AI Course)</strong> 100% مفت ہے (کوئی فیس نہیں)۔ اس میں زوم پر لائیو ChatGPT اور روزمرہ AI ٹولز سکھائے جاتے ہیں۔ آپ اوپر فارم میں <em>Basic AI - Free</em> منتخب کر کے ابھی مفت سیٹ بُک کر سکتے ہیں!';
+        return greet + 'ہمارا <strong>7 روزہ بیسک اے آئی کورس (Basic AI Course)</strong> 100% مفت ہے (کوئی فیس نہیں)۔ اس میں زوم پر لائیو ChatGPT اور روزمرہ AI ٹولز سکھائے جاتے ہیں۔ آپ نیچے فارم میں <em>Basic AI - Free</em> منتخب کر کے ابھی مفت سیٹ بُک کر سکتے ہیں!';
       }
 
-      // 6. Selected course context if student filled form
+      // 6. Zoom live classes / Digital Agency / Certificate / Greetings
+      if (q.includes('زوم') || q.includes('لائیو') || q.includes('ریکارڈ') || q.includes('zoom') || q.includes('کلاس') || q.includes('طریقہ')) {
+        return greet + '<strong>' + escapeHtml(knowledge.teachingMode) + '</strong>۔ تمام کورسز ڈاکٹر شاہد اکرم مصطفائی کی براہِ راست نگرانی میں اسکرین شیئر کر کے عملی طور پر سکھائے جاتے ہیں تاکہ آپ دورانِ کلاس سوالات پوچھ سکیں۔';
+      }
+
+      if (q.includes('سروس') || q.includes('ایجنسی') || q.includes('ویب سائٹ') || q.includes('اشتہار') || q.includes('ایڈ') || q.includes('کاروبار')) {
+        var srvList = (knowledge.services || []).map(function (s) {
+          return '• <strong>' + escapeHtml(s.title) + ':</strong> ' + escapeHtml(s.description);
+        }).join('<br>');
+        if (srvList) {
+          return greet + 'عِلْمِ ٹیک پاکستان ڈیجیٹل ایجنسی کی اہم سروسز:<br>' + srvList + '<br>بزنس آفرز کے لیے واٹس ایپ <span dir="ltr" class="font-latin text-emerald-300">' + escapeHtml(knowledge.helpline) + '</span> پر رابطہ کریں۔';
+        }
+      }
+
+      if (q.includes('سرٹیفکیٹ') || q.includes('سند') || q.includes('تصدیق') || q.includes('certificate')) {
+        return greet + 'کورس مکمل کرنے پر تصدیق شدہ ڈیجیٹل سرٹیفکیٹ جاری کیا جاتا ہے جسے آپ <a href="verify-certificate.html" class="text-brand-gold underline">تصدیقِ سند پورٹل</a> پر آن لائن ویریفائی کر سکتے ہیں۔';
+      }
+
+      if (/^(سلام|السلام|hi|hello|assalam|helo)/.test(q)) {
+        return 'وعلیکم السلام ورحمۃ اللہ ' + (profile.fullName ? '<strong>' + escapeHtml(profile.fullName) + '</strong> صاحب! ' : 'دوست! ') +
+          'میں عِلْمِ ٹیک پاکستان کا AI مشیر روبوٹ ہوں۔ آپ مجھ سے کورسز، فیس، ڈاکٹر شاہد اکرم مصطفائی یا اپنے لیے بہترین کورس کے انتخاب کے بارے میں پوچھ سکتے ہیں۔';
+      }
+
+      // 7. Selected course context if student filled form
       if (profile.courseName) {
-        return greet + 'آپ نے فارم میں <strong class="text-brand-gold">' + escapeHtml(profile.courseName) + '</strong> منتخب کیا ہوا ہے۔ اگر آپ پوچھنا چاہتے ہیں کہ یہ کورس آپ کے لیے کیسا رہے گا، یا فیس/کلاس ٹائمنگ جاننی ہو تو بے جھجھک پوچھیں یا "نیا مشورہ لیں" پر کلک کریں!';
+        return greet + 'آپ نے فارم میں <strong class="text-brand-gold">' + escapeHtml(profile.courseName) + '</strong> منتخب کیا ہوا ہے۔ اگر آپ پوچھنا چاہتے ہیں کہ یہ کورس آپ کے لیے کیسا رہے گا، یا فیس/کلاس تفصیل جاننی ہو تو بے جھجھک پوچھیں یا "نیا مشورہ لیں" پر کلک کریں!';
       }
 
       return null;
     }
 
+    var apiUnavailable = false;
     async function handleUserMessage(rawText) {
       var text = (rawText || '').trim();
       if (!text) return;
@@ -624,43 +648,55 @@
         return;
       }
 
-      // General/open-ended question -> Try /api/chat with live knowledge + studentProfile, fallback cleanly
-      var typingEl = appendMessage('bot', '<span class="text-emerald-300 text-xs">سوچ رہا ہوں اور ویب سائٹ ریکارڈ چیک کر رہا ہوں...</span>', true);
-      try {
-        var controller = new AbortController();
-        var timer = setTimeout(function () { controller.abort(); }, 3500);
-        var res = await fetch('/api/chat', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          signal: controller.signal,
-          body: JSON.stringify({
-            message: text,
-            history: chatHistory.slice(-6).map(function (m) { return { role: m.role, text: m.text }; }),
-            knowledge: buildKnowledgeText(knowledge),
-            studentProfile: profile
-          })
-        });
-        clearTimeout(timer);
-        if (res.ok) {
-          var data = await res.json();
-          if (data && data.reply) {
-            typingEl.innerHTML = escapeHtml(data.reply).replace(/\n/g, '<br>');
-            chatHistory.push({ role: 'bot', html: typingEl.innerHTML, text: data.reply });
-            persistChat();
-            scrollBottom();
-            defaultChips();
-            return;
+      // General/open-ended question -> Try /api/chat (if reachable) with instant local fallback
+      if (!apiUnavailable) {
+        var typingEl = appendMessage('bot', '<span class="text-emerald-300 text-xs">سوچ رہا ہوں اور ویب سائٹ ریکارڈ چیک کر رہا ہوں...</span>', true);
+        try {
+          var controller = new AbortController();
+          var timer = setTimeout(function () { controller.abort(); }, 1200);
+          var res = await fetch('/api/chat', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            signal: controller.signal,
+            body: JSON.stringify({
+              message: text,
+              history: chatHistory.slice(-6).map(function (m) { return { role: m.role, text: m.text }; }),
+              knowledge: buildKnowledgeText(knowledge),
+              studentProfile: profile
+            })
+          });
+          clearTimeout(timer);
+          if (res.ok) {
+            var data = await res.json();
+            if (data && data.reply) {
+              typingEl.innerHTML = escapeHtml(data.reply).replace(/\n/g, '<br>');
+              chatHistory.push({ role: 'bot', html: typingEl.innerHTML, text: data.reply });
+              persistChat();
+              scrollBottom();
+              defaultChips();
+              return;
+            }
+          } else if (res.status === 404) {
+            apiUnavailable = true;
           }
+        } catch (err) {
+          apiUnavailable = true;
         }
-      } catch (err) { /* silent local fallback below */ }
+        var fallbackHtml =
+          (profile.fullName ? 'محترم <strong>' + escapeHtml(profile.fullName) + '</strong> صاحب! ' : '') +
+          'میں عِلْمِ ٹیک پاکستان کا AI مشیر ہوں۔ آپ مجھ سے کسی بھی کورس، فیس، ڈاکٹر شاہد اکرم مصطفائی یا 7 روزہ مفت AI کورس کے بارے میں پوچھ سکتے ہیں — یا <strong>"نیا ہوں — بہترین کورس تجویز کریں"</strong> بٹن دبا کر ذاتی رہنمائی حاصل کریں!';
+        typingEl.innerHTML = fallbackHtml;
+        chatHistory.push({ role: 'bot', html: fallbackHtml, text: typingEl.textContent });
+        persistChat();
+        scrollBottom();
+        defaultChips();
+        return;
+      }
 
-      var fallbackHtml =
+      var instantHtml =
         (profile.fullName ? 'محترم <strong>' + escapeHtml(profile.fullName) + '</strong> صاحب! ' : '') +
-        'میں عِلْمِ ٹیک پاکستان کا AI مشیر ہوں۔ آپ مجھ سے کسی بھی کورس، فیس، ڈاکٹر شاہد اکرم مصطفائی یا 7 روزہ مفت AI کورس کے بارے میں پوچھ سکتے ہیں — یا <strong>"نیا ہوں — بہترین کورس تجویز کریں"</strong> بٹن دبا کر ذاتی رہنمائی حاصل کریں!';
-      typingEl.innerHTML = fallbackHtml;
-      chatHistory.push({ role: 'bot', html: fallbackHtml, text: typingEl.textContent });
-      persistChat();
-      scrollBottom();
+        'میں عِلْمِ ٹیک پاکستان کا AI مشیر ہوں۔ آپ مجھ سے کسی بھی کورس، فیس، زوم لائیو کلاسز، ڈاکٹر شاہد اکرم مصطفائی یا 7 روزہ مفت AI کورس کے بارے میں پوچھ سکتے ہیں — یا <strong>"نیا ہوں — بہترین کورس تجویز کریں"</strong> بٹن دبا کر ذاتی مشورہ حاصل کریں!';
+      appendMessage('bot', instantHtml);
       defaultChips();
     }
 
