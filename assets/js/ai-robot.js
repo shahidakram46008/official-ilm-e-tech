@@ -528,7 +528,7 @@
       // 2. CEO / Founder / Head Office queries
       if (q.includes('شاہد') || q.includes('سی ای او') || q.includes('فاؤنڈر') || q.includes('بانی') || q.includes('ceo') || q.includes('ہیڈ آفس') || q.includes('پتہ') || q.includes('کہاں')) {
         return greet + '<strong>' + escapeHtml(knowledge.ceo.name) + '</strong> عِلْمِ ٹیک پاکستان کے بانی اور چیف ایگزیکٹو ہیں۔<br>' +
-          '• <strong>تجربہ:</strong> ' + escapeHtml(knowledge.ceo.bio || 'AI، کمرشل ویڈیو ایڈ میکنگ، ویب ڈویلپمنٹ اور بزنس اسکیلنگ میں 3+ سال کا عملی تجربہ') + '<br>' +
+          '• <strong>تجربہ:</strong> ' + escapeHtml(knowledge.ceo.bio || 'AI، کمرشل ویڈیو ایڈ میکنگ، ویب ڈویلپمنٹ اور بزنس اسکیلنگ میں 3 سال کا عملی تجربہ اور 10 مختلف برانڈز کے ساتھ کامیاب کام') + '<br>' +
           '• <strong>ہیڈ آفس:</strong> ' + escapeHtml(knowledge.headOffice) + '<br>' +
           '• <strong>ہیلپ لائن:</strong> <span dir="ltr" class="font-latin text-emerald-300">' + escapeHtml(knowledge.helpline) + '</span>';
       }
