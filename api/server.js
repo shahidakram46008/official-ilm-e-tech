@@ -9,6 +9,7 @@ const express = require('express');
 const cors = require('cors');
 const path = require('path');
 require('dotenv').config();
+const { generateAdvisorReply, sanitizeChatText } = require('./advisor-brain');
 
 const app = express();
 
@@ -112,146 +113,27 @@ app.post('/api/auth/login', (req, res) => {
 });
 
 // ============================================================================
-// 3. MODULE 2: AI-POWERED STUDENT ADVISOR (/api/chat)
+// 3. MODULE 2: AI-POWERED PERSONAL ASSISTANT ADVISOR (/api/chat)
 // ============================================================================
 app.post('/api/chat', async (req, res) => {
   const body = req.body || {};
-  const message = typeof body.message === 'string' ? body.message.trim().slice(0, 1500) : '';
-  const history = Array.isArray(body.history) ? body.history.slice(-8) : [];
-  const knowledge = typeof body.knowledge === 'string' ? body.knowledge.slice(0, 3500) : '';
-  const studentProfile = body.studentProfile && typeof body.studentProfile === 'object' ? body.studentProfile : {};
-
+  const message = sanitizeChatText(body.message || '', 1500);
   if (!message) {
     return res.status(400).json({ success: false, message: 'Message payload is required' });
   }
 
-  const profileSummary = [
-    studentProfile.fullName ? `نام: ${String(studentProfile.fullName).slice(0, 80)}` : '',
-    studentProfile.fatherName ? `والد کا نام: ${String(studentProfile.fatherName).slice(0, 80)}` : '',
-    studentProfile.city ? `شہر/علاقہ: ${String(studentProfile.city).slice(0, 80)}` : '',
-    studentProfile.profession ? `پیشہ: ${String(studentProfile.profession).slice(0, 80)}` : '',
-    studentProfile.age ? `عمر: ${String(studentProfile.age).slice(0, 10)}` : '',
-    studentProfile.education ? `تعلیم: ${String(studentProfile.education).slice(0, 80)}` : '',
-    studentProfile.experience ? `سابقہ تجربہ: ${String(studentProfile.experience).slice(0, 120)}` : '',
-    studentProfile.interest ? `دلچسپی: ${String(studentProfile.interest).slice(0, 120)}` : '',
-    studentProfile.courseName ? `منتخب کورس: ${String(studentProfile.courseName).slice(0, 100)}` : '',
-    studentProfile.appId ? `ٹوکن نمبر: ${String(studentProfile.appId).slice(0, 40)}` : ''
-  ].filter(Boolean).join(' | ');
-
-  const systemPrompt = `
-آپ "علمِ ٹیک پاکستان (ILM E TECH PAKISTAN — اے آئی اینڈ ڈیجیٹل اسکلز سینٹر)" کے آفیشل AI تعلیمی مشیر (AI Course Advisor Robot) ہیں۔
-بانی و سی ای او: ڈاکٹر شاہد اکرم مصطفائی (3 سال کا عملی تجربہ، 10 مختلف برانڈز کے ساتھ کام، 150+ سرٹیفائیڈ طلبہ)۔
-ہیڈ آفس: علمِ ٹیک پاکستان، موڑ کھنڈا، ضلع ننکانہ صاحب، پنجاب، پاکستان۔
-طریقہ تدریس: 100% آن لائن لائیو کلاسز بذریعہ زوم (Zoom) — کوئی بے جان ریکارڈڈ پورٹل (LMS) نہیں۔
-
-مستند کورسز اور فیس:
-1. بیسک اے آئی کورس (Basic AI Course) — 7 روزہ 100% مفت (Rs. 0 — واحد مفت کورس)
-2. اے آئی کنٹینٹ کریشن و ویڈیو ایڈیٹنگ — Rs. 3,500
-3. اے آئی ٹولز ماسٹری (30 دن) — Rs. 3,000
-4. اے آئی ویب سائٹ ڈویلپمنٹ (15 دن) — Rs. 5,000
-5. اے آئی سافٹ ویئر انجینئرنگ — Rs. 15,000
-6. ون آن ون پرسنل مینٹورشپ (VIP) — Rs. 20,000
-
-فیس اکاؤنٹس: EasyPaisa / JazzCash / SadaPay & NayaPay: 0320-6546008 (ڈاکٹر شاہد اکرم مصطفائی)۔ میزان بینک IBAN کے لیے واٹس ایپ 0307-4958837 پر رابطہ کریں۔
-
-${knowledge ? `ویب سائٹ سے جمع کردہ تازہ معلومات:\n${knowledge}\n` : ''}
-${profileSummary ? `طالبِ علم کی محفوظ شدہ معلومات (اسے ہمیشہ مدِنظر رکھیں اور نام لے کر مخاطب کریں):\n${profileSummary}\n` : ''}
-
-ہدایات:
-- سادہ، شائستہ اور باوقار اردو میں مختصر مگر جامع جواب دیں۔
-- اگر کوئی نیا صارف پوچھے کہ "میرے لیے کون سا کورس بہتر ہے" اور اس کا بیک گراؤنڈ (نام، شہر، پیشہ، سابقہ تجربہ، دلچسپی) ابھی نامکمل ہو تو ایک مخلص ایڈوائزر کی طرح پہلے اس سے مختصر سوالات پوچھ کر پورا پسِ منظر جانیں، پھر بہترین کورس مع وجہ تجویز کریں۔
-- کبھی غلط یا متروک معلومات (جیسے ٹریڈنگ کورس یا جعلی بینک نمبر) نہ بتائیں۔
-  `.trim();
-
-  const fetchFn = typeof fetch !== 'undefined' ? fetch : (await import('node-fetch')).default;
-  const recentHistoryText = history
-    .map(h => `${h.role === 'user' ? 'صارف' : 'مشیر'}: ${String(h.text || '').slice(0, 300)}`)
-    .join('\n');
-
-  // 1. Primary Engine: Google Gemini API (when key is configured in Vercel env)
-  const geminiApiKey = process.env.GEMINI_API_KEY || "";
-  if (geminiApiKey) {
-    const geminiModels = ['gemini-2.5-flash', 'gemini-2.0-flash', 'gemini-flash-latest'];
-    for (const model of geminiModels) {
-      try {
-        const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${geminiApiKey}`;
-        const geminiRes = await fetchFn(geminiUrl, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            contents: [
-              {
-                role: 'user',
-                parts: [{ text: `${systemPrompt}\n\n${recentHistoryText ? `حالیہ گفتگو:\n${recentHistoryText}\n\n` : ''}صارف کا موجودہ پیغام:\n${message}` }]
-              }
-            ],
-            generationConfig: {
-              temperature: 0.55,
-              maxOutputTokens: 550
-            }
-          })
-        });
-
-        if (geminiRes.ok) {
-          const geminiData = await geminiRes.json();
-          const reply = geminiData.candidates?.[0]?.content?.parts?.[0]?.text;
-          if (reply && reply.trim()) {
-            return res.json({ success: true, reply: reply.trim(), source: `gemini-${model}` });
-          }
-        }
-      } catch (err) {
-        console.warn(`[Gemini API ${model} Error]:`, err.message);
-      }
-    }
+  try {
+    const result = await generateAdvisorReply({
+      message,
+      history: Array.isArray(body.history) ? body.history.slice(-10) : [],
+      knowledge: typeof body.knowledge === 'string' ? body.knowledge : '',
+      studentProfile: body.studentProfile && typeof body.studentProfile === 'object' ? body.studentProfile : {}
+    });
+    return res.json(result);
+  } catch (err) {
+    console.error('[Express /api/chat Error]:', err);
+    return res.status(500).json({ success: false, message: 'AI Advisor temporarily unavailable' });
   }
-
-  // 2. Groq Cloud Fallback
-  if (process.env.GROQ_API_KEY) {
-    const groqModels = ['llama-3.3-70b-versatile', 'llama-3.1-8b-instant'];
-    for (const model of groqModels) {
-      try {
-        const groqRes = await fetchFn('https://api.groq.com/openai/v1/chat/completions', {
-          method: 'POST',
-          headers: {
-            'Authorization': `Bearer ${process.env.GROQ_API_KEY}`,
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            model: model,
-            max_tokens: 500,
-            messages: [
-              { role: 'system', content: systemPrompt },
-              ...history.map(h => ({ role: h.role === 'user' ? 'user' : 'assistant', content: String(h.text || '').slice(0, 400) })),
-              { role: 'user', content: message }
-            ],
-            temperature: 0.5
-          })
-        });
-        const groqData = await groqRes.json();
-        const reply = groqData.choices?.[0]?.message?.content;
-        if (reply && reply.trim()) {
-          return res.json({ success: true, reply: reply.trim(), source: `groq-${model}` });
-        }
-      } catch (err) {
-        console.warn(`[Groq API Model ${model} Warning]:`, err.message);
-      }
-    }
-  }
-
-  // 3. Truthful Knowledge Advisor Fallback
-  const greetingName = studentProfile.fullName ? `محترم ${String(studentProfile.fullName).trim()} صاحب` : 'محترم دوست';
-  const q = message.toLowerCase();
-  let reply = `السلام علیکم ${greetingName}! علمِ ٹیک پاکستان کے AI مشاورتی روبوٹ میں خوش آمدید۔ میں آپ کی ویب سائٹ، کورسز (بشمول 7 روزہ مفت Basic AI کورس)، ڈاکٹر شاہد اکرم مصطفائی اور فیس/داخلے کے حوالے سے مکمل رہنمائی کر سکتا ہوں۔`;
-
-  if (q.includes('fee') || q.includes('فیس') || q.includes('کتنی') || q.includes('پیسے')) {
-    reply = `${greetingName}! علمِ ٹیک پاکستان کے فعال کورسز کی فیسیں درج ذیل ہیں:\n• بیسک AI کورس (7 روزہ): 100% مفت (Rs. 0)\n• AI ٹولز ماسٹری (30 دن): Rs. 3,000\n• AI کنٹینٹ کریشن و ویڈیو ایڈیٹنگ: Rs. 3,500\n• AI ویب سائٹ ڈویلپمنٹ (15 دن): Rs. 5,000\n• AI سافٹ ویئر انجینئرنگ: Rs. 15,000\n• ون آن ون VIP مینٹورشپ: Rs. 20,000`;
-  } else if (q.includes('pay') || q.includes('jazzcash') || q.includes('easypaisa') || q.includes('sadapay') || q.includes('اکاؤنٹ')) {
-    reply = `آفیشل فیس ادائیگی صرف 0320-6546008 (EasyPaisa / JazzCash / SadaPay & NayaPay — ڈاکٹر شاہد اکرم مصطفائی) پر کریں، اور رسید کا اسکرین شاٹ واٹس ایپ 0307-4958837 پر ارسال فرمائیں۔`;
-  } else if (q.includes('ceo') || q.includes('shahid') || q.includes('ڈاکٹر') || q.includes('بانی')) {
-    reply = `علمِ ٹیک پاکستان کے بانی و سی ای او ڈاکٹر شاہد اکرم مصطفائی ہیں (3+ سال عملی تجربہ، 150+ سرٹیفائیڈ طلبہ)۔ ہیڈ آفس: موڑ کھنڈا، ضلع ننکانہ صاحب، پنجاب، پاکستان۔ تمام کلاسز زوم (Zoom) پر 100% لائیو ہوتی ہیں۔`;
-  }
-
-  return res.json({ success: true, reply, source: 'truthful-local-advisor' });
 });
 
 // ============================================================================

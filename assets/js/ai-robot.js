@@ -249,7 +249,7 @@
     var robotBtn = document.createElement('button');
     robotBtn.type = 'button';
     robotBtn.id = 'ietpRobotToggle';
-    robotBtn.setAttribute('aria-label', 'اے آئی کورس ایڈوائزر روبوٹ کھولیں');
+    robotBtn.setAttribute('aria-label', 'ڈاکٹر شاہد اکرم کا پرسنل AI اسسٹنٹ کھولیں');
     robotBtn.className = 'ietp-robot-btn relative w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-brand-gold via-amber-400 to-brand-gold-hover text-brand-dark flex items-center justify-center shadow-2xl border-2 border-brand-gold-light hover:scale-105 transition-transform cursor-pointer group';
     robotBtn.innerHTML =
       '<span class="ietp-robot-badge">AI مشیر</span>' +
@@ -273,8 +273,8 @@
             '<svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="3"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>' +
           '</div>' +
           '<div class="text-right">' +
-            '<h3 id="ietpRobotHeading" class="text-base font-nastaleeq text-brand-gold-light leading-[1.8] m-0">علمِ ٹیک AI مشیر روبوٹ</h3>' +
-            '<p id="ietpRobotMemoryBadge" class="text-[11px] font-nastaleeq text-emerald-300 leading-[1.6] m-0">ویب سائٹ علم محفوظ (' + knowledge.courses.length + ' کورسز و CEO پروفائل)</p>' +
+            '<h3 id="ietpRobotHeading" class="text-base font-nastaleeq text-brand-gold-light leading-[1.8] m-0">ڈاکٹر شاہد اکرم کا AI اسسٹنٹ</h3>' +
+            '<p id="ietpRobotMemoryBadge" class="text-[11px] font-nastaleeq text-emerald-300 leading-[1.6] m-0">پرسنل ایڈوائزر آن لائن • ' + knowledge.courses.length + ' لائیو کورسز</p>' +
           '</div>' +
         '</div>' +
         '<div class="flex items-center gap-1.5">' +
@@ -289,7 +289,7 @@
       '<div id="ietpRobotMessages" class="ietp-robot-messages"></div>' +
       '<div id="ietpRobotOptions" class="ietp-robot-options"></div>' +
       '<form id="ietpRobotForm" class="ietp-robot-form">' +
-        '<input type="text" id="ietpRobotInput" autocomplete="off" placeholder="اپنا سوال لکھیں یا کورس مشورہ لیں..." class="ietp-robot-input" aria-label="AI روبوٹ کو پیغام لکھیں">' +
+        '<input type="text" id="ietpRobotInput" autocomplete="off" placeholder="ڈاکٹر صاحب کے اسسٹنٹ سے کوئی بھی سوال پوچھیں..." class="ietp-robot-input" aria-label="پرسنل AI اسسٹنٹ کو پیغام لکھیں">' +
         '<button type="submit" class="ietp-robot-send" aria-label="پیغام بھیجیں">' +
           '<svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>' +
         '</button>' +
@@ -308,9 +308,9 @@
       if (!memoryBadgeEl) return;
       if (profile.fullName) {
         var cityTxt = profile.city ? ' (' + profile.city + ')' : '';
-        memoryBadgeEl.textContent = 'یادداشت فعال: ' + profile.fullName + cityTxt + ' • ' + knowledge.courses.length + ' کورسز محفوظ';
+        memoryBadgeEl.textContent = 'خوش آمدید ' + profile.fullName + cityTxt + ' • ' + knowledge.courses.length + ' کورسز';
       } else {
-        memoryBadgeEl.textContent = 'ویب سائٹ علم محفوظ (' + knowledge.courses.length + ' کورسز و CEO پروفائل)';
+        memoryBadgeEl.textContent = 'پرسنل ایڈوائزر آن لائن • ' + knowledge.courses.length + ' لائیو کورسز';
       }
     }
 
@@ -401,18 +401,18 @@
       prefillAdmissionForm(courseVal);
     };
 
-    // Guided 5-Stage Advisor Question Flow
+    // Guided 4-Stage Conversational Personal Assistant Flow
     function askNextInterviewQuestion() {
       interviewState.active = true;
 
       if (!profile.fullName || !profile.city) {
         interviewState.step = 'identity';
         if (!profile.fullName && !profile.city) {
-          appendMessage('bot', 'بالکل! میں آپ کا ذاتی <strong>AI کورس ایڈوائزر</strong> ہوں۔ درست مشورہ دینے کے لیے پہلے مجھے اپنا مختصر تعارف کروائیں:<br><br><strong>سوال 1:</strong> آپ کا پورا نام کیا ہے اور آپ کس شہر/علاقے سے ہیں؟ <em>(مثال: علی رضا، لاہور)</em>');
+          appendMessage('bot', 'جی بالکل، میں خود آپ کی رہنمائی کروں گا! ڈاکٹر شاہد اکرم صاحب کی ہدایت ہے کہ ہر طالبِ علم کو اس کی ضرورت کے مطابق مخلصانہ مشورہ دیا جائے۔<br><br>پہلے پیار سے بتا دیں کہ آپ کا پورا نام کیا ہے اور آپ کس شہر سے ہیں؟ <em>(مثال: علی رضا، لاہور)</em>');
         } else if (!profile.fullName) {
-          appendMessage('bot', '<strong>سوال 1:</strong> آپ کا پورا نام کیا ہے؟ تاکہ میں آپ کا پروفائل محفوظ کر سکوں۔');
+          appendMessage('bot', 'بہت خوشی ہوئی! بس اپنا پورا نام بتا دیں تاکہ میں آپ کو عزت کے ساتھ مخاطب کر سکوں اور آپ کا مشورہ محفوظ رکھوں۔');
         } else {
-          appendMessage('bot', 'محترم <strong>' + escapeHtml(profile.fullName) + '</strong> صاحب! بتائیے آپ کس شہر یا علاقے سے تعلق رکھتے ہیں؟');
+          appendMessage('bot', 'جی محترم <strong>' + escapeHtml(profile.fullName) + '</strong> صاحب! بتائیے آپ کس پیارے شہر یا علاقے سے تشریف لائے ہیں؟');
         }
         setQuickChips([]);
         return;
@@ -420,7 +420,7 @@
 
       if (!profile.profession) {
         interviewState.step = 'profession';
-        appendMessage('bot', 'خوش آمدید <strong>' + escapeHtml(profile.fullName) + '</strong> (' + escapeHtml(profile.city) + ')!<br><br><strong>سوال 2:</strong> آپ فی الحال کیا کرتے ہیں؟ اپنا پیشہ یا موجودہ مصروفیت منتخب کریں یا لکھیں:');
+        appendMessage('bot', 'ماشاءاللہ <strong>' + escapeHtml(profile.fullName) + '</strong> (' + escapeHtml(profile.city) + ')، مل کر بہت اچھا لگا! آپ فی الحال پڑھائی کر رہے ہیں، جاب کرتے ہیں یا اپنا کوئی کاروبار/فری لانسنگ؟');
         setQuickChips([
           { label: 'طالب علم (Student)', value: 'طالب علم (Student)' },
           { label: 'ملازمت پیشہ (Job)', value: 'ملازمت پیشہ (Job / Employee)' },
@@ -432,7 +432,7 @@
 
       if (!profile.education || !profile.experience) {
         interviewState.step = 'experience';
-        appendMessage('bot', 'بہت خوب! اب <strong>سوال 3:</strong> آپ کی تعلیم کتنی ہے اور آپ نے پہلے کمپیوٹر، انٹرنیٹ یا کسی AI/ڈیجیٹل اسکل میں کیا کچھ کر رکھا ہے؟');
+        appendMessage('bot', 'زبردست! تعلیم کہاں تک ہے اور کیا پہلے کبھی کمپیوٹر یا AI ٹولز پر کام کیا ہے، یا بالکل نئے سرے سے سیکھنے کا ارادہ ہے؟ <em>(بے فکر رہیں، ہم صفر سے بھی عملی ہاتھ پکڑ کر سکھاتے ہیں!)</em>');
         setQuickChips([
           { label: 'بالکل نیا ہوں (صفر تجربہ)', value: 'میٹرک/انٹر تعلیم ہے اور میں بالکل نیا ہوں، پہلے کوئی AI کورس نہیں کیا' },
           { label: 'گریجویشن + بیسک کمپیوٹر', value: 'گریجویشن کی ہے اور بیسک کمپیوٹر/انٹرنیٹ استعمال کر لیتا ہوں' },
@@ -443,7 +443,7 @@
 
       if (!profile.interest) {
         interviewState.step = 'interest';
-        appendMessage('bot', '<strong>آخری سوال (سوال 4):</strong> آپ کس چیز میں سب سے زیادہ دلچسپی (Interest) رکھتے ہیں اور کیا سیکھنا چاہتے ہیں؟');
+        appendMessage('bot', 'بہت خوب! اب بس اتنا بتا دیں کہ آپ کا دل کس کام میں زیادہ لگتا ہے اور آپ کیا سیکھ کر آگے بڑھنا چاہتے ہیں؟');
         setQuickChips([
           { label: 'مفت بنیادی AI سے آغاز', value: 'میں بالکل بنیادی اور مفت کورس سے AI سیکھنا شروع کرنا چاہتا ہوں' },
           { label: 'ویڈیو ایڈیٹنگ و کنٹینٹ کریشن', value: 'مجھے ویڈیو ایڈیٹنگ، سوشل میڈیا کنٹینٹ اور ایڈز بنانے میں دلچسپی ہے' },
@@ -455,7 +455,7 @@
         return;
       }
 
-      // All info gathered -> Deliver Personalized Recommendation!
+      // All info gathered -> Deliver Personalized Mentor Recommendation!
       interviewState.active = false;
       interviewState.step = null;
       var rec = evaluateCourseMatch(profile);
@@ -464,21 +464,21 @@
 
       var summaryHtml =
         '<div class="space-y-2">' +
-          '<div class="text-brand-gold font-bold">ماشاءاللہ! آپ کے مکمل بیک گراؤنڈ کے مطابق میرا خصوصی مشورہ:</div>' +
+          '<div class="text-brand-gold font-nastaleeq">ماشاءاللہ <strong>' + escapeHtml(profile.fullName) + '</strong> صاحب! آپ کی باتوں کو دیکھتے ہوئے ڈاکٹر شاہد اکرم صاحب کے وژن کے مطابق میرا مخلصانہ مشورہ حاضر ہے:</div>' +
           '<div class="bg-black/40 border border-brand-border rounded-xl p-2.5 text-xs space-y-1">' +
-            '<div>• <strong>نام و شہر:</strong> ' + escapeHtml(profile.fullName) + ' (' + escapeHtml(profile.city) + ')</div>' +
-            '<div>• <strong>پیشہ:</strong> ' + escapeHtml(profile.profession) + '</div>' +
-            '<div>• <strong>تعلیم / تجربہ:</strong> ' + escapeHtml(profile.experience) + '</div>' +
-            '<div>• <strong>دلچسپی:</strong> ' + escapeHtml(profile.interest) + '</div>' +
+            '<div>• نام و شہر: ' + escapeHtml(profile.fullName) + ' (' + escapeHtml(profile.city) + ')</div>' +
+            '<div>• مصروفیت: ' + escapeHtml(profile.profession) + '</div>' +
+            '<div>• پسِ منظر: ' + escapeHtml(profile.experience) + '</div>' +
+            '<div>• شوق و ہدف: ' + escapeHtml(profile.interest) + '</div>' +
           '</div>' +
           '<div class="bg-emerald-950/75 border border-brand-gold/60 rounded-xl p-3 space-y-1.5">' +
-            '<div class="text-emerald-300 text-xs">تجویز کردہ بہترین کورس:</div>' +
-            '<div class="text-brand-gold-light text-base font-bold">' + escapeHtml(rec.title) + '</div>' +
+            '<div class="text-emerald-300 text-xs">آپ کے لیے بہترین انتخاب:</div>' +
+            '<div class="text-brand-gold-light text-base font-nastaleeq">' + escapeHtml(rec.title) + '</div>' +
             '<div class="text-xs text-white font-latin" dir="ltr">Fee: ' + escapeHtml(rec.fee) + ' • 100% Live Zoom</div>' +
-            '<p class="text-xs text-slate-200 leading-[2.0] m-0">' + escapeHtml(rec.reason) + '</p>' +
+            '<p class="text-xs text-slate-200 leading-[2.1] m-0">' + escapeHtml(rec.reason) + '</p>' +
             (rec.starterTip ? '<p class="text-xs text-amber-300 m-0 pt-1">💡 ' + escapeHtml(rec.starterTip) + '</p>' : '') +
           '</div>' +
-          '<button type="button" onclick="window.__ietpApplyRecommendation(\'' + escapeHtml(rec.courseValue).replace(/'/g, "\\'") + '\')" class="w-full py-2 px-3 rounded-xl bg-brand-gold hover:bg-brand-gold-light text-brand-dark font-bold text-xs cursor-pointer transition-colors">یہ کورس اور میری تفصیلات داخلہ فارم میں پُر کریں ✓</button>' +
+          '<button type="button" onclick="window.__ietpApplyRecommendation(\'' + escapeHtml(rec.courseValue).replace(/'/g, "\\'") + '\')" class="w-full py-2.5 px-3 rounded-xl bg-brand-gold hover:bg-brand-gold-light text-brand-dark font-nastaleeq text-sm cursor-pointer transition-colors">یہ کورس اور میری تفصیلات داخلہ فارم میں پُر کریں ✓</button>' +
         '</div>';
 
       appendMessage('bot', summaryHtml);
@@ -507,80 +507,80 @@
 
     function answerFromKnowledge(rawText) {
       var q = rawText.toLowerCase();
-      var greet = profile.fullName ? 'محترم <strong>' + escapeHtml(profile.fullName) + '</strong> صاحب! ' : '';
+      var greet = profile.fullName ? 'جی محترم <strong>' + escapeHtml(profile.fullName) + '</strong> صاحب! ' : '';
 
-      // 1. User asking what Robot remembers about them
-      if (q.includes('میری معلومات') || q.includes('پروفائل') || q.includes('میرے بارے') || q.includes('فارم') && (q.includes('یاد') || q.includes('کیا پتا'))) {
+      // 1. User asking what assistant remembers about them
+      if (q.includes('میری معلومات') || q.includes('پروفائل') || q.includes('میرے بارے') || (q.includes('فارم') && (q.includes('یاد') || q.includes('کیا پتا')))) {
         if (!profile.fullName && !profile.courseName) {
-          return 'ابھی تک آپ نے اپنا نام یا فارم کی تفصیلات درج نہیں کیں۔ آپ نیچے <strong>"آن لائن داخلہ فارم"</strong> میں تفصیل لکھیں یا مجھ سے نیا کورس مشورہ لیں تو میں فوراً محفوظ کر لوں گا!';
+          return 'ابھی تک آپ نے اپنا نام یا فارم کی تفصیلات درج نہیں کیں۔ آپ نیچے <strong>"آن لائن داخلہ فارم"</strong> میں کوائف لکھیں یا مجھ سے کورس کا مشورہ لیں تو میں فوراً یاد رکھ لوں گا۔';
         }
-        return greet + 'میرے پاس آپ کی محفوظ شدہ معلومات یہ ہیں:<br>' +
+        return greet + 'میرے پاس آپ کی درج ذیل تفصیلات محفوظ ہیں:<br>' +
           (profile.fullName ? '• نام: ' + escapeHtml(profile.fullName) + '<br>' : '') +
           (profile.city ? '• شہر: ' + escapeHtml(profile.city) + '<br>' : '') +
-          (profile.profession ? '• پیشہ: ' + escapeHtml(profile.profession) + '<br>' : '') +
+          (profile.profession ? '• مصروفیت: ' + escapeHtml(profile.profession) + '<br>' : '') +
           (profile.age ? '• عمر: ' + escapeHtml(profile.age) + ' سال<br>' : '') +
           (profile.education ? '• تعلیم: ' + escapeHtml(profile.education) + '<br>' : '') +
           (profile.courseName ? '• منتخب کورس: <strong class="text-brand-gold">' + escapeHtml(profile.courseName) + '</strong><br>' : '') +
           (profile.appId ? '• رجسٹریشن ٹوکن: <code class="font-latin text-emerald-300">' + escapeHtml(profile.appId) + '</code><br>' : '') +
-          '<button type="button" onclick="window.__ietpApplyRecommendation()" class="mt-2 py-1.5 px-3 rounded-lg bg-brand-gold text-brand-dark text-xs font-bold cursor-pointer">داخلہ فارم دیکھیں</button>';
+          '<button type="button" onclick="window.__ietpApplyRecommendation()" class="mt-2 py-1.5 px-3 rounded-lg bg-brand-gold text-brand-dark text-xs font-nastaleeq cursor-pointer">داخلہ فارم دیکھیں</button>';
       }
 
-      // 2. CEO / Founder / Head Office queries
+      // 2. Laptop vs Mobile / Beginners / Earning & Career doubts (PA Voice)
+      if (/موبائل|لیپ ٹاپ|کمپیوٹر|laptop|mobile|phone/.test(q)) {
+        return greet + 'بالکل پریشان نہ ہوں! ہمارے <strong>7 روزہ مفت بیسک AI کورس</strong> اور کنٹینٹ کریشن کے ابتدائی پریکٹیکلز آپ اپنے موبائل فون سے بھی باآسانی شروع کر سکتے ہیں۔ البتہ ویب سائٹ ڈویلپمنٹ اور سافٹ ویئر انجینئرنگ کے لیے لیپ ٹاپ زیادہ بہتر رہتا ہے۔ ڈاکٹر شاہد اکرم صاحب زوم لائیو کلاس میں ہر قدم پر خود ساتھ لے کر چلتے ہیں — بتائیے آپ کس کورس سے آغاز کرنا چاہیں گے؟';
+      }
+
+      if (/کما|کمائی|ارننگ|فری لانس|earn|freelance|income|روزگار|نوکری/.test(q)) {
+        return greet + 'ڈاکٹر شاہد اکرم مصطفائی صاحب کا پورا مشن یہی ہے کہ طالبِ علم صرف تھیوری نہ پڑھیں بلکہ عملی کام سیکھ کر باعزت روزگار کمائیں۔ مثال کے طور پر <strong>AI کنٹینٹ و ویڈیو ایڈز (Rs. 3,500)</strong> یا <strong>AI ویب سائٹ ڈویلپمنٹ (Rs. 5,000)</strong> سیکھ کر آپ لوکل کاروباروں اور انٹرنیشنل کلائنٹس کے پراجیکٹس کر سکتے ہیں — اور اگر آپ بالکل نئے ہیں تو ہمارے 7 روزہ مفت کورس سے بے فکر ہو کر آغاز فرمائیں!';
+      }
+
+      // 3. CEO / Founder / Head Office queries
       if (q.includes('شاہد') || q.includes('سی ای او') || q.includes('فاؤنڈر') || q.includes('بانی') || q.includes('ceo') || q.includes('ہیڈ آفس') || q.includes('پتہ') || q.includes('کہاں')) {
-        return greet + '<strong>' + escapeHtml(knowledge.ceo.name) + '</strong> علمِ ٹیک پاکستان کے بانی اور چیف ایگزیکٹو ہیں۔<br>' +
-          '• <strong>تجربہ:</strong> ' + escapeHtml(knowledge.ceo.bio || 'AI، کمرشل ویڈیو ایڈ میکنگ، ویب ڈویلپمنٹ اور بزنس اسکیلنگ میں 3 سال کا عملی تجربہ اور 10 مختلف برانڈز کے ساتھ کامیاب کام') + '<br>' +
+        return greet + '<strong>' + escapeHtml(knowledge.ceo.name) + '</strong> علمِ ٹیک پاکستان کے بانی اور سرپرست ہیں۔ وہ پچھلے 3 سال سے AI، کمرشل ویڈیو ایڈز، ویب سائٹ ڈویلپمنٹ اور بزنس اسکیلنگ میں 10 مختلف برانڈز کے ساتھ عملی پراجیکٹس مکمل کر چکے ہیں اور 150+ طلبہ کی تربیت فرما چکے ہیں۔<br><br>' +
           '• <strong>ہیڈ آفس:</strong> ' + escapeHtml(knowledge.headOffice) + '<br>' +
-          '• <strong>ہیلپ لائن:</strong> <span dir="ltr" class="font-latin text-emerald-300">' + escapeHtml(knowledge.helpline) + '</span>';
+          '• <strong>براہِ راست رابطہ:</strong> <span dir="ltr" class="font-latin text-emerald-300">' + escapeHtml(knowledge.helpline) + '</span>';
       }
 
-      // 3. Payment / Account queries
+      // 4. Payment / Account queries
       if (q.includes('ادائیگی') || q.includes('اکاؤنٹ') || q.includes('easypaisa') || q.includes('jazzcash') || q.includes('sadapay') || q.includes('ایزی پیسہ') || q.includes('جاز کیش') || q.includes('بینک')) {
-        return greet + 'آفیشل فیس جمع کروانے کے لیے صرف یہ مستند اکاؤنٹس استعمال کریں:<br>' +
-          '• <strong>EasyPaisa / JazzCash / SadaPay / NayaPay:</strong> <strong dir="ltr" class="font-latin text-brand-gold">0320-6546008</strong> (Dr. Shahid Akram / Shahid Akram Mustafai)<br>' +
-          '• <strong>Meezan Bank IBAN:</strong> واٹس ایپ <span dir="ltr" class="font-latin text-emerald-300">0307-4958837</span> پر رابطہ کر کے فوری IBAN حاصل کریں۔<br>' +
-          'فیس جمع کروا کر اسکرین شاٹ 0307-4958837 پر بھیجیں (7 روزہ بیسک AI کورس بالکل مفت ہے — کوئی فیس نہیں!)۔';
+        return greet + 'آپ کی سہولت کے لیے عرض ہے کہ فیس صرف ہمارے آفیشل نمبر <strong dir="ltr" class="font-latin text-brand-gold">0320-6546008</strong> (EasyPaisa / JazzCash / SadaPay &amp; NayaPay — ڈاکٹر شاہد اکرم مصطفائی) پر جمع کروائیں۔ اگر آپ کو Meezan Bank کا IBAN درکار ہو یا فیس کی رسید بھیجنی ہو، تو براہِ راست واٹس ایپ <span dir="ltr" class="font-latin text-emerald-300">0307-4958837</span> پر اسکرین شاٹ ارسال فرما دیں۔ <em>(یاد رہے: 7 روزہ بیسک AI کورس بالکل مفت ہے!)</em>';
       }
 
-      // 4. All Courses & Fees (dynamically built from live website DOM!)
+      // 5. All Courses & Fees (dynamically built from live website DOM!)
       if (q.includes('فیس') || q.includes('کورسز') || q.includes('تفصیل') || q.includes('کتنے') || q.includes('fee') || q.includes('courses')) {
         var list = (knowledge.courses || []).map(function (c) {
-          return '• <strong>' + escapeHtml(c.title) + '</strong> — <span class="text-brand-gold font-latin" dir="ltr">' + escapeHtml(c.fee) + '</span>';
+          return '• ' + escapeHtml(c.title) + ' — <span class="text-brand-gold font-latin" dir="ltr">' + escapeHtml(c.fee) + '</span>';
         }).join('<br>');
-        return greet + 'اس وقت ویب سائٹ پر یہ <strong>' + knowledge.courses.length + ' لائیو زوم کورسز</strong> دستیاب ہیں:<br>' + list +
-          '<br><br><em>نوٹ: تمام کلاسز زوم (Zoom) پر 100% لائیو ہوتی ہیں!</em>';
+        return greet + 'ڈاکٹر شاہد اکرم صاحب کی زیرِ نگرانی اس وقت یہ <strong>' + knowledge.courses.length + ' لائیو زوم کورسز</strong> جاری ہیں:<br>' + list +
+          '<br><br><em>تمام کلاسز 100% زوم پر لائیو ہوتی ہیں تاکہ آپ براہِ راست سوالات کر سکیں۔</em>';
       }
 
-      // 5. Free 7-day course query
+      // 6. Free 7-day course query
       if (q.includes('مفت') || q.includes('فری') || q.includes('7 روز') || q.includes('free') || q.includes('بیسک')) {
-        return greet + 'ہمارا <strong>7 روزہ بیسک اے آئی کورس (Basic AI Course)</strong> 100% مفت ہے (کوئی فیس نہیں)۔ اس میں زوم پر لائیو ChatGPT اور روزمرہ AI ٹولز سکھائے جاتے ہیں۔ آپ نیچے فارم میں <em>Basic AI - Free</em> منتخب کر کے ابھی مفت سیٹ بُک کر سکتے ہیں!';
+        return greet + 'جی بالکل! ہمارا <strong>7 روزہ بیسک اے آئی کورس</strong> 100% مفت ہے (کوئی فیس نہیں)۔ ڈاکٹر صاحب نے یہ کورس خاص طور پر اس لیے رکھا ہے کہ ہر نوجوان بغیر کسی مالی دباؤ کے لائیو زوم پر AI کا عملی استعمال سمجھ سکے۔ آپ نیچے فارم میں <span class="font-latin text-brand-gold" dir="ltr">Basic AI - Free</span> منتخب کر کے اپنی سیٹ محفوظ کر سکتے ہیں۔';
       }
 
-      // 6. Zoom live classes / Digital Agency / Certificate / Greetings
-      if (q.includes('زوم') || q.includes('لائیو') || q.includes('ریکارڈ') || q.includes('zoom') || q.includes('کلاس') || q.includes('طریقہ')) {
-        return greet + '<strong>' + escapeHtml(knowledge.teachingMode) + '</strong>۔ تمام کورسز ڈاکٹر شاہد اکرم مصطفائی کی براہِ راست نگرانی میں اسکرین شیئر کر کے عملی طور پر سکھائے جاتے ہیں تاکہ آپ دورانِ کلاس سوالات پوچھ سکیں۔';
+      // 7. Zoom live classes / Digital Agency / Certificate / Greetings
+      if (q.includes('زوم') || q.includes('لائیو') || q.includes('ریکارڈ') || q.includes('zoom') || q.includes('کلاس') || q.includes('طریقہ') || q.includes('ٹائم') || q.includes('وقت')) {
+        return greet + 'ہماری تمام کلاسز زوم (<span class="font-latin" dir="ltr">Zoom</span>) پر 100% لائیو ہوتی ہیں اور کوئی ریکارڈڈ پورٹل (LMS) نہیں دیا جاتا — کیونکہ ڈاکٹر صاحب کا ماننا ہے کہ حقیقی ہنر لائیو اسکرین شیئر اور بروقت رہنمائی سے ہی آتا ہے۔ فارم پُر کرنے کے بعد واٹس ایپ پر آپ کو بیچ کا وقت اور لنک مل جائے گا۔';
       }
 
       if (q.includes('سروس') || q.includes('ایجنسی') || q.includes('ویب سائٹ') || q.includes('اشتہار') || q.includes('ایڈ') || q.includes('کاروبار')) {
         var srvList = (knowledge.services || []).map(function (s) {
-          return '• <strong>' + escapeHtml(s.title) + ':</strong> ' + escapeHtml(s.description);
+          return '• ' + escapeHtml(s.title) + ': ' + escapeHtml(s.description);
         }).join('<br>');
         if (srvList) {
-          return greet + 'علمِ ٹیک پاکستان ڈیجیٹل ایجنسی کی اہم سروسز:<br>' + srvList + '<br>بزنس آفرز کے لیے واٹس ایپ <span dir="ltr" class="font-latin text-emerald-300">' + escapeHtml(knowledge.helpline) + '</span> پر رابطہ کریں۔';
+          return greet + 'علمِ ٹیک پاکستان صرف اکیڈمی ہی نہیں بلکہ کاروباروں کے لیے مکمل ڈیجیٹل ایجنسی بھی چلاتا ہے:<br>' + srvList + '<br><br>اپنے بزنس کے لیے واٹس ایپ <span dir="ltr" class="font-latin text-emerald-300">' + escapeHtml(knowledge.helpline) + '</span> پر براہِ راست رابطہ فرمائیں۔';
         }
       }
 
       if (q.includes('سرٹیفکیٹ') || q.includes('سند') || q.includes('تصدیق') || q.includes('certificate')) {
-        return greet + 'کورس مکمل کرنے پر تصدیق شدہ ڈیجیٹل سرٹیفکیٹ جاری کیا جاتا ہے جسے آپ <a href="verify-certificate.html" class="text-brand-gold underline">تصدیقِ سند پورٹل</a> پر آن لائن ویریفائی کر سکتے ہیں۔';
+        return greet + 'کورس کی تکمیل پر آپ کو باقاعدہ تصدیق شدہ ڈیجیٹل سرٹیفکیٹ دیا جاتا ہے جسے دنیا بھر سے <a href="verify-certificate.html" class="text-brand-gold underline">تصدیقِ سند پورٹل</a> پر آن لائن چیک کیا جا سکتا ہے۔';
       }
 
       if (/^(سلام|السلام|hi|hello|assalam|helo)/.test(q)) {
-        return 'وعلیکم السلام ورحمۃ اللہ ' + (profile.fullName ? '<strong>' + escapeHtml(profile.fullName) + '</strong> صاحب! ' : 'دوست! ') +
-          'میں علمِ ٹیک پاکستان کا AI مشیر روبوٹ ہوں۔ آپ مجھ سے کورسز، فیس، ڈاکٹر شاہد اکرم مصطفائی یا اپنے لیے بہترین کورس کے انتخاب کے بارے میں پوچھ سکتے ہیں۔';
-      }
-
-      // 7. Selected course context if student filled form
-      if (profile.courseName) {
-        return greet + 'آپ نے فارم میں <strong class="text-brand-gold">' + escapeHtml(profile.courseName) + '</strong> منتخب کیا ہوا ہے۔ اگر آپ پوچھنا چاہتے ہیں کہ یہ کورس آپ کے لیے کیسا رہے گا، یا فیس/کلاس تفصیل جاننی ہو تو بے جھجھک پوچھیں یا "نیا مشورہ لیں" پر کلک کریں!';
+        return 'وعلیکم السلام ورحمۃ اللہ ' + (profile.fullName ? 'محترم <strong>' + escapeHtml(profile.fullName) + '</strong> صاحب! ' : 'محترم دوست! ') +
+          'میں ڈاکٹر شاہد اکرم مصطفائی صاحب کا ذاتی تعلیمی اسسٹنٹ ہوں۔ خوش آمدید! بتائیے آپ کس کورس، فیس، زوم لائیو ٹریننگ یا کیریئر مشورے کے حوالے سے رہنمائی چاہتے ہیں؟';
       }
 
       return null;
@@ -635,32 +635,23 @@
       var qLower = text.toLowerCase();
       var asksRecommendation = /نیا ہوں|کون سا کورس|کورس بہتر|مشورہ|تجویز|سجیسٹ|کونسا|best course|recommend|advisor|شروع کروں/.test(qLower);
       if (asksRecommendation) {
-        // Clear previous interest/experience only if none answered in chat yet, so we properly interview!
         askNextInterviewQuestion();
         return;
       }
 
-      // Fast local knowledge answer (instant & zero hallucination)
-      var localAns = answerFromKnowledge(text);
-      if (localAns) {
-        appendMessage('bot', localAns);
-        defaultChips();
-        return;
-      }
-
-      // General/open-ended question -> Try /api/chat (if reachable) with instant local fallback
+      // Try live AI Engine (/api/chat — Google Gemini Personal Assistant) first unless endpoint returned 404
       if (!apiUnavailable) {
-        var typingEl = appendMessage('bot', '<span class="text-emerald-300 text-xs">سوچ رہا ہوں اور ویب سائٹ ریکارڈ چیک کر رہا ہوں...</span>', true);
+        var typingEl = appendMessage('bot', '<span class="text-emerald-300 text-xs">ڈاکٹر شاہد اکرم کا اسسٹنٹ جواب تیار کر رہا ہے...</span>', true);
         try {
           var controller = new AbortController();
-          var timer = setTimeout(function () { controller.abort(); }, 1200);
+          var timer = setTimeout(function () { controller.abort(); }, 10000);
           var res = await fetch('/api/chat', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             signal: controller.signal,
             body: JSON.stringify({
               message: text,
-              history: chatHistory.slice(-6).map(function (m) { return { role: m.role, text: m.text }; }),
+              history: chatHistory.slice(-8).map(function (m) { return { role: m.role, text: m.text }; }),
               knowledge: buildKnowledgeText(knowledge),
               studentProfile: profile
             })
@@ -680,23 +671,25 @@
             apiUnavailable = true;
           }
         } catch (err) {
-          apiUnavailable = true;
+          // Keep apiUnavailable false on timeout/transient failure so next turn can retry cleanly
         }
-        var fallbackHtml =
-          (profile.fullName ? 'محترم <strong>' + escapeHtml(profile.fullName) + '</strong> صاحب! ' : '') +
-          'میں علمِ ٹیک پاکستان کا AI مشیر ہوں۔ آپ مجھ سے کسی بھی کورس، فیس، ڈاکٹر شاہد اکرم مصطفائی یا 7 روزہ مفت AI کورس کے بارے میں پوچھ سکتے ہیں — یا <strong>"نیا ہوں — بہترین کورس تجویز کریں"</strong> بٹن دبا کر ذاتی رہنمائی حاصل کریں!';
-        typingEl.innerHTML = fallbackHtml;
-        chatHistory.push({ role: 'bot', html: fallbackHtml, text: typingEl.textContent });
+
+        // Seamless human-like Personal Assistant local fallback
+        var localAns = answerFromKnowledge(text) ||
+          ((profile.fullName ? 'جی محترم <strong>' + escapeHtml(profile.fullName) + '</strong> صاحب! ' : 'جی محترم دوست! ') +
+          'میں ڈاکٹر شاہد اکرم مصطفائی صاحب کا تعلیمی اسسٹنٹ ہوں اور علمِ ٹیک پاکستان کے تمام کورسز، 7 روزہ مفت AI ٹریننگ، فیس اکاؤنٹس اور زوم لائیو کلاسز کے مطابق آپ کی رہنمائی کے لیے حاضر ہوں۔ بتائیے آپ کس ہنر یا کورس کے بارے میں تفصیل جاننا چاہیں گے — یا نیچے <strong>"نیا ہوں — بہترین کورس تجویز کریں"</strong> بٹن دبا دیں!');
+        typingEl.innerHTML = localAns;
+        chatHistory.push({ role: 'bot', html: typingEl.innerHTML, text: typingEl.textContent });
         persistChat();
         scrollBottom();
         defaultChips();
         return;
       }
 
-      var instantHtml =
-        (profile.fullName ? 'محترم <strong>' + escapeHtml(profile.fullName) + '</strong> صاحب! ' : '') +
-        'میں علمِ ٹیک پاکستان کا AI مشیر ہوں۔ آپ مجھ سے کسی بھی کورس، فیس، زوم لائیو کلاسز، ڈاکٹر شاہد اکرم مصطفائی یا 7 روزہ مفت AI کورس کے بارے میں پوچھ سکتے ہیں — یا <strong>"نیا ہوں — بہترین کورس تجویز کریں"</strong> بٹن دبا کر ذاتی مشورہ حاصل کریں!';
-      appendMessage('bot', instantHtml);
+      var instantLocal = answerFromKnowledge(text) ||
+        ((profile.fullName ? 'جی محترم <strong>' + escapeHtml(profile.fullName) + '</strong> صاحب! ' : 'جی محترم دوست! ') +
+        'میں ڈاکٹر شاہد اکرم مصطفائی صاحب کا تعلیمی اسسٹنٹ ہوں۔ آپ مجھ سے علمِ ٹیک پاکستان کے کسی بھی کورس، فیس، 7 روزہ مفت AI کلاس یا کیریئر مشورے کے بارے میں پوچھ سکتے ہیں — یا <strong>"نیا ہوں — بہترین کورس تجویز کریں"</strong> پر کلک کر دیں!');
+      appendMessage('bot', instantLocal);
       defaultChips();
     }
 
@@ -714,11 +707,11 @@
           });
         } else {
           var welcome =
-            'السلام علیکم' + (profile.fullName ? ' <strong>' + escapeHtml(profile.fullName) + '</strong> صاحب' : '') + '! 🤖✨<br>' +
-            'میں <strong>علمِ ٹیک پاکستان</strong> کا اسمارٹ <strong>AI مشیر روبوٹ</strong> ہوں۔ میں نے اس ویب سائٹ پر موجود تمام <strong>' + knowledge.courses.length + ' کورسز، فیسیں اور ڈاکٹر شاہد اکرم مصطفائی</strong> کی مکمل معلومات محفوظ کر لی ہیں۔<br>' +
+            'السلام علیکم' + (profile.fullName ? ' محترم <strong>' + escapeHtml(profile.fullName) + '</strong> صاحب' : ' محترم دوست') + '! ✨<br>' +
+            'میں <strong>ڈاکٹر شاہد اکرم مصطفائی</strong> صاحب (بانی و سی ای او، <strong>علمِ ٹیک پاکستان</strong>) کا ذاتی تعلیمی اسسٹنٹ ہوں۔ آپ بالکل بے تکلف ہو کر کوئی بھی سوال پوچھ سکتے ہیں — چاہے 7 روزہ مفت AI کورس ہو، فیس، زوم لائیو کلاسز یا یہ کہ آپ کے لیے کون سا کورس سب سے بہتر رہے گا۔<br>' +
             (profile.courseName
-              ? '<div class="mt-2 p-2 rounded-lg bg-emerald-950/60 border border-emerald-500/40 text-xs text-emerald-200">آپ کے فارم کی تفصیلات (کورس: <strong>' + escapeHtml(profile.courseName) + '</strong>) میرے ذہن میں محفوظ ہیں۔ کوئی بھی سوال پوچھیں!</div>'
-              : 'اگر آپ نئے ہیں اور جاننا چاہتے ہیں کہ آپ کے لیے کون سا کورس بہترین رہے گا، تو نیچے دیے گئے بٹن پر کلک کریں — میں آپ کے بیک گراؤنڈ کے مطابق بہترین مشورہ دوں گا!');
+              ? '<div class="mt-2 p-2 rounded-lg bg-emerald-950/60 border border-emerald-500/40 text-xs text-emerald-200">آپ نے فارم میں <strong>' + escapeHtml(profile.courseName) + '</strong> منتخب کیا ہے — اس حوالے سے جو بھی پوچھنا ہو ضرور بتائیں!</div>'
+              : 'اگر آپ نئے ہیں تو نیچے <strong>"نیا ہوں — بہترین کورس تجویز کریں"</strong> دبائیں، میں خود قدم بہ قدم آپ کی رہنمائی کروں گا۔');
           appendMessage('bot', welcome);
         }
         defaultChips();

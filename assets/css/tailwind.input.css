@@ -471,6 +471,10 @@ button.font-nastaleeq {
   word-wrap: break-word;
   animation: msg-in 0.22s ease-out;
 }
+.ietp-msg strong {
+  font-weight: 400 !important;
+  color: #F3E5AB;
+}
 .ietp-msg-bot {
   align-self: flex-start;
   background: rgba(5, 51, 33, 0.94);

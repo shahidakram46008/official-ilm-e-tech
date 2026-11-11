@@ -1,27 +1,21 @@
 {
-  "version": 2,
-  "framework": null,
-  "outputDirectory": ".",
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
-  "routes": [
+  "functions": {
+    "api/*.js": {
+      "maxDuration": 15
+    }
+  },
+  "redirects": [
     {
-      "src": "/api/(.*)",
-      "dest": "/api/server.js"
+      "source": "/disclaimer",
+      "destination": "/courses",
+      "permanent": true
     },
     {
-      "src": "^/(disclaimer|disclaimer\\.html)$",
-      "status": 301,
-      "headers": {
-        "Location": "/courses.html"
-      }
-    },
-    {
-      "handle": "filesystem"
-    },
-    {
-      "src": "/(.*)",
-      "status": 404,
-      "dest": "/404.html"
+      "source": "/disclaimer.html",
+      "destination": "/courses",
+      "permanent": true
     }
   ],
   "headers": [
